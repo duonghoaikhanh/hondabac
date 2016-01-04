@@ -124,10 +124,10 @@ function html_list_item ($arr_in = array()){
 			
 			
 			$row['price_out'] = '';
-			if($row['price'] > $row['price_buy'] && $row['price_buy'] > 0) {
+			/*if($row['price'] > $row['price_buy'] && $row['price_buy'] > 0) {
 				$ttH->temp_act->assign('info', array('title'=>$ttH->lang['product']['price'], 'content'=>'<div class="price">'.$ttH->func->get_price_format ($row['price']).'</div>'));
 				$ttH->temp_act->parse($temp.".row_item.col_item.info");
-			}
+			}*/
 			
 			$row['price_buy'] = $ttH->func->get_price_format ($row['price_buy']);
 			$ttH->temp_act->parse($temp.".row_item.col_item.info");

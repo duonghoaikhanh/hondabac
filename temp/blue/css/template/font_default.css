@@ -1,0 +1,13 @@
+* {
+	font-family: 'Roboto', sans-serif!important;
+}
+[class^="icon-"],
+[class*=" icon-"],
+[class^="icon-line-"],
+[class*=" icon-line-"],
+[class^="icon-line2-"],
+[class*=" icon-line2-"], 
+.side-header #primary-menu ul > li.sub-menu > a:after 
+{
+	font-family: 'font-icons','Simple-Line-Icons','lined-icons'!important;
+}
