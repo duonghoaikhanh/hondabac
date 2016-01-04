@@ -1,0 +1,40 @@
+#tth-container{
+	width:300px;
+	margin:0 auto;
+	padding-top:200px;
+	}
+.form_title{
+	background:url(../../images/login_title.png) no-repeat 0px 0px;
+	height:37px;
+	line-height:37px;
+	color:#ffffff;
+	text-transform:uppercase;
+	font-weight:bold;
+	font-size:14px;
+	padding-left:15px;
+	}
+#tth-login{
+	padding:15px;
+	}
+.login_row{
+	padding-bottom:10px;
+	}
+.login_row label{
+	padding-bottom:5px;
+	display:block;
+	font-weight:bold;
+	}
+.login_row .textfiled {
+	border:1px solid #AEAEAE;
+	background:#ffffff;
+	height: 28px;
+	line-height: 28px;
+	}
+.login_action{
+	text-align:center;
+	padding-top:10px;
+	}
+.forgot_pass{
+	padding-top:10px;
+	font-weight:bold;
+	}

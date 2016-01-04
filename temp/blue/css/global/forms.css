@@ -1,0 +1,185 @@
+/*
+Template Name: Newserific
+File: Forms CSS
+Author: OS Templates
+Author URI: http://www.os-templates.com/
+Licence: <a href="http://www.os-templates.com/template-terms">Website Template Licence</a>
+*/
+
+form, fieldset, legend{margin:0; padding:0; border:none;}
+legend{display:none;}
+input, textarea, select{font-size:12px;}
+
+input.input_text{
+	background:#ffffff;
+	padding:0px;
+	color:#222;
+	height:27px;
+	line-height:27px;
+	text-indent:10px;
+	border:none;
+	-webkit-box-shadow: inset 0px 0px 0px 1px rgba(207, 207, 207, 1);
+	-moz-box-shadow:    inset 0px 0px 0px 1px rgba(207, 207, 207, 1);
+	box-shadow:         inset 0px 0px 0px 1px rgba(207, 207, 207, 1);
+}
+select{
+	background:#ffffff;
+	color:#222;
+	height:29px;
+	line-height:29px;
+	padding:5px;
+	border:none;
+	-webkit-box-shadow: inset 0px 0px 0px 1px rgba(207, 207, 207, 1);
+	-moz-box-shadow:    inset 0px 0px 0px 1px rgba(207, 207, 207, 1);
+	box-shadow:         inset 0px 0px 0px 1px rgba(207, 207, 207, 1);
+}
+textarea.textarea{
+	background:#ffffff;
+	color:#222;
+	resize:vertical;
+	line-height:20px;
+	text-indent:10px;
+	border:none;
+	-webkit-box-shadow: inset 0px 0px 0px 1px rgba(207, 207, 207, 1);
+	-moz-box-shadow:    inset 0px 0px 0px 1px rgba(207, 207, 207, 1);
+	box-shadow:         inset 0px 0px 0px 1px rgba(207, 207, 207, 1);
+}
+
+.btn {
+	display:inline-block;
+	background:#ffffff;
+	border:1px solid #cab79e;
+	height:27px;
+	line-height:27px;
+	color:#816449;
+	font-weight:bold;
+	font-size:12px;
+	text-align:center;
+	padding:0px 8px;
+	cursor:pointer;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	}
+	
+.btn_big {
+	line-height:47px;
+	height:47px;
+	font-size:16px;
+	}
+
+form .row{
+	padding-bottom:14px;	
+}
+form .row .required{
+	color:#F00;
+	}
+	
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.alert h4 {
+  margin-top: 0;
+  color: inherit;
+}
+
+.alert .alert-link {
+  font-weight: bold;
+}
+
+.alert > p,
+.alert > ul {
+  margin-bottom: 0;
+}
+
+.alert > p + p {
+  margin-top: 5px;
+}
+
+.alert-dismissable {
+  padding-right: 35px;
+}
+
+.alert-dismissable .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  color: inherit;
+}
+
+.alert-success {
+  color: #468847;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+.alert-success hr {
+  border-top-color: #c9e2b3;
+}
+
+.alert-success .alert-link {
+  color: #356635;
+}
+
+.alert-info {
+  color: #3a87ad;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+
+.alert-info hr {
+  border-top-color: #a6e1ec;
+}
+
+.alert-info .alert-link {
+  color: #2d6987;
+}
+
+.alert-warning {
+  color: #c09853;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+}
+
+.alert-warning hr {
+  border-top-color: #f7e1b5;
+}
+
+.alert-warning .alert-link {
+  color: #a47e3c;
+}
+
+.alert-danger {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+.alert-danger hr {
+  border-top-color: #e4b9c0;
+}
+
+.alert-danger .alert-link {
+  color: #953b39;
+}
+
+/*----------------error-----------------*/
+label.error{
+	color:#ab1819;
+	clear:both;
+	float:none;
+	display:block;
+	text-align:right;
+	}
+input.error{
+	border:1px solid #ab1819;
+	color:#ab1819;
+}
+textarea.error{
+	border:1px solid #ab1819;
+	color:#ab1819;
+}

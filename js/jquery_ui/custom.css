@@ -1,0 +1,28 @@
+.ui-accordion .ui-accordion-header a {
+	color:#B84120;
+	font-weight:bold;
+}
+.ui-accordion .ui-accordion-content {
+	padding:0px;	
+}
+
+/*TAB*/
+.ui-widget-header {
+	background:none;
+	border:none;
+	border-bottom:1px solid #AAAAAA;
+	 
+}
+
+.ui-tabs .ui-tabs-nav li a {
+	color:#B84120;
+	font-weight:bold;
+}
+.ui-tabs .ui-tabs-panel {
+	padding:5px;
+	margin:0px;
+}
+
+.ui-tabs .ui-tabs-nav {
+	padding:5px 10px 0px;
+}

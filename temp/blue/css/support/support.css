@@ -1,0 +1,39 @@
+body{
+	margin:0;
+	padding:0;
+	font-size:12px;
+	line-height:150%;
+	font-family:arial;
+	color:#3c3c3c;
+	background:#eee;
+	}
+.clear{clear:both;}
+	
+#list_support{
+	padding:10px;
+	}
+#list_support a{
+	color:#06F;
+	text-decoration:none;
+	}
+#list_support .row{
+	background:#fff;
+	padding:10px;
+	margin-bottom:10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	}
+#list_support .row .name{
+	font-weight:bold;
+	padding-bottom:5px;
+	}
+#list_support .row .nick{
+	padding-bottom:5px;
+	}
+#list_support .row .nick a{
+	}
+#list_support .row .nick a img{
+	float:left;
+	margin-right:5px;
+	}

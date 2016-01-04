@@ -1,0 +1,15 @@
+.clear{
+	clear:both;
+	height:1px;
+	}
+.box_search{
+	}
+.box_search .col_search{
+	float:left;
+	max-width:300px;
+	margin:0px 5px 0px;
+	padding-bottom:10px;
+	}
+.box_search .col_search .form-group{
+	margin-bottom:0px;
+	}

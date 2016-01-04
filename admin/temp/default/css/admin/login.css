@@ -1,0 +1,105 @@
+body{
+	margin:0px;
+	padding:0px;
+	font-size:12px;
+	color:#333333;
+	background:url(../images/bg_login.jpg) #1B1B1B no-repeat center center fixed;
+	/*background-size:cover;*/
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	overflow:auto;
+	}
+#tth-login{
+	width:320px;
+	height:196px;
+	margin-left:-160px;
+	margin-top:-86px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	background:url(../images/login_bg.png) no-repeat 0px 0px;
+	}
+#tth-login .tth-login-title{
+	background:url(../images/login_title.png) no-repeat 0px 0px;
+	width:169px;
+	height:33px;
+	line-height:33px;
+	font-size:24px;
+	text-transform:uppercase;
+	font-family:"Times New Roman", Times, serif;
+	position:absolute;
+	top:11px;
+	left:74px;
+	text-align:center;
+	}
+#tth-login .tth-login-title .title_back{
+	position:absolute;
+	background:url(../images/login_title_back.png) no-repeat 0px 0px;
+	height:11px;
+	width:100%;
+	padding-right:10px;
+	top:-11px;
+	left:0px;
+	}
+#tth-login #tth-login-content{
+	width:100%;
+	position:absolute;
+	top:65px;
+	left:0px;
+	}
+#tth-login .login_row{
+	position:relative;
+	padding-bottom:12px;
+	}
+#tth-login .login_row label{
+	display:inline-block;
+	position:relative;
+	height:23px;
+	line-height:23px;
+	width:84px;
+	background:url(../images/login_label.png) no-repeat right 0px;
+	padding:0px 0px 0px 6px;
+	text-transform:uppercase;
+	font-family:"Times New Roman", Times, serif;
+	}
+#tth-login .login_row label .label_back{
+	position:absolute;
+	width:10px;
+	height:11px;
+	background:url(../images/login_label_arrow.png) no-repeat 0px 0px;
+	top:-11px;
+	left:0px;
+	}
+#tth-login .login_row .input_text{
+	margin-left:15px;
+	width:158px;
+	height:23px;
+	line-height:23px;
+	padding:0px 11px;
+	border:none;
+	background:url(../images/login_input.png) no-repeat 0px 0px;
+	}
+#tth-login .login_action{
+	text-align:right;
+	padding-right:10px;
+	}
+#tth-login .login_action .btn_login{
+	position:relative;
+	border:none;
+	background:url(../images/login_btn.png) no-repeat 0px 0px;
+	height:23px;
+	text-transform:uppercase;
+	font-family:"Times New Roman", Times, serif;
+	cursor:pointer;
+	}
+#tth-login .login_action .btn_login .btn_back{
+	position:absolute;
+	width:10px;
+	height:34px;
+	background:url(../images/login_btn_back.png) no-repeat 0px 0px;
+	top:-11px;
+	right:-10px;
+	}

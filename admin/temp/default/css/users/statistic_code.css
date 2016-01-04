@@ -1,0 +1,16 @@
+.statistic_code{
+	padding:10px;
+	}
+.statistic_code .div-title{
+	font-size: 14px;
+	font-weight: bold;
+	padding-bottom: 5px;
+	}
+.statistic_code .div-content{
+	padding-bottom: 15px;
+	}
+.statistic_code .div-content .textarea{
+	border:1px solid #cccccc;
+	background:#ffffff;
+	resize:vertical;
+	}

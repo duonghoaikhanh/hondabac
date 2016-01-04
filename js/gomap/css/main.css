@@ -1,0 +1,114 @@
+html { 
+	height: 100%
+}
+
+body { 
+	height: 100%; 
+	margin: 0px; 
+	padding: 0px;
+	font-family: Tahoma;
+	font-size: 100.2%;
+	color: #555555;
+}
+
+h2, h3 {
+	font-weight:normal;
+}
+
+a, a:visited {
+	color:#33BDCC;
+}
+
+a:hover {
+	color:#066;
+}
+
+code {
+	border:1px solid #000;
+	width:692px;
+	display:block;
+	padding:4px;
+	margin:10px 0;
+/*	white-space:pre; */
+	overflow: auto;
+	overflow-y: hidden;
+}
+
+#wrap {
+	width:700px;
+	margin:0 auto;
+}
+
+#header {
+	margin-top:40px;
+}
+
+#header #logo {
+	font-size:0.8em;
+}
+
+#header #logo h1 {
+	font-size:2.4em;
+	margin-bottom:5px;
+	font-weight:normal;
+}
+
+#header #logo h1 b {
+	font-weight:normal;
+	color:#33BDCC;
+}
+
+#header #menu {
+	padding-top:20px;
+	padding-bottom:20px;
+}
+
+#header #menu a {
+	margin-right:10px;
+}
+
+#map {
+	width:100%;
+	margin:0 auto;
+	height:400px;
+}
+
+.map {
+	width:100%;
+	margin:0 auto;
+	height:400px;
+}
+
+
+#ajax {
+	clear:left;
+	margin-top:10px;
+}
+
+#footer {
+	margin-top:30px;
+	padding-bottom:20px;
+	border-top:1px solid #33BDCC;
+}
+
+.block {
+	width:350px;
+	float:left;
+}
+
+.examples p {
+	margin:0 0 5px 0;
+}
+
+a.selected, a:visited.selected {
+	color:#066;
+}
+
+.info {
+	color:#000;
+	margin-bottom:10px;
+}
+
+.info small {
+	color:#777;
+}

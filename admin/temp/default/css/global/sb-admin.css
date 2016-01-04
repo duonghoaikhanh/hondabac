@@ -1,0 +1,322 @@
+/* 
+Author: Start Bootstrap - http://startbootstrap.com
+'SB Admin' HTML Template by Start Bootstrap
+
+All Start Bootstrap themes are licensed under Apache 2.0. 
+For more info and more free Bootstrap 3 HTML themes, visit http://startbootstrap.com!
+*/
+
+/* ATTN: This is mobile first CSS - to update 786px and up screen width use the media query near the bottom of the document! */
+
+/* Global Styles */
+
+body {
+  margin-top: 32px;
+}
+
+#tth-loading{
+	display:none;
+	position:fixed;
+	width:100%;
+	height:100%;
+	left:0px;
+	top:0px;
+	z-index:8500;
+	background:#fff url(../images/loading.gif) no-repeat center center;
+
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);
+	-moz-opacity:0.5;
+	-khtml-opacity: 0.5;
+	opacity: 0.5;
+	}
+
+#wrapper {
+  padding-left: 0;
+}
+
+#page-wrapper {
+  width: 100%;
+  padding: 5px 15px;
+}
+
+#ui-datepicker-div{
+	display:none;
+	}
+
+/* Nav Messages */
+
+.messages-dropdown .dropdown-menu .message-preview .avatar,
+.messages-dropdown .dropdown-menu .message-preview .name,
+.messages-dropdown .dropdown-menu .message-preview .message,
+.messages-dropdown .dropdown-menu .message-preview .time {
+  display: block;
+}
+
+.messages-dropdown .dropdown-menu .message-preview .avatar {
+  float: left;
+  margin-right: 15px;
+}
+
+.messages-dropdown .dropdown-menu .message-preview .name {
+  font-weight: bold;
+}
+
+.messages-dropdown .dropdown-menu .message-preview .message {
+  font-size: 12px;
+}
+
+.messages-dropdown .dropdown-menu .message-preview .time {
+  font-size: 12px;
+}
+
+/*-----panel-----*/
+.panel_toggle .panel-heading{
+	position:relative;
+	padding-right:40px;
+	}
+.panel_toggle .panel-heading a.toggle{
+	background:url(../images/icon_toggle.png) no-repeat 0px 0px;
+	height:24px;
+	width:24px;
+	position:absolute;
+	display:block;
+	top:6px;
+	right:6px;
+	cursor:pointer;
+	}
+.panel_toggle.expand .panel-heading a.toggle{
+	background-position:left bottom;
+	}
+.panel_toggle .panel-body{
+	display:none;
+	} 
+.panel_toggle.expand .panel-body{
+	display:block;
+	} 
+
+
+
+/* Nav Announcements */
+
+.announcement-heading {
+  font-size: 50px;
+  margin: 0;
+}
+
+.announcement-text {
+  margin: 0;
+}
+
+/* Table Headers */
+
+table.tablesorter thead {
+  cursor: pointer;
+}
+
+table.tablesorter thead tr th:hover {
+  background-color: #f5f5f5;
+}
+
+/* Flot Chart Containers */
+
+.flot-chart {
+  display: block;
+  height: 400px;
+}
+
+.flot-chart-content {
+  width: 100%;
+  height: 100%;
+}
+
+/* Edit Below to Customize Widths > 768px */
+@media (min-width:768px) {
+
+  /* Wrappers */
+
+  #wrapper {
+	padding-left: 225px;
+  }
+
+  #page-wrapper {
+	padding: 0px 25px;
+  }
+
+  /* Side Nav */
+
+  .side-nav {
+	margin-left: -225px;
+	left: 225px;
+	width: 225px;
+	position: fixed;
+	top: 32px;
+	height: 100%;
+	border-radius: 0;
+	border: none;
+	overflow-y: auto;
+  }
+	.side-nav li.dropdown{
+	background-color: #293a70;
+    border-top: 1px solid #304482;
+    border-bottom: 1px solid #243363;
+	}
+
+  /* Bootstrap Default Overrides - Customized Dropdowns for the Side Nav */
+
+  .side-nav>li.dropdown>ul.dropdown-menu {
+	position: relative;
+	min-width: 225px;
+	margin: 0;
+	padding: 0;
+	border: none;
+	border-radius: 0;
+	background-color: transparent;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	background:#ffffff;
+	border:2px solid #012e54;
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 05px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 05px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 05px;
+	overflow:hidden;
+  }
+
+  .side-nav>li.dropdown>ul.dropdown-menu>li>a {
+	color: #000;
+	padding: 5px 5px 5px 15px;
+  }
+	.side-nav>li.dropdown>ul.dropdown-menu>li.active a {
+	color: #aaa;
+  }
+
+  .side-nav>li.dropdown>ul.dropdown-menu>li>a:hover,
+  .side-nav>li.dropdown>ul.dropdown-menu>li>a.active,
+  .side-nav>li.dropdown>ul.dropdown-menu>li>a:focus {
+		background:#ffffff;
+  }
+
+  .side-nav>li>a {
+	width: 225px;
+  }
+
+  .navbar-inverse .navbar-nav>li>a:hover,
+  .navbar-inverse .navbar-nav>li>a:focus {
+  }
+
+  /* Nav Messages */
+
+  .messages-dropdown .dropdown-menu {
+	min-width: 300px;
+  }
+
+  .messages-dropdown .dropdown-menu li a {
+	white-space: normal;
+  }
+
+}
+
+
+#tth-popup{
+	width:800px;
+	max-width:100%;
+	}
+#tth-popup #popup-wrapper{
+	padding:0px 15px;
+	}
+
+.tth-loading{
+	height:50px;
+	background:url(../images/loading-bar.gif) no-repeat center center;
+	}
+
+.tab_add .nav-tabs > li{
+	position:relative;
+	}
+.tab_add .nav-tabs > li.active{
+	min-width:150px;
+	}
+.tab_add .nav-tabs > li > .fix_input{
+	position:absolute;
+	top:5px;
+	left:5px;
+	right:5px;
+	bottom:5px;
+	display:none;
+	}
+.tab_add .nav-tabs > li.active > .fix_input{
+	display:block;
+	}
+.tab_add .nav-tabs > li.add_tab{
+	cursor:pointer;
+	min-width:0;
+	}
+.tab_add .nav-tabs > li.add_tab > span{
+	padding:0px 15px;
+	font-size:200%;
+	}
+	
+.form-group{
+	position:relative;
+	}
+#myForm .col-md-12{
+	float:left;
+	}
+
+#manage{
+	padding-bottom:20px;
+	}
+#manage .table_btn_top{
+	position: -webkit-sticky;
+	position: -moz-sticky;
+	position: -ms-sticky;
+	position: -o-sticky;
+	position:sticky;
+	top:30px;
+	background:rgba(255, 255, 255, 0.7);
+	max-width:
+	}
+#manage .table_nav{
+	position: -webkit-sticky;
+	position: -moz-sticky;
+	position: -ms-sticky;
+	position: -o-sticky;
+	position:sticky;
+	bottom:0px;
+	background:rgba(255, 255, 255, 0.7);
+	}
+#manage .table_nav > .pagination{
+	margin:0px;
+	}
+	
+#myForm{
+	padding-bottom:20px;
+	}
+#myForm .fixedsticky{
+	position: -webkit-sticky;
+	position: -moz-sticky;
+	position: -ms-sticky;
+	position: -o-sticky;
+	position:sticky;
+	bottom:0px;
+	background:rgba(255, 255, 255, 0.7);
+	}
+#manage .fixedsticky-on,
+#myForm .fixedsticky-on{
+	left:250px;
+	right:0px;
+	margin:0px;
+	}
+	
+@media (max-width: 767px) {
+#manage .table_btn_top{
+	top:50px;
+	}
+#manage .fixedsticky-on,
+#myForm .fixedsticky-on{
+	left:15px;
+	}
+}

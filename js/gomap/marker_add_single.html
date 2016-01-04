@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
+<title>Add just one marker by click in map /  Examples / $.goMap - google maps jQuery plugin</title> 
+<link type="text/css" href="css/main.css" rel="stylesheet" /> 
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script> 
+<script type="text/javascript" src="js/jquery.gomap-1.3.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.dump.js"></script>
+<script type="text/javascript" src="js/jquery.chili-2.2.js"></script>
+<script type="text/javascript" src="js/recipes.js"></script>    
+</head> 
+<body> 
+<div id="wrap">
+	<div id="header">
+		<div id="logo"><h1><b>$.goMap()</b> / Examples</h1> google maps jQuery plugn</div>
+		<div id="menu">
+			<a href="../index.php">&rarr; About</a>
+			<a href="../examples.php">&rarr; Examples</a>
+			<a href="../download.php">&rarr; Download</a>
+		</div>
+	</div>
+	<div id="content">
+		<div class="examples">
+		<p>
+			<a href="../examples.php">&larr; back</a>
+		</p>
+		</div>
+<pre><code class="js">$(function() {
+	$("#map").goMap({
+		markers: [{ 
+			latitude: 56.948813,
+			longitude: 24.704004,
+			html: {
+				content: 'Click to map for add new marker!<br/>Drag the marker!<br/>Double click to the marker for remove it!',
+				popup: true
+			}
+		}],
+		icon: '../img/apartment.png',
+		addMarker: 'single',
+		disableDoubleClickZoom: true
+	});
+
+	$("#clear").click(function() { 
+		$.goMap.clearMarkers(); 
+	});
+});
+</code></pre>
+<input type="button" name="clear" value="Clear all markers" id="clear" />
+<div id="map"></div>
+
+<script type="text/javascript"> 
+
+$(function() {
+	$("#map").goMap({
+		markers: [{ 
+			latitude: 56.948813,
+			longitude: 24.704004,
+			html: {
+				content: 'Click to map for add new marker!<br/>Drag the marker!<br/>Double click to the marker for remove it!',
+				popup: true
+			}
+		}],
+		icon: 'img/apartment.png',
+		addMarker: 'single',
+		disableDoubleClickZoom: true,
+		maptype: 'ROADMAP'
+	});
+
+	$("#clear").click(function() { 
+		$.goMap.clearMarkers(); 
+	});
+
+//	$( ChiliBook.automaticSelector ).chili();
+});
+</script> 
+		<div id="footer">pittss &copy; 2014 / contacts: pittss@gmail.com</div>
+	</div>
+</div> 
+</body> 
+</html> 

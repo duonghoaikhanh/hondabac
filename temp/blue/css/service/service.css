@@ -1,0 +1,217 @@
+/*---------------list_item-----------------*/
+.list_item{
+	}
+.list_item .row_item{
+	padding:0px 0px 0px;
+	}
+.list_item .row_item .col_item {
+	width:47%;
+	float:left;
+	margin-right:6%;
+	}
+.list_item .row_item .col_item.last {
+	margin-right:0px;
+	}
+.list_item .row_item .img{
+	float:left;
+	margin-right:20px;
+	border:5px solid #fff;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.54);
+	-moz-box-shadow:    0px 0px 5px 0px rgba(0, 0, 0, 0.54);
+	box-shadow:         0px 0px 5px 0px rgba(0, 0, 0, 0.54);
+	}
+.list_item .col_item h3{
+	font-size:110%;
+	overflow:hidden;
+	white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+	}
+.list_item .col_item .short{
+	color:#393939;
+	}
+.list_item .col_item .view_detail{
+	text-align:right;
+	padding-top:10px;
+	}
+.list_item .col_item .view_detail a{
+	}
+.list_item .col_item .view_detail a span{
+	color:#c89a4e;
+	font-size:100%;
+	font-style:italic;
+	}
+	
+.list_item .hr{
+	height:40px;
+	}
+/*---------------grid_item-----------------*/
+.grid_item{
+	}
+.grid_item .row_item{
+	padding:0px 0px 0px;
+	}
+.grid_item .col_item{
+	float:left;
+	width:210px;
+	margin-right:60px;
+	}
+.grid_item .col_item.last{
+	margin-right:0px;
+	}
+.grid_item .col_item .img{
+	border:5px solid #fff;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.54);
+	-moz-box-shadow:    0px 0px 5px 0px rgba(0, 0, 0, 0.54);
+	box-shadow:         0px 0px 5px 0px rgba(0, 0, 0, 0.54);
+	}
+.grid_item .col_item .img .limit,
+.grid_item .col_item .img img{
+	}
+.grid_item .col_item .img .limit{
+	}
+.grid_item .col_item h3{
+	font-size:14px;
+	padding-top:10px;
+	}
+.grid_item .col_item .short{
+	padding-top:10px;
+	font-size:13px;
+	color:#393939;
+	}
+.grid_item .col_item .view_detail{
+	text-align:right;
+	padding-top:7px;
+	}
+.grid_item .col_item .view_detail a{
+	}
+.grid_item .col_item .view_detail a span{
+	color:#c89a4e;
+	font-size:12px;
+	font-family: Caudex-Bold;
+	font-style:italic;
+	}
+	
+.grid_item .hr{
+	height:50px;
+	}
+	
+/*---------------------------------*/
+#group_detail{
+	float:left;
+	}
+.list_item_detail{
+	float:right;
+	width:460px;
+	}
+.list_item_detail h3{
+	font-family: Caudex-Bold;
+	font-size:18px;
+	}
+.list_item_detail .hr{
+	border-top:1px dashed #e3e3e3;
+	margin-top:20px;
+	height:15px;
+	}
+	
+/*------------------item_detail------------------*/
+#item_detail{
+	}
+#item_detail .item_info{
+	color:#cfcfcf;
+	}
+#item_detail .item_info .date{
+	background:url(../images/icon_date.png) no-repeat 0px 0px;
+	padding-left:25px;
+	display:inline-block;
+	padding-top:2px;
+	}
+#item_detail .img{
+	float:left;
+	margin:0px 50px 30px 0px;
+	}
+#item_detail .title{
+	font-size:18px;
+	font-family: Caudex-Bold;
+	color:#e20005;
+	}
+#item_detail .content{
+	padding-top:10px;
+	font-size:13px;
+	color:#4f4f4f;
+	}
+	
+#detail_comments .detail_comments-title{
+	font-size:18px;
+	font-family: Caudex-Bold;
+	color:#e20005;
+	border-bottom:1px solid #ec0000;
+	height:17px;
+	}
+#detail_comments .detail_comments-title span{
+	display:inline-block;
+	background:#ffffff;
+	padding-right:10px;
+	}
+#detail_comments .detail_comments-content{
+	padding-top:25px;
+	}
+	
+ul.tool_service{
+	width:100%;
+	height:20px;
+	padding-top:7px;
+	}
+.tool_service li{
+	float:left;
+	font-size:12px;
+	height:20px;
+	line-height:20px;
+	color:#636363;
+	padding-right:17px;
+	}
+.tool_service li.date{
+	background:url(../images/icon_clock.png) no-repeat 0px 3px;
+	padding-left:18px;
+	}
+.tool_service li.num_comment{
+	background:url(../images/icon_comment.png) no-repeat 0px 4px;
+	padding-left:20px;
+	}
+.tool_service .share_facebook,
+.tool_service .share_twitter{
+	padding-right:5px;
+	}
+.tool_service .share_facebook a,
+.tool_service .share_twitter a,
+.tool_service .share_google a{
+	width:16px;
+	height:15px;
+	background:url(../images/share_small.gif) no-repeat 0px 0px;
+	display:block;
+	}
+.tool_service .share_twitter a{
+	background-position:-16px 0px;
+	}
+.tool_service .share_google a{
+	background-position:-32px 0px;
+	}
+	
+/*---------------list_other----------------*/
+.list_other{
+	padding-top:40px;
+	}
+.list_other .list_other-title{
+	font-size:180%;
+	font-family: BRADHITC;
+	}
+.list_other li{
+	padding-top:5px;
+	}
+.list_other li a{
+	display:block;
+	background:url(../images/icon_other.gif) no-repeat 0px 6px;
+	padding-left:10px;
+	font-size:100%;
+	color:#000000;
+	}

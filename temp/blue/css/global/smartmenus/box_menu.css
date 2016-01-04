@@ -1,0 +1,365 @@
+/* Import "PT Sans Narrow" font from Google fonts */
+@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700);
+
+
+/*
+---------------------------------------------------------------
+  Note that styles you apply to the main menu items are inherited by the sub menus items too.
+  If you'd like to avoid this, you could use child selectors (not supported by IE6) - for example:
+  .sm-menu_box > li > a { ... } instead of .sm-menu_box a { ... }
+---------------------------------------------------------------*/
+
+
+/* Menu box
+===================*/
+
+	.sm-menu_box {
+	}
+	.sm-menu_box-vertical {
+	}
+	.sm-menu_box ul {
+		border:1px solid #a9a9a9;
+		padding:5px 0;
+		background:#fff;
+		-moz-border-radius:0 0 4px 4px;
+		-webkit-border-radius:0 0 4px 4px;
+		border-radius:0 0 4px 4px;
+		-moz-box-shadow:0 5px 12px rgba(0,0,0,0.3);
+		-webkit-box-shadow:0 5px 12px rgba(0,0,0,0.3);
+		box-shadow:0 5px 12px rgba(0,0,0,0.3);
+	}
+	/* for vertical main menu subs and 2+ level horizontal main menu subs round all corners */
+	.sm-menu_box-vertical ul,
+	.sm-menu_box ul ul {
+	}
+
+
+/* Menu items
+===================*/
+
+	.sm-menu_box a {
+		display:block;
+		padding:10px 0px 10px 22px;
+		color:#666666;
+		text-decoration:none;
+		font-size:123%;
+	}
+	.sm-menu_box > li > a {
+		border-top:1px solid #e4e4e4;
+		background:url(../../images/box_menu_li.png) no-repeat 0px 16px;
+	}
+	.sm-menu_box > li.first > a {
+		border-top:none;
+	}
+	.sm-menu_box > li > a:hover,
+	.sm-menu_box > li > a.current {
+		background-image:url(../../images/box_menu_li-cur.png);
+		background-color:#00a4e6;
+		color:#fff;
+	}
+	.sm-menu_box a:hover, .sm-menu_box a:focus, .sm-menu_box a:active,
+	.sm-menu_box a.highlighted {
+		color:#fff;
+	}
+	.sm-menu_box-vertical a {
+	}
+	.sm-menu_box ul a {
+		padding:5px 15px 5px 10px;
+		background:transparent;
+		color:#333;
+		text-shadow:none;
+	}
+	.sm-menu_box ul a:hover, .sm-menu_box ul a:focus, .sm-menu_box ul a:active,
+	.sm-menu_box ul a.highlighted {
+	}
+	/* current items - add the class manually to some item or check the "markCurrentItem" script option */
+	.sm-menu_box a.current, .sm-menu_box a.current:hover, .sm-menu_box a.current:focus, .sm-menu_box a.current:active,
+	.sm-menu_box ul a.current, .sm-menu_box ul a.current:hover, .sm-menu_box ul a.current:focus, .sm-menu_box ul a.current:active {
+	}
+	/* round the left corners of the first item for horizontal main menu */
+	.sm-menu_box > li:first-child > a {
+	}
+	/* round the corners of the first and last items for vertical main menu */
+	.sm-menu_box-vertical > li:first-child > a {
+	}
+	.sm-menu_box-vertical > li:last-child > a {
+	}
+	.sm-menu_box a.has-submenu {
+	}
+	
+	.sm-menu_box-vertical > li > a > div{
+		padding-left:0px;
+		background:none;
+	}
+
+/* Sub menu indicators
+===================*/
+
+	.sm-menu_box a span.sub-arrow {
+		position:absolute;
+		top:50%;
+		right:0%;
+		/* we will use one-side border to create a triangle so that we don't use a real background image, of course, you can use a real image if you like too */
+		width:0;
+		height:0;
+		overflow:hidden;
+		border-width:5px; /* tweak size of the arrow */
+		border-style:solid dashed dashed dashed;
+		border-color:#a4cde1 transparent transparent transparent;
+	}
+	.sm-menu_box-vertical a span.sub-arrow,
+ 	.sm-menu_box ul a span.sub-arrow {
+		bottom:auto;
+		top:50%;
+		margin-top:-5px;
+		right:0px;
+		left:auto;
+		margin-left:0;
+		border-style:dashed dashed dashed solid;
+		border-color:transparent transparent transparent #a4cde1;
+	}
+
+
+/* Items separators
+===================*/
+
+	.sm-menu_box li {
+	}
+	.sm-menu_box li:first-child,
+	.sm-menu_box-vertical li,
+	.sm-menu_box ul li {
+		border-left:0;
+	}
+
+
+/* Scrolling arrows containers for tall sub menus - test sub menu: "Sub test" -> "more..." -> "more..." in the default download package
+===================*/
+
+	.sm-menu_box span.scroll-up, .sm-menu_box span.scroll-down {
+		position:absolute;
+		display:none;
+		visibility:hidden;
+		overflow:hidden;
+		background:#ffffff;
+		height:20px;
+		/* width and position will be automatically set by the script */
+	}
+	.sm-menu_box span.scroll-up-arrow, .sm-menu_box span.scroll-down-arrow {
+		position:absolute;
+		top:-2px;
+		left:50%;
+		margin-left:-8px;
+		/* we will use one-side border to create a triangle so that we don't use a real background image, of course, you can use a real image if you like too */
+		width:0;
+		height:0;
+		overflow:hidden;
+		border-width:8px; /* tweak size of the arrow */
+		border-style:dashed dashed solid dashed;
+		border-color:transparent transparent #247eab transparent;
+	}
+	.sm-menu_box span.scroll-down-arrow {
+		top:6px;
+		border-style:solid dashed dashed dashed;
+		border-color:#247eab transparent transparent transparent;
+	}
+
+
+
+/*
+---------------------------------------------------------------
+  Responsiveness
+  These will make the sub menus collapsible when the screen width is too small.
+---------------------------------------------------------------*/
+
+
+/* decrease horizontal main menu items left/right padding to avoid wrapping */
+@media screen and (max-width: 850px) {
+	.sm-menu_box:not(.sm-menu_box-vertical) > li > a {
+		padding-left:12px;
+		padding-right:12px;
+	}
+}
+@media screen and (max-width: 750px) {
+	.sm-menu_box:not(.sm-menu_box-vertical) > li > a {
+		padding-left:12px;
+		padding-right:12px;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	
+	#main-menu-bg{
+		position:fixed;
+		top:0px;
+		bottom:0px;
+		z-index:200;
+		width:250px;
+		max-width:100%;
+		}
+	#main-menu-bg a.btn-toggle{
+		display:block !important;
+	}
+	#main-menu-scrollbar{
+		position:absolute;
+		top:50px;
+		left:10px;
+		right:10px;
+		bottom:10px;
+		overflow:auto;
+		}
+
+	/* The following will make the sub menus collapsible for small screen devices (it's not recommended editing these) */
+	ul.sm-menu_box{width:auto !important;}
+	ul.sm-menu_box ul{display:none;position:static !important;top:auto !important;left:auto !important;margin-left:0 !important;margin-top:0 !important;width:auto !important;min-width:0 !important;max-width:none !important;}
+	ul.sm-menu_box>li{float:none;}
+	ul.sm-menu_box>li>a,ul.sm-menu_box ul.sm-nowrap>li>a{white-space:normal;}
+	ul.sm-menu_box iframe{display:none;}
+
+	/* Uncomment this rule to disable completely the sub menus for small screen devices */
+	/*.sm-menu_box ul, .sm-menu_box span.sub-arrow, .sm-menu_box iframe {
+		display:none !important;
+	}*/
+
+
+/* Menu box
+===================*/
+
+	.sm-menu_box {
+		background:transparent;
+	}
+	.sm-menu_box ul {
+		border:0;
+		padding:0;
+		background:#fff;
+		-moz-border-radius:0;
+		-webkit-border-radius:0;
+		border-radius:0;
+		-moz-box-shadow:none;
+		-webkit-box-shadow:none;
+		box-shadow:none;
+	}
+	.sm-menu_box ul ul {
+		/* darken the background of the 2+ level sub menus and remove border rounding */
+		background:rgba(100,100,100,0.1);
+		-moz-border-radius:0;
+		-webkit-border-radius:0;
+		border-radius:0;
+	}
+
+
+/* Menu items
+===================*/
+
+	.sm-menu_box a {
+		padding:10px 5px 10px 0px !important; /* add some additional left padding to make room for the sub indicator */
+	}
+	.sm-menu_box a:hover,
+	.sm-menu_box a.current{
+		padding:10px 5px 10px 15px !important; /* add some additional left padding to make room for the sub indicator */
+		}
+	.sm-menu_box a.has-submenu,
+	.sm-menu_box a.has-submenu:hover,
+	.sm-menu_box a.has-submenu.current{
+		margin:0px -15px;
+		padding:10px 5px 10px 43px !important; /* add some additional left padding to make room for the sub indicator */
+		}
+	.sm-menu_box ul a {
+		background:transparent !important;
+		color:#247eab !important;
+		text-shadow:none !important;
+	}
+	.sm-menu_box a.current {
+		background:#006892 !important; /* Old browsers */
+		background-image:url(css-gradients-fallback/current-item-bg.png) !important;
+		background-image:-moz-linear-gradient(top,#005a84 0%,#00749f 100%) !important;
+		background-image:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#005a84),color-stop(100%,#00749f)) !important;
+		background-image:-webkit-linear-gradient(top,#005a84 0%,#00749f 100%) !important;
+		background-image:-o-linear-gradient(top,#005a84 0%,#00749f 100%) !important;
+		background-image:-ms-linear-gradient(top,#005a84 0%,#00749f 100%) !important;
+		background-image:linear-gradient(top,#005a84 0%,#00749f 100%) !important;
+		color:#fff !important;
+	}
+	/* add some text indentation for the 2+ level sub menu items */
+	.sm-menu_box ul a {
+		border-left:8px solid transparent;
+	}
+	.sm-menu_box ul ul a {
+		border-left:16px solid transparent;
+	}
+	.sm-menu_box ul ul ul a {
+		border-left:24px solid transparent;
+	}
+	.sm-menu_box ul ul ul ul a {
+		border-left:32px solid transparent;
+	}
+	.sm-menu_box ul ul ul ul ul a {
+		border-left:40px solid transparent;
+	}
+	/* round the corners of the first and last items */
+	.sm-menu_box > li:first-child > a {
+	}
+	/* presume we have 4 levels max */
+	.sm-menu_box > li:last-child > a,
+	.sm-menu_box > li:last-child > ul > li:last-child > a,
+	.sm-menu_box > li:last-child > ul > li:last-child > ul > li:last-child > a,
+	.sm-menu_box > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > a,
+	.sm-menu_box > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > a,
+	.sm-menu_box > li:last-child > ul,
+	.sm-menu_box > li:last-child > ul > li:last-child > ul,
+	.sm-menu_box > li:last-child > ul > li:last-child > ul > li:last-child > ul,
+	.sm-menu_box > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul,
+	.sm-menu_box > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul {
+	}
+	/* highlighted items, don't need rounding since their sub is open */
+	.sm-menu_box > li:last-child > a.highlighted,
+	.sm-menu_box > li:last-child > ul > li:last-child > a.highlighted,
+	.sm-menu_box > li:last-child > ul > li:last-child > ul > li:last-child > a.highlighted,
+	.sm-menu_box > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > a.highlighted,
+	.sm-menu_box > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > ul > li:last-child > a.highlighted {
+		-moz-border-radius:0;
+		-webkit-border-radius:0;
+		border-radius:0;
+	}
+
+
+/* Sub menu indicators
+===================*/
+
+	.sm-menu_box a span.sub-arrow,
+	.sm-menu_box ul a span.sub-arrow {
+		top:50%;
+		margin-top:-9px;
+		right:auto;
+		left:15px;
+		margin-left:0;
+		width:17px;
+		height:17px;
+		font:bold 16px/16px monospace !important;
+		text-align:center;
+		border:0;
+		text-shadow:none;
+		background:rgba(0,0,0,0.1);
+		-moz-border-radius:100px;
+		-webkit-border-radius:100px;
+		border-radius:100px;
+	}
+	/* Hide sub indicator "+" when item is expanded - we enable the item link when it's expanded */
+	.sm-menu_box a.highlighted span.sub-arrow {
+		display:none !important;
+	}
+
+
+/* Items separators
+===================*/
+
+	.sm-menu_box li {
+		border-left:0;
+	}
+	.sm-menu_box ul li {
+		border-top:1px solid rgba(0,0,0,0.05);
+	}
+	.sm-menu_box ul li:first-child {
+		border-top:0;
+	}
+
+}

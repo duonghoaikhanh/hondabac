@@ -1,0 +1,71 @@
+.contact_detail{
+	margin-top:10px;
+	padding:14px;
+	background:#ffffff;
+	border:1px solid #d3d3d3;
+	}
+.contact_detail .contact_detail-row{
+	padding-bottom:5px;
+	}
+.contact_detail .contact_detail-row p{
+	margin:0px;
+	padding:5px 0px;
+	}
+
+#contact_info{
+	float:left;
+	width:48%;
+	padding-bottom:20px;
+	}
+#contact_info .contact_info{
+	padding-bottom:5px;
+	}
+#contact_info .contact_info p{
+	margin:0px;
+	padding:5px 0px;
+	}
+	
+#contact_form{
+	float:right;
+	width:48%;
+	}
+#contact_form .form_note{
+	padding-bottom:7px;
+	}
+#contact_form label{
+	float:left;
+	width:30%;
+	line-height:22px;
+	}
+#contact_form .input_text,
+#contact_form .textarea{
+	float:right;
+	width:65%;
+	}
+#contact_form label.error{
+	float:none;
+	display:block;
+	width:100%;
+	text-align:right;
+	}
+
+#contact_map{
+	width:48%;
+	float:left;
+	}
+#contact_map .contact_map_bg{
+	background:#fff;
+	padding:5px;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.54);
+	-moz-box-shadow:    0px 0px 5px 0px rgba(0, 0, 0, 0.54);
+	box-shadow:         0px 0px 5px 0px rgba(0, 0, 0, 0.54);
+	}
+#map_view{
+	height:350px;
+	}
+#map_view a{
+	background:none;
+	}
+#map_view .gomapMarker{
+	color:#000000;
+	}

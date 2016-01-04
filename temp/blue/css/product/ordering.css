@@ -1,0 +1,298 @@
+#content .main_search {
+	margin-bottom:30px;
+}
+/*--------------------cart_content------------------------*/
+.cart_content{
+	padding-bottom:30px;
+	min-width:800px;
+	}
+.cart_table{
+	background:#dbdbdb;
+	}
+.cart_table th.col{
+	font-weight:bold;
+	background:#efefef;
+	text-align:center;
+	color:#000;
+	}
+.cart_table td.col{
+	background:#ffffff;
+	}
+.cart_table td.col .color{
+	display:inline-block;
+	width:20px;
+	height:20px;
+	}
+.cart_table td.col_empty{
+	background:#FFC;
+	text-align:center;
+	}
+.cart_table td.col_total{
+	height:20px;
+	}
+.cart_table td.col_total .col-title{
+	text-transform:uppercase;
+	font-size:16px;
+	}
+.cart_table td.col_total .number{
+	font-size:18px;
+	color:#ff0000;
+	font-weight:bold;
+	}
+.cart_content .row_btn{
+	padding-top:13px;
+	}
+.cart_content .row_btn input{
+	margin-left:3px;
+	}
+	
+.cart_content .box_code{
+	width:390px;
+	float:left;
+	padding-top:50px;
+	}
+.cart_content .box_code.last{
+	float:right;
+	}
+.cart_content .box_code .box_code-title{
+	font-size:20px;
+	color:#800080;
+	padding-bottom:7px;
+	}
+.cart_content .box_code .box_code-note{
+	font-size:16px;
+	color:#848484;
+	padding-bottom:6px;
+	}
+.cart_content .box_code .box_code-content{
+	padding:16px 17px 13px;
+	background:#efefef;
+	border:1px solid #c1c1c1;
+	}
+.cart_content .box_code .box_code-content label{
+	font-size:14px;
+	color:#848484;
+	float:left;
+	padding-top:2px;
+	}
+.cart_content .box_code .box_code-content .input_text{
+	width:225px;
+	float:right;
+	}
+.cart_content .box_code .box_code-content .btn{
+	float:right;
+	margin-top:13px;
+	}
+
+.cart_content .box_code .box_code-content .error{
+	text-align:right;
+	color:#ff0000;
+	}
+
+/*----------------------ordering_user-------------------*/
+.ordering_user{
+	min-width:800px;
+	}
+.ordering_user .ordering_user_l{
+	}
+.ordering_user .ordering_user_l .skip_login{
+	padding-top:20px;
+	}
+.ordering_user .ordering_user_r{
+	}
+.ordering_user .ordering_user_r #form_signup{
+	}
+
+.ordering_user label.title{
+	width:32%;
+	color:#848484;
+	float:left;
+	line-height:22px;
+	}
+.ordering_user .input_text,
+.ordering_user select,
+.ordering_user .textarea{
+	min-width:150px;
+	float:right;
+	}
+	
+.ordering_user .ordering_user-title{
+	font-size:20px;
+	color:#cf0005;
+	text-transform:uppercase;
+	padding-bottom:15px;
+	}
+	
+.ordering_user .ordering_signin,
+.ordering_user .ordering_signup{
+	}
+
+.ordering_user .ordering_signin{
+	padding-bottom:30px;
+	}
+.ordering_user .ordering_signin .row{
+	float:left;
+	margin-right:30px;
+	}
+.ordering_user .ordering_signin .row label.title{
+	width:auto;
+	padding-top:5px;
+	padding-right:10px;
+	}
+.ordering_user .ordering_signin .forget_password{
+	float:left;
+	width:100%;
+	}
+.ordering_user .ordering_signin .row_btn{
+	float:left;
+	}
+.ordering_user .ordering_signin .row_btn .btn{
+	height:31px;
+	line-height:31px;
+	}
+
+.ordering_user .ordering_signup .row_l{
+	float:left;
+	width:48%;
+	margin-right:2%;
+	}
+.ordering_user .ordering_signup .row_r{
+	float:right;
+	width:48%;
+	margin-left:2%;
+	}
+.ordering_user .ordering_signup .row .input_text,
+.ordering_user .ordering_signup .row select,
+.ordering_user .ordering_signup .row .textarea{
+	width:65%;
+	}
+.ordering_user .ordering_signup .row_btn{
+	float:left;
+	width:100%;
+	text-align:left;
+	}
+	
+.ordering_user .row_btn{
+	text-align:right;
+	}
+
+/*----------------------ordering_address-------------------*/
+.ordering_address{
+	min-width:800px;
+	}
+.ordering_address .ordering_address_l{
+	float:left;
+	width:48%;
+	}
+.ordering_address .ordering_address_r{
+	float:right;
+	width:48%;
+	}
+	
+.ordering_address h3{
+	font-size:20px;
+	color:#cf0005;
+	text-transform:uppercase;
+	padding-bottom:15px;
+	font-weight:normal;
+	}
+.ordering_address label.title{
+	float:left;
+	width:32%;
+	line-height:22px;
+	}
+.ordering_address .input_text,
+.ordering_address select,
+.ordering_address .textarea{
+	float:right;
+	width:65%;
+	}
+.ordering_address .row_btn{
+	text-align:right;
+	}
+
+/*----------------------ordering_method_shipping-------------------*/
+.ordering_method_shipping{
+	background:#ffffff;
+	padding:20px;
+	border:1px solid #CFCFCF;
+	margin-top:10px;
+	}
+.ordering_method_shipping .title{
+	font-size: 16px;
+	padding-bottom: 10px;
+	font-weight:bold;
+	}
+.ordering_method_shipping .row{
+	}
+.ordering_method_shipping .row .row-title{
+	position:relative;
+	padding-left:25px;
+	font-weight:bold;
+	}
+.ordering_method_shipping .row .row-title input{
+	position:absolute;
+	top:0px;
+	left:0px;
+	}
+.ordering_method_shipping .row .row-content{
+	padding-left:25px;
+	}
+
+/*----------------------ordering_method_method-------------------*/
+.ordering_method_method{
+	margin-top:30px;
+	}
+.ordering_method_method .title{
+	font-size:20px;
+	color:#cf0005;
+	text-transform:uppercase;
+	padding-bottom:15px;
+	font-weight:normal;
+	}
+.ordering_method_method .row{
+	}
+.ordering_method_method .row .row-title{
+	position:relative;
+	padding-left:25px;
+	font-weight:bold;
+	}
+.ordering_method_method .row .row-title input{
+	position:absolute;
+	top:0px;
+	left:0px;
+	}
+.ordering_method_method .row .row-content{
+	padding-left:25px;
+	}
+
+/*----------------------ordering_method-------------------*/
+.ordering_method{
+	padding-top:30px;
+	min-width:800px;
+	}
+.ordering_method .request_more{
+	}
+.ordering_method .request_more label.title{
+	display:block;
+	font-size:20px;
+	color:#cf0005;
+	text-transform:uppercase;
+	padding-bottom:15px;
+	font-weight:normal;
+	}
+.ordering_method .request_more .textarea{
+	width:100%;
+	}
+.ordering_method .row_btn{
+	padding-top:10px;
+	}
+	
+/*---------------------ordering_complete---------------------*/
+.ordering_complete{
+	}
+.ordering_complete .content{
+	}
+.ordering_complete .row_btn{
+	padding-top:10px;
+	}

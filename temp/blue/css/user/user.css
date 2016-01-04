@@ -1,0 +1,316 @@
+#content{
+	width:700px;
+	}
+#column{
+	width:200px;
+	}
+
+.user_form{
+	width:500px;
+	margin:0px auto;
+	}	
+.user_form label.title{
+	float:left;
+	width:28%;
+	line-height:22px;
+	}
+.user_form .input_text,
+.user_form select,
+.user_form .textarea,
+.user_form .row-content{
+	float:right;
+	width:70%;
+	}
+.user_form .row_btn{
+	text-align:right;
+	}
+
+/*----------------out_info-----------------*/
+.out_info{
+	float:left;
+	width:686px;
+	height:654px;
+	background:url(../images/user_pic.png) no-repeat center center;
+	position:relative;
+	margin-left:-80px;
+	margin-top:-80px;	
+	}
+.out_info .out_info-content{
+	width:290px;
+	height:235px;
+	position:absolute;
+	top:333px;
+	left:200px;
+	text-align:center;
+	font-size:16px;
+	color:#424242;
+	}
+.out_info .out_info-title{
+	margin-top:-30px;
+	font-size:18px;
+	color:#c10004;
+	text-transform:uppercase;
+	}
+.out_info .method_row{
+	padding-top:20px;
+	}
+.out_info .method_row.first{
+	margin:0px -20px;
+	}
+.out_info .method_row .method-short{
+	font-size:12px;
+	}
+.out_info .out_info p{
+	margin:0px;
+	padding:5px 0px;
+	}
+	
+/*----------------------user_signup-------------------*/
+.user_signup{
+	}
+.user_signup .out_info{
+	float:left;
+	}	
+.user_signup .user_signup_r{
+	float:right;
+	width:317px;
+	}	
+.user_signup .user_signup-title{
+	font-size:18px;
+	text-transform:uppercase;
+	color:#cf0005;
+	padding-bottom:15px;
+	}
+.user_signup .input_text,
+.user_signup select,
+.user_signup .textarea{
+	width:100%;
+	}	
+.user_signup .user_signup_r img{
+	float:left;
+	border:1px solid #cfcfcf;
+	padding:1px;
+	}
+.user_signup .captcha{
+	float:right;
+	width:76%;
+	}
+.user_signup .row_btn{
+	text-align:right;
+	}
+	
+/*----------------------user_login-------------------*/
+.user_login{
+	}
+.user_login .out_info{
+	float:left;
+	}	
+.user_login .user_login_r{
+	float:right;
+	width:317px;
+	padding-top:50px;
+	}	
+.user_login .user_login-title{
+	font-size:18px;
+	text-transform:uppercase;
+	color:#cf0005;
+	padding-bottom:15px;
+	}
+.user_login .input_text,
+.user_login select,
+.user_login .textarea{
+	width:100%;
+	}	
+.user_login .user_login_r img{
+	float:left;
+	border:1px solid #cfcfcf;
+	padding:1px;
+	}
+.user_login .captcha{
+	float:right;
+	width:76%;
+	}
+.user_login .forget_password{
+	float:left;
+	}
+.user_login .row_btn{
+	float:right;
+	}
+
+/*----------------------address_book-------------------*/
+.address_book{
+	}
+.address_book .address_book_l{
+	float:left;
+	width:48%;
+	}
+.address_book .address_book_r{
+	float:right;
+	width:48%;
+	}
+	
+.address_book h3{
+	font-size:16px;
+	padding-bottom:10px;
+	}
+.address_book label.title{
+	float:left;
+	width:28%;
+	line-height:22px;
+	}
+.address_book .input_text,
+.address_book select,
+.address_book .textarea{
+	float:right;
+	width:70%;
+	}
+.address_book .row_btn{
+	text-align:right;
+	}
+	
+/*-----------------------------------*/
+.ordering_address{
+	padding-bottom:20px;
+	}
+.ordering_address_l,
+.ordering_address_r{
+	width:49%;
+	}
+.ordering_address_l{
+	float:left;
+	}
+.ordering_address_r{
+	float:right;
+	}
+.ordering_address h3{
+	padding-bottom:10px;
+	}
+.ordering_address .row{
+	padding-bottom:5px;
+	}
+.ordering_address .row .title{
+	font-weight:bold;
+	}
+	
+/*-----------------------------------*/
+.ordering_shipping{
+	float:left;
+	width:48%;
+	padding-top:20px;
+	}
+.ordering_method{
+	padding-top:20px;
+	}
+.status_order{
+	padding-top:20px;
+	}
+.request_more{
+	padding-top:20px;
+	}
+.ordering_shipping .title,
+.ordering_method .title{
+	font-weight:bold;
+	padding:0px 5px;
+	}
+.ordering_shipping .content,
+.ordering_method .content,
+.status_order .content,
+.request_more .content{
+	padding:5px;
+	}
+
+/*-----------------------manage--------------------*/	
+.manage_search{
+	border: 1px solid #C3C3C3;
+}
+.manage_search .manage_search-title{
+	background-color: #F5F5F5;
+	border-bottom: 1px solid #C3C3C3;
+	color: #333333;
+	padding: 5px 10px;
+	font-weight:bold;
+}
+.manage_search .manage_search-title .title{
+	float:left;
+}
+.manage_search .manage_search-title .title_right{
+	float:right;
+}
+.manage_search .manage_search-body{
+	}
+.manage_search .manage_search-body .row_search{
+	}
+.manage_search .manage_search-body .col_search{
+	float:left;
+	width:138px;
+	margin:10px;
+	}
+.manage_search .manage_search-body .col_search label{
+	display:block;
+	}
+.manage_search .manage_search-body .col_search .input_text{
+	width:100%;
+	height:24px;
+	}
+.manage_search .manage_search-body .col_search select.select{
+	width:100%;
+	}
+
+.manage_search .manage_search-body .col_search .form-group{
+	position:relative;
+	}
+.manage_search .manage_search-body .col_search .text_search{
+	width:114px;
+	}
+.manage_search .manage_search-body .col_search .btn_search{
+	width:24px;
+	height:24px;
+	position:absolute;
+	top:0px;
+	right:0px;
+	background:url(../images/btn_manage_search.png) #ffffff no-repeat center center;
+	border:1px solid #dadada;
+	border-left:none;
+	padding:0xp;
+	}
+	
+.manage{
+	}
+.manage .manage-table{
+	background:#dbdbdb;
+	border:none;
+	border-spacing:1px;
+	width:100%;
+	}
+.manage .manage-table th.cot{
+	font-weight:bold;
+	background:#efefef;
+	text-align:center;
+	color:#000;
+	padding:5px;
+	}
+.manage .manage-table td.cot{
+	background:#ffffff;
+	padding:5px;
+	}
+.manage .manage-table td.cot label{
+	font-weight:bold;
+	}
+	
+/*-------------------------------*/
+.box_menu li a{
+	color:#000000;
+	font-size:15px;
+	display:block;
+	border-bottom:1px solid #d0d0d0;
+	padding:5px 0px;
+}
+.box_menu li a.current{
+	color:#c00000;;
+	}
+.box_menu li.first{
+	padding-top:5px;
+}
+.box_menu li.last>a{
+	border-bottom:none;
+}
