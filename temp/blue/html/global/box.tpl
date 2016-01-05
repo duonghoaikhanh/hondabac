@@ -70,6 +70,25 @@
 <!-- END: box_menu -->
 
 <!-- BEGIN: box_search -->
+<div id="top-search" class='hidden-xs hidden-sm'>
+  <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
+  <form action="{data.link_search}" method="post">
+    <input name="search" value="1" type="hidden" />
+    <input type="text" name="text_search" class="form-control" placeholder="{LANG.global.search_text}">
+  </form>
+</div>
+<!-- END: box_search -->
+<!-- BEGIN: box_search_sm -->
+<div id="top-search-sm">
+  <!--<a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>-->
+  <form action="{data.link_search}" method="post">
+    <input name="search" value="1" type="hidden" />
+    <input type="text" name="text_search" class="form-control" placeholder="{LANG.global.search_text}">
+  </form>
+</div>
+<!-- END: box_search_sm -->
+
+<!-- BEGIN: box_search1 -->
 <div class="box_search">
   <form action="{data.link_search}" method="post">
     <input name="text_search" class="text_search" type="text" value="{data.text_search}" onBlur="if(this.value=='') this.value='{LANG.global.search_text}';" onFocus="if(this.value=='{LANG.global.search_text}') this.value='';">
@@ -78,7 +97,7 @@
     <div class="clear"></div>
   </form>
 </div>
-<!-- END: box_search -->
+<!-- END: box_search1 -->
 
 <!-- BEGIN: main_search -->
 <div class="main_search">

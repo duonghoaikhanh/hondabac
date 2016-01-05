@@ -1,28 +1,23 @@
 <!-- BEGIN: main -->
 <div class="content-wrap">
-  <!-- promo -->
 
+  <!-- promo -->
   <div class="promo promo-light promo-full bottommargin-lg header-stick notopborder">
     <div class="container clearfix">
       <div class='col-md-9 nopadding promo_title'>
-        <h3>Gọi ngay cho chúng tôi <span><a href="tel:+8483332541">+08.33.32541</a></span> hoặc email
-          gửi tới <span><a href="mailto:support@domain.com">support@domain.com</a></span></h3>
-        <span>Chúng tôi sẵn sàng hỗ trợ tư vấn 24/7 để bạn có trải nghiệm dịch vụ tuyệt vời nhất.</span>
+        <h3>{data.banner_tell_us_page_home}</h3>
+        <span>{data.banner_support_247}</span>
       </div>
       <div class='col-md-3 promo_btn'>
-        <a href="lien-he.htm"
-           class="button button-dark button-xlarge button-rounded">LIÊN HỆ NGAY</a>
+        <a href="{data.link_contact}"
+           class="button button-dark button-xlarge button-rounded">{LANG.home.contact_now}</a>
       </div>
     </div>
   </div>
-
   <!-- end promo -->
+
   <div class="container clearfix">
-
-
     <!-- archivements -->
-
-
     <div class="col_one_third nobottommargin ">
       <div class="feature-box media-box">
 
@@ -115,7 +110,7 @@
           </a>
 
           <div class="portfolio-overlay">
-            <a href="porfolio_pd_img_1_1.jpg-1450838787703.jpg"
+            <a href="{DIR_IMAGE}template/porfolio_pd_img_1_1.jpg-1450838787703.jpg"
                class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
             <a href="kien-truc-hien-dai.htm"
                class="right-icon"><i class="icon-line-ellipsis"></i></a>
@@ -140,7 +135,7 @@
           </a>
 
           <div class="portfolio-overlay">
-            <a href="porfolio_pd_img_1_2.jpg-1450838787703.jpg"
+            <a href="{DIR_IMAGE}template/porfolio_pd_img_1_2.jpg-1450838787703.jpg"
                class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
             <a href="thiet-ke-ban-co-dien.htm"
                class="right-icon"><i class="icon-line-ellipsis"></i></a>
@@ -168,7 +163,7 @@
           </a>
 
           <div class="portfolio-overlay">
-            <a href="porfolio_pd_img_2_1.jpg-1450838787703.jpg"
+            <a href="{DIR_IMAGE}template/porfolio_pd_img_2_1.jpg-1450838787703.jpg"
                class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
             <a href="" class="right-icon"><i class="icon-line-ellipsis"></i></a>
           </div>
@@ -192,7 +187,7 @@
           </a>
 
           <div class="portfolio-overlay">
-            <a href="porfolio_pd_img_2_2.jpg-1450838787703.jpg"
+            <a href="{DIR_IMAGE}template/porfolio_pd_img_2_2.jpg-1450838787703.jpg"
                class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
             <a href="" class="right-icon"><i class="icon-line-ellipsis"></i></a>
           </div>

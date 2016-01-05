@@ -3,7 +3,7 @@ if ( !defined('IN_ttH') )	{ die('Access denied');	}
 $lang = array ( 
 	'homepage' => 'Trang chủ',
 	'hotline' => 'Hotline',
-	'search_text' => 'Nhập từ khóa',
+	'search_text' => 'Nhập từ khóa...',
 	'search_btn' => 'Tìm',
 	'price_empty' => 'Contac us',
 	'detail' => 'Chi tiết',

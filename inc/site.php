@@ -1656,11 +1656,23 @@ class Site
 			'link_search' => $ttH->site->get_link('product'),
 			'text_search' => (isset($ttH->input['text_search'])) ? $ttH->input['text_search'] : $ttH->lang['global']['search_text']
 		);
-		
 		$output = $ttH->html->temp_box('box_search', $data);
 		return $output;
   }
-	
+
+	// box_search
+	function box_search_sm ()
+	{
+		global $ttH;
+
+		$data = array(
+			'link_search' => $ttH->site->get_link('product'),
+			'text_search' => (isset($ttH->input['text_search'])) ? $ttH->input['text_search'] : $ttH->lang['global']['search_text']
+		);
+		$output = $ttH->html->temp_box('box_search_sm', $data);
+		return $output;
+	}
+
 	// main_search
   function main_search ($title='')
   {
@@ -1668,7 +1680,7 @@ class Site
 		
 		$data = array(
 			'title' => $title,
-			'link_search' => $ttH->site->get_link('product'),
+			'link_search' => box_search,
 			'text_search' => (isset($ttH->input['text_search'])) ? $ttH->input['text_search'] : $ttH->lang['global']['search_text']
 		);
 		

@@ -52,6 +52,9 @@ class sMain
 
 		$data = array();
 		$data['main_slide'] = $ttH->site->get_banner_slide ('banner-main');
+		$data['banner_tell_us_page_home'] = $ttH->site->get_banner('banner-tell-us-page-home');
+		$data['banner_support_247'] = $ttH->site->get_banner('banner-support-247');
+		$data['link_contact'] = $ttH->site->get_link('contact');
 		//$data['content'] = 'Nội dung trang chủ';
 		$data['content'] = $this->do_list ();
 		$data['content_focus'] = $this->do_list ('focus');

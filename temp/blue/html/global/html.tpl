@@ -26,11 +26,12 @@
     <meta property="og:description" itemprop="description" name="description" content="{CONF.meta_desc}" />
 
     <!--<link href="{DIR_CSS}global/cluetip/jquery.cluetip.css" rel="stylesheet">
-      <link href="{DIR_JS}fancybox/jquery.fancybox.css" rel="stylesheet">
-      <link href="{DIR_JS}jalert/css/jquery.alerts.css" rel="stylesheet">
       <link href="{DIR_CSS}global/layout.css" rel="stylesheet">-->
-  
-    <script type="text/javascript" language="javascript" >
+  <link href="{DIR_JS}fancybox/jquery.fancybox.css" rel="stylesheet">
+
+  <link href="{DIR_JS}jalert/css/jquery.alerts.css" rel="stylesheet">
+
+  <script type="text/javascript" language="javascript" >
       var ROOT = "{CONF.rooturl}";
       var DIR_IMAGE = "{DIR_IMAGE}";
       var deviceType = "{data.deviceType}";
@@ -40,13 +41,13 @@
       {LANG_JS}
     </script>
   <script type="text/javascript" src="{DIR_JS}jquery-1.10.2.js"></script>
-  <!--<script src="{DIR_JS}jquery.hoverIntent.js"></script>
+  <script src="{DIR_JS}jquery.hoverIntent.js"></script>
     <script src="{DIR_JS}fancybox/jquery.fancybox.pack.js"></script>
     <script src="{DIR_JS}cluetip/jquery.cluetip.js"></script>
     <script src="{DIR_JS}auto_numeric/autoNumeric.js"></script>
     <script src="{DIR_JS}jalert/js/jquery.alerts.js"></script>
     <script src="{DIR_JS}jquery.scrollTo.min.js"></script>
-    <script src="{DIR_JS}javascript.js"></script>-->
+    <script src="{DIR_JS}javascript.js"></script>
     {CONF.include_js}
     {CONF.include_css}
     {CONF.include_js_content}
@@ -160,13 +161,8 @@
     <ul class="sidebar-nav">
       <!-- Top Search
 ============================================= -->
-      <div id="top-search-sm">
-        <!--<a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>-->
-        <form action="http://the-company.bizwebvietnam.net/search">
-          <input type="hidden" name="type" value="product"/>
-          <input type="text" name="query" class="form-control" placeholder="Tìm kiếm..">
-        </form>
-      </div>
+      {data.box_search_sm}
+
       <!-- #top-search end -->
 
 
@@ -680,8 +676,7 @@
           <a href="index.htm"  class="standard-logo"><img
                     src="{DIR_IMAGE}template/logo.png-1450838787703.png"
                     alt="The Company"></a>
-          <a href="index.htm"  class="retina-logo"
-             data-dark-logo="//bizweb.dktcdn.net/100/035/474/themes/46087/assets/logo.png?1450838787703"><img
+          <a href="index.htm"  class="retina-logo"><img
                     src="{DIR_IMAGE}template/logo.png-1450838787703.png"
                     alt="The Company"></a>
         </div>
@@ -723,14 +718,7 @@
 
           <!-- Top Search
       ============================================= -->
-          <div id="top-search" class='hidden-xs hidden-sm'>
-            <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
-
-            <form action="http://the-company.bizwebvietnam.net/search">
-              <input type="hidden" name="type" value="product"/>
-              <input type="text" name="query" class="form-control" placeholder="Nhập từ khóa..">
-            </form>
-          </div>
+          {data.box_search}
           <!-- #top-search end -->
         </nav>
         <!-- top link trigger --->
@@ -1077,7 +1065,7 @@
           <div class="widget clearfix">
 
             <h4>Facebook</h4>
-            script run fanpage facebook
+            <div class="fb-page" data-href="https://www.facebook.com/facebook" data-tabs="timeline" data-width="300" data-height="214" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/facebook"><a href="https://www.facebook.com/facebook">Facebook</a></blockquote></div></div>
           </div>
 
         </div>
@@ -1253,359 +1241,8 @@
     </div>
   </div>
 </div>
-<script type="text/javascript">
-  var callBackQV = function (variant, selector) {
-    // console.log('callBackQV  is functioning...');
-
-    var $tagPrice = '#product-pop-up .product-price ins';
-    var $tagPriceCompare = '#product-pop-up .product-price del';
-    var $tagProductSection = '#ProductDetailsFormQV';
-    update_variant(variant, $tagPrice, $tagPriceCompare, '#addtocartQV', $tagProductSection);
-
-    /*begin variant image*/
-    if (variant && variant.featured_image) {
-      var newImage = variant.featured_image;
-      //console.log(newImage);
-      $("#product-pop-up .ps-list img[src='" + newImage.src + "']").click();
-    }
-    /*end of variant image*/
-  }
-
-  /*
-   *  strip_html_js
-   *
-   * ref: http://stackoverflow.com/questions/822452/strip-html-from-text-javascript
-   * author phong.nguyen 20150806
-   */
-  function strip_html_js(html) {
-    var tmp = document.createElement("DIV");
-    tmp.innerHTML = html;
-    return tmp.textContent || tmp.innerText || "";
-  }
-
-  var quickViewProduct = function (purl) {
-
-    // if ($(window).width() < 680) { window.location = purl; return false; }
-    // modal = $('#quick-view-modal'); modal.modal('show');
-    $.ajax({
-      url: purl + '.js',
-      async: false,
-      success: function (product) {
-        //console.log(product);
-        //console.log('quick view...asd01');
-        //make-up "product-pop-up"
-
-        //
-        if (product.images.length == 0) {
-          $('#product-pop-up .product-main-image img').attr('src', 'https://bizweb.dktcdn.net/100/015/148/files/no-image1.jpg?v=1443674742687');
-        }
-        else {
-          var html = '';
-          $('#product-pop-up .product-main-image .pgwSlideshow').remove();
-          html = '<ul class="pgwSlideshow">';
-          $.each(product.images, function (i, v) {
-            html += '<li><img src="{DIR_IMAGE}template/' + v + '" data-large-src="' + v + '"></li>';
-          });
-          html += '</ul>';
-          $('#product-pop-up .product-main-image').html(html);
-          var iflag = 0;
-          $('#product-pop-up .product-main-image img').load(function () {
-            iflag++;
-            if (iflag == $('#product-pop-up .product-main-image img').length) {
-
-              $('.pgwSlideshow').pgwSlideshow();
-            }
-          });
-
-        }//end images length
 
 
-        // render basic info. main img, desc, qty, ...
-        var $strDesc = strip_html_js(product.content);
-        var $strPrice = Bizweb.formatMoney(product.price, '{{amount_no_decimals_with_comma_separator}}&#8363;');
-        var $strComparePrice = Bizweb.formatMoney(product.compare_at_price, "{{amount_no_decimals_with_comma_separator}}&#8363;");
-        $('#product-pop-up .description').html($strDesc.split(" ").splice(0, 50).join(" ") + ' ...');   // truncate 250 words
-        $('#product-pop-up .ajax-modal-title a, #product-pop-up .view_detail').attr('href', purl);
-        $('#product-pop-up .ajax-modal-title h2').html(product.name);
-        $('#product-pop-up .product-price ins').html($strPrice);
-        if (product.price < product.compare_at_price) {
-          $('#product-pop-up .product-price del').html($strComparePrice);
-        }
-        else {
-          $('#product-pop-up .product-price del').html('');
-          $('#product-pop-up .sale-flash').hide();
-        }
-        $('#product-pop-up .qty').val(1);
-        var quantity = parseInt($('#ProductDetailsFormQV .product-quantity input.qty').val());
-        $('#ProductDetailsFormQV .minus').click(function () {
-          if (quantity > 0) {
-            if (quantity == 1) {
-              $('#addtocartQV').attr('disabled', 'disabled');
-            }
-            quantity -= 1;
-
-          }
-          else {
-            quantity = 0;
-          }
-          $('#ProductDetailsFormQV .product-quantity input.qty').val(quantity);
-        });
-        $('#ProductDetailsFormQV .plus').click(function () {
-          $('#addtocartQV').removeAttr('disabled');
-          if (quantity < 100) {
-            quantity += 1;
-          }
-          else {
-            quantity = 100;
-          }
-          $('#ProductDetailsFormQV .product-quantity input.qty').val(quantity);
-        });
-        $('#product-pop-up .more_details').attr('href', product.url);
-        // assign hidden values
-        $('#product-pop-up .unit_price_not_formated').val(product.price);
-        $('#product-pop-up .product_title_hd').val(product.name);
-        $('#product-pop-up .product_url').val(product.url);
-        $('#product-pop-up .product_img_small').val(product.featured_image);  // AAA!!!
-
-        //render variant size/color
-        // $('#product-pop-up .price strong').html(product.title);
-
-        //render selections (NOT formatted yet)
-        $('select#product-select-qw').html('');
-        $('.product-page-options select.size').html('');
-        $('.product-page-options select.color').html('');
-        $('.product-page-options select.material').html('');
-        $('.selector-wrapper').remove(); // remove all selectors by  Haravan.OptionSelectors
-        var $arrSize = [];
-        var $arrColor = [];
-        var $arrMaterial = [];
-        $.each(product.variants, function (i, v) {
-          //console.log(v);
-          $('select#product-select-qw').append("<option value='" + v.id + "'>" + v.title + ' - ' + v.price + "</option>");
-          //console.log($arrSize.indexOf(v.option1) <= -1);
-          if ($arrSize.indexOf(v.option1) <= -1) {
-            $('#product-pop-up select.size').append("<option >" + v.option1 + "</option>");
-            $arrSize.push(v.option1);
-          }
-
-          if ($arrColor.indexOf(v.option2) <= -1) {
-            $('#product-pop-up select.color').append("<option >" + v.option2 + "</option>");
-            $arrColor.push(v.option2);
-          }
-
-          if ($arrMaterial.indexOf(v.option3) <= -1) {
-            $('#product-pop-up select.material').append("<option >" + v.option3 + "</option>");
-            $arrMaterial.push(v.option3);
-          }
-        });
-
-        //phong.nguyen 20150806: show label options 1,2,...
-        $($('#product-pop-up .product-page-options label')[0]).html(product.options[0].name);
-
-        var $option1_label = $('#product-pop-up .product-page-options label')[1];
-        var $option1_item = $('#product-pop-up .product-page-options .sizePicker')[1];
-        var $option2_label = $('#product-pop-up .product-page-options label')[2];
-        var $option2_item = $('#product-pop-up .product-page-options .sizePicker')[2];
-        if (product.options.length >= 2) {
-          $($option1_label).html(product.options[1].name);
-          $($option1_item).removeClass('hidden');
-          if (product.options.length >= 3) {
-            $($option2_label).html(product.options[2].name);
-            $($option2_item).removeClass('hidden');
-          }
-          else {
-            $($option2_item).addClass('hidden');
-          }
-        }
-        else {
-          $($option1_item).addClass('hidden');
-          $($option2_item).addClass('hidden');
-        }
-
-
-        //show/hide for any/1 variant
-        //console.log(product.variants);
-        if (product.variants.length <= 1 && product.variants[0].title.indexOf('Default') != -1) {
-          // callBackQV(product.variants[0], null);
-          $('#product-pop-up .product-page-options').addClass('hidden');
-        }
-        else {
-          // // debugger...
-          $('#product-pop-up .product-page-options').removeClass('hidden');
-
-        }
-
-        //call back function for variants
-        new Bizweb.OptionSelectors("product-select-qw", {product: product, onVariantSelected: callBackQV});
-
-
-        // function: choose size
-        $('#product-pop-up select.size').change(function () {
-          var $size = $(this).val();
-          var $color = $('#product-pop-up select.color').val();
-          var $material = $('#product-pop-up select.material').val();
-          var $tagSelectOption0 = '#product-select-qw-option-0';
-          var $tagSelectOption1 = '#product-select-qw-option-1';
-          var $tagSelectOption2 = '#product-select-qw-option-2';
-
-          refreshProductSelections($tagSelectOption0, $size, $tagSelectOption1, $color, $tagSelectOption2, $material);
-        });
-
-        // function: choose color
-        $('#product-pop-up select.color').change(function () {
-          var $size = $('#product-pop-up select.size').val();
-          var $color = $(this).val();
-          var $material = $('#product-pop-up select.material').val();
-          var $tagSelectOption0 = '#product-select-qw-option-0';
-          var $tagSelectOption1 = '#product-select-qw-option-1';
-          var $tagSelectOption2 = '#product-select-qw-option-2';
-
-          refreshProductSelections($tagSelectOption0, $size, $tagSelectOption1, $color, $tagSelectOption2, $material);
-        });
-
-        // function: choose material
-        $('#product-pop-up select.material').change(function () {
-          var $size = $('#product-pop-up select.size').val();
-          var $color = $('#product-pop-up select.color').val();
-          var $material = $(this).val();
-          var $tagSelectOption0 = '#product-select-qw-option-0';
-          var $tagSelectOption1 = '#product-select-qw-option-1';
-          var $tagSelectOption2 = '#product-select-qw-option-2';
-
-          refreshProductSelections($tagSelectOption0, $size, $tagSelectOption1, $color, $tagSelectOption2, $material);
-        });
-
-
-        //second item: $($("#colorPicker option").get(1))...
-        $("#product-pop-up select.size option:first").attr('selected', 'selected');
-        $("#product-pop-up select.color option:first").attr('selected', 'selected');
-        $("#product-pop-up select.material option:first").attr('selected', 'selected');
-        var $size = $("#product-pop-up select.size option:first").val();
-        var $color = $("#product-pop-up select.color option:first").val();
-        var $material = $("#product-pop-up select.material option:first").val();
-        var $tagSelectOption0 = '#product-select-qw-option-0';
-        var $tagSelectOption1 = '#product-select-qw-option-1';
-        var $tagSelectOption2 = '#product-select-qw-option-2';
-
-        refreshProductSelections($tagSelectOption0, $size, $tagSelectOption1, $color, $tagSelectOption2, $material);
-
-
-      }//end: success
-    });
-
-    //$('.modal-backdrop').css('opacity', '0');
-    return false;
-  }
-</script>
-
-<div id="product-quick-add" style="display: none; width: 700px;">
-  <div class="product-page ">
-    <div class="row">
-      <form id="ProductDetailsForm_QuickAdd">
-
-        <div class="hidden" style="">
-          <select id="product-select-qa" name="variantId">
-          </select>
-
-          <input type="hidden" class="unit_price_not_formated"><!-- </input> -->
-          <input type="hidden" class="product_url" value=""> <!--</input>-->
-          <input type="hidden" class="product_title_hd" value=""> <!--</input>-->
-          <input type="hidden" class="product_img_small" value=""> <!--</input>-->
-        </div>
-
-        <input id="product-quantity" name="quantity" type="text" value="1" readonly
-               class="form-control input-sm quantity">
-
-        <button id="addtocartQA" class="btn btn-primary" type="submit">Thêm vào giỏ</button>
-      </form>
-    </div>
-    <!-- END: row -->
-  </div>
-</div>
-
-<script type="text/javascript">
-  var currentIMG = '';
-  jQuery(".product_quick_add").each(function () {
-    $(this).on('click', function (event) {
-      event.preventDefault();
-
-      // quick add
-      currentIMG = $(this).parents('.product').find('.product-image img');
-      quickAddProduct($(this).attr('href')); // make-up "#product-quick-add"
-
-    });
-  });
-
-  var callBackQuickAdd = function (variant, selector) {
-    // console.log('callBackQV  is functioning...');
-
-    var $tagPrice = '#product-quick-add .price strong';
-    var $tagPriceCompare = '#product-quick-add .price em span';
-    var $tagProductSection = '#ProductDetailsForm_QuickAdd';
-    update_variant(variant, $tagPrice, $tagPriceCompare, '#addtocartQA', $tagProductSection);
-  }
-  var quickAddProduct = function (purl) {
-
-    // if ($(window).width() < 680) { window.location = purl; return false; }
-    // modal = $('#quick-view-modal'); modal.modal('show');
-    $.ajax({
-      url: purl + '.js',
-      async: false,
-      success: function (product) {
-        //make-up "#product-quick-add"
-        // assign hidden values
-        $('#product-quick-add .product_title_hd').val(product.name);
-        $('#product-quick-add .product_url').val(purl);
-        $('#product-quick-add .product_img_small').val(product.featured_image);  // AAA!!!
-
-        //render selections (NOT formatted yet)
-        $('select#product-select-qa').html('');
-        $('.selector-wrapper').remove(); // remove all selectors by  Haravan.OptionSelectors
-        // var $arrSize = [];
-        // var $arrColor = [];
-        $.each(product.variants, function (i, v) {
-          $('select#product-select-qa').append("<option value='" + v.id + "'>" + v.title + ' - ' + v.price + "</option>");
-        });
-
-        new Bizweb.OptionSelectors("product-select-qa", {
-          product: product,
-          onVariantSelected: callBackQuickAdd
-        });
-
-        // select default variants
-        var $size = $("#product-select-qa-option-0 option:first").attr('selected', 'selected');
-        var $color = $("#product-select-qa-option-1 option:first").attr('selected', 'selected');
-        var $material = $("#product-select-qa-option-2 option:first").attr('selected', 'selected');
-        var $tagSelectOption0 = '#product-select-qa-option-0';
-        var $tagSelectOption1 = '#product-select-qa-option-1';
-        var $tagSelectOption2 = '#product-select-qa-option-2';
-        refreshProductSelections($tagSelectOption0, $size, $tagSelectOption1, $color, $tagSelectOption2, $material);
-
-        //auto add current variant...
-        // $('#ProductDetailsForm_QuickAdd').submit();
-        $("#addtocartQA").click();
-
-      }//end: success
-    });
-
-    //$('.modal-backdrop').css('opacity', '0');
-    return false;
-  }
-
-
-  jQuery(document).ready(function ($) {
-    //add to cart for QuickView
-    $("#addtocartQA").on('click', function (e) {  //.click(function(e){ //
-
-      e.preventDefault();
-      addItem('ProductDetailsForm_QuickAdd', currentIMG);
-
-    });
-  });
-  /*** end quick add cart ***/
-
-</script>
-<!-- end quick add cart -->
 <script src="{DIR_JS}template/layout.js" type='text/javascript'></script>
 <script type="text/javascript">
   jQuery(document).ready(function () {
@@ -1623,11 +1260,11 @@
 </script>
 <script src="{DIR_JS}template/footer_scripts.js" type='text/javascript'></script>
 
-  <!--<script language="javascript">
+<script language="javascript">
 		jQuery(document).ready(function(){
 			loadpage();
 		});
-  </script>-->
+  </script>
 </body>
 </html>
 <!-- END: body -->
