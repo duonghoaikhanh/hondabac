@@ -12948,3 +12948,21 @@ HTML5 Youtube Video Backgrounds
 	margin:0!important;
 	padding:0!important
 }
+.top-link #primary-menu{
+	height: 45px;
+}
+.top-link #primary-menu ul li a{
+	line-height: 45px;
+	height: 45px;
+}
+.top-link #primary-menu ul ul,.top-link #primary-menu ul li .mega-menu-content{
+	top: 45px;
+}
+.clear{
+	clear: both;
+}
+#primary-menu ul ul li a div{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

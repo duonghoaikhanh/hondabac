@@ -639,8 +639,8 @@
     <div class="container clearfix">
       <div class="col_half nobottommargin hidden-xs hidden-sm">
         <p class="nobottommargin">
-          <strong><a href='tel:123456789'><i class='icon-phone3'></i> 123456789</a> </strong>
-          <strong><a href='mailto:hello@egany.com'><i class='icon-email3'></i> hello@egany.com</a> </strong>
+          <strong><a href='tel:{CONF.hotline}'><i class='icon-phone3'></i> {CONF.hotline}</a> </strong>
+          <strong><a href='mailto:{CONF.email}'><i class='icon-email3'></i>{CONF.email}</a> </strong>
         </p>
       </div>
 
@@ -648,31 +648,11 @@
 
         <!-- Top Links
 ============================================= -->
-        <div class="top-links">
-
-          <ul>
-
-
-            <li><a href="tin-tuc.htm" >Tin tức</a></li>
-
-
-            <li><a href="lien-he.htm" >Liên hệ</a></li>
-
-
-            <li><a href="tuyen-dung-1.htm" >Tuyển
-                dụng</a></li>
-
-
-            <li>
-              <a href="javascript:if(confirm(%27http://the-company.bizwebvietnam.net/account  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a path excluded by the site\%27s Robot Exclusion parameters.  (Teleport Pro\%27s compliance with this system is optional; see the Project Properties, Netiquette page.)  \n\nDo you want to open it from the server?%27))window.location=%27http://the-company.bizwebvietnam.net/account%27"
-                      >Tài khoản</a></li>
-
-            <li>
-              <a href="javascript:if(confirm(%27http://the-company.bizwebvietnam.net/account/login  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a path excluded by the site\%27s Robot Exclusion parameters.  (Teleport Pro\%27s compliance with this system is optional; see the Project Properties, Netiquette page.)  \n\nDo you want to open it from the server?%27))window.location=%27http://the-company.bizwebvietnam.net/account/login%27"
-                      >Đăng nhập / Đăng ký</a></li>
-
-
-          </ul>
+        <div class="top-link">
+          <nav id="primary-menu">
+          {data.list_menu_top}
+            <div class="clear"></div>
+            </nav>
         </div>
         <!-- .top-links end -->
 

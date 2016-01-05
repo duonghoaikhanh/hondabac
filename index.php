@@ -71,6 +71,7 @@ $data['share'] = $ttH->site->get_banner ('share', 0);
 $data['share'] = $ttH->site->get_banner ('share', 0);
 $data['header_menu'] = $ttH->site->menu_single ('menu_top');
 $data['list_menu'] = $ttH->site->list_menu ('menu_header');
+$data['list_menu_top'] = $ttH->site->list_menu ('menu_top');
 $data['footer'] = $ttH->site->get_banner ('footer');
 $data['footer_menu'] = $ttH->site->list_menu ('menu_footer', 'menu_footer');
 $data['footer_bank'] = $ttH->site->get_banner_slide ('bank', 'bank_scroll');
