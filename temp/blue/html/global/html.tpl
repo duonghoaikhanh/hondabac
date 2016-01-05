@@ -649,6 +649,7 @@
         <!-- Top Links
 ============================================= -->
         <div class="top-links">
+
           <ul>
 
 
@@ -713,99 +714,7 @@
 
 
         <nav id="primary-menu">
-          <ul>
-
-
-            <li class='current'><a href="index.htm" >Trang chủ</a></li>
-
-
-            <li class=''><a class='menu' href="all.htm">Sản phẩm</a>
-              <!--<li class="current"><a href=""></a>-->
-              <ul>
-
-
-                <li class=''><a class='sub-menu' href="noi-that-nha-bep.htm">
-                    <div>Nội thất nhà bếp</div>
-                  </a></li>
-
-
-                <li class=''><a class='sub-menu' href="noi-that-phong-tam.htm">
-                    <div>Nội thất phòng tắm</div>
-                  </a></li>
-
-
-                <li class=''><a class='sub-menu' href="noi-that-phong-khach.htm">
-                    <div>Nội thất phòng khách</div>
-                  </a></li>
-
-
-                <li class=''><a class='sub-menu' href="noi-that-phong-ngu.htm">
-                    <div>Nội thất phòng ngủ</div>
-                  </a></li>
-
-
-                <li class=''><a class='sub-menu' href="sofas.htm">
-                    <div>Sofas</div>
-                  </a></li>
-
-
-                <li class=''><a class='sub-menu' href="ban-cafe.htm">
-                    <div>Bàn cafe</div>
-                  </a></li>
-
-
-                <li class=''><a class='sub-menu' href="ban.htm">
-                    <div>Bàn</div>
-                  </a></li>
-
-
-              </ul>
-            </li>
-
-
-            <li class=''><a class='menu' href="#">Dịch vụ</a>
-              <!--<li class="current"><a href=""></a>-->
-              <ul>
-
-
-                <li class=''><a class='sub-menu' href="dich-vu-giam-sat-thi-cong.htm">
-                    <div>Dịch vụ giám sát thi công</div>
-                  </a></li>
-
-
-                <li class=''><a class='sub-menu' href="dich-vu-thi-cong-noi-that.htm">
-                    <div>Dịch vụ thi công nội thất</div>
-                  </a></li>
-
-
-                <li class=''><a class='sub-menu' href="dich-vu-thi-cong-xay-dung.htm">
-                    <div>Dịch vụ thi công xây dựng</div>
-                  </a></li>
-
-
-                <li class=''><a class='sub-menu' href="dich-vu-thiet-ke-noi-that.htm">
-                    <div>Dịch vụ thiết kế nội thất</div>
-                  </a></li>
-
-
-                <li class=''><a class='sub-menu' href="dich-vu-thiet-ke-kien-truc.htm">
-                    <div>Dịch vụ thiết kế kiến trúc</div>
-                  </a></li>
-
-
-              </ul>
-            </li>
-
-
-            <li class=''><a href="du-an.htm">Dự án</a>
-            </li>
-
-
-            <li class=''><a href="gioi-thieu.htm" >Giới
-                thiệu</a></li>
-
-
-          </ul>
+          {data.list_menu}
           <!-- Top Cart
       ============================================= -->
           <div id="top-cart" class='top-cart-block'>
@@ -1988,6 +1897,29 @@
 <!-- END: menu_main -->
 
 <!-- BEGIN: menu -->
+
+<ul>
+  <!-- BEGIN: item -->
+  <li class=""><a href="{row.link}" target="{row.target}"  class="menu">{row.title}</a>
+    {row.menu_sub}
+    <!-- BEGIN: menu_sub -->
+    <ul>
+      {row.content}
+      <!-- BEGIN: row -->
+      <li class=""><a href="{row.link}" target="{row.target}" class="sub-menu">
+          <div>{row.title}</div></a>{row.menu_sub}
+      </li>
+      <!-- END: row -->
+    </ul>
+    <!-- END: menu_sub -->
+  </li>
+  <!-- END: item -->
+
+</ul>
+<!-- END: menu -->
+
+
+<!-- BEGIN: menu1 -->
 <ul class="list_none {data.class}" {data.ul_ext}>
 	<!-- BEGIN: item -->
   <li class="menu_li {row.class_li}"><a href="{row.link}" target="{row.target}"  class="menu_link css_bo {row.class}">{row.title}</a>
@@ -2003,7 +1935,7 @@
   </li>
   <!-- END: item -->
 </ul>
-<!-- END: menu -->
+<!-- END: menu1 -->
 
 <!-- BEGIN: menu_footer -->
 <!-- BEGIN: item -->

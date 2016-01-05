@@ -17,7 +17,7 @@ function load_setting (){
 	$ttH->setting = array();
 	
 	$ttH->data["menu_group"] = array(
-		//'menu_top' => $ttH->lang["layout"]["menu_top"],
+		'menu_top' => $ttH->lang["layout"]["menu_top"],
 		'menu_header' => $ttH->lang["layout"]["menu_header"],
 		//'weblink' => $ttH->lang["layout"]["weblink"],
 		'menu_footer' => $ttH->lang["layout"]["menu_footer"]
@@ -40,7 +40,6 @@ function create_folder($dir="", $mode = 0755) {
 
 function list_group ($select_name="group_id", $cur="", $ext="",$arr_more=array()) {
 	global $ttH;
-	
 	return $ttH->html->select ($select_name, $ttH->data["menu_group"], $cur, $ext,$arr_more);
 }
 

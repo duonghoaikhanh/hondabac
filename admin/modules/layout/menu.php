@@ -30,11 +30,12 @@ class sMain
 	function sMain ()
 	{
 		global $ttH;
+
 		$ttH->func->load_language_admin($this->modules);
 		$ttH->temp_act = new XTemplate($ttH->path_html.$this->modules.DS.$this->action.".tpl");
 		$ttH->temp_act->assign('LANG', $ttH->lang);
 		$ttH->temp_act->assign('DIR_IMAGE', $ttH->dir_images);
-		
+
 		$ttH->func->include_css($ttH->dir_css_global.'excolor-master/css/excolor.css');
 		$ttH->func->include_js($ttH->dir_js.'excolor-master/prettify.js');
 		$ttH->func->include_js($ttH->dir_js.'excolor-master/jquery.excolor.js');
@@ -45,17 +46,21 @@ class sMain
 				});
 			});
 		");
-		
+
 		include ($this->modules."_func.php");
 		load_setting ();
-		
+		/*if(!isset($ttH->data['menu_group']['menu_header_top'])){
+			$ttH->data['menu_group']['menu_header_top'] = 'Menu đầu trang';
+		}*/
+
 		$this->dir = create_folder(date("Y_m"));
-		
+
 		$this->cur_group = (isset($ttH->input["group_id"]) && array_key_exists($ttH->input["group_id"], $ttH->data["menu_group"])) ? $ttH->input["group_id"] : $this->cur_group;
+
 		$data["link_manage"] = $ttH->admin->get_link_admin ($this->modules, $this->action, "manage");
 		$data["link_manage_trash"] = $ttH->admin->get_link_admin ($this->modules, $this->action, "manage_trash");
 		$data["link_add"] = $ttH->admin->get_link_admin ($this->modules, $this->action, "add", array('group_id' => $this->cur_group));
-		
+
 		$this->sub = (isset($ttH->input["sub"])) ? $ttH->input["sub"] : "manage";
 		switch ($this->sub) {
 			case "add":
@@ -223,10 +228,11 @@ class sMain
 				$col["name_action"] = $name_action;
 				$col["target"] = $ttH->post["target"];
 				//$col["picture"] = (isset($ttH->post['picture'])) ? $ttH->func->get_input_pic ($ttH->post['picture']) : '';
-				//$col["color"] = (isset($ttH->post['color'])) ? $ttH->post['color'] : '';
+				$col["group_id"] = (isset($ttH->post['group_id'])) ? $ttH->post['group_id'] : '';
 				$col["show_mod"] = (isset($ttH->post["show_mod"])) ? get_input_show ($ttH->post["show_mod"]) : "";
 				$col["show_act"] = (isset($ttH->post["show_act"])) ? get_input_show ($ttH->post["show_act"]) : "";
 				$col["date_update"] = time();
+				//print_arr($col);die;
 				$ok = $ttH->db->do_update("menu", $col, " menu_id='".$menu_id."'");	
 				if($ok){
 					$col_l = array();
