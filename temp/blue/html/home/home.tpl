@@ -1,5 +1,147 @@
 <!-- BEGIN: main -->
-<div class="content-wrap">
+<section id="slider" class="slider-parallax swiper_wrapper clearfix">
+  <!--
+#################################
+- THEMEPUNCH BANNER -
+#################################
+-->
+  <div class="tp-banner-container">
+    <div class="tp-banner">
+      <ul>    <!-- SLIDE  -->
+
+
+        <li data-transition="random" data-slotamount="7" data-link="/collection/all" data-title="">
+          <img src="{DIR_IMAGE}template/slideshow_1.jpg-1450838787703.jpg">
+
+          <div class="tp-caption customin lfl ltr tp-resizeme revo-slider-caps-text uppercase"
+               data-x="center"
+               data-y="center"
+               data-customin="x:-300px;y:0px;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:0% 0%;"
+               data-speed="700"
+               data-start="1000"
+               data-easing="easeOutBack"
+               data-splitin="none"
+               data-splitout="none"
+               data-elementdelay="0.01"
+               data-endelementdelay="0.1"
+               data-endspeed="1000"
+               data-endeasing="easeOutBack" style=" color: #fff; font-size: 60px"></div>
+        </li>
+
+
+        <li data-transition="random" data-slotamount="7" data-link="/san-pham-khuyen-mai" data-title="">
+          <img src="{DIR_IMAGE}template/slideshow_3.jpg-1450838787703.jpg"
+                  >
+
+          <div class="tp-caption customin lfl ltr tp-resizeme revo-slider-caps-text uppercase"
+               data-x="center"
+               data-y="center"
+               data-customin="x:-300px;y:0px;z:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:200;transformOrigin:0% 0%;"
+               data-speed="700"
+               data-start="1000"
+               data-easing="easeOutBack"
+               data-splitin="none"
+               data-splitout="none"
+               data-elementdelay="0.01"
+               data-endelementdelay="0.1"
+               data-endspeed="1000"
+               data-endeasing="easeOutBack" style=" color: #fff; font-size: 60px"></div>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+
+    jQuery(document).ready(function () {
+
+      jQuery('.tp-banner').show().revolution(
+              {
+                dottedOverlay: "none",
+                delay: 5000,
+                startwidth: 1350,
+                startheight: 500,
+                hideThumbs: 200,
+
+                thumbWidth: 100,
+                thumbHeight: 50,
+                thumbAmount: 5,
+
+                navigationType: "none",
+                navigationArrows: "solo",
+                navigationStyle: "preview2",
+
+                touchenabled: "on",
+                onHoverStop: "on",
+
+                swipe_velocity: 0.7,
+                swipe_min_touches: 1,
+                swipe_max_touches: 1,
+                drag_block_vertical: false,
+
+                parallax: "mouse",
+                parallaxBgFreeze: "on",
+                parallaxLevels: [7, 4, 3, 2, 5, 4, 3, 2, 1, 0],
+
+                keyboardNavigation: "off",
+
+                navigationHAlign: "center",
+                navigationVAlign: "bottom",
+                navigationHOffset: 0,
+                navigationVOffset: 20,
+
+                soloArrowLeftHalign: "left",
+                soloArrowLeftValign: "center",
+                soloArrowLeftHOffset: 20,
+                soloArrowLeftVOffset: 0,
+
+                soloArrowRightHalign: "right",
+                soloArrowRightValign: "center",
+                soloArrowRightHOffset: 20,
+                soloArrowRightVOffset: 0,
+
+                shadow: 0,
+                fullWidth: "on",
+                fullScreen: "off",
+
+                spinner: "spinner4",
+
+                stopLoop: "off",
+                stopAfterLoops: -1,
+                stopAtSlide: -1,
+
+                shuffle: "off",
+
+                autoHeight: "on",
+                forceFullWidth: "off",
+
+
+                hideThumbsOnMobile: "off",
+                hideNavDelayOnMobile: 1500,
+                hideBulletsOnMobile: "off",
+                hideArrowsOnMobile: "off",
+                hideThumbsUnderResolution: 0,
+
+                hideSliderAtLimit: 0,
+                hideCaptionAtLimit: 0,
+                hideAllCaptionAtLilmit: 0,
+                startWithSlide: 0,
+                fullScreenOffsetContainer: ".header"
+              });
+
+
+    }); //ready
+
+  </script>
+
+  <!-- END REVOLUTION SLIDER -->
+
+</section>  <!-- end slider -->
+
+<section id="content">
+  <div class="content-wrap">
 
   <!-- promo -->
   <div class="promo promo-light promo-full bottommargin-lg header-stick notopborder">
@@ -359,6 +501,7 @@
   </div>
 
 </div>
+</section>
 <!-- END: main --> 
 
 <!-- BEGIN: main_slide -->

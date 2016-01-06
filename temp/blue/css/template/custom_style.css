@@ -134,6 +134,8 @@ label.options-title {
 }
 .product-image img {
 	height: auto;
+	width: auto;
+	margin: 0 auto;
 }
 .left-sidebar .spost .entry-image a,
 .left-sidebar .spost .entry-image {

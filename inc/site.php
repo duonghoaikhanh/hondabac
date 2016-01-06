@@ -701,7 +701,7 @@ class Site
 			if (! empty($extra)) $pLink = $root_link . "/?{$p}=" . $numpage . "{$extra}";
 			else
 			  $pLink = $root_link . "/?{$p}=" . $numpage;
-			$navigation .= "<a href='" . $pLink . "' class='btnPage prev'>&#8249;</a>";
+			$navigation .= "<a href='" . $pLink . "' class='btnPage prev'>&laquo;</a>";
 		  }
 		  // End	
 		  // Left
@@ -735,7 +735,7 @@ class Site
 
 			$numpage = $cPage + 1;
 			$pLink = $root_link . "/?{$p}=" . $numpage . "{$extra}";
-			$navigation .= "<a href='" . $pLink . "' class='btnPage next'>&#8250;</a>";
+			$navigation .= "<a href='" . $pLink . "' class='btnPage next'>&raquo;</a>";
 		  }
 		  // End		
 		  // Show Last page
@@ -746,7 +746,7 @@ class Site
 		  }
 		  // End
 			
-			$navigation = '<div class="paginate">'.$navigation.'</div>';
+			$navigation = '<div class="paginate text-center">'.$navigation.'</div>';
 			
 		} // end if total pages is greater than one
 		return $navigation;

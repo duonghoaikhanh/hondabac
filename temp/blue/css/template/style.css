@@ -11581,7 +11581,7 @@ body:not(.device-touch) .tagcloud a {
 
 .widget_recent_comments li {
 	display: block;
-	background: url("widget-comment.png")/*tpa=http://bizweb.dktcdn.net/100/035/474/themes/46087/assets/widget-comment.png*/ left top no-repeat;
+	background: url("../images/widget-comment.png") left top no-repeat;
 	padding: 4px 0 4px 20px;
 }
 
@@ -11594,7 +11594,7 @@ body:not(.device-touch) .tagcloud a {
 .widget_pages li a,
 .widget_rss li a,
 .widget_recent_comments li a {
-	background: url("widget-link.png")/*tpa=http://bizweb.dktcdn.net/100/035/474/themes/46087/assets/widget-link.png*/ left top no-repeat;
+	background: url("../images/widget-link.png") left top no-repeat;
 	border: none !important;
 	color: #444;
 	font-size: 14px;
@@ -12965,4 +12965,43 @@ HTML5 Youtube Video Backgrounds
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+.pagelink{
+	padding: 6px 12px;
+	line-height: 1.42857143;
+	text-decoration: none;
+	color: #337ab7;
+	background-color: #ffffff;
+	border: 1px solid #dddddd;
+	margin-left: -1px;
+}
+.pagecur{
+	padding: 6px 12px;
+	border: 1px solid #dddddd;
+	color: #FFF !important;
+	background-color: #700b0b !important;
+	border-color: #700b0b !important;
+}
+.btnPage.next{
+	border-bottom-right-radius: 4px;
+	border-top-right-radius: 4px;
+	padding: 6px 12px;
+	line-height: 1.42857143;
+	text-decoration: none;
+	color: #337ab7;
+	background-color: #ffffff;
+	border: 1px solid #dddddd;
+	margin-left: -1px;
+}
+.btnPage.prev{
+	margin-left: 0;
+	border-bottom-left-radius: 4px;
+	border-top-left-radius: 4px;
+	padding: 6px 12px;
+	line-height: 1.42857143;
+	text-decoration: none;
+	color: #337ab7;
+	background-color: #ffffff;
+	border: 1px solid #dddddd;
+	margin-left: -1px;
 }

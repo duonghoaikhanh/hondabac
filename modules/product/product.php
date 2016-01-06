@@ -41,7 +41,7 @@ class sMain
 		
 		$data = array();
 		if(isset($ttH->conf['cur_group'])){
-			$result = $ttH->db->query("select group_id, group_nav, is_show   
+			$result = $ttH->db->query("select group_id, group_nav, is_show
 										from product_group 
 										where group_id='".$ttH->conf['cur_group']."' 
 										and is_show=1 
@@ -193,8 +193,8 @@ class sMain
 									)",
 			'temp' => 'list_item',
 			'num_row' => 3,
-			'pic_w' => 300,
-			'pic_h' => 300,
+			'pic_w' => 270,
+			'pic_h' => 150,
 		);
 		
 		if($info['group_id'] == 15) {

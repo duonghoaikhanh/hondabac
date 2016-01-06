@@ -79,6 +79,7 @@ $lang = array (
 	'action_success' => 'Action success',
 	'footer_share' => 'Kết nối với IMS',
 	'footer_bank' => 'Đối tác thanh toán',
-	'copyright' => 'Copyright 2014  BBGreen Shop  All Rights Reserved'
+	'copyright' => 'Copyright 2014  BBGreen Shop  All Rights Reserved',
+	'aleft_title'=>'Thông báo'
 ); 
 ?>

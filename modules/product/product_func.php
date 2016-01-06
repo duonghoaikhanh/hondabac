@@ -312,8 +312,8 @@ function html_list_item ($arr_in = array()){
 	$n = (isset($ttH->setting['product']["num_list"])) ? $ttH->setting['product']["num_list"] : 30;
 	$n = (isset($arr_in["num_list"])) ? $arr_in["num_list"] : $n;
 	$num_row = (isset($arr_in['num_row'])) ? $arr_in['num_row'] : 3;
-	$pic_w = (isset($arr_in['pic_w'])) ? $arr_in['pic_w'] : 130;//302;
-	$pic_h = (isset($arr_in['pic_h'])) ? $arr_in['pic_h'] : 130;//377;
+	$pic_w = (isset($arr_in['pic_w'])) ? $arr_in['pic_w'] : 270;//302;
+	$pic_h = (isset($arr_in['pic_h'])) ? $arr_in['pic_h'] : 150;//377;
 	
 	$ext = '';
 	$where = (isset($arr_in['where'])) ? $arr_in['where'] : '';
@@ -363,7 +363,7 @@ function html_list_item ($arr_in = array()){
 			$row['pic_w'] = $pic_w;
 			$row['pic_h'] = $pic_h;
 			$row['link'] = $ttH->site->get_link ('product','',$row['friendly_link']);
-			$row["picture"] = $ttH->func->get_src_mod($row["picture"], $pic_w, $pic_h, 1, 1);
+			$row["picture"] = $ttH->func->get_src_mod($row["picture"], $pic_w, $pic_h, 1, 0);
 			
 			$row["short"] = $ttH->func->short($row["short"], 120);
 			
@@ -393,7 +393,7 @@ function html_list_item ($arr_in = array()){
 			//$ttH->temp_act->parse($temp.".row_item.col_item.info");
 			
 			$row["link_cart"] = $ttH->site_func->get_link_popup ('product','cart', array('item_id'=>$row['item_id']));
-			
+			//print_arr($row);die;
 			$ttH->temp_act->assign('col', $row);
 			$ttH->temp_act->parse($temp.".row_item.col_item");
 			if($i%$num_row == 0 || $i == $num){
@@ -413,6 +413,7 @@ function html_list_item ($arr_in = array()){
 	
 	$data['html_row'] = $html_row;
 	$data['nav'] = (!empty($nav)) ? '<div class="hr"></div>'.$nav : '';
+	//echo $data['nav'];die;
 	$data['link_action'] = $link_action."&p=".$p;
 
 	$ttH->temp_act->assign('data', $data);
