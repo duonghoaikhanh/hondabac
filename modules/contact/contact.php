@@ -31,12 +31,10 @@ class sMain
 		$ttH->temp_act->assign('LANG', $ttH->lang);
 		$ttH->temp_act->assign('DIR_IMAGE', $ttH->dir_images);
 		
-		$ttH->func->include_css ($ttH->dir_css.$this->modules.'/'.$this->action.".css");
-		
 		$ttH->conf['menu_action'] = $this->modules;
 		
 		include ($this->modules."_func.php");
-		
+
 		//Make link lang
 		foreach($ttH->data['lang'] as $row_lang) {
 			$ttH->data['link_lang'][$row_lang['name']] = $ttH->site->get_link_lang ($row_lang['name'], $this->modules);
@@ -54,7 +52,7 @@ class sMain
 		$data['content'] = $this->do_Contact();
 		$data['box_left'] = box_left();
 		$data['box_column'] = box_column();
-	
+
 		$ttH->temp_act->assign('data', $data);
 		$ttH->temp_act->parse("main");
 		$ttH->output .=  $ttH->temp_act->text("main");
@@ -139,8 +137,8 @@ class sMain
     $data['link_action'] = $ttH->site->get_link ($this->modules);
 		
 		$data['title'] = isset($ttH->input['title']) ? $ttH->input['title'] : '';
-    $data['contact_info'] = $contact_info; 
-		
+    $data['contact_info'] = $contact_info;
+
     $ttH->temp_act->assign("data", $data);
     $ttH->temp_act->assign("setting", $ttH->setting['contact']);
     $ttH->temp_act->parse("html_contact");
