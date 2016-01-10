@@ -34,7 +34,7 @@
 ============================================= -->
 <div class="postcontent nobottommargin" id="contact_form">
 
-    <h3>Viết nhận xét</h3>
+    <h3>{LANG.contact.contact_us}</h3>
     {data.err}
     <form id="form_contact" name="form_contact" method="post" action="{data.link_action}" >
         <div class="col_one_third">
@@ -72,14 +72,14 @@
 <!-- Sidebar
 ============================================= -->
 <div class="sidebar col_last nobottommargin">
-    <h3>Chúng tôi ở đây</h3>
+    <h3>{LANG.contact.us_at}</h3>
     <address>
         <strong>THE COMPANY HEAD OFFICE</strong><br>
-        61/2 Quang Trung, P.10  Q. Gò Vấp, TP. HCM
+        {data.conf.address_company}
     </address>
-    <abbr title="Phone Number"><strong>Số điện thoại:</strong></abbr> (91) 8547 632521<br>
-    <abbr title="Fax"><strong>Fax:</strong></abbr> (91) 8547 632521<br>
-    <abbr title="Email Address"><strong>Email:</strong></abbr> hi@Bizweb.com
+    <abbr title="Phone Number"><strong>{LANG.contact.phone}Số điện thoại:</strong></abbr> {data.conf.hotline}<br>
+    <abbr title="Fax"><strong>{LANG.contact.fax}:</strong></abbr> {data.conf.fax}<br>
+    <abbr title="Email Address"><strong>{LANG.contact.email}:</strong></abbr> {data.conf.email}
 
 </div><!-- .sidebar end -->
 

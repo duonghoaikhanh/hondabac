@@ -135,9 +135,10 @@ class sMain
 		 
 		$data["err"] = $err;
     $data['link_action'] = $ttH->site->get_link ($this->modules);
-		
-		$data['title'] = isset($ttH->input['title']) ? $ttH->input['title'] : '';
+  	$data['title'] = isset($ttH->input['title']) ? $ttH->input['title'] : '';
     $data['contact_info'] = $contact_info;
+	  $data['conf'] = $ttH->conf;
+
 
     $ttH->temp_act->assign("data", $data);
     $ttH->temp_act->assign("setting", $ttH->setting['contact']);

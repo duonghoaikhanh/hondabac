@@ -72,10 +72,7 @@ class sMain
 					'title' => $ttH->lang['global']['homepage'],
 					'link' => $ttH->site->get_link ('home')
 				),
-				array(
-					'title' => $ttH->lang['about']['mod_title'],
-					'link' => $ttH->site->get_link ('about')
-				),
+
 				array(
 					'title' => $ttH->data['cur_item']['title'],
 					'link' => $ttH->data['link_lang'][$ttH->conf['lang_cur']]
@@ -93,6 +90,8 @@ class sMain
 			
 			$ttH->temp_box->assign('data', array('link_share' => $ttH->data['link_lang'][$ttH->conf['lang_cur']]));
 			$ttH->temp_box->parse("html_list_share");
+			$data['title'] = $row['title'];
+			$data['navigation'] = $ttH->navigation;
 			$data['content'] .= $ttH->temp_box->text("html_list_share");
 			
 		}else{

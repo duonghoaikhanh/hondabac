@@ -1,8 +1,10 @@
 <!-- BEGIN: box_main -->
+
 <div class="box_mid css_bo">
 	<div class="box_mid-title">
   	<div class="mid_title-line"></div>
-  	<span><h1 class="mid_title_l">{data.title}</h1></span>
+
+  	<span class="hide"><h1 class="mid_title_l">{data.title}</h1></span>
     <div class="mid_title_r">{data.more_title}</div>
     <div class="clear"></div>
   </div>
@@ -363,14 +365,13 @@
 <!-- END: form_signup_user -->
 
 <!-- BEGIN: html_navigation -->
-<div class="tth_navigation">
-  <ul>
-    <!-- BEGIN: row -->
-    <li {row.class_li}><a href="{row.link}" {row.class}>{row.title}</a></li>
-    <!-- END: row -->
-  </ul>
-  <div class="clear"></div>
-</div>
+<ol class="breadcrumb col-md-6 col-sm-6 hidden-xs">
+  <!-- BEGIN: row -->
+  <li>{row.content}</li>
+  <!-- END: row -->
+
+</ol>
+
 <!-- END: html_navigation -->
 
 <!-- BEGIN: html_list_share -->

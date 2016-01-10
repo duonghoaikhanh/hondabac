@@ -7742,7 +7742,6 @@ Featured Boxes
 	padding: 2px;
 	z-index: -1;
 	box-shadow: none;
-	background-image: url('iconalt.svg')/*tpa=http://bizweb.dktcdn.net/100/035/474/themes/46087/assets/iconalt.svg*/;
 	background-position: center center;
 	background-size: 100% 100%;
 	-webkit-transition: -webkit-transform 0.5s, opacity 0.5s, background-color 0.5s;
@@ -8031,7 +8030,6 @@ body:not(.device-touch) .social-icon {
 }
 
 .i-alt {
-	background-image: url('iconalt.svg')/*tpa=http://bizweb.dktcdn.net/100/035/474/themes/46087/assets/iconalt.svg*/;
 	background-position: center center;
 	background-size: 100% 100%;
 }
@@ -8180,7 +8178,7 @@ Icon Overlay
 	top: 0;
 	left: 0;
 	text-align: center;
-	background: rgba(0,0,0,0.2) url('grid.png')/*tpa=http://bizweb.dktcdn.net/100/035/474/themes/46087/assets/grid.png*/ repeat;
+	background: rgba(0,0,0,0.2);
 }
 
 .i-overlay img,
@@ -10042,8 +10040,6 @@ Owl Carousel CSS
 	-webkit-transform:translate3d(0px,0,0);
 	cursor:move;
 	cursor:-webkit-grab;
-	cursor:-o-grab;
-	cursor:-ms-grab;
 	cursor:grab
 }
 
@@ -10064,7 +10060,6 @@ Owl Carousel CSS
 .owl-carousel.owl-loading {
 	display:block;
 	min-height: 100px;
-	background: url('preloader.gif')/*tpa=http://bizweb.dktcdn.net/100/035/474/themes/46087/assets/preloader.gif*/ no-repeat center center
 }
 
 .owl-carousel.owl-hidden { opacity:0 }
@@ -10094,16 +10089,11 @@ Owl Carousel CSS
 
 .owl-carousel.owl-text-select-on .owl-item {
 	-webkit-user-select:auto;
-	-moz-user-select:auto;
-	-ms-user-select:auto;
-	user-select:auto
 }
 
 .owl-carousel .owl-grab {
 	cursor:move;
 	cursor:-webkit-grab;
-	cursor:-o-grab;
-	cursor:-ms-grab;
 	cursor:grab
 }
 
@@ -10136,7 +10126,6 @@ Owl Carousel CSS
 	top: 50%;
 	margin-left: -32px;
 	margin-top: -32px;
-	background: url("play.png")/*tpa=http://bizweb.dktcdn.net/100/035/474/themes/46087/assets/play.png*/ no-repeat;
 	cursor: pointer;
 	z-index: 1;
 	-webkit-backface-visibility: hidden;

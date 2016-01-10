@@ -768,6 +768,8 @@ class Site
 				$i++;
 				$row['class_li'] = ($i == 1) ? ' class="first"' : '';
 				$row['class'] = ($i == $num) ? ' class="current"' : '';
+				$row['active'] = ($i == $num) ? ' class="active"' : '';
+				$row['content'] = ($i <$num) ? '<a href="'.$row['link'].'">'.$row['title'].'</a>' :''.$row['title'].'';
 				$ttH->temp_box->assign('row', $row);
 				$ttH->temp_box->parse("html_navigation.row");
 			}

@@ -14,6 +14,9 @@ $lang = array (
 	'btn_send' => 'Gửi',
 	'btn_reset' => 'Làm lại',
 	'send_success' => 'Gửi thành công',
-	'send_false' => 'Gửi thất bại'
-); 
+	'send_false' => 'Gửi thất bại',
+	'us_at' => 'Chúng tôi ở đây',
+	'contact_us' => 'Liên hệ với chúng tôi',
+	'fax' => 'Fax',
+);
 ?>
