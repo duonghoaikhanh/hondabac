@@ -52,8 +52,8 @@ function html_list_item ($arr_in = array())
 	$link_action = (isset($arr_in['link_action'])) ? $arr_in['link_action'] : $ttH->site->get_link ('news');
 	$temp = (isset($arr_in['temp'])) ? $arr_in['temp'] : 'list_item';
 	$p = (isset($ttH->input["p"])) ? $ttH->input["p"] : 1;
-	$pic_w = (isset($ttH->setting['news']["img_list_w"])) ? $ttH->setting['news']["img_list_w"] : 150;
-	$pic_h = (isset($ttH->setting['news']["img_list_h"])) ? $ttH->setting['news']["img_list_h"] : 100;
+	$pic_w = 300;
+	$pic_h = 214;
 	$num_row = 3;
 	
 	$ext = '';
@@ -76,7 +76,7 @@ function html_list_item ($arr_in = array())
 	
 	$where .= " order by show_order desc, date_update desc";
 	
-	$sql = "select item_id,group_id,picture,title,content,friendly_link,date_update  
+	$sql = "select item_id,group_id,picture,title,content,friendly_link,date_update,date_create
 					from news 
 					where is_show=1 
 					and lang='".$ttH->conf["lang_cur"]."' 
@@ -99,19 +99,15 @@ function html_list_item ($arr_in = array())
 			$row['pic_w'] = $pic_w;
 			$row['pic_h'] = $pic_h;
 			$row['link'] = $ttH->site->get_link ('news','',$row['friendly_link']);
-			$row["picture"] = $ttH->func->get_src_mod('news/'.$row["picture"], $pic_w, $pic_h, 1, 0, array('fix_min' => 1));
+			//$row["picture"] = $ttH->func->get_src_mod($row["picture"], $pic_w, $pic_h, 1, 0, array('fix_min' => 1));
+			$row["picture"] = $ttH->func->get_src_mod($row["picture"], $pic_w, $pic_h, 1, 1);
 			$row['short'] = $ttH->func->short ($row['content'], 400);
 			$row['date_update'] = date('d/m/Y',$row['date_update']);
-			
+			$row['date_create'] = date('d/m/Y',$row['date_create']);
 			$row['class'] = ($i%$num_row == 0 || $i == $num) ? ' last' : '';
 			
-			$ttH->temp_act->assign('col', $row);
-			$ttH->temp_act->parse($temp.".row_item.col_item");
-			
-			if($i%$num_row == 0 || $i == $num){
-				$ttH->temp_act->assign('row', array('hr' => ($i < $num) ? '<div class="hr"></div>' : ''));
-				$ttH->temp_act->parse($temp.".row_item");
-			}
+			$ttH->temp_act->assign('row', $row);
+			$ttH->temp_act->parse($temp.".row_item");
 		}
 	}
 	else
@@ -232,12 +228,15 @@ function get_navigation ()
 {
 	global $ttH;
 	
-	return '';
-	
+
 	$arr_nav = array(
 		array(
 			'title' => $ttH->lang['global']['homepage'],
 			'link' => $ttH->site->get_link ('home')
+		),
+		array(
+			'title' => $ttH->setting['news']['news_meta_title'],
+			'link' => $ttH->site->get_link ('news')
 		)
 	);
 	
@@ -255,10 +254,13 @@ function get_navigation ()
 	if(isset($ttH->conf['cur_item']) && $ttH->conf['cur_item'] > 0) {
 		$arr_nav[] = array(
 			'title' => $ttH->data["cur_item"]['title'],
-			'link' => $ttH->site->get_link ('news', '', $ttH->data["news_group"][$group_id]['friendly_link'])
 		);
+		if(isset($group_id)){
+			$arr_nav[]['link'] = $ttH->site->get_link ('news', '', $ttH->data["news_group"][$group_id]['friendly_link']);
+
+		}
 	}
-	
+
 	return $ttH->site->html_arr_navigation($arr_nav);
 }
 
@@ -268,12 +270,13 @@ function list_other ($where='')
 	
 	$output = '';
 	
-	$sql = "select item_id,title,friendly_link,date_update  
+	$sql = "select item_id,title,friendly_link,date_update  ,picture
 			from news 
 			where is_show=1 
 			and lang='".$ttH->conf["lang_cur"]."' 
 			".$where."
-			order by show_order desc, date_update desc";
+			order by show_order desc, date_update desc
+			limit 0,4";
 	//echo $sql;
 	
 	$result = $ttH->db->query($sql);
@@ -286,9 +289,18 @@ function list_other ($where='')
 			$i++;
 			$row['link'] = $ttH->site->get_link ('news','',$row['friendly_link']);
 			$row['date_update'] = date('d/m/Y',$row['date_update']);
+			$row["picture"] = $ttH->func->get_src_mod($row["picture"], 170, 113, 1, 1);
 			
 			$ttH->temp_act->assign('row', $row);
-			$ttH->temp_act->parse("list_other.row");
+			$ttH->temp_act->parse("list_other.col.row");
+			$row['last'] ='';
+			if($i%2 == 0 || $i == $num){
+				$row['col_last'] = 'col_last';
+				$ttH->temp_act->assign('col', $row);
+				$ttH->temp_act->parse("list_other.col");
+			}
+
+
 		}
 	
 		$ttH->temp_act->parse("list_other");

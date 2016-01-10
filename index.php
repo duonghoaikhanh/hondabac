@@ -77,7 +77,7 @@ $data['list_page_newest_footer'] = $ttH->site->box_page_newest_footer ();
 $data['banner_info_contact_company_footer'] = $ttH->site->get_banner ('banner-info-contact-company-footer');
 $data['footer_menu'] = $ttH->site->list_menu ('menu_footer', 'menu_footer');
 $data['footer_bank'] = $ttH->site->get_banner_slide ('bank', 'bank_scroll');
-
+$data['fanpage_facebook'] = $ttH->site->fanpage_facebook ();
 $data['deviceType'] = ($ttH->detect->isMobile() ? ($ttH->detect->isTablet() ? 'tablet' : 'phone') : 'computer');
 
 $widget = array();

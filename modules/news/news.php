@@ -68,7 +68,7 @@ class sMain
 				$ttH->site->get_seo ($ttH->data['cur_group']);
 				
 				$ttH->conf["cur_group_nav"] = $row["group_nav"];			
-				$ttH->navigation = get_navigation ();	
+				$ttH->navigation = get_navigation ();
 				$data = array(
 					"content" => $this->do_list_group($row, $ttH->data['cur_group']),
 					"box_column" => box_column ()
@@ -105,7 +105,7 @@ class sMain
 				//End current menu
 				
 				$ttH->navigation = get_navigation ();
-				
+
 				$data = array(
 					"content" => $this->do_detail($row, $ttH->data['cur_item']),
 					"box_column" => box_column ()
@@ -129,13 +129,13 @@ class sMain
 			$ttH->conf["cur_group"] = 0;
 			
 			$ttH->navigation = get_navigation ();
-			
+
 			$data = array(
 				"content" => $this->do_list(),
 				"box_column" => box_column ()
 			);
 		}
-	
+		$data['conf'] = $ttH->conf;
 		$ttH->temp_act->assign('data', $data);
 		$ttH->temp_act->parse("main");
 		$ttH->output .=  $ttH->temp_act->text("main");
@@ -269,9 +269,10 @@ class sMain
 		
 		$data = array(
 			'content' => html_list_item($arr_in),
-			'title' => $ttH->conf['meta_title']
+			'title' => $ttH->conf['meta_title'],
+			'navigation' => get_navigation(),
+			'box_column' => $ttH->site->block_column()
 		);
-		
 		$ttH->temp_box->assign('data', $data);
 		$ttH->temp_box->parse("box_main");
 		return $ttH->temp_box->text("box_main");
@@ -310,14 +311,17 @@ class sMain
 		$ttH->temp_box->assign('data', array('link_share' => $ttH->data['link_lang'][$ttH->conf['lang_cur']]));
 		$ttH->temp_box->parse("html_list_share");
 		$data['content'] .= $ttH->temp_box->text("html_list_share");
-		$data['content'] .= list_other (" and a.item_id!='".$data['item_id']."'");
-		
+		$data['content'] .= list_other (" and item_id!='".$data['item_id']."'");
+		$data['navigation'] = get_navigation();
+		$data['box_column'] = $ttH->site->block_column();
+
 		$ttH->temp_act->assign('data', array(
 			'title' => urlencode($data['title']),
 			'link' => $ttH->data['link_lang'][$ttH->conf['lang_cur']]
 		));
 		$ttH->temp_act->parse("html_title_more");
 		$data['more_title'] = $ttH->temp_act->text("html_title_more");
+
 		$ttH->temp_box->assign('data', $data);
 		$ttH->temp_box->parse("box_main");
 		$output = $ttH->navigation.$ttH->temp_box->text("box_main");

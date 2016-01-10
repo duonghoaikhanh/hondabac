@@ -1,6 +1,7 @@
 <!-- BEGIN: main -->
 {data.content}
-<!-- END: main --> 
+
+<!-- END: main -->
 
 <!-- BEGIN: focus -->
 <div class="news_focus">
@@ -43,6 +44,38 @@
 <!-- END: list_group --> 
 
 <!-- BEGIN: list_item -->
+<div id="posts" class="small-thumbs">
+  <!-- BEGIN: row_item -->
+  <div class="entry clearfix">
+
+    <div class="entry-image">
+      <a href="{row.link}" data-lightbox="image"><img class="image_fade" src="{row.picture}" alt="{row.title}" style="opacity: 1;"></a>
+    </div>
+    <div class="entry-c">
+      <div class="entry-title">
+        <h2><a href="{row.link}">{row.title}</a></h2>
+      </div>
+      <ul class="entry-meta clearfix">
+        <li><i class="icon-calendar3"></i> {row.date_create}</li>
+        <!--<li><a href="/thiet-ke-khu-bep-sang-trong-am-cung#comments"><i class="icon-comments"></i> 2 Bình luận</a></li>-->
+      </ul>
+      <div class="entry-content">
+        {row.short} <a href="{row.link}" class="more-link">{LANG.news.view_more}</a>
+      </div>
+    </div>
+  </div>
+  <!-- END: row_item -->
+
+
+
+
+</div>
+
+{data.nav}
+<!-- END: list_item -->
+
+
+<!-- BEGIN: list_item1 -->
 <div class="list_item">
   <!-- BEGIN: row_item -->
   <div class="row_item {row.class}">
@@ -54,32 +87,45 @@
       <div class="date">{col.date_update}</div>
       <a href="{col.link}" class="view_detail" title="{col.title}">{LANG.news.view_detail}</a>
     </div>
-    <!-- END: col_item --> 
+    <!-- END: col_item -->
     <div class="clear"></div>
   </div>
   {row.hr}
-  <!-- END: row_item --> 
+  <!-- END: row_item -->
   <!-- BEGIN: row_empty -->
   <div class="row_empty">{row.mess}</div>
-  <!-- END: row_empty --> 
+  <!-- END: row_empty -->
 </div>
 {data.nav}
-<!-- END: list_item --> 
+<!-- END: list_item1 -->
 
 <!-- BEGIN: html_title_more -->
-<div class="tool_page">
-  <a href="javascript:print();" class="icon_print">{LANG.news.print}</a>
-</div>
-<!-- END: html_title_more --> 
+<!-- END: html_title_more -->
 
 <!-- BEGIN: list_other -->
 <div class="hr"></div>
-<div class="list_other">
-  <div class="list_other-title">{LANG.news.other_news}</div>
-	<ul>
-  	<!-- BEGIN: row -->
-  	<li><a href="{row.link}" title="{row.title}">{row.title}</a> <span class="date">({row.date_update})</span></li>
-    <!-- END: row --> 
-  </ul>
+<div class="related-posts clearfix">
+  <!-- BEGIN: col -->
+  <div class="col_half nobottommargin {col.col_last}">
+    <!-- BEGIN: row -->
+    <div class="mpost clearfix">
+      <div class="entry-image related-posts-img">
+        <a href="{row.link}e"><img src="{row.picture}" alt="{row.title}"></a>
+      </div>
+      <div class="entry-c">
+        <div class="entry-title">
+          <h4><a href="{row.link}">{row.title}</a></h4>
+        </div>
+        <ul class="entry-meta clearfix">
+          <li><i class="icon-calendar3"></i>{row.date_update}</li>
+        </ul>
+        <div class="entry-content">{row.title}.</div>
+      </div>
+    </div>
+    <!-- END: row -->
+  </div>
+  <!-- END: col -->
+
 </div>
+
 <!-- END: list_other --> 

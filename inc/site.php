@@ -1282,9 +1282,50 @@ class Site
 
 		return $output;
 	}
-	
+
+
+	// box_page_newest
+
+	function box_news_newest ($num_show = 3)
+	{
+		global $ttH;
+
+		$output = '';
+
+		$pic_w = 275;
+		$pic_h = 275;
+
+		$sql = "select *
+						from news
+						where is_show=1
+						and lang='".$ttH->conf['lang_cur']."'
+						order by show_order desc, date_update desc
+						limit 0,".$num_show;
+		//echo $sql;
+		$result = $ttH->db->query($sql);
+		if ($num = $ttH->db->num_rows($result)) {
+			$output .= '<div id="footer_page_focus"><ul class="list_none">';
+			$i = 0;
+			while ($row = $ttH->db->fetch_row($result)) {
+				$i++;
+				$row['link'] = $ttH->site->get_link('page','',$row['friendly_link']);
+				$row['picture'] = $ttH->func->get_src_mod($row['picture'], $pic_w, $pic_h,1, 1);
+				$row['title'] = $ttH->func->short($row['title'], 40);
+				$row['short'] = $ttH->func->short($row['content'], 250);
+				$row['date_create'] = date('d/m/Y', $row['date_create']);
+
+				$ttH->temp_html->assign('row', $row);
+				$ttH->temp_html->parse("list_news_newest.row");
+			}
+			$ttH->temp_html->parse("list_news_newest");
+			$output = $ttH->temp_html->text("list_news_newest");
+		}
+
+		return $output;
+	}
 	// box_support
-  function box_support_old ()
+
+	function box_support_old ()
   {
     global $ttH;
 		
@@ -1418,19 +1459,18 @@ class Site
     global $ttH;
 		
 		$output = '';
-		$output .= $this->box_menu_product ();
-		//$output .= $this->auto_sidebar ('right');
-		//$output .= $this->get_facebook ();
-		//thống kê truy cập
-		$online = isset($ttH->lang['global']['online']) ? $ttH->lang['global']['online'] : "";
-		$total_online = isset($ttH->lang['global']['online']) ? $ttH->lang['global']['total_online'] : "";
-		$output .= '<div id="tth-statistic">
-                        <div class="title_static" >'. $online.': &nbsp;<span id="tth-online" style="font-weight:bold;"></span></div>
+		$output .= $this->box_news_newest ();
+	  $output .= '<div class="widget clearfix" style="overflow:hidden;">
+            <h4>Facebook</h4>';
+	  	$output .= $this->fanpage_facebook ();
+	  $output .= '</div>';
+		//$online = isset($ttH->lang['global']['online']) ? $ttH->lang['global']['online'] : "";
+		//$total_online = isset($ttH->lang['global']['online']) ? $ttH->lang['global']['total_online'] : "";
+		//$output .= '<div id="tth-statistic">
+                        //<div class="title_static" >'. $online.': &nbsp;<span id="tth-online" style="font-weight:bold;"></span></div>
+                        //<div class="title_static last" >'.$total_online .':&nbsp;	<span id="tth-total" style="font-weight:bold;"></span></div>
 
-
-                        <div class="title_static last" >'.$total_online .':&nbsp;	<span id="tth-total" style="font-weight:bold;"></span></div>
-
-                    </div>';
+                    //</div>';
 		
 		return $output;
   }
@@ -1476,20 +1516,22 @@ class Site
 		return $output;
 	}
 	
-	//=================get_facebook===============
-	function get_facebook (){
+	//=================fanpage_facebook===============
+	function fanpage_facebook (){
 		global $ttH;
 		
 		$output = '';
-		$share_page = isset($ttH->conf['share_page']) ? $ttH->conf['share_page'] : "";
+		$share_page = isset($ttH->conf['fanpage_facebook']) ? $ttH->conf['fanpage_facebook'] : "";
 		//print_arr($ttH->conf);die();
-		$output .= '<div class="facebook">
-                        <div class="share_page">
-                            <div class="share_page-title">'.$share_page.'</div>
-                            <iframe src="//www.facebook.com/plugins/likebox.php?href='.$ttH->conf['fanpage_facebook'].'&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=false&amp;height=420px&amp;width=274px" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:420px; width:274px;" allowTransparency="true"></iframe>
-                            <div class="clear"></div>
-                        </div>
-                    </div>';
+		$output .= '<div id="fb-root"></div>
+            <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5&appId=1631194227153965";
+                fjs.parentNode.insertBefore(js, fjs);
+              }(document, "script", "facebook-jssdk"));</script>
+            <div class="fb-page" data-href="'.$share_page.'" data-tabs="timeline" data-width="300" data-height="214" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="'.$share_page.'"><a href="'.$share_page.'">Facebook</a></blockquote></div></div>';
 		
 		return $output; 
 	}

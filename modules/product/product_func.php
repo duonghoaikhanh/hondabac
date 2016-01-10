@@ -28,7 +28,6 @@ function get_navigation ()
 			'link' => $ttH->site->get_link ('product')
 		)
 	);
-	
 	$arr_group = ($ttH->conf['cur_group'] > 0 && isset($ttH->conf["cur_group_nav"])) ? explode(',',$ttH->conf["cur_group_nav"]) : array();
 	
 	foreach($arr_group as $group_id) {

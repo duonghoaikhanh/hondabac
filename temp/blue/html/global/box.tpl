@@ -1,15 +1,47 @@
 <!-- BEGIN: box_main -->
-
-<div class="box_mid css_bo">
-	<div class="box_mid-title">
-  	<div class="mid_title-line"></div>
-
-  	<span class="hide"><h1 class="mid_title_l">{data.title}</h1></span>
-    <div class="mid_title_r">{data.more_title}</div>
-    <div class="clear"></div>
+<section id="page-title">
+  <div class="container clearfix">
+    <h1 class="col-md-6 col-sm-6">{data.title}</h1><br>
+    {data.navigation}
   </div>
-  <div class="box_mid-content">{data.content}</div>
-</div>
+</section>
+<section id="content">
+  <div class="content-wrap">
+    <div class="container clearfix">
+      <div class="postcontent nobottommargin clearfix">
+        <div class="box_mid css_bo">
+          <div class="box_mid-title">
+            <div class="mid_title-line"></div>
+
+            <span class="hide"><h1 class="mid_title_l">{data.title}</h1></span>
+            <div class="mid_title_r">{data.more_title}</div>
+            <div class="clear"></div>
+          </div>
+          <div class="box_mid-content">{data.content}</div>
+        </div>
+
+
+      </div><!-- .postcontent end -->
+
+
+      <!-- Sidebar
+============================================= -->
+      <div class="sidebar nobottommargin col_last clearfix">
+        <div class="sidebar-widgets-wrap">
+
+          {data.box_column}
+
+        </div>
+
+      </div>
+      <!-- .sidebar end -->
+
+    </div>
+
+  </div>
+
+</section>
+
 <!-- END: box_main -->
 
 <!-- BEGIN: box_main_focus -->

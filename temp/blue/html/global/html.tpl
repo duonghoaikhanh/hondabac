@@ -423,15 +423,7 @@
           <div class="widget clearfix">
 
             <h4>Facebook</h4>
-            <div id="fb-root"></div>
-            <script>(function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.5&appId=1631194227153965";
-                fjs.parentNode.insertBefore(js, fjs);
-              }(document, 'script', 'facebook-jssdk'));</script>
-            <div class="fb-page" data-href="{CONF.fanpage_facebook}" data-tabs="timeline" data-width="300" data-height="214" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="{CONF.fanpage_facebook}"><a href="{CONF.fanpage_facebook}">Facebook</a></blockquote></div></div>
+            {data.fanpage_facebook}
           </div>
 
         </div>
@@ -654,6 +646,32 @@
 </div>
 
 <!-- END: list_page_newest_footer -->
+
+<!-- BEGIN: list_news_newest -->
+<div class="widget clearfix">
+  <h4 style="margin-bottom:10px;">Bài viết mới nhất</h4>
+
+  <div class="tab-container">
+    <!-- BEGIN: row -->
+    <div class="spost clearfix">
+      <div class="entry-image">
+        <a href="{row.link}" class="nobg a-circle"><img class="img-circle-custom" src="{row.picture}" alt="{row.title}"></a>
+      </div>
+      <div class="entry-c">
+        <div class="entry-title">
+          <h4><a href="{row.link}">{row.title}</a></h4>
+        </div>
+        <ul class="entry-meta">
+          <li><i class="icon-calendar3"></i>{row.date_create}</li>
+        </ul>
+      </div>
+    </div>
+    <!-- END: row -->
+  </div>
+</div>
+
+
+<!-- END: list_news_newest -->
 
 
 
