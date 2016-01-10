@@ -1,10 +1,6 @@
 <!-- BEGIN: main -->
 <section id="slider" class="slider-parallax swiper_wrapper clearfix">
-  <!--
-#################################
-- THEMEPUNCH BANNER -
-#################################
--->
+
   <div class="tp-banner-container">
     <div class="tp-banner">
       <ul>    <!-- SLIDE  -->
@@ -136,9 +132,7 @@
 
   </script>
 
-  <!-- END REVOLUTION SLIDER -->
-
-</section>  <!-- end slider -->
+</section>
 
 <section id="content">
   <div class="content-wrap">
@@ -158,206 +152,20 @@
   </div>
   <!-- end promo -->
 
-  <div class="container clearfix">
-    <!-- archivements -->
-    <div class="col_one_third nobottommargin ">
-      <div class="feature-box media-box">
-
-        <div class="fbox-media">
-          <a href='#'><img src="{DIR_IMAGE}template/archive_img_1.jpg-1450838787703.jpg"
-                           alt="TẠI SAO CHỌN CHÚNG TÔI"></a>
-        </div>
-        <div class="fbox-desc">
-          <a href='#'><h3>TẠI SAO CHỌN CHÚNG TÔI</h3></a>
-          <span class="subtitle">Kiến Trúc Sư giàu kinh nghiệm</span>
-
-          <p>Ngôi nhà mơ ước của bạn sẽ được các kiến trúc sư của chúng tôi thiết kế tinh tế & cho ra
-            tác phẩm hoàn hảo.</p>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="col_one_third nobottommargin ">
-      <div class="feature-box media-box">
-
-        <div class="fbox-media">
-          <a href='#'><img src="{DIR_IMAGE}template/archive_img_2.jpg-1450838787703.jpg"
-                           alt="SỨ MỆNH CỦA CHÚNG TÔI"></a>
-        </div>
-        <div class="fbox-desc">
-          <a href='#'><h3>SỨ MỆNH CỦA CHÚNG TÔI</h3></a>
-          <span class="subtitle">Sáng tạo & luôn khác biệt. </span>
-
-          <p>Sáng tạo có hiệu quả, triển khai đúng hạn & kiểm định chất lượng chặt chẽ trước khi hoàn
-            thành công trình.</p>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="col_one_third nobottommargin col_last">
-      <div class="feature-box media-box">
-
-        <div class="fbox-media">
-          <a href='#'><img src="{DIR_IMAGE}template/archive_img_3.jpg-1450838787703.jpg"
-                           alt="QUY TRÌNH CHUYÊN NGHIỆP"></a>
-        </div>
-        <div class="fbox-desc">
-          <a href='#'><h3>QUY TRÌNH CHUYÊN NGHIỆP</h3></a>
-          <span class="subtitle">Rút ngắn thời gian triển khai dự án.</span>
-
-          <p>Tuân thủ quy trình quy trình đạt chuẩn quốc tế nhằm hạn chế chi phí phát sinh tối đa cho
-            khách hàng.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="clear"></div>
-    <!-- end archivements -->
-    <div class="clear"></div>
-    <!--<div class="line"></div>-->
-
-
-    <!-- end policies -->
-
-  </div>
+  {data.list_page_group_focus}
 
 
   <!-- banner -->
   <div class="banner-img">
-    <a class='banner-link' href="all.htm"
-       target='_blank'>
-      <img src="{DIR_IMAGE}template/banner_top_1.jpg-1450838787703.jpg"
-           alt="">
-    </a>
+    {data.banner_pa_home}
   </div>
   <!-- end banner -->
 
-
-  <div class='container clearfix'>
-    <div id="portfolio" class="clearfix">
-      <div class="heading-block center">
-        <h3>Các dự án tiêu biểu</h3>
-        <span>mà chúng tôi đã hoàn thành trong năm qua</span>
-      </div>
-
-
-      <article
-              class="porfolio_single portfolio-item pf-media pf-icons col-xs-6 col-md-6 porfolio_single_left">
-        <div class="portfolio-image">
-          <a href="kien-truc-hien-dai.htm">
-            <img src="{DIR_IMAGE}template/porfolio_pd_img_1_1.jpg-1450838787703.jpg"
-                 alt="Open Imagination">
-          </a>
-
-          <div class="portfolio-overlay">
-            <a href="{DIR_IMAGE}template/porfolio_pd_img_1_1.jpg-1450838787703.jpg"
-               class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-            <a href="kien-truc-hien-dai.htm"
-               class="right-icon"><i class="icon-line-ellipsis"></i></a>
-          </div>
-        </div>
-        <div class="portfolio-desc">
-          <h3>
-            <a href="javascript:if(confirm(%27http://the-company.bizwebvietnam.net/portfolio-single.html  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?%27))window.location=%27http://the-company.bizwebvietnam.net/portfolio-single.html%27"
-                    >Thiết kế hiện
-              đại</a></h3>
-          <span>Phú Quốc, Việt Nam</span>
-        </div>
-      </article>
-
-
-      <article
-              class="porfolio_single portfolio-item pf-media pf-icons col-xs-6 col-md-6 porfolio_single_right">
-        <div class="portfolio-image">
-          <a href="thiet-ke-ban-co-dien.htm">
-            <img src="{DIR_IMAGE}template/porfolio_pd_img_1_2.jpg-1450838787703.jpg"
-                 alt="Open Imagination">
-          </a>
-
-          <div class="portfolio-overlay">
-            <a href="{DIR_IMAGE}template/porfolio_pd_img_1_2.jpg-1450838787703.jpg"
-               class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-            <a href="thiet-ke-ban-co-dien.htm"
-               class="right-icon"><i class="icon-line-ellipsis"></i></a>
-          </div>
-        </div>
-        <div class="portfolio-desc">
-          <h3>
-            <a href="javascript:if(confirm(%27http://the-company.bizwebvietnam.net/portfolio-single.html  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?%27))window.location=%27http://the-company.bizwebvietnam.net/portfolio-single.html%27"
-                    >Thiết kế bán cổ
-              điển</a></h3>
-          <span>Hà Nội, Việt Nam</span>
-        </div>
-      </article>
-
-
-      <div class='clear' style='margin-bottom: 15px'></div>
-
-
-      <article
-              class="porfolio_single portfolio-item pf-media pf-icons col-xs-6 col-md-6 porfolio_single_left">
-        <div class="portfolio-image">
-          <a href="">
-            <img src="{DIR_IMAGE}template/porfolio_pd_img_2_1.jpg-1450838787703.jpg"
-                 alt="Open Imagination">
-          </a>
-
-          <div class="portfolio-overlay">
-            <a href="{DIR_IMAGE}template/porfolio_pd_img_2_1.jpg-1450838787703.jpg"
-               class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-            <a href="" class="right-icon"><i class="icon-line-ellipsis"></i></a>
-          </div>
-        </div>
-        <div class="portfolio-desc">
-          <h3>
-            <a href="javascript:if(confirm(%27http://the-company.bizwebvietnam.net/portfolio-single.html  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?%27))window.location=%27http://the-company.bizwebvietnam.net/portfolio-single.html%27"
-                    >Thiết kế truyền
-              thống</a></h3>
-          <span>Huế, Việt Nam</span>
-        </div>
-      </article>
-
-
-      <article
-              class="porfolio_single portfolio-item pf-media pf-icons col-xs-6 col-md-6 porfolio_single_right">
-        <div class="portfolio-image">
-          <a href="">
-            <img src="{DIR_IMAGE}template/porfolio_pd_img_2_2.jpg-1450838787703.jpg"
-                 alt="Open Imagination">
-          </a>
-
-          <div class="portfolio-overlay">
-            <a href="{DIR_IMAGE}template/porfolio_pd_img_2_2.jpg-1450838787703.jpg"
-               class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-            <a href="" class="right-icon"><i class="icon-line-ellipsis"></i></a>
-          </div>
-        </div>
-        <div class="portfolio-desc">
-          <h3>
-            <a href="javascript:if(confirm(%27http://the-company.bizwebvietnam.net/portfolio-single.html  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?%27))window.location=%27http://the-company.bizwebvietnam.net/portfolio-single.html%27"
-                    >Phong cách Châu
-              Âu</a></h3>
-          <span>TP, Việt Nam</span>
-        </div>
-      </article>
-
-
-      <div class='clear' style='margin-bottom: 15px'></div>
-
-
-      <div class='clear' style='margin-bottom: 15px'></div>
-
-
-    </div>
-  </div>
-
+  {data.list_product_focus}
 
   <div class="section parallax dark" data-stellar-background-ratio="0.4">
     <h4 class="uppercase center testimonial_title">
-      <!--What <span>Clients</span> say?-->
-      Khách hàng nói gì về chúng tôi?
+      {LANG.homve.customer_said_about_us}
     </h4>
 
     <div class="fslider testimonial testimonial-full" data-arrows="false" style="z-index: 2;">
@@ -367,19 +175,16 @@
 
           <div class="slide">
             <div class="testi-image">
-              <a href="#"><img src="{DIR_IMAGE}template/client_img_1.jpg-1450838787703.jpg"
+              <a href="#"><img src="{DIR_IMAGE}avt1.jpg"
                                alt="Customer Testimonails"></a>
             </div>
             <div class="testi-content">
               <p>
-                <!--Similique fugit repellendus expedita excepturi iure perferendis provident quia eaque. Repellendus, vero numquam?-->
-                Bản thiết kế rất phù hợp với bản vẽ miếng đất chúng tôi hiện có. Ngôi nhà tôi
-                cảm thấy rộng rãi & đẹp hơn rất nhiều.
+                Nhân viên rất nhiệt tình, sản phẩm chất lượng tốt, ngoài ra bảo hành rất chu đáo, tôi rất thích cách làm việc của công ty.
               </p>
 
               <div class="testi-meta">
                 VÕ QUỐC CƯỜNG
-                <span>Egany.com</span>
               </div>
             </div>
           </div>
@@ -387,19 +192,18 @@
 
           <div class="slide">
             <div class="testi-image">
-              <a href="#"><img src="{DIR_IMAGE}template/client_img_2.jpg-1450838787703.jpg"
+              <a href="#"><img src="{DIR_IMAGE}avt2.jpg"
                                alt="Customer Testimonails"></a>
             </div>
             <div class="testi-content">
               <p>
-                <!--Similique fugit repellendus expedita excepturi iure perferendis provident quia eaque. Repellendus, vero numquam?-->
+
                 Tôi hoàn toàn bị chinh phục bởi tác phong làm việc & quy trình chuyên nghiệp của
                 đội ngũ The Company
               </p>
 
               <div class="testi-meta">
-                Mai Lan
-                <span>Công ty ABC</span>
+                Phan Nguyễn
               </div>
             </div>
           </div>
@@ -407,19 +211,31 @@
 
           <div class="slide">
             <div class="testi-image">
-              <a href="#"><img src="{DIR_IMAGE}template/client_img_3.jpg-1450838787703.jpg"
+              <a href="#"><img src="{DIR_IMAGE}avt3.jpg"
                                alt="Customer Testimonails"></a>
             </div>
             <div class="testi-content">
               <p>
-                <!--Similique fugit repellendus expedita excepturi iure perferendis provident quia eaque. Repellendus, vero numquam?-->
-                Bản thiết kế rất phù hợp với bản vẽ miếng đất chúng tôi hiện có. Ngôi nhà tôi
-                cảm thấy rộng rãi & đẹp hơn rất nhiều.
+                Sản phẩm rất chất lượng, giá thành rất phù hợp. Chính sách công ty rất tốt, tôi rất thích sản phẩm của công ty.
               </p>
 
               <div class="testi-meta">
                 Minh Hằng
-                <span>Công ty XYZ</span>
+              </div>
+            </div>
+          </div>
+          <div class="slide">
+            <div class="testi-image">
+              <a href="#"><img src="{DIR_IMAGE}avt4.jpg"
+                               alt="Customer Testimonails"></a>
+            </div>
+            <div class="testi-content">
+              <p>
+                Đầu tiên là sự ân cần khi giới thiệu sản phẩm, sản phẩm chất lượng tuyệt đối trong khi giá thành rất phải chăng.
+              </p>
+
+              <div class="testi-meta">
+                Văn Quý
               </div>
             </div>
           </div>
@@ -428,9 +244,6 @@
         </div>
       </div>
     </div>
-    <!--div class="video-wrap" style="z-index: 1;">
-        <div class="video-overlay" style="background: #700b0b; opacity: 0.9;"></div>
-    </div-->
   </div>
 
 
@@ -502,7 +315,80 @@
 
 </div>
 </section>
-<!-- END: main --> 
+<!-- END: main -->
+
+
+<!-- BEGIN: list_product_focus -->
+<div class='container clearfix'>
+  <div id="portfolio" class="clearfix">
+    <div class="heading-block center">
+      <h3>{LANG.home.products_focus_year}</h3>
+      <span>{LANG.home.text_products_focus_year}</span>
+    </div>
+    <!-- BEGIN: row -->
+    <article class="porfolio_single portfolio-item pf-media pf-icons col-xs-6 col-md-6 porfolio_single_left">
+      <div class="portfolio-image">
+        <a href="kien-truc-hien-dai.htm">
+          <img src="{row.picture_show}" alt="{row.title}">
+        </a>
+
+        <div class="portfolio-overlay">
+          <a href="{row.picture_popup}" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+          <a href="{row.link}" class="right-icon"><i class="icon-line-ellipsis"></i></a>
+        </div>
+      </div>
+      <div class="portfolio-desc">
+        <h3>
+          <a href="{row.link}">{row.title}</a></h3>
+        <span class="auto_price">{row.price}</span>
+      </div>
+    </article>
+    <!-- END: row -->
+    <div class='clear' style='margin-bottom: 15px'></div>
+    <div class='clear' style='margin-bottom: 15px'></div>
+
+  </div>
+</div>
+<script>
+  auto_price_format();
+</script>
+<!-- END: list_product_focus -->
+
+
+
+
+<!-- BEGIN: list_page_group_focus -->
+<div class="container clearfix">
+
+  <!-- BEGIN: row -->
+  <div class="col_one_third nobottommargin {row.last}">
+    <div class="feature-box media-box">
+
+      <div class="fbox-media">
+        <a href='javascript:void(0)'>
+          <img src="{row.picture}" alt="{row.title}">
+        </a>
+      </div>
+      <div class="fbox-desc">
+        <a href='javascript:void(0)'><h3>{row.title}</h3></a>
+        <span class="subtitle">{row.short}</span>
+
+        <p>{row.content}</p>
+      </div>
+    </div>
+  </div>
+  <!-- END: row -->
+
+  <div class="clear"></div>
+  <div class="clear"></div>
+
+
+
+</div>
+
+<!-- END: list_page_group_focus -->
+
+
 
 <!-- BEGIN: main_slide -->
 <div class="wrapper">

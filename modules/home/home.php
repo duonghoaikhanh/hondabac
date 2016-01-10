@@ -54,11 +54,13 @@ class sMain
 		$data['main_slide'] = $ttH->site->get_banner_slide ('banner-main');
 		$data['banner_tell_us_page_home'] = $ttH->site->get_banner('banner-tell-us-page-home');
 		$data['banner_support_247'] = $ttH->site->get_banner('banner-support-247');
+		$data['banner_pa_home'] = $ttH->site->get_banner('banner-pa-home');
 		$data['link_contact'] = $ttH->site->get_link('contact');
-		//$data['content'] = 'Nội dung trang chủ';
 		$data['content'] = $this->do_list ();
 		$data['content_focus'] = $this->do_list ('focus');
-		// Why use .= in method error
+		$data['list_page_group_focus'] = $this->list_page_group_focus();
+		$data['list_product_focus'] = $this->list_product_focus();
+		$data['customer_said_about_us'] = $this->customer_said_about_us();
 
 		$ttH->temp_act->assign('data', $data);
 		$ttH->temp_act->parse("main");
@@ -66,6 +68,10 @@ class sMain
 	}
 	
 	//=================get_banner_slide===============
+
+
+
+
 	function get_banner_slide (){
 		global $ttH;
 		
@@ -110,7 +116,114 @@ class sMain
 		
 		return $output; 
 	}
-	
+
+	//3 page in home
+	function customer_said_about_us (){
+		global $ttH;
+
+		$output = '';
+
+		$ttH->temp_act->parse("list_product_focus");
+		$output = $ttH->temp_act->text("list_product_focus");
+
+		return $output;
+	}
+	function list_product_focus (){
+		global $ttH;
+
+		$output = '';
+
+		$pic_w = 581;
+		$pic_h = 322;
+
+		$sql = "select *
+						from product
+						where is_show=1
+						and lang='".$ttH->conf["lang_cur"]."'
+						order by show_order desc, date_update desc
+						limit 0,4";
+
+		$result = $ttH->db->query($sql);
+		if ($num = $ttH->db->num_rows($result))
+		{
+			$i = 0;
+			while ($row = $ttH->db->fetch_row($result))
+			{
+				$i++;
+				$row['stt'] = $i;
+				$row['pic_w'] = $pic_w;
+				$row['pic_h'] = $pic_h;
+				$row['link'] = $ttH->site->get_link ('product','',$row['friendly_link']);
+				$row["picture_show"] = $ttH->func->get_src_mod($row["picture"], $pic_w, $pic_h, 1, 1);
+				$row["picture_popup"] = $ttH->func->get_src_mod($row["picture"], $pic_w, $pic_h, 1, 0);
+
+				$row["short"] = $ttH->func->short($row["short"], 200);
+				$row["content"] = $ttH->func->short($row["content"], 200);
+				$row['last'] = $i == $num ? 'col_last' :'';
+
+				$ttH->temp_act->assign('row', $row);
+				$ttH->temp_act->parse("list_product_focus.row");
+			}
+			$ttH->temp_act->parse("list_product_focus");
+			$output = $ttH->temp_act->text("list_product_focus");
+		}
+
+		return $output;
+	}
+	function list_page_group_focus (){
+		global $ttH;
+
+		$output = '';
+
+		$pic_w = 371;
+		$pic_h = 232;
+		$sql_group = "select *
+						from page_group
+						where is_show=1
+						and lang='".$ttH->conf["lang_cur"]."'
+						and is_focus=1
+						order by show_order desc, date_update desc
+						limit 0,1";
+		//echo $sql;
+
+		$result_group = $ttH->db->query($sql_group);
+		$group = $ttH->db->fetch_row($result_group);
+
+		$sql = "select *
+						from page
+						where is_show=1
+						and lang='".$ttH->conf["lang_cur"]."'
+						and group_id = ".$group["id"]."
+						order by show_order desc, date_update desc
+						limit 0,3";
+
+		$result = $ttH->db->query($sql);
+		if ($num = $ttH->db->num_rows($result))
+		{
+			$i = 0;
+			while ($row = $ttH->db->fetch_row($result))
+			{
+				$i++;
+				$row['stt'] = $i;
+				$row['pic_w'] = $pic_w;
+				$row['pic_h'] = $pic_h;
+				$row['link'] = $ttH->site->get_link ('page','',$row['friendly_link']);
+				$row["picture"] = $ttH->func->get_src_mod($row["picture"], $pic_w, $pic_h, 1, 1);
+
+				$row["short"] = $ttH->func->short($row["short"], 200);
+				$row["content"] = $ttH->func->short($row["content"], 200);
+				$row['last'] = $i == $num ? 'col_last' :'';
+
+				$ttH->temp_act->assign('row', $row);
+				$ttH->temp_act->parse("list_page_group_focus.row");
+			}
+			$ttH->temp_act->parse("list_page_group_focus");
+			$output = $ttH->temp_act->text("list_page_group_focus");
+		}
+
+		return $output;
+	}
+
 	function do_list ($type = 'new')
 	{
 		global $ttH;	

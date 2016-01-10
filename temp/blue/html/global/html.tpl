@@ -40,8 +40,10 @@
 			var go_content = 1;
       {LANG_JS}
     </script>
-  <script type="text/javascript" src="{DIR_JS}jquery-1.10.2.js"></script>
-  <script src="{DIR_JS}jquery.hoverIntent.js"></script>
+    <script src="{DIR_JS}jquery-1.10.2.js"></script>
+    <script src="{DIR_JS}template/jquery.js" type='text/javascript'></script>
+
+    <script src="{DIR_JS}jquery.hoverIntent.js"></script>
     <script src="{DIR_JS}fancybox/jquery.fancybox.pack.js"></script>
     <script src="{DIR_JS}cluetip/jquery.cluetip.js"></script>
     <script src="{DIR_JS}auto_numeric/autoNumeric.js"></script>
@@ -60,35 +62,6 @@
   </style>
   <![endif]-->
 
-
-    <style type="text/css">
-
-      .revo-slider-emphasis-text {
-        font-size: 58px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        font-family: 'Raleway', sans-serif;
-        padding: 15px 20px;
-        border-top: 2px solid #FFF;
-        border-bottom: 2px solid #FFF;
-      }
-
-      .revo-slider-desc-text {
-        font-size: 20px;
-        font-family: 'Lato', sans-serif;
-        width: 650px;
-        text-align: center;
-        line-height: 1.5;
-      }
-
-      .revo-slider-caps-text {
-        font-size: 16px;
-        font-weight: 400;
-        letter-spacing: 3px;
-        font-family: 'Raleway', sans-serif;
-      }
-
-    </style>
 
   <link href="{DIR_CSS}template/font_css_google.css" rel='stylesheet' type='text/css'/>
   <link href="{DIR_CSS}template/bootstrap.css" rel='stylesheet' type='text/css'/>
@@ -119,7 +92,6 @@
 
   <!-- script -->
 
-  <script src="{DIR_JS}template/jquery.js" type='text/javascript'></script>
   <!-- Bizweb plugins END -->
 
   <script src="{DIR_JS}template/plugins.js" type='text/javascript'></script>
@@ -320,10 +292,10 @@
 ============================================= -->
 
         <div id="logo" class='col-md-3'>
-          <a href="index.htm"  class="standard-logo"><img
+          <a href="#"  class="standard-logo"><img
                     src="{DIR_IMAGE}template/logo.png-1450838787703.png"
                     alt="The Company"></a>
-          <a href="index.htm"  class="retina-logo"><img
+          <a href="#"  class="retina-logo"><img
                     src="{DIR_IMAGE}template/logo.png-1450838787703.png"
                     alt="The Company"></a>
         </div>
