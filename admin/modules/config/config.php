@@ -26,6 +26,7 @@ class sMain
   function sMain ()
   {
     global $ttH;
+
     include ($this->modules."_func.php");
 		$ttH->func->load_language_admin($this->modules);
 		$ttH->temp_act = new XTemplate($ttH->path_html.$this->modules.DS.$this->action . ".tpl");
@@ -54,7 +55,6 @@ class sMain
 		
 		$arr_editor = array();
 		$arr_checkbox = array('is_under_construction');
-		
 		$result = $ttH->db->query("select * from config where id=1 ");
 		$data = $ttH->db->fetch_row($result) ;
 		if (isset($ttH->post['do_submit'])) {

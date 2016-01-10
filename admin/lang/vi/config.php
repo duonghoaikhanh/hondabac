@@ -106,5 +106,6 @@ $lang = array(
 	'province_code' => 'Mã tỉnh / thành phố',
 	'district_code' => 'Mã quận / huyện',
 	'ward_code' => 'Mã phường / xã',
+	'address_company' => 'Địa chỉ công ty',
 	);
 ?>

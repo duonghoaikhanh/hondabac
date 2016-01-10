@@ -25,6 +25,10 @@
         <p class="help-block">Example block-level help text here.</p>
       </div>
       <div class="form-group">
+        <label>{LANG.config.address_company}</label>
+        <input name="address_company" id="address_company" type="text" size="50" maxlength="150" value="{data.address_company}" class="form-control">
+      </div>
+      <div class="form-group">
         <label>{LANG.config.list_skin}</label>
         {data.list_skin}
       </div>

@@ -2,13 +2,16 @@
 <section id="slider" class="slider-parallax swiper_wrapper clearfix">
 
   <div class="tp-banner-container">
-    <div class="tp-banner">
+    <div class="tp-banner" >
       <ul>    <!-- SLIDE  -->
 
 
-        <li data-transition="random" data-slotamount="7" data-link="/collection/all" data-title="">
-          <img src="{DIR_IMAGE}template/slideshow_1.jpg-1450838787703.jpg">
 
+
+
+
+        <li data-transition="random" data-slotamount="7" data-link="/collection/all"  data-title="" >
+          <img src="{DIR_IMAGE}template/slideshow_1.jpg-1450838787703.jpg" tppabs="http://bizweb.dktcdn.net/100/035/474/themes/46087/assets/slideshow_1.jpg?1452002463536">
           <div class="tp-caption customin lfl ltr tp-resizeme revo-slider-caps-text uppercase"
                data-x="center"
                data-y="center"
@@ -25,10 +28,8 @@
         </li>
 
 
-        <li data-transition="random" data-slotamount="7" data-link="/san-pham-khuyen-mai" data-title="">
-          <img src="{DIR_IMAGE}template/slideshow_3.jpg-1450838787703.jpg"
-                  >
-
+        <li data-transition="random" data-slotamount="7" data-link="/san-pham-khuyen-mai"  data-title="" >
+          <img src="{DIR_IMAGE}template/slideshow_3.jpg-1450838787703.jpg" tppabs="http://bizweb.dktcdn.net/100/035/474/themes/46087/assets/slideshow_3.jpg?1452002463536">
           <div class="tp-caption customin lfl ltr tp-resizeme revo-slider-caps-text uppercase"
                data-x="center"
                data-y="center"
@@ -43,6 +44,12 @@
                data-endspeed="1000"
                data-endeasing="easeOutBack" style=" color: #fff; font-size: 60px"></div>
         </li>
+
+
+
+
+
+
 
 
       </ul>
@@ -51,86 +58,91 @@
 
   <script type="text/javascript">
 
-    jQuery(document).ready(function () {
+    jQuery(document).ready(function() {
 
       jQuery('.tp-banner').show().revolution(
               {
-                dottedOverlay: "none",
-                delay: 5000,
-                startwidth: 1350,
-                startheight: 500,
-                hideThumbs: 200,
+                dottedOverlay:"none",
+                delay:5000,
+                startwidth:1350,
+                startheight:500,
+                hideThumbs:200,
 
-                thumbWidth: 100,
-                thumbHeight: 50,
-                thumbAmount: 5,
+                thumbWidth:100,
+                thumbHeight:50,
+                thumbAmount:5,
 
-                navigationType: "none",
-                navigationArrows: "solo",
-                navigationStyle: "preview2",
+                navigationType:"none",
+                navigationArrows:"solo",
+                navigationStyle:"preview2",
 
-                touchenabled: "on",
-                onHoverStop: "on",
+                touchenabled:"on",
+                onHoverStop:"on",
 
                 swipe_velocity: 0.7,
                 swipe_min_touches: 1,
                 swipe_max_touches: 1,
                 drag_block_vertical: false,
 
-                parallax: "mouse",
-                parallaxBgFreeze: "on",
-                parallaxLevels: [7, 4, 3, 2, 5, 4, 3, 2, 1, 0],
+                parallax:"mouse",
+                parallaxBgFreeze:"on",
+                parallaxLevels:[7,4,3,2,5,4,3,2,1,0],
 
-                keyboardNavigation: "off",
+                keyboardNavigation:"off",
 
-                navigationHAlign: "center",
-                navigationVAlign: "bottom",
-                navigationHOffset: 0,
-                navigationVOffset: 20,
+                navigationHAlign:"center",
+                navigationVAlign:"bottom",
+                navigationHOffset:0,
+                navigationVOffset:20,
 
-                soloArrowLeftHalign: "left",
-                soloArrowLeftValign: "center",
-                soloArrowLeftHOffset: 20,
-                soloArrowLeftVOffset: 0,
+                soloArrowLeftHalign:"left",
+                soloArrowLeftValign:"center",
+                soloArrowLeftHOffset:20,
+                soloArrowLeftVOffset:0,
 
-                soloArrowRightHalign: "right",
-                soloArrowRightValign: "center",
-                soloArrowRightHOffset: 20,
-                soloArrowRightVOffset: 0,
+                soloArrowRightHalign:"right",
+                soloArrowRightValign:"center",
+                soloArrowRightHOffset:20,
+                soloArrowRightVOffset:0,
 
-                shadow: 0,
-                fullWidth: "on",
-                fullScreen: "off",
+                shadow:0,
+                fullWidth:"on",
+                fullScreen:"off",
 
-                spinner: "spinner4",
+                spinner:"spinner4",
 
-                stopLoop: "off",
-                stopAfterLoops: -1,
-                stopAtSlide: -1,
+                stopLoop:"off",
+                stopAfterLoops:-1,
+                stopAtSlide:-1,
 
-                shuffle: "off",
+                shuffle:"off",
 
-                autoHeight: "on",
-                forceFullWidth: "off",
+                autoHeight:"on",
+                forceFullWidth:"off",
 
 
-                hideThumbsOnMobile: "off",
-                hideNavDelayOnMobile: 1500,
-                hideBulletsOnMobile: "off",
-                hideArrowsOnMobile: "off",
-                hideThumbsUnderResolution: 0,
 
-                hideSliderAtLimit: 0,
-                hideCaptionAtLimit: 0,
-                hideAllCaptionAtLilmit: 0,
-                startWithSlide: 0,
+                hideThumbsOnMobile:"off",
+                hideNavDelayOnMobile:1500,
+                hideBulletsOnMobile:"off",
+                hideArrowsOnMobile:"off",
+                hideThumbsUnderResolution:0,
+
+                hideSliderAtLimit:0,
+                hideCaptionAtLimit:0,
+                hideAllCaptionAtLilmit:0,
+                startWithSlide:0,
                 fullScreenOffsetContainer: ".header"
               });
+
+
 
 
     }); //ready
 
   </script>
+
+  <!-- END REVOLUTION SLIDER -->
 
 </section>
 
@@ -246,72 +258,7 @@
     </div>
   </div>
 
-
-  <div class='brand'>
-
-    <div id="oc-clients-full" class="owl-carousel image-carousel">
-
-
-      <a href="all.htm" target='_blank'><img
-                src="{DIR_IMAGE}template/popular_brand_img_1.png-1450838787703.png"
-                alt=""></a>
-
-
-      <a href="all.htm" target='_blank'><img
-                src="{DIR_IMAGE}template/popular_brand_img_2.png-1450838787703.png"
-                alt=""></a>
-
-
-      <a href="all.htm" target='_blank'><img
-                src="{DIR_IMAGE}template/popular_brand_img_3.png-1450838787703.png"
-                alt=""></a>
-
-
-      <a href="all.htm"  target='_blank'><img
-                src="{DIR_IMAGE}template/popular_brand_img_4.png-1450838787703.png"
-                alt=""></a>
-
-
-      <a href="all.htm"  target='_blank'><img
-                src="{DIR_IMAGE}template/popular_brand_img_5.png-1450838787703.png"
-                alt=""></a>
-
-
-      <a href="all.htm" target='_blank'><img
-                src="{DIR_IMAGE}template/popular_brand_img_6.png-1450838787703.png"
-                alt=""></a>
-
-
-    </div>
-
-    <script type="text/javascript">
-
-      jQuery(document).ready(function ($) {
-
-        var ocClients = $("#oc-clients-full");
-
-        ocClients.owlCarousel({
-          items: 6,
-          margin: 30,
-          loop: true,
-          nav: true,
-          navText: ['<i class="icon-angle-left"></i>', '<i class="icon-angle-right"></i>'],
-          autoplay: true,
-          dots: false,
-          autoplayHoverPause: true,
-          responsive: {
-            0: {items: 2},
-            480: {items: 3},
-            768: {items: 4},
-            992: {items: 5},
-            1200: {items: 6}
-          }
-        });
-
-      });
-
-    </script>
-  </div>
+  {data.get_banner_slide_brand}
 
 </div>
 </section>
@@ -353,9 +300,6 @@
   auto_price_format();
 </script>
 <!-- END: list_product_focus -->
-
-
-
 
 <!-- BEGIN: list_page_group_focus -->
 <div class="container clearfix">

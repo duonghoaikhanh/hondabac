@@ -886,6 +886,7 @@ Header
 body.stretched #header.full-header .container {
 	width: 100%;
 	padding: 0 30px;
+	overflow: hidden;
 }
 
 #header.transparent-header.full-header #header-wrap { border-bottom: 1px solid rgba(0,0,0,0.1); }
@@ -899,7 +900,9 @@ body.stretched #header.full-header .container {
 /* ----------------------------------------------------------------
 Logo
 -----------------------------------------------------------------*/
-
+#logo h1{
+	margin-bottom: 0px;
+}
 
 #logo {
 	position: relative;

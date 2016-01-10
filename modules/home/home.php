@@ -61,6 +61,9 @@ class sMain
 		$data['list_page_group_focus'] = $this->list_page_group_focus();
 		$data['list_product_focus'] = $this->list_product_focus();
 		$data['customer_said_about_us'] = $this->customer_said_about_us();
+		$data['get_banner_slide_brand'] = $ttH->site->get_banner_slide_brand('banner-brand');
+		$data['main_slide'] = $ttH->site->get_banner_slide_cus ('banner-main');
+
 
 		$ttH->temp_act->assign('data', $data);
 		$ttH->temp_act->parse("main");

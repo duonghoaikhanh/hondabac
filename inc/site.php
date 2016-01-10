@@ -836,13 +836,73 @@ class Site
 			
 			$ttH->func->include_css($ttH->dir_skin.'js/owl.carousel/owl.carousel.css');
 			$ttH->func->include_css($ttH->dir_skin.'js/owl.carousel/owl.theme.css');
-			$ttH->func->include_js($ttH->dir_skin.'js/owl.carousel/owl.carousel.js');		
-			$ttH->temp_html->reset($temp);	
+			$ttH->func->include_js($ttH->dir_skin.'js/owl.carousel/owl.carousel.js');
+			$ttH->temp_html->reset($temp);
 			$ttH->temp_html->parse($temp);
 			$output = $ttH->temp_html->text($temp);
 		}
 		
 		return $output; 
+	}
+
+	//=================get_banner_slide_cus===============
+	function get_banner_slide_cus ($group_id='logo', $temp = 'main_slide'){
+		global $ttH;
+
+		$output = '';
+
+		if(isset($ttH->data["banner_group"][$group_id]) && isset($ttH->data["banner"][$group_id])){
+			foreach($ttH->data["banner"][$group_id] as $banner){
+				$w = $ttH->data["banner_group"][$group_id]['width'];
+				$h = $ttH->data["banner_group"][$group_id]['height'];
+				$style = "width:".$w."px;";
+				$style .= ($h > 0) ? "height:".$h."px;overflow:hidden;" : "";
+				if($banner['type'] == 'image'){
+					$banner['link'] = $this->get_link_menu ($banner['link'], $banner['link_type']);
+					$banner['content_popup'] = $ttH->func->get_src_mod ($banner['content']);
+					$banner['content'] = $ttH->func->get_pic_mod ($banner['content'], $w, $h, " alt=\"".$banner['title']."\"",1 ,1);
+
+					$ttH->temp_html->assign('row', $banner);
+					$ttH->temp_html->parse($temp.".row");
+				}
+			}
+
+			$ttH->temp_html->reset($temp);
+			$ttH->temp_html->parse($temp);
+			$output = $ttH->temp_html->text($temp);
+		}
+
+		return $output;
+	}
+
+	//=================get_banner_slide_brand===============
+	function get_banner_slide_brand ($group_id='logo', $temp = 'slide_brand'){
+		global $ttH;
+
+		$output = '';
+
+		if(isset($ttH->data["banner_group"][$group_id]) && isset($ttH->data["banner"][$group_id])){
+			foreach($ttH->data["banner"][$group_id] as $banner){
+				$w = $ttH->data["banner_group"][$group_id]['width'];
+				$h = $ttH->data["banner_group"][$group_id]['height'];
+				$style = "width:".$w."px;";
+				$style .= ($h > 0) ? "height:".$h."px;overflow:hidden;" : "";
+				if($banner['type'] == 'image'){
+					$banner['link'] = $this->get_link_menu ($banner['link'], $banner['link_type']);
+					$banner['content_popup'] = $ttH->func->get_src_mod ($banner['content']);
+					$banner['content'] = $ttH->func->get_pic_mod ($banner['content'], $w, $h, " alt=\"".$banner['title']."\"",1 ,1);
+
+					$ttH->temp_html->assign('row', $banner);
+					$ttH->temp_html->parse($temp.".row");
+				}
+			}
+
+			$ttH->temp_html->reset($temp);
+			$ttH->temp_html->parse($temp);
+			$output = $ttH->temp_html->text($temp);
+		}
+
+		return $output;
 	}
 	
 	//=================get_banner_scroll===============
@@ -1180,6 +1240,44 @@ class Site
 			$output .= '</ul><div class="clear"></div></div>';
 		}
 		
+		return $output;
+	}
+
+	function box_page_newest_footer ($num_show = 3)
+	{
+		global $ttH;
+
+		$output = '';
+
+		$pic_w = 275;
+		$pic_h = 275;
+
+		$sql = "select *
+						from page
+						where is_show=1
+						and lang='".$ttH->conf['lang_cur']."'
+						order by show_order desc, date_update desc
+						limit 0,".$num_show;
+		//echo $sql;
+		$result = $ttH->db->query($sql);
+		if ($num = $ttH->db->num_rows($result)) {
+			$output .= '<div id="footer_page_focus"><ul class="list_none">';
+			$i = 0;
+			while ($row = $ttH->db->fetch_row($result)) {
+				$i++;
+				$row['link'] = $ttH->site->get_link('page','',$row['friendly_link']);
+				$row['picture'] = $ttH->func->get_src_mod($row['picture'], $pic_w, $pic_h,1, 1);
+				$row['title'] = $ttH->func->short($row['title'], 40);
+				$row['short'] = $ttH->func->short($row['content'], 250);
+				$row['date_create'] = date('d/m/Y', $row['date_create']);
+
+				$ttH->temp_html->assign('row', $row);
+				$ttH->temp_html->parse("list_page_newest_footer.row");
+			}
+			$ttH->temp_html->parse("list_page_newest_footer");
+			$output = $ttH->temp_html->text("list_page_newest_footer");
+		}
+
 		return $output;
 	}
 	

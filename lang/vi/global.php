@@ -80,6 +80,12 @@ $lang = array (
 	'footer_share' => 'Kết nối với IMS',
 	'footer_bank' => 'Đối tác thanh toán',
 	'copyright' => 'Copyright 2014  BBGreen Shop  All Rights Reserved',
-	'aleft_title'=>'Thông báo'
-); 
+	'aleft_title'=>'Thông báo',
+	'office_footer'=>'Bài viết mới nhất',
+	'date_create'=>'Ngày đăng',
+	'page_newest'=>'Văn phòng chính',
+	'information'=>'Thông tin',
+	'copyright'=>'Bản quyền thuộc Hondabac © 2016',
+	'slogan_footer'=>'Chúng tôi tin chất lượng là dịch vụ tốt nhất.',
+);
 ?>

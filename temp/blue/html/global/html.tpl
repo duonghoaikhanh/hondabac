@@ -62,6 +62,34 @@
   </style>
   <![endif]-->
 
+  <style>
+
+    .revo-slider-emphasis-text {
+      font-size: 58px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-family: 'Raleway', sans-serif;
+      padding: 15px 20px;
+      border-top: 2px solid #FFF;
+      border-bottom: 2px solid #FFF;
+    }
+
+    .revo-slider-desc-text {
+      font-size: 20px;
+      font-family: 'Lato', sans-serif;
+      width: 650px;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .revo-slider-caps-text {
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      font-family: 'Raleway', sans-serif;
+    }
+
+  </style>
 
   <link href="{DIR_CSS}template/font_css_google.css" rel='stylesheet' type='text/css'/>
   <link href="{DIR_CSS}template/bootstrap.css" rel='stylesheet' type='text/css'/>
@@ -286,41 +314,15 @@
 
       <div class="container clearfix">
 
-        <!--<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>-->
-
-        <!-- Logo
-============================================= -->
-
         <div id="logo" class='col-md-3'>
-          <a href="#"  class="standard-logo"><img
-                    src="{DIR_IMAGE}template/logo.png-1450838787703.png"
-                    alt="The Company"></a>
-          <a href="#"  class="retina-logo"><img
-                    src="{DIR_IMAGE}template/logo.png-1450838787703.png"
-                    alt="The Company"></a>
+            {data.logo}
         </div>
-        <!-- #logo end -->
-
-        <!-- Top Search
-============================================= -->
-        <!-- Primary Navigation
-============================================= -->
-
 
         <nav id="primary-menu">
           {data.list_menu}
-          <!-- Top Cart
-      ============================================= -->
           {data.header_cart}
-
-          <!-- #top-cart end -->
-
-          <!-- Top Search
-      ============================================= -->
           {data.box_search}
-          <!-- #top-search end -->
         </nav>
-        <!-- top link trigger --->
         <a href='#' id='top_link_trigger' class='hidden-lg hidden-md'><i class='icon-ellipsis-vertical'></i></a>
         <!-- end top link trigger --->
         <script type="text/javascript">
@@ -405,19 +407,13 @@
 
             <div class="widget clearfix">
 
-              <h4>Văn phòng chính</h4>
+              <h4>{LANG.global.office_footer}</h4>
 
               <p>
 
-              <p>Chúng tôi tin chất lượng là dịch vụ tốt nhất.</p>
+              <p>{LANG.global.slogan_footer}</p>
 
-              Địa chỉ: <br/>
-              61/2 Quang Trung, P.10 <br/>
-              Q. Gò Vấp, TP. HCM<br/>
-              Phone: (91) 8547 632521<br/>
-              Fax: (91) 11 4752 1433<br/>
-              Email: hi@Bizweb.com<br/>
-              Skype: egany.com</p>
+                {data.banner_info_contact_company_footer}
 
 
             </div>
@@ -428,35 +424,9 @@
 
             <div class="widget widget_links clearfix">
 
-              <h4>Thông tin</h4>
+              <h4>{LANG.global.information}</h4>
+                {data.footer_menu}
 
-              <ul>
-
-                <li><a href="huong-dan-thanh-toan.htm">Hướng dẫn
-                    thanh toán</a></li>
-
-                <li><a href="cac-doi-tac-cua-chung-toi.htm">Đối
-                    tác</a></li>
-
-                <li><a href="chinh-sach-rieng-tu.htm">Chính sách
-                    riêng tư</a></li>
-
-                <li><a href="giao-nhan-hang.htm">Giao nhận hàng</a>
-                </li>
-
-                <li><a href="du-an-1.htm">Dự
-                    án</a></li>
-
-                <li><a href="tin-tuc.htm" >Tin
-                    tức</a></li>
-
-                <li><a href="lien-he.htm" >Liên
-                    hệ</a></li>
-
-                <li><a href="tuyen-dung-1.htm">Tuyển dụng</a></li>
-
-
-              </ul>
 
             </div>
             <div class='marginbottom hidden-lg hidden-md hidden-sm'>
@@ -467,49 +437,8 @@
           <div class="col_one_third col_last prefooter_one">
 
             <div class="widget clearfix">
-              <h4>Bài viết mới nhất</h4>
-
-              <div id="post-list-footer">
-
-
-                <div class="spost clearfix">
-                  <div class="entry-c">
-                    <div class="entry-title">
-                      <h4><a href="thiet-ke-khu-bep-sang-trong-am-cung.htm">Thiết
-                          kế khu bếp sang trọng, ấm cúng</a></h4>
-                    </div>
-                    <ul class="entry-meta">
-                      <li>Ngày đăng 01/12/2015</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div class="spost clearfix">
-                  <div class="entry-c">
-                    <div class="entry-title">
-                      <h4><a href="cac-chung-cu-thiet-ke-dep-la-khien-nhieu-nguoi-me.htm">Các
-                          chung cư thiết kế đẹp lạ khiến nhiều người mê</a></h4>
-                    </div>
-                    <ul class="entry-meta">
-                      <li>Ngày đăng 28/11/2015</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div class="spost clearfix">
-                  <div class="entry-c">
-                    <div class="entry-title">
-                      <h4><a href="nha-ong-50-m2-co-cach-bo-tri-dao-nguoc.htm">Nhà
-                          ống 50 m2 có cách bố trí đảo ngược</a></h4>
-                    </div>
-                    <ul class="entry-meta">
-                      <li>Ngày đăng 28/11/2015</li>
-                    </ul>
-                  </div>
-                </div>
-
-
-              </div>
+              <h4>{LANG.global.page_newest}</h4>
+                {data.list_page_newest_footer}
             </div>
             <div class='marginbottom hidden-lg hidden-md hidden-sm'>
 
@@ -538,7 +467,7 @@
       <div class="container clearfix">
 
         <div class="col_half">
-          Bản quyền thuộc về
+          {LANG.global.copyright}
           <div class="copyright-links">
           </div>
         </div>
@@ -597,7 +526,7 @@
           </div>
           <div class="clear"></div>
 
-          EGANY Co.Ltd - 61/2 Quang Trung, Q. Gò Vấp, Tp.HCM | Email: hello@egany.com
+          {CONF.address_company} | Email: {CONF.email}
         </div>
 
       </div>
@@ -726,35 +655,162 @@
 </html>
 <!-- END: body -->
 
-<!-- BEGIN: main_slide -->
-<div id="main_slide">
-  <div id="owl-main_slide" class="owl-carousel">  	
+<!-- BEGIN: list_page_newest_footer -->
+<div id="post-list-footer">
+
     <!-- BEGIN: row -->
-    <div class="item">
-    	<a href="{row.link}" target="{row.target}" {row.class}>
-        {row.content}
-      </a>
+    <div class="spost clearfix">
+        <div class="entry-c">
+            <div class="entry-title">
+                <h4><a href="{row.link}">{row.title}</a></h4>
+            </div>
+            <ul class="entry-meta">
+                <li>{LANG.global.date_create} {row.date_create}</li>
+            </ul>
+        </div>
     </div>
     <!-- END: row -->
-  </div>
+
+</div>
+
+<!-- END: list_page_newest_footer -->
+
+
+
+<!-- BEGIN: main_slide -->
+<section id="slider" class="slider-parallax swiper_wrapper clearfix">
+
+    <div class="tp-banner-container">
+        <div class="tp-banner">
+            <ul>
+
+                <!-- BEGIN: row -->
+
+                <li data-transition="random" >
+                    {row.content}
+                </li>
+                <!-- END: row -->
+
+
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        jQuery(document).ready(function () {
+
+            jQuery('.tp-banner').show().revolution(
+                    {
+                        dottedOverlay: "none",
+                        delay: 5000,
+                        startwidth: 1350,
+                        startheight: 500,
+                        hideThumbs: 200,
+
+                        thumbWidth: 100,
+                        thumbHeight: 50,
+                        thumbAmount: 5,
+
+                        navigationType: "none",
+                        navigationArrows: "solo",
+                        navigationStyle: "preview2",
+
+                        touchenabled: "on",
+                        onHoverStop: "on",
+
+                        swipe_velocity: 0.7,
+                        swipe_min_touches: 1,
+                        swipe_max_touches: 1,
+                        drag_block_vertical: false,
+
+                        parallax: "mouse",
+                        parallaxBgFreeze: "on",
+                        parallaxLevels: [7, 4, 3, 2, 5, 4, 3, 2, 1, 0],
+
+                        keyboardNavigation: "off",
+
+                        navigationHAlign: "center",
+                        navigationVAlign: "bottom",
+                        navigationHOffset: 0,
+                        navigationVOffset: 20,
+
+                        soloArrowLeftHalign: "left",
+                        soloArrowLeftValign: "center",
+                        soloArrowLeftHOffset: 20,
+                        soloArrowLeftVOffset: 0,
+
+                        soloArrowRightHalign: "right",
+                        soloArrowRightValign: "center",
+                        soloArrowRightHOffset: 20,
+                        soloArrowRightVOffset: 0,
+
+                        shadow: 0,
+                        fullWidth: "on",
+                        fullScreen: "off",
+
+                        spinner: "spinner4",
+
+                        stopLoop: "off",
+                        stopAfterLoops: -1,
+                        stopAtSlide: -1,
+
+                        shuffle: "off",
+
+                        autoHeight: "on",
+                        forceFullWidth: "off",
+
+
+                        hideThumbsOnMobile: "off",
+                        hideNavDelayOnMobile: 1500,
+                        hideBulletsOnMobile: "off",
+                        hideArrowsOnMobile: "off",
+                        hideThumbsUnderResolution: 0,
+
+                        hideSliderAtLimit: 0,
+                        hideCaptionAtLimit: 0,
+                        hideAllCaptionAtLilmit: 0,
+                        startWithSlide: 0,
+                        fullScreenOffsetContainer: ".header"
+                    });
+
+
+        }); //ready
+
+    </script>
+
+</section>
+<!-- END: main_slide -->
+
+<!-- BEGIN: main_slide1 -->
+<div id="main_slide">
+    <div id="owl-main_slide" class="owl-carousel">
+        <!-- BEGIN: row -->
+        <div class="item">
+            <a href="{row.link}" target="{row.target}" {row.class}>
+                {row.content}
+            </a>
+        </div>
+        <!-- END: row -->
+    </div>
 </div>
 <script type="text/javascript" language="javascript">
-	jQuery(document).ready(function($){
-		$("#owl-main_slide").owlCarousel({
-			pagination : false,
-			navigation : false,
-			singleItem : true,
-			autoPlay : true,
-      stopOnHover : true
-		});
-	});
+    jQuery(document).ready(function($){
+        $("#owl-main_slide").owlCarousel({
+            pagination : false,
+            navigation : false,
+            singleItem : true,
+            autoPlay : true,
+            stopOnHover : true
+        });
+    });
 </script>
-<!-- END: main_slide -->
+<!-- END: main_slide1 -->
 
 <!-- BEGIN: bank_scroll -->
 <div id="bank_scroll">
 	<div class="bank_scroll-title">{LANG.global.footer_bank}</div>
-  <div id="owl-bank_scroll" class="owl-carousel">  	
+  <div id="owl-bank_scroll" class="owl-carousel">
     <!-- BEGIN: row -->
     <div class="item">
     	<a href="{row.link}" target="{row.target}" {row.class}>
@@ -781,6 +837,47 @@
 	});
 </script>
 <!-- END: bank_scroll -->
+
+
+<!-- BEGIN: slide_brand -->
+<div class='brand'>
+
+    <div id="oc-clients-full" class="owl-carousel image-carousel">
+        <!-- BEGIN: row -->
+        <a href="{row.link}" target='_blank'>{row.content}</a>
+        <!-- END: row -->
+    </div>
+
+    <script type="text/javascript">
+
+        jQuery(document).ready(function ($) {
+
+            var ocClients = $("#oc-clients-full");
+
+            ocClients.owlCarousel({
+                items: 6,
+                margin: 30,
+                loop: true,
+                nav: true,
+                navText: ['<i class="icon-angle-left"></i>', '<i class="icon-angle-right"></i>'],
+                autoplay: true,
+                dots: false,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {items: 2},
+                    480: {items: 3},
+                    768: {items: 4},
+                    992: {items: 5},
+                    1200: {items: 6}
+                }
+            });
+
+        });
+
+    </script>
+</div>
+
+<!-- END: slide_brand -->
 
 <!-- BEGIN: menu_product -->
 <div class="box_menu_product">
@@ -1037,20 +1134,13 @@
 <!-- END: menu1 -->
 
 <!-- BEGIN: menu_footer -->
-<!-- BEGIN: item -->
-<div class="col col_25 footer-menu">
-  <h2><a href="{row.link}" target="{row.target}" {row.class}><span>{row.title}</span></a></h2>
-  {row.menu_sub}
-  <!-- BEGIN: menu_sub -->
-  <ul class="list_none">
-    {row.content}
-    <!-- BEGIN: row -->
-    <li {row.class_li}><a href="{row.link}" target="{row.target}" {row.class}><span>{row.title}</span></a>{row.menu_sub}</li>
-    <!-- END: row -->
-  </ul>
-  <!-- END: menu_sub -->
-</div>
-<!-- END: item -->
+<ul>
+    <!-- BEGIN: item -->
+    <li><a href="{row.link}" target="{row.target}">{row.title}</a></li>
+    <!-- END: item -->
+
+</ul>
+
 <!-- END: menu_footer -->
 
 <!-- BEGIN: footer_contact --> 
