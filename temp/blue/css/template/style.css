@@ -25,11 +25,6 @@ dl, dt, dd, ol, ul, li {
 	text-shadow: none;
 }
 
-::-webkit-selection {
-	background: #700b0b; /* Safari */
-	color: #FFF;
-	text-shadow: none;
-}
 
 :active,
 :focus { outline: none !important; }
@@ -886,7 +881,6 @@ Header
 body.stretched #header.full-header .container {
 	width: 100%;
 	padding: 0 30px;
-	overflow: hidden;
 }
 
 #header.transparent-header.full-header #header-wrap { border-bottom: 1px solid rgba(0,0,0,0.1); }
@@ -1131,7 +1125,6 @@ Primary Menu
 
 #primary-menu ul ul > li.sub-menu > a,
 #primary-menu ul ul > li.sub-menu:hover > a {
-	background-image: url("submenu.png")/*tpa=http://bizweb.dktcdn.net/100/035/474/themes/46087/assets/submenu.png*/;
 	background-position: right center;
 	background-repeat: no-repeat;
 }
@@ -1401,7 +1394,6 @@ body:not(.device-sm):not(.device-xs):not(.device-xxs) #primary-menu.style-2.cent
 
 #primary-menu.sub-title > ul > li,
 #primary-menu.sub-title.style-2 > div > ul > li {
-	background: url("menu-divider-1.png")/*tpa=http://bizweb.dktcdn.net/100/035/474/themes/46087/assets/menu-divider.png*/ no-repeat right center;
 	margin-left: 1px;
 }
 
@@ -2582,7 +2574,6 @@ body.side-panel-open .body-overlay {
 	pointer-events: auto;
 }
 
-body.side-panel-open:not(.device-xxs):not(.device-xs):not(.device-sm) .body-overlay:hover { cursor: url('close.png')/*tpa=http://bizweb.dktcdn.net/100/035/474/themes/46087/assets/close.png*/ 15 15, default; }
 
 
 /* ----------------------------------------------------------------
@@ -2699,7 +2690,6 @@ Slider
 	width:100%;
 	height:100%;
 	margin: 0;
-	background: url('pattern2.png')/*tpa=http://bizweb.dktcdn.net/100/035/474/themes/46087/assets/pattern2.png*/ repeat;
 }
 
 .swiper_wrapper .swiper-slide {
@@ -2791,7 +2781,6 @@ Slider
 	top: 0;
 	left: 0;
 	z-index: 5;
-	background: transparent url('grid.png')/*tpa=http://bizweb.dktcdn.net/100/035/474/themes/46087/assets/grid.png*/ repeat;
 	-webkit-backface-visibility: hidden;
 }
 
@@ -3208,7 +3197,6 @@ body.stretched .container-fullwidth .breadcrumb { right: 60px !important; }
 -----------------------------------------------------------------*/
 
 #page-title.page-title-pattern {
-	background-image: url('pattern.png')/*tpa=http://bizweb.dktcdn.net/100/035/474/themes/46087/assets/pattern.png*/;
 	background-repeat: repeat;
 	background-attachment: fixed;
 }
@@ -3234,7 +3222,6 @@ body.stretched .container-fullwidth .breadcrumb { right: 60px !important; }
 
 #page-title.page-title-parallax {
 	background-color: transparent;
-	background-image: url('parallax-bg.jpg')/*tpa=http://bizweb.dktcdn.net/100/035/474/themes/46087/assets/parallax-bg.jpg*/;
 	background-attachment: fixed;
 	background-position: 50% 0;
 	background-repeat: no-repeat;

@@ -62,34 +62,6 @@
   </style>
   <![endif]-->
 
-  <style>
-
-    .revo-slider-emphasis-text {
-      font-size: 58px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      font-family: 'Raleway', sans-serif;
-      padding: 15px 20px;
-      border-top: 2px solid #FFF;
-      border-bottom: 2px solid #FFF;
-    }
-
-    .revo-slider-desc-text {
-      font-size: 20px;
-      font-family: 'Lato', sans-serif;
-      width: 650px;
-      text-align: center;
-      line-height: 1.5;
-    }
-
-    .revo-slider-caps-text {
-      font-size: 16px;
-      font-weight: 400;
-      letter-spacing: 3px;
-      font-family: 'Raleway', sans-serif;
-    }
-
-  </style>
 
   <link href="{DIR_CSS}template/font_css_google.css" rel='stylesheet' type='text/css'/>
   <link href="{DIR_CSS}template/bootstrap.css" rel='stylesheet' type='text/css'/>
