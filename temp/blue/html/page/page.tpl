@@ -1,5 +1,9 @@
 <!-- BEGIN: main -->
-{data.content}
+<div class="content-wrap">
+  <div class="container clearfix">
+    {data.content}
+  </div>
+</div>
 <!-- END: main --> 
 
 <!-- BEGIN: main1 -->

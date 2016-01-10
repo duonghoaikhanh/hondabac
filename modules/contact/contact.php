@@ -122,7 +122,7 @@ class sMain
 			if(!empty($list_markers)) {
 				$data['contact_map'] = '<script language="javascript">
 					$(function() {
-						$("#map_view").goMap({
+						$("#contact_map").goMap({
 							markers: ['.$list_markers.'],
 							icon: "'.$ttH->dir_images.'icon_markers.png",
 							maptype: "ROADMAP",
