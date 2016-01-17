@@ -234,8 +234,8 @@ span.middot {
 
 .nobottommargin { margin-bottom: 0 !important; }
 header p.nobottommargin{
-	font-size: 22px;
-	margin-top: 30px;
+	font-size: 16px;
+	margin-top: 15px;
 }
 
 
@@ -979,8 +979,9 @@ Primary Menu
 
 
 #primary-menu {
-	float: right;
 	height: 100px;
+	background: #ecf0f5;
+	margin:0px -30px ;
 }
 
 #header.full-header #primary-menu > ul {
@@ -1009,7 +1010,7 @@ Primary Menu
 
 #primary-menu ul {
 	list-style: none;
-	height: 100px;
+	height: 50px;
 	margin: 0;
 }
 
@@ -1027,8 +1028,8 @@ Primary Menu
 
 #primary-menu ul li a {
 	display: block;
-	height: 100px;
-	line-height: 100px;
+	height: 50px;
+	line-height: 50px;
 	padding: 0 15px;
 	color: #444;
 	font-weight: bold;
@@ -1077,7 +1078,7 @@ Primary Menu
 	border-top: 2px solid #700b0b;
 	height: auto;
 	z-index: 199;
-	top: 100px;
+	top: 50px;
 	left: 0;
 	margin: 0;
 }
@@ -1594,13 +1595,14 @@ Top Search
 #top-cart,
 #side-panel-trigger {
 	float: left;
-	margin: 40px 0 40px 15px;
+	margin-left: 70px;
+	margin-top: 25px;
+
 }
 
 
 #top-cart {
 	position: relative;
-	margin-left: 70px;
 }
 
 #top-search a,
@@ -1856,12 +1858,14 @@ Sticky Header
 #logo img,
 #primary-menu:not(.style-2),
 #primary-menu:not(.style-2) > ul {
-	height: 100px;
+	height: 50px;
 	-webkit-transition: height .4s ease, opacity .3s ease;
 	-o-transition: height .4s ease, opacity .3s ease;
 	transition: height .4s ease, opacity .3s ease;
 }
-
+#logo img{
+	height: 80px;
+}
 #header.sticky-style-2 { height: 161px; }
 
 #header.sticky-style-3 { height: 181px; }
@@ -1915,11 +1919,12 @@ body.top-search-open #side-panel-trigger { opacity: 0; }
 	top: 0;
 	left: 0;
 	width: 100%;
-	background-color: #FFF;
 	-webkit-backface-visibility: hidden;
 }
+
 #header.sticky-header #header-wrap .container{
 	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	background-color: #FFF;
 }
 
 #header.semi-transparent.sticky-header #header-wrap { background-color: rgba(255,255,255,0.8) }
@@ -7078,14 +7083,17 @@ Promo Boxes
 -----------------------------------------------------------------*/
 
 .promo.promo-light {
-	background-color: #F5F5F5;
 	border-radius: 3px;
 	padding-left: 30px;
 }
+.promo.promo-light .container{
+	background-color: #F5F5F5;
 
+}
 .promo.promo-light a.button {
 	right: 0px; 
 	position:absolute;
+	top:55px
 }
 
 
@@ -13027,10 +13035,19 @@ HTML5 Youtube Video Backgrounds
 .banner_left_fix{
 	position: fixed;
 	top: 0px;
-	left: 0px;
+	right: 50%;
+	margin-right: 550px;
 }
 .banner_right_fix{
 	position: fixed;
 	top: 0px;
-	right: 0px;
+	left: 50%;
+	margin-left: 550px;
+}
+.wrapper_page{
+	width: 1100px;
+	margin: 0 auto;
+}
+body{
+	background-color: #f5ce11	;
 }

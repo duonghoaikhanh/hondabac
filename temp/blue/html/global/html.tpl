@@ -124,11 +124,9 @@
 
 <body class="stretched no-transition">
 <div id='body_overlay'></div>
+  <div class="wrapper_page">
 
-
-<!-- mobile menu -->
 <div id="menu-wrapper">
-  <!-- Sidebar -->
   <div id="sidebar-wrapper">
     <ul class="sidebar-nav">
       <!-- Top Search
@@ -238,23 +236,12 @@
 
     </ul>
   </div>
-  <!-- /#sidebar-wrapper -->
-  <!-- Page Content -->
-
-  <!-- /#page-content-wrapper -->
 
 </div>
-<!-- end mobile menu -->
 
 <a href="#menu-toggle" class="btn btn-default hidden-md hidden-lg" id="menu-toggle"><i class='icon-reorder'></i></a>
-<div id="wrapper" class="clearfix"> <!-- style="animation-duration: 1.5s; opacity: 1;"-->
-  <!-- Top Bar
-============================================= -->
+<div id="wrapper" class="clearfix">
 
-  <!-- #top-bar end -->
-
-  <!-- Header
-============================================= -->
   <header id="header" class='full-header'>
 
     <div id="header-wrap">
@@ -609,11 +596,12 @@
 			loadpage();
 		});
   </script>
-<div class="banner_left_fix hide">
+<div class="banner_left_fix ">
   <img src="{DIR_IMAGE}theme_tet4_02.png">
 </div>
-<div class="banner_right_fix hide">
+<div class="banner_right_fix ">
   <img src="{DIR_IMAGE}theme_tet4_04.png">
+</div>
 </div>
 </body>
 </html>
