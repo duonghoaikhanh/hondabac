@@ -66,6 +66,8 @@ $data["box_search"] = $ttH->site->box_search();
 $data['share'] = $ttH->site->get_banner ('share', 0);
 $data['box_search'] = $ttH->site->box_search ();
 $data['box_search_sm'] = $ttH->site->box_search_sm ();
+
+$data['box_support'] = $ttH->site->box_support();
 //$data['header_user'] = $ttH->site->header_user ();
 //$data['header_cart'] = $ttH->site->header_cart ();
 $data['share'] = $ttH->site->get_banner ('share', 0);

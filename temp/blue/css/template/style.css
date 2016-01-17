@@ -1034,7 +1034,6 @@ Primary Menu
 	color: #444;
 	font-weight: bold;
 	font-size: 13px;
-	letter-spacing: 1px;
 	text-transform: uppercase;
 	font-family: 'Raleway', sans-serif;
 	-webkit-transition: height .4s ease, line-height .4s ease, margin .4s ease, padding .4s ease;
@@ -13050,4 +13049,7 @@ HTML5 Youtube Video Backgrounds
 }
 body{
 	background-color: #f5ce11	;
+}
+.container #main_slide{
+	margin: 0px -30px;
 }

@@ -15,7 +15,7 @@
         <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>
   <![endif]-->
     <title>{CONF.meta_title}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <meta name="description" content="{CONF.meta_desc}" />
@@ -258,6 +258,7 @@
               <strong><a href='mailto:{CONF.email}'><i class='icon-email3'></i>{CONF.email}</a> </strong>
             </p>
           </div>
+          {data.box_support}
 
         </div>
 
