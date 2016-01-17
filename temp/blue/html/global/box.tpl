@@ -183,7 +183,7 @@
 </div>
 <!-- END: box_support_old -->
 
-<!-- BEGIN: box_support -->
+<!-- BEGIN: box_support1 -->
 <div class="box_support">
 	<div class="arrow"></div>
   <!-- BEGIN: row -->
@@ -205,10 +205,34 @@
     <div class="clear"></div>
   </div>
   <!-- END: row -->
-  <div class="support_tool">
-    <div class="support_web">{data.support_web}</div>
+
+</div>
+<!-- END: box_support1 -->
+
+<!-- BEGIN: box_support -->
+<div class="box_support">
+  <div class="arrow"></div>
+  <!-- BEGIN: row -->
+  <div class="row">
+    <!-- BEGIN: yahoo -->
+    <div class="nick yahoo" data-nick="{row.yahoo}" nick_type="yahoo">
+      <div><a class="pic" href="ymsgr:sendIM?{row.yahoo}"><img src='{DIR_IMAGE}icon_yahoo_on.png' alt="{row.yahoo}" /></a></div>
+      <div><a class="title" href="ymsgr:sendIM?{row.yahoo}">{row.title}</a></div>
+      <div class="clear"></div>
+    </div>
+    <!-- END: yahoo -->
+    <!-- BEGIN: skype -->
+    <div class="nick skype" data-nick="{row.skype}" nick_type="skype">
+      <div><a class="pic" href="Skype:{row.skype}?chat">
+          <img src="{DIR_IMAGE}h.png" alt="{row.skype}" height="16" />{row.skype}</a>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <!-- END: skype -->
     <div class="clear"></div>
   </div>
+  <!-- END: row -->
+
 </div>
 <!-- END: box_support -->
 

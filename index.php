@@ -73,7 +73,6 @@ $data['box_support'] = $ttH->site->box_support();
 $data['share'] = $ttH->site->get_banner ('share', 0);
 $data['header_menu'] = $ttH->site->menu_single ('menu_top');
 $data['list_menu'] = $ttH->site->list_menu ('menu_header');
-$data['list_menu_top'] = $ttH->site->list_menu ('menu_top');
 $data['footer'] = $ttH->site->get_banner ('footer');
 $data['list_page_newest_footer'] = $ttH->site->box_page_newest_footer ();
 $data['banner_info_contact_company_footer'] = $ttH->site->get_banner ('banner-info-contact-company-footer');

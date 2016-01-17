@@ -252,7 +252,7 @@
           </div>
           {data.header_cart}
           {data.box_search}
-          <div class="col_half col_last fright nobottommargin top_link_wrapper">
+          <div class="col_half col_last fleft nobottommargin top_link_wrapper box_info_top">
             <p class="nobottommargin">
               <strong><a href='tel:{CONF.hotline}'><i class='icon-phone3'></i> {CONF.hotline}</a> </strong>
               <strong><a href='mailto:{CONF.email}'><i class='icon-email3'></i>{CONF.email}</a> </strong>

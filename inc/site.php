@@ -1344,11 +1344,13 @@ class Site
 		global $ttH;
 		
 		$output = '';
-		
-		$result = $ttH->db->query("select *   
-														from support 
-														where is_show=1
-														order by show_order desc, date_update asc");
+		$sql = "select *
+					from support
+					where is_show=1
+					and lang= '".$ttH->conf['lang_cur']."'
+					order by show_order desc, date_update asc";
+		$result = $ttH->db->query($sql);
+
 		if($num = $ttH->db->num_rows($result)){
 			while($row = $ttH->db->fetch_row($result)){
 				if(isset($row['yahoo']) || isset($row['skype'])) {
@@ -1358,19 +1360,13 @@ class Site
 					$ttH->temp_box->reset("box_support.row.skype");
 					
 					if(!empty($row['yahoo'])) {
-						/*$status = @file_get_contents('http://opi.yahoo.com/online?u='.$row['yahoo'].'&m=s&t=1');
-						$status = ($status == '01') ? 'on' : 'off';
-						$status = 'on';*/
-						
+
 						$ttH->temp_box->assign('row', $row);
 						$ttH->temp_box->parse("box_support.row.yahoo");
 					}
-					
+
 					if(!empty($row['skype'])) {
-						/*$status = @file_get_contents('http://mystatus.skype.com/'.$row['skype'].'.num');
-						$status = (in_array($status, array(0,1,6))) ? 'off' : 'on';
-						$status = 'on';*/
-						
+
 						$ttH->temp_box->assign('row', $row);
 						$ttH->temp_box->parse("box_support.row.skype");
 					}
