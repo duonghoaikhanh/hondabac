@@ -113,7 +113,7 @@ class sMain
 			$row["stt"] = $i;
 			$row['content'] = $ttH->func->input_editor_decode($row['content']);
 			$row['content'] = str_replace('{link_map}',$link_map,$row['content']);
-			$row['content_info'] .= '<div class="contact_info">'.$row['content'].'</div>';
+//			$row['content_info'] .= '<div class="contact_info">'.$row['content'].'</div>';
 
 			$contact_info .= '<div class="contact_info">'.$row['content'].'</div>';
 			if(!empty($list_markers)) {

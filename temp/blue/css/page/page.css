@@ -6,9 +6,10 @@
 	padding:0px 0px 0px;
 	}
 .list_item .row_item .col_item {
-	width:47%;
+	width:90%;
 	float:left;
 	margin-right:6%;
+	margin-bottom: 4%;
 	}
 .list_item .row_item .col_item.last {
 	margin-right:0px;
@@ -22,7 +23,7 @@
 	box-shadow:         0px 0px 5px 0px rgba(0, 0, 0, 0.54);
 	}
 .list_item .col_item h3{
-	font-size:110%;
+	font-size: 24px;
 	overflow:hidden;
 	white-space: nowrap;
   overflow: hidden;
@@ -44,7 +45,7 @@
 	}
 	
 .list_item .hr{
-	height:40px;
+	height: 0;
 	}
 /*---------------grid_item-----------------*/
 .grid_item{
@@ -207,3 +208,7 @@ ul.tool_page{
 	font-size:100%;
 	color:#000000;
 	}
+
+.postcontent {
+	width: 100% !important;
+}

@@ -1947,7 +1947,7 @@ function box_search_category ()
 		
 		$data = array(
 			'title' => $title,
-			'link_search' => box_search,
+//			'link_search' => box_search,
 			'text_search' => (isset($ttH->input['text_search'])) ? $ttH->input['text_search'] : $ttH->lang['global']['search_text']
 		);
 		

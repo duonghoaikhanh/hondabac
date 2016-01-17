@@ -113,8 +113,8 @@ function html_list_item ($arr_in = array())
 	$link_action = (isset($arr_in['link_action'])) ? $arr_in['link_action'] : $ttH->site->get_link ('page');
 	$temp = (isset($arr_in['temp'])) ? $arr_in['temp'] : 'list_item';
 	$p = (isset($ttH->input["p"])) ? $ttH->input["p"] : 1;
-	$pic_w = (isset($arr_in["pic_w"])) ? $arr_in["pic_w"] : 100;
-	$pic_h = (isset($arr_in["pic_h"])) ? $arr_in["pic_h"] : 100;
+	$pic_w = (isset($arr_in["pic_w"])) ? $arr_in["pic_w"] : 250;
+	$pic_h = (isset($arr_in["pic_h"])) ? $arr_in["pic_h"] : 150;
 	$num_row = (isset($arr_in["num_row"])) ? $arr_in["num_row"] : 2;
 	$short_len = (isset($arr_in["short_len"])) ? $arr_in["short_len"] : 250;
 	
