@@ -5,7 +5,7 @@
 	font-weight: normal;
 }
 #top-bar i {
-	font-size: 20px;
+	font-size: 30px;
 	margin-right: 5px;
 	margin-left: 10px;
 	vertical-align: bottom;
@@ -925,7 +925,7 @@ ul.tab-nav li a i {
 	margin-bottom: 20px;
 }
 #top-bar .container {
-	width: 100%;
+	/*width: 100%;*/
 }
 
 
@@ -981,7 +981,8 @@ table.cart .quantity .qty {
 
 @media (min-width: 1200px) {
 	.container {
-		width: 1240px;
+		/*width: 1240px;*/
+		width:1100px
 	}
 	.sort-wrapper {
 		margin-right: 20px;

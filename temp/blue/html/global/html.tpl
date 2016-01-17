@@ -250,32 +250,7 @@
 <div id="wrapper" class="clearfix"> <!-- style="animation-duration: 1.5s; opacity: 1;"-->
   <!-- Top Bar
 ============================================= -->
-  <div id="top-bar" class="">
-    <div class="container clearfix">
-      <div class="col_half nobottommargin hidden-xs hidden-sm">
-        <p class="nobottommargin">
-          <strong><a href='tel:{CONF.hotline}'><i class='icon-phone3'></i> {CONF.hotline}</a> </strong>
-          <strong><a href='mailto:{CONF.email}'><i class='icon-email3'></i>{CONF.email}</a> </strong>
-        </p>
-      </div>
 
-      <div class="col_half col_last fright nobottommargin top_link_wrapper">
-
-        <!-- Top Links
-============================================= -->
-        <div class="top-link">
-          <nav id="primary-menu">
-          {data.list_menu_top}
-            <div class="clear"></div>
-            </nav>
-        </div>
-        <!-- .top-links end -->
-
-      </div>
-
-    </div>
-
-  </div>
   <!-- #top-bar end -->
 
   <!-- Header
@@ -283,17 +258,28 @@
   <header id="header" class='full-header'>
 
     <div id="header-wrap">
+      <div id="top-bar" class="">
+        <div class="container clearfix">
+          <div id="logo" class='col-md-3'>
+            {data.logo}
+          </div>
+          {data.header_cart}
+          {data.box_search}
+          <div class="col_half col_last fright nobottommargin top_link_wrapper">
+            <p class="nobottommargin">
+              <strong><a href='tel:{CONF.hotline}'><i class='icon-phone3'></i> {CONF.hotline}</a> </strong>
+              <strong><a href='mailto:{CONF.email}'><i class='icon-email3'></i>{CONF.email}</a> </strong>
+            </p>
+          </div>
+
+        </div>
+
+      </div>
 
       <div class="container clearfix">
 
-        <div id="logo" class='col-md-3'>
-            {data.logo}
-        </div>
-
         <nav id="primary-menu">
           {data.list_menu}
-          {data.header_cart}
-          {data.box_search}
         </nav>
         <a href='#' id='top_link_trigger' class='hidden-lg hidden-md'><i class='icon-ellipsis-vertical'></i></a>
         <!-- end top link trigger --->
@@ -623,6 +609,12 @@
 			loadpage();
 		});
   </script>
+<div class="banner_left_fix hide">
+  <img src="{DIR_IMAGE}theme_tet4_02.png">
+</div>
+<div class="banner_right_fix hide">
+  <img src="{DIR_IMAGE}theme_tet4_04.png">
+</div>
 </body>
 </html>
 <!-- END: body -->
@@ -676,108 +668,28 @@
 
 
 <!-- BEGIN: main_slide -->
-<section id="slider" class="slider-parallax swiper_wrapper clearfix">
-
-    <div class="tp-banner-container">
-        <div class="tp-banner">
-            <ul>
-
-                <!-- BEGIN: row -->
-
-                <li data-transition="random" >
-                    {row.content}
-                </li>
-                <!-- END: row -->
-
-
-            </ul>
-        </div>
+<div id="main_slide">
+  <div id="owl-main_slide" class="owl-carousel">
+    <!-- BEGIN: row -->
+    <div class="item">
+      <a href="{row.link}" target="{row.target}" {row.class}>
+        {row.content}
+      </a>
     </div>
-
-    <script type="text/javascript">
-
-        jQuery(document).ready(function () {
-
-            jQuery('.tp-banner').show().revolution(
-                    {
-                        dottedOverlay: "none",
-                        delay: 5000,
-                        startwidth: 1350,
-                        startheight: 500,
-                        hideThumbs: 200,
-
-                        thumbWidth: 100,
-                        thumbHeight: 50,
-                        thumbAmount: 5,
-
-                        navigationType: "none",
-                        navigationArrows: "solo",
-                        navigationStyle: "preview2",
-
-                        touchenabled: "on",
-                        onHoverStop: "on",
-
-                        swipe_velocity: 0.7,
-                        swipe_min_touches: 1,
-                        swipe_max_touches: 1,
-                        drag_block_vertical: false,
-
-                        parallax: "mouse",
-                        parallaxBgFreeze: "on",
-                        parallaxLevels: [7, 4, 3, 2, 5, 4, 3, 2, 1, 0],
-
-                        keyboardNavigation: "off",
-
-                        navigationHAlign: "center",
-                        navigationVAlign: "bottom",
-                        navigationHOffset: 0,
-                        navigationVOffset: 20,
-
-                        soloArrowLeftHalign: "left",
-                        soloArrowLeftValign: "center",
-                        soloArrowLeftHOffset: 20,
-                        soloArrowLeftVOffset: 0,
-
-                        soloArrowRightHalign: "right",
-                        soloArrowRightValign: "center",
-                        soloArrowRightHOffset: 20,
-                        soloArrowRightVOffset: 0,
-
-                        shadow: 0,
-                        fullWidth: "on",
-                        fullScreen: "off",
-
-                        spinner: "spinner4",
-
-                        stopLoop: "off",
-                        stopAfterLoops: -1,
-                        stopAtSlide: -1,
-
-                        shuffle: "off",
-
-                        autoHeight: "on",
-                        forceFullWidth: "off",
-
-
-                        hideThumbsOnMobile: "off",
-                        hideNavDelayOnMobile: 1500,
-                        hideBulletsOnMobile: "off",
-                        hideArrowsOnMobile: "off",
-                        hideThumbsUnderResolution: 0,
-
-                        hideSliderAtLimit: 0,
-                        hideCaptionAtLimit: 0,
-                        hideAllCaptionAtLilmit: 0,
-                        startWithSlide: 0,
-                        fullScreenOffsetContainer: ".header"
-                    });
-
-
-        }); //ready
-
-    </script>
-
-</section>
+    <!-- END: row -->
+  </div>
+</div>
+<script language="javascript">
+  jQuery(document).ready(function($){
+    $("#owl-main_slide").owlCarousel({
+      pagination : false,
+      navigation : false,
+      singleItem : true,
+      autoPlay : true,
+      stopOnHover : true
+    });
+  });
+</script>
 <!-- END: main_slide -->
 
 <!-- BEGIN: main_slide1 -->

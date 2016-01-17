@@ -1348,16 +1348,7 @@ var SEMICOLON = SEMICOLON || {};
 			}
 		},
 
-		owlCaptionInit: function(){
-			if( $owlCarouselEl.length > 0 ){
-				$owlCarouselEl.each( function(){
-					var element = $(this);
-					if( element.find('.owl-dot').length > 0 ) {
-						element.find('.owl-controls').addClass('with-carousel-dots');
-					}
-				});
-			}
-		}
+
 
 	};
 
@@ -2344,7 +2335,6 @@ var SEMICOLON = SEMICOLON || {};
 			SEMICOLON.widget.loadFlexSlider();
 			SEMICOLON.widget.html5Video();
 			SEMICOLON.widget.masonryThumbs();
-			SEMICOLON.slider.owlCaptionInit();
 			SEMICOLON.header.topsocial();
 			SEMICOLON.header.responsiveMenuClass();
 		}
@@ -2391,7 +2381,6 @@ var SEMICOLON = SEMICOLON || {};
 		$commonHeightEl = $('.common-height'),
 		$testimonialsGridEl = $('.testimonials-grid'),
 		$pageSectionEl = $('.page-section'),
-		$owlCarouselEl = $('.owl-carousel'),
 		$parallaxEl = $('.parallax'),
 		$parallaxPageTitleEl = $('.page-title-parallax'),
 		$youtubeBgPlayerEl = $('.yt-bg-player'),
