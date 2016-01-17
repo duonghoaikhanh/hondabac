@@ -408,9 +408,9 @@ Columns & Grids
 -----------------------------------------------------------------*/
 
 
-.postcontent { width: 860px; }
+.postcontent { width: 74%; }
 .postcontent.bothsidebar { width: 580px; }
-.sidebar { width: 240px; }
+.sidebar { width: 22%; }
 .col_full { width: 100%; }
 .col_half { width: 48%; }
 .col_one_third { width: 30.63%; }
@@ -5966,7 +5966,7 @@ body:not(.device-touch):not(.device-xs):not(.device-xxs) .product-overlay a {
 /* Shop - 3 Columns
 -----------------------------------------------------------------*/
 
-#shop.product-3 { margin: 0 -30px -30px 0; }
+#shop.product-3 { margin:  0; }
 
 .product-3 .product {
 	margin: 0 30px 30px 0;
@@ -5979,11 +5979,12 @@ body:not(.device-touch):not(.device-xs):not(.device-xxs) .product-overlay a {
 /* Shop - 3 Columns - Sidebar
 -----------------------------------------------------------------*/
 
-.postcontent #shop.product-3 { margin: 0 -25px -25px 0; }
+.postcontent #shop.product-3 { margin: 0; }
 
 .postcontent .product-3 .product {
-	margin: 0 25px 0px 0;
-	width: 270px;
+	width: 33.333333333%;
+	padding: 0px 15px;
+	margin-right: 0px;
 }
 
 .postcontent .product-3 .product-image { /*height: 240px;*/ }

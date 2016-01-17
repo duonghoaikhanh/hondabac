@@ -834,6 +834,7 @@ ul.tab-nav li a i {
 }
 .product_wrapper {
 	overflow:hidden;
+	margin:0px -15px;
 }
 .slide_wrapper {
 	position: relative;
