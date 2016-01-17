@@ -76,79 +76,100 @@ class sMain
 		
 		$contact_info ='';
     $result = $ttH->db->query("select *  
-																from contact_map   
-																where is_show=1 
-																and lang='".$ttH->conf["lang_cur"]."' 
-																order by show_order desc, date_create asc");
+									from contact_map
+									where is_show=1
+									and lang='".$ttH->conf["lang_cur"]."'
+									order by show_order desc, date_create asc");
     if ($num = $ttH->db->num_rows($result)) 
 		{
      	$i=0;
-			$list_markers = '';
-			$list_pic = '';
-			while($row = $ttH->db->fetch_row($result))
+		$list_markers = '';
+		$list_pic = '';
+		while($row = $ttH->db->fetch_row($result))
+		{
+			$i++;
+			$link_map = '';
+			switch ($row['map_type'])
 			{
-				$i++;		
-				
-				$link_map = '';
-				
-				switch ($row['map_type'])
-				{
-					case 'google_map' : 
-						$row['map_information'] = str_replace(array("\r\n","\n"),'',$ttH->func->input_editor_decode($row['map_information']));
-						$list_markers .= (!empty($list_markers)) ? ',' : '';
-						$list_markers .= '{ 
-							latitude: "'.$row['map_latitude'].'",
-							longitude: "'.$row['map_longitude'].'",
-							id: "map_id_'.$row['map_id'].'", 
-							html: {
-								content: "'.$row['map_information'].'",
-								popup: true
-							}
-						}';		
-						$link_map = "<a href=\"javascript:void(0)\" onclick=\"$.goMap.fitBounds('markers',['map_id_".$row['map_id']."'])\">".$ttH->lang["contact"]["view_map"]."</a>";				
-						break ;	
-					case 'image' : 
-						$list_pic .= '<img id="map_id_'.$row['map_id'].'" src="'.$ttH->conf['rooturl'].'contact/'.$row['map_picture'].'" alt="map_picture" />';		
-						break ;	
-				} 
-				
-				$row['content'] = $ttH->func->input_editor_decode($row['content']);
-				$row['content'] = str_replace('{link_map}',$link_map,$row['content']);
-				$contact_info .= '<div class="contact_info">'.$row['content'].'</div>';						
-				
-				$i++;
+				case 'google_map' :
+					$row['map_information'] = str_replace(array("\r\n","\n"),'',$ttH->func->input_editor_decode($row['map_information']));
+					$list_markers .= (!empty($list_markers)) ? ',' : '';
+					$list_markers .= '{
+						latitude: "'.$row['map_latitude'].'",
+						longitude: "'.$row['map_longitude'].'",
+						id: "map_id_'.$row['map_id'].'",
+						html: {
+							content: "'.$row['map_information'].'",
+							popup: true
+						}
+					}';
+					$link_map = "<a href=\"javascript:void(0)\" onclick=\"$.goMap.fitBounds('markers',['map_id_".$row['map_id']."'])\">".$ttH->lang["contact"]["view_map"]."</a>";
+					break ;
+				case 'image' :
+					$list_pic .= '<img id="map_id_'.$row['map_id'].'" src="'.$ttH->conf['rooturl'].'contact/'.$row['map_picture'].'" alt="map_picture" />';
+					break ;
 			}
-			
+
+			$row["stt"] = $i;
+			$row['content'] = $ttH->func->input_editor_decode($row['content']);
+			$row['content'] = str_replace('{link_map}',$link_map,$row['content']);
+			$row['content_info'] .= '<div class="contact_info">'.$row['content'].'</div>';
+
+			$contact_info .= '<div class="contact_info">'.$row['content'].'</div>';
 			if(!empty($list_markers)) {
-				$data['contact_map'] = '<script language="javascript">
+				if($i==1){
+
+					$data['contact_map'] = '<script language="javascript">
 					$(function() {
-						$("#contact_map").goMap({
+						$("#contact_map1").goMap({
 							markers: ['.$list_markers.'],
 							icon: "'.$ttH->dir_images.'icon_markers.png",
 							maptype: "ROADMAP",
 							zoom: 15
 						});
 					});
-				</script>';
+					</script>';
+				}else{
+					$data['contact_map'] = '<script language="javascript">
+					$(function() {
+						$("#contact_map3").goMap({
+							markers: ['.$list_markers.'],
+							icon: "'.$ttH->dir_images.'icon_markers.png",
+							maptype: "ROADMAP",
+							zoom: 15
+						});
+					});
+					</script>';
+				}
+
+				$row['contact_map'] = $data['contact_map'];
 			}
-    }	
-		 
-		$data["err"] = $err;
+
+			$ttH->temp_act->assign('tab', $row);
+			$ttH->temp_act->parse("html_contact.tab");
+			$ttH->temp_act->parse("html_contact.tab_content");
+			$i++;
+		}
+
+
+    }
+
+  	$data["err"] = $err;
     $data['link_action'] = $ttH->site->get_link ($this->modules);
   	$data['title'] = isset($ttH->input['title']) ? $ttH->input['title'] : '';
     $data['contact_info'] = $contact_info;
-	  $data['conf'] = $ttH->conf;
+  	$data['conf'] = $ttH->conf;
 
 
     $ttH->temp_act->assign("data", $data);
     $ttH->temp_act->assign("setting", $ttH->setting['contact']);
     $ttH->temp_act->parse("html_contact");
 		
-		$ttH->temp_box->assign('data', array(
-			'title' => $ttH->conf['meta_title'],
-			'content' => $ttH->temp_act->text("html_contact")
-		));
-		$ttH->temp_box->parse("box_main");
+	$ttH->temp_box->assign('data', array(
+		'title' => $ttH->conf['meta_title'],
+		'content' => $ttH->temp_act->text("html_contact")
+	));
+	$ttH->temp_box->parse("box_main");
     return $ttH->temp_box->text("box_main");
   }
 	
