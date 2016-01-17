@@ -236,6 +236,102 @@
 </div>
 <!-- END: box_support -->
 
+
+
+<!-- BEGIN: box_category_product -->
+<div class="widget widget_links clearfix">
+  <h4>Danh mục sản phẩm</h4>
+  <ul>
+    <!-- BEGIN: group_level1 -->
+    <li>
+      <a href="{row.link}">{row.title}</a>
+      <ul>
+        <!-- BEGIN: group_level2 -->
+          <li><a href="{row.link}">{row.title}</a></li>
+        <!-- END: group_level2 -->
+      </ul>
+    </li>
+    <!-- END: group_level1 -->
+  </ul>
+</div>
+
+
+<!-- END: box_category_product -->
+
+
+<!-- BEGIN: box_product_deal -->
+<div class="widget clearfix">
+
+  <!-- BEGIN: row -->
+  <h4>{row.title}</h4>
+
+  <div id="post-list-footer">
+    <!-- BEGIN: row_c -->
+      <div class="spost clearfix">
+      <div class="entry-image">
+        <a href="{row.link}">
+          <img src="{row.picture}" alt="{row.title}"></a>
+      </div>
+      <div class="entry-c">
+        <div class="entry-title">
+          <h4><a href="{row.title}">{row.title}</a></h4>
+        </div>
+        <ul class="entry-meta">
+          <li class="color">
+            <ins><span class="auto_price">{row.price}</span></ins>
+            <del><span class="auto_price">{row.price_buy}</span></del>
+          </li>
+          <!--<li><i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star-half-full"></i></li>-->
+        </ul>
+      </div>
+    </div>
+    <!-- END: row_c -->
+  </div>
+  <!-- END: row -->
+
+</div>
+<script>
+  auto_price_format();
+</script>
+<!-- END: box_product_deal -->
+
+<!-- BEGIN: box_product_focus -->
+
+<div class="widget clearfix">
+
+  <!-- BEGIN: row -->
+  <h4>{row.title}</h4>
+
+  <div id="post-list-footer">
+    <!-- BEGIN: row_c -->
+    <div class="spost clearfix">
+      <div class="entry-image">
+        <a href="{row.link}">
+          <img src="{row.picture}" alt="{row.title}"></a>
+      </div>
+      <div class="entry-c">
+        <div class="entry-title">
+          <h4><a href="{row.title}">{row.title}</a></h4>
+        </div>
+        <ul class="entry-meta">
+          <li class="color">
+            <ins><span class="auto_price">{row.price}</span></ins>
+            <del><span class="auto_price">{row.price_buy}</span></del>
+          </li>
+          <!--<li><i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star-half-full"></i></li>-->
+        </ul>
+      </div>
+    </div>
+    <!-- END: row_c -->
+  </div>
+  <!-- END: row -->
+
+</div>
+<script>
+  auto_price_format();
+</script>
+<!-- END: box_product_focus -->
+
 <!-- BEGIN: box_statistic -->
 <div class="box bo_css box_statistic">
 	<div class="box-title">

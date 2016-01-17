@@ -56,7 +56,6 @@ class pMain
 				eval('$'.$key['name'].' = '.$key['value'].';');
 			}
 		}
-		
 		$arr_color = $ttH->load_data->data_table ('product_color', 'color_id', 'color_id,color,title', "	lang='".$ttH->conf['lang_cur']."' order by show_order desc, date_create desc");
 		$arr_size = $ttH->load_data->data_table ('product_size', 'size_id', 'size_id,title', "	lang='".$ttH->conf['lang_cur']."' order by show_order desc, date_create desc");
 		
@@ -65,13 +64,12 @@ class pMain
 		/*print_arr($ttH->input); 
 		print_arr($arr_cart); */
 		//die();
-		
 		if(isset($item_id)) {
 			$item_id = ($item_id > 0) ? $item_id : 0;
 			$color = (isset($color)) ? $color : 0;
 			$size = (isset($size)) ? $size : 0;
 			//$code_pic = (isset($ttH->input['code_pic'])) ? $ttH->input['code_pic'] : 0;
-			
+
 			$quantity = (isset($quantity) && $quantity > 0) ? $quantity : 1;
 			if($item_id > 0) {
 				$cart_id = md5($item_id.'_c'.$color.'_s'.$size);
@@ -682,8 +680,7 @@ class pMain
 		$ttH->func->include_js($ttH->dir_skin.'js/user/user.js');
 		$ttH->func->include_js($ttH->dir_skin.'js/'.$this->modules.'/ordering.js');
 		
-		require_once ($ttH->conf["rootpath"].DS."modules/".$this->modules."/seo_url_short.php");
-		
+
 		require_once ($ttH->conf["rootpath"].DS."modules/".$this->modules."/".$this->modules."_func.php");
 		
 		$ordering_payment = Session::get ('ordering_payment', array());	

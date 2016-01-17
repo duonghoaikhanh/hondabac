@@ -136,7 +136,7 @@
 	
 #item_detail #item_info{
 	float:right;
-	width:570px;
+	width:50%;
 	}
 #item_detail #item_info h1{
 	font-size:120%;
@@ -257,22 +257,22 @@
 	}
 #item_detail #item_info .btn_add_cart_show{
 	border:none;
-	border:1px solid #01c2c6;
-	background:#01c2c6;
-	font-size:150%;
-	color:#fff;
-	text-transform:uppercase;
-	padding:10px 20px;
-	margin-right:30px;
+	border: 1px solid #01c2c6;
+	background: #01c2c6;
+	font-size: 135%;
+	color: #fff;
+	text-transform: uppercase;
+	padding: 6px 10px;
+	margin-right: 5px;
 	}
 #item_detail #item_info .btn_add_cart{
 	border:none;
-	border:1px solid #01c2c6;
-	background:#fff;
-	font-size:150%;
-	color:#008689;
-	text-transform:uppercase;
-	padding:10px 20px;
+	border: 1px solid #01c2c6;
+	background: #fff;
+	font-size: 150%;
+	color: #008689;
+	text-transform: uppercase;
+	padding: 5px 10px;
 	}
 	
 #item_detail #item_info #info_row-shipping .info_row_content{

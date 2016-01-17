@@ -578,7 +578,7 @@ function box_column ()
 {
 	global $ttH;
 	
-	$output = $ttH->site->block_column ();
+	$output = $ttH->site->block_column_product ();
 	
 	return $output;
 }

@@ -1095,7 +1095,7 @@ class Site
 		return $output;
 	}
 	
-	function box_product_focus ($num_show = 1)
+	function box_product_focus1 ($num_show = 1)
 	{
 		global $ttH;	
 		
@@ -1470,6 +1470,18 @@ class Site
 		
 		return $output;
   }
+
+	function block_column_product ()
+	{
+		global $ttH;
+
+		$output = '';
+		$output .= $this->box_search_category();
+		$output .= $this->box_product_deal();
+		$output .= $this->box_product_focus();
+
+		return $output;
+	}
 	
 	function box_menu_product ($num_show = 1)
 	{
@@ -1738,52 +1750,169 @@ class Site
 		return $ttH->temp_html->text("header_cart");
   }
 	
-	
-	function box_search_category ()
+function box_search_category ()
   {
     global $ttH;
 		
 		$output= '';
+	  	$temp = 'box_category_product';
 		$sql = "select *
 						from product_group
-						where is_show=1 
-						and lang='".$ttH->conf["lang_cur"]."' 
+						where is_show=1
+						and lang='".$ttH->conf["lang_cur"]."'
+						and group_level =1
 						order by show_order desc , date_create asc ";
 		//echo $sql;die();
 		$result = $ttH->db->query($sql);
-		 if ($num = $ttH->db->num_rows($result)) 
+	  	if ($num = $ttH->db->num_rows($result))
 		{
-     	$i=0;
+     		$i=0;
 			while($row = $ttH->db->fetch_row($result))
 			{
 				$i++;
-				$ttH->temp_box->assign("row", $row);
-				$ttH->temp_box->parse("box_search.row");
-			}
-		}
-		$data= array();
-		$data['link_search']=$ttH->site->get_link('product');
-		if(isset($ttH->post['search'])){
-			if(!empty($ttH->post['search'])){
-				$data['text_search']=(isset($ttH->input['text_search'])) ? $ttH->input['text_search'] : $ttH->lang['global']['search_text'];
-			}
-		/*	$data = array(
-				'link_search' => $ttH->site->get_link('product'),
-				'text_search' => (isset($ttH->input['text_search'])) ? $ttH->input['text_search'] : $ttH->lang['global']['search_text']
-			);*/
-			if(isset($ttH->post['slcategory'])){
-				if(!empty($ttH->post['slcategory'])){
-					$data['group_id'] = $ttH->post['slcategory'];
+
+				$sql_c = "select *
+						from product_group
+						where is_show=1
+						and lang='".$ttH->conf["lang_cur"]."'
+						and group_level =2
+						and parent_id = ".$row['id']."
+						order by show_order desc , date_create asc ";
+				$result_c = $ttH->db->query($sql_c);
+				if ($num_c = $ttH->db->num_rows($result_c))
+				{
+					$j=0;
+					while($row2 = $ttH->db->fetch_row($result_c))
+					{
+						$j++;
+
+						$row2['link'] = $this->get_link('product',$row2['friendly_link']);
+						$ttH->temp_box->assign("row", $row2);
+						$ttH->temp_box->parse($temp.".group_level1.group_level2");
+					}
 				}
-				//echo $data['group_id'];die();
+
+				$row['link'] = $this->get_link('product',$row['friendly_link']);
+				$ttH->temp_box->assign("row", $row);
+				$ttH->temp_box->parse($temp.".group_level1");
 			}
-			
 		}
-		//print_arr($data);die();
-		$ttH->temp_html->assign("data", $data);
-		$output .= $ttH->html->temp_box('box_search', $data);
+
+		$output .= $ttH->html->temp_box($temp);
 		return $output;
   }
+
+
+	function box_product_deal ()
+	{
+		global $ttH;
+
+		$output= '';
+		$temp = 'box_product_deal';
+		$sql = "select *
+						from product_group
+						where is_show=1
+						and lang='".$ttH->conf["lang_cur"]."'
+						and is_deal =1
+						order by show_order desc , date_create asc
+						limit 0,1";
+		$result = $ttH->db->query($sql);
+		if ($num = $ttH->db->num_rows($result))
+		{
+			$i=0;
+			while($row = $ttH->db->fetch_row($result))
+			{
+				$i++;
+
+				$sql_c = "select *
+						from product
+						where is_show=1
+						and lang='".$ttH->conf["lang_cur"]."'
+						and find_in_set('".$row['id']."',group_related)
+						order by show_order desc , date_create asc
+						limit 0,3";
+
+				$result_c = $ttH->db->query($sql_c);
+				if ($num_c = $ttH->db->num_rows($result_c))
+				{
+					$j=0;
+					while($row2 = $ttH->db->fetch_row($result_c))
+					{
+						$j++;
+
+						$row2['link'] = $this->get_link('product','',$row2['friendly_link']);
+						$row2['picture'] = $ttH->func->get_src_mod($row2['picture'],48,26,1,1);
+
+						$ttH->temp_box->assign("row", $row2);
+						$ttH->temp_box->parse($temp.".row.row_c");
+					}
+				}
+
+				$row['link'] = $this->get_link('product',$row['friendly_link']);
+				$ttH->temp_box->assign("row", $row);
+				$ttH->temp_box->parse($temp.".row");
+			}
+		}
+
+		$output .= $ttH->html->temp_box($temp);
+		return $output;
+	}
+
+
+	function box_product_focus ()
+	{
+		global $ttH;
+
+		$output= '';
+		$temp = 'box_product_focus';
+		$sql = "select *
+						from product_group
+						where is_show=1
+						and lang='".$ttH->conf["lang_cur"]."'
+						and is_focus =1
+						order by show_order desc , date_create asc
+						limit 0,1";
+		$result = $ttH->db->query($sql);
+		if ($num = $ttH->db->num_rows($result))
+		{
+			$i=0;
+			while($row = $ttH->db->fetch_row($result))
+			{
+				$i++;
+
+				$sql_c = "select *
+						from product
+						where is_show=1
+						and lang='".$ttH->conf["lang_cur"]."'
+						and find_in_set('".$row['id']."',group_related)
+						order by show_order desc , date_create asc
+						limit 0,3";
+
+				$result_c = $ttH->db->query($sql_c);
+				if ($num_c = $ttH->db->num_rows($result_c))
+				{
+					$j=0;
+					while($row2 = $ttH->db->fetch_row($result_c))
+					{
+						$j++;
+
+						$row2['link'] = $this->get_link('product','',$row2['friendly_link']);
+						$row2['picture'] = $ttH->func->get_src_mod($row2['picture'],48,26,1,1);
+
+						$ttH->temp_box->assign("row", $row2);
+						$ttH->temp_box->parse($temp.".row.row_c");
+					}
+				}
+
+				$row['link'] = $this->get_link('product',$row['friendly_link']);
+				$ttH->temp_box->assign("row", $row);
+				$ttH->temp_box->parse($temp.".row");
+			}
+		}
+
+		$output .= $ttH->html->temp_box($temp);
+		return $output;
+	}
 	
 	// box_search
   function box_search ()

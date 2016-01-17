@@ -31,7 +31,7 @@ class sMain
 		$ttH->temp_act->assign('CONF', $ttH->conf);
 		$ttH->temp_act->assign('LANG', $ttH->lang);
 		$ttH->temp_act->assign('DIR_IMAGE', $ttH->dir_images);
-		
+
 		$ttH->func->include_css ($ttH->dir_css.$this->modules.'/ordering.css');
 		$ttH->func->include_js($ttH->dir_skin.'js/global/temp.js');
 		$ttH->func->include_js($ttH->dir_skin.'js/'.$this->modules.'/ordering.js');
@@ -55,7 +55,7 @@ class sMain
 			'meta_desc' => (isset($ttH->setting['product']["ordering_cart_meta_desc"])) ? $ttH->setting['product']["ordering_cart_meta_desc"] : ''
 		));
 		$ttH->conf["cur_group"] = 0;
-		
+
 		$data = array();
 		$data['content'] = $this->do_cart();
 		$data['box_left'] = box_left();

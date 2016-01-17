@@ -81,7 +81,6 @@ class sMain_sub extends sMain {
 		
 		$data = array();
 		$err = "";
-		
 		if (isset($ttH->post['do_submit'])) {
 			/*print_arr($ttH->post);
 			die();*/
@@ -96,7 +95,7 @@ class sMain_sub extends sMain {
 				}
 				$err = $this->func->_required($k, $v);
 			}
-			
+
 			if(empty($err)){
 				$col = array();
 				$col["parent_id"] = (isset($ttH->post['parent_id']) ? $ttH->post['parent_id'] : 0);
@@ -113,7 +112,7 @@ class sMain_sub extends sMain {
 				$i = 0;
 				foreach($ttH->data["lang"] as $lang_id => $lang_row){
 					$i++;
-					
+
 					if(array_key_exists('lang', $this->arr_element)) {
 						if(isset($item_id) && $item_id) {
 							$friendly_link = ($ttH->post["friendly_link"]) ? $ttH->post["friendly_link"] : $ttH->post["title"];
@@ -127,9 +126,9 @@ class sMain_sub extends sMain {
 					} elseif($i > 1) {
 						break;
 					}
-					
-					$ok = $ttH->db->do_insert($this->dbtable, $col);	
+					$ok = $ttH->db->do_insert($this->dbtable, $col);
 					if($ok && (!isset($col[$this->dbtable_id]))){
+
 						$item_id = $ttH->db->insertid();
 						$col[$this->dbtable_id] = $item_id;
 						$col["group_nav"] = $this->func->get_group_nav ($col["parent_id"], $item_id,'group');

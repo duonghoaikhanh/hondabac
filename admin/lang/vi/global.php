@@ -77,6 +77,7 @@ $lang = array (
 	'info' => 'Thông tin',
 	'focus' => 'Nổi bật',
 	'is_focus' => 'Nổi bật',
+	'is_deal' => 'Sản phẩm khuyến mãi',
 	'is_show_other_detail' => 'Hiển thị bài viết khác',
 	'is_show_picture_detail' => 'Hiển thị hình ở chi tiết',
 	'add_to_menu' => 'Thêm vào menu',

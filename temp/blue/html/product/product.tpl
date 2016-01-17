@@ -22,260 +22,7 @@
 ============================================= -->
       <div class="sidebar nobottommargin  left-sidebar hidden-sm hidden-xs">
         <div class="sidebar-widgets-wrap">
-          <!-- begin: filters -->
-
-          <!-- end: filters -->
-
-          <!-- categories -->
-
-          <div class="widget widget_links clearfix">
-            <h4>Danh mục sản phẩm</h4>
-            <ul>
-
-              <li><a href="san-pham-khuyen-mai-1.htm"
-                     tppabs="http://the-company.bizwebvietnam.net/san-pham-khuyen-mai-1">Sản phẩm
-                  khuyến mãi</a></li>
-
-              <li><a href="san-pham-noi-bat-1.htm"
-                     tppabs="http://the-company.bizwebvietnam.net/san-pham-noi-bat-1">Sản phẩm nổi
-                  bật</a></li>
-
-              <li><a href="noi-that-phong-tam.htm"
-                     tppabs="http://the-company.bizwebvietnam.net/noi-that-phong-tam">Nội thất phòng
-                  tắm</a></li>
-
-              <li><a href="noi-that-nha-bep.htm"
-                     tppabs="http://the-company.bizwebvietnam.net/noi-that-nha-bep">Nội thất nhà
-                  bếp</a></li>
-
-              <li><a href="noi-that-phong-khach.htm"
-                     tppabs="http://the-company.bizwebvietnam.net/noi-that-phong-khach">Nội thất phòng
-                  khách</a></li>
-
-              <li><a href="noi-that-phong-ngu.htm"
-                     tppabs="http://the-company.bizwebvietnam.net/noi-that-phong-ngu">Nội thất phòng
-                  ngủ</a></li>
-
-              <li><a href="sofas.htm" tppabs="http://the-company.bizwebvietnam.net/sofas">Sofas</a>
-              </li>
-
-              <li><a href="ban-cafe.htm" tppabs="http://the-company.bizwebvietnam.net/ban-cafe">Bàn
-                  cafe</a></li>
-
-              <li><a href="ban.htm" tppabs="http://the-company.bizwebvietnam.net/ban">Bàn</a></li>
-
-            </ul>
-          </div>
-
-          <!-- end categories -->
-
-          <!-- recent product -->
-
-          <div class="widget clearfix">
-
-            <h4><a href="san-pham-khuyen-mai-1.htm"
-                   tppabs="http://the-company.bizwebvietnam.net/san-pham-khuyen-mai-1">Sản phẩm khuyến
-                mãi</a></h4>
-
-            <div id="post-list-footer">
-
-
-              <div class="spost clearfix">
-                <div class="entry-image">
-                  <a href="noi-that-nha-bep-2.htm"
-                     tppabs="http://the-company.bizwebvietnam.net/san-pham-khuyen-mai-1/noi-that-nha-bep-2"><img
-                            src="foto-2787-m-61d5a269-ec74-4048-8516-3ca155e2d7b2.jpg-v=1448636230320.jpg"
-                            tppabs="http://bizweb.dktcdn.net/thumb/small/100/035/474/products/foto-2787-m-61d5a269-ec74-4048-8516-3ca155e2d7b2.jpg?v=1448636230320"
-                            alt="Nội thất nhà bếp 2"></a>
-                </div>
-                <div class="entry-c">
-                  <div class="entry-title">
-                    <h4><a href="noi-that-nha-bep-2.htm"
-                           tppabs="http://the-company.bizwebvietnam.net/san-pham-khuyen-mai-1/noi-that-nha-bep-2">Nội
-                        thất nhà bếp 2</a></h4>
-                  </div>
-                  <ul class="entry-meta">
-                    <li class="color">
-                      <ins>120.000.000&#8363;</ins>
-                      <del>200.000.000&#8363;</del>
-                    </li>
-                    <!--<li><i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star-half-full"></i></li>-->
-                  </ul>
-                </div>
-              </div>
-
-
-              <div class="spost clearfix">
-                <div class="entry-image">
-                  <a href="noi-that-nha-bep-3.htm"
-                     tppabs="http://the-company.bizwebvietnam.net/san-pham-khuyen-mai-1/noi-that-nha-bep-3"><img
-                            src="foto-2772-m-5bd30284-468d-4ee6-81a8-c62532f20022-0a88fc5f-d68d-41db-9e52-788f0fff3405.jpg-v=1448636293307.jpg"
-                            tppabs="http://bizweb.dktcdn.net/thumb/small/100/035/474/products/foto-2772-m-5bd30284-468d-4ee6-81a8-c62532f20022-0a88fc5f-d68d-41db-9e52-788f0fff3405.jpg?v=1448636293307"
-                            alt="Nội thất nhà bếp 3"></a>
-                </div>
-                <div class="entry-c">
-                  <div class="entry-title">
-                    <h4><a href="noi-that-nha-bep-3.htm"
-                           tppabs="http://the-company.bizwebvietnam.net/san-pham-khuyen-mai-1/noi-that-nha-bep-3">Nội
-                        thất nhà bếp 3</a></h4>
-                  </div>
-                  <ul class="entry-meta">
-                    <li class="color">
-                      <ins>110.000.000&#8363;</ins>
-                      <del>220.000.000&#8363;</del>
-                    </li>
-                    <!--<li><i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star-half-full"></i></li>-->
-                  </ul>
-                </div>
-              </div>
-
-
-              <div class="spost clearfix">
-                <div class="entry-image">
-                  <a href="noi-that-phong-khach-6.htm"
-                     tppabs="http://the-company.bizwebvietnam.net/san-pham-khuyen-mai-1/noi-that-phong-khach-6"><img
-                            src="foto-2164-m-4145aa23-ed4e-4f97-9355-13a905fca5ef-3a80a29c-599d-4309-9d15-ebf53921346a.jpg-v=1448638061497.jpg"
-                            tppabs="http://bizweb.dktcdn.net/thumb/small/100/035/474/products/foto-2164-m-4145aa23-ed4e-4f97-9355-13a905fca5ef-3a80a29c-599d-4309-9d15-ebf53921346a.jpg?v=1448638061497"
-                            alt="Nội thất phòng khách 6"></a>
-                </div>
-                <div class="entry-c">
-                  <div class="entry-title">
-                    <h4><a href="noi-that-phong-khach-6.htm"
-                           tppabs="http://the-company.bizwebvietnam.net/san-pham-khuyen-mai-1/noi-that-phong-khach-6">Nội
-                        thất phòng khách 6</a></h4>
-                  </div>
-                  <ul class="entry-meta">
-                    <li class="color">
-                      <ins>100.000.000&#8363;</ins>
-                      <del>150.000.000&#8363;</del>
-                    </li>
-                    <!--<li><i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star-half-full"></i></li>-->
-                  </ul>
-                </div>
-              </div>
-
-
-            </div>
-
-          </div>
-
-          <!-- end recent product -->
-
-
-          <!-- most popular -->
-
-          <div class="widget clearfix">
-
-            <h4><a href="san-pham-noi-bat-1.htm"
-                   tppabs="http://the-company.bizwebvietnam.net/san-pham-noi-bat-1">Sản phẩm nổi bật</a>
-            </h4>
-
-            <div id="Popular-item">
-
-
-              <div class="spost clearfix">
-                <div class="entry-image">
-                  <a href="noi-that-phong-khach-1.htm"
-                     tppabs="http://the-company.bizwebvietnam.net/san-pham-noi-bat-1/noi-that-phong-khach-1"><img
-                            src="foto-2143-m.jpg-v=1448637777347.jpg"
-                            tppabs="http://bizweb.dktcdn.net/thumb/small/100/035/474/products/foto-2143-m.jpg?v=1448637777347"
-                            alt="Nội thất phòng khách 1"></a>
-                </div>
-                <div class="entry-c">
-                  <div class="entry-title">
-                    <h4><a href="noi-that-phong-khach-1.htm"
-                           tppabs="http://the-company.bizwebvietnam.net/san-pham-noi-bat-1/noi-that-phong-khach-1">Nội
-                        thất phòng khách 1</a></h4>
-                  </div>
-                  <ul class="entry-meta">
-                    <li class="color">
-                      <ins>150.000.000&#8363;</ins>
-
-                    </li>
-                    <!--<li><i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star-half-full"></i></li>-->
-                  </ul>
-                </div>
-              </div>
-
-
-              <div class="spost clearfix">
-                <div class="entry-image">
-                  <a href="noi-that-phong-khach-2.htm"
-                     tppabs="http://the-company.bizwebvietnam.net/san-pham-noi-bat-1/noi-that-phong-khach-2"><img
-                            src="foto-2146-m-f5fe8130-0b52-4037-982a-1c9d84654cc4.jpg-v=1448637911700.jpg"
-                            tppabs="http://bizweb.dktcdn.net/thumb/small/100/035/474/products/foto-2146-m-f5fe8130-0b52-4037-982a-1c9d84654cc4.jpg?v=1448637911700"
-                            alt="Nội thất phòng khách 2"></a>
-                </div>
-                <div class="entry-c">
-                  <div class="entry-title">
-                    <h4><a href="noi-that-phong-khach-2.htm"
-                           tppabs="http://the-company.bizwebvietnam.net/san-pham-noi-bat-1/noi-that-phong-khach-2">Nội
-                        thất phòng khách 2</a></h4>
-                  </div>
-                  <ul class="entry-meta">
-                    <li class="color">
-                      <ins>150.000.000&#8363;</ins>
-
-                    </li>
-                    <!--<li><i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star-half-full"></i></li>-->
-                  </ul>
-                </div>
-              </div>
-
-
-              <div class="spost clearfix">
-                <div class="entry-image">
-                  <a href="noi-that-phong-khach-3.htm"
-                     tppabs="http://the-company.bizwebvietnam.net/san-pham-noi-bat-1/noi-that-phong-khach-3"><img
-                            src="foto-2144-m-453505c9-0942-4549-bb98-802c1ec88e69-4499738e-f4f2-4e1a-9bfc-703ef036a00a.jpg-v=1448637933427.jpg"
-                            tppabs="http://bizweb.dktcdn.net/thumb/small/100/035/474/products/foto-2144-m-453505c9-0942-4549-bb98-802c1ec88e69-4499738e-f4f2-4e1a-9bfc-703ef036a00a.jpg?v=1448637933427"
-                            alt="Nội thất phòng khách 3"></a>
-                </div>
-                <div class="entry-c">
-                  <div class="entry-title">
-                    <h4><a href="noi-that-phong-khach-3.htm"
-                           tppabs="http://the-company.bizwebvietnam.net/san-pham-noi-bat-1/noi-that-phong-khach-3">Nội
-                        thất phòng khách 3</a></h4>
-                  </div>
-                  <ul class="entry-meta">
-                    <li class="color">
-                      <ins>150.000.000&#8363;</ins>
-
-                    </li>
-                    <!--<li><i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star3"></i> <i class="icon-star-half-full"></i></li>-->
-                  </ul>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- end most popular -->
-
-          <!-- recent view -->
-
-          <div class="widget clearfix">
-
-            <h4>Sản phẩm vừa xem</h4>
-
-            <div class="widget-last-view">
-
-            </div>
-
-          </div>
-
-          <
-
-          <!-- end recent view -->
-
-
-          <div class="widget clearfix">
-            <a href="noi-that-phong-khach.htm"
-               tppabs="http://the-company.bizwebvietnam.net/noi-that-phong-khach" target='_blank'><img
-                      src="left_sidebar_banner.png-1452002463536.png"
-                      tppabs="http://bizweb.dktcdn.net/100/035/474/themes/46087/assets/left_sidebar_banner.png?1452002463536"
-                      style='max-width:240px; height:auto;'/></a>
-          </div>
+            {data.box_column}
 
 
         </div>
@@ -300,7 +47,7 @@
             $('form.form_add_cart').submit(function(){
                 loading('show');
                 var fData = $(this).serializeArray();
-
+                console.log($(this).attr('action'));
                 var form = $(this);
                 $.ajax({
                     type: "POST",
@@ -339,7 +86,7 @@
 
 <!-- BEGIN: list_item -->
 <div id="shop" class="product-3 clearfix">
-    <div class='row sort-wrapper'>
+    <div class='row sort-wrapper hide'>
         <div class="browse-tags col-md-8 col-sm-12 col-xs-12 pull-right"
              style='margin-bottom: 30px;'>
             <div class='col-md-9 col-sm-9 col-xs-4 text-right col-xs-push-1 col-sm-push-0 col-md-push-1'>
@@ -397,7 +144,7 @@
             <div class="product-desc center">
               <div class="product-title"><h3><a href="{col.link}">{col.title}</a></h3></div>
               <div class="product-price">
-                <ins> {col.price_buy}&#8363; </ins>
+                <ins> <span class="auto_price" >{col.price_buy}</span> </ins>
               </div>
             </div>
           </form>
@@ -410,6 +157,7 @@
       <!-- END: row_item -->
         {data.nav}
     </div>
+    <script>auto_price_format();</script>
 </div>
 <!-- END: list_item -->
 
@@ -485,7 +233,7 @@
 <!-- END: img_detail -->
 
 
-<!-- BEGIN: detail -->
+<!-- BEGIN: detail1 -->
 <div class='product-page'>
     <div class="single-product">
         <form action="{data.link_cart}" method="post" enctype="multipart/form-data" id="ProductDetailsForm" class="form_add_cart">
@@ -554,52 +302,12 @@
 
                     <div class="product-price">
 
-                        <ins> {data.price_buy}&#8363;</ins>
+                        <ins><span class="auto_price">{data.price_buy}</span></ins>
                     </div>
-
 
                     <div class="clear"></div>
                     <div class="line"></div>
 
-
-
-                    <div class="hidden" style="">
-                        <select id="product-select" name="variantId">
-
-
-                            <option value="1247344" class="">Default Title -
-                                30.000.000&#8363;</option>
-
-
-                        </select>
-                    </div>
-
-
-                    <div class="product-page-options  hidden ">
-
-
-                        <div class="sizePicker" id='option-0'>
-                            <label class="control-label options-title">Title:</label>
-
-                            <div class='options-selection'>
-                                <select class="form-control input-sm">
-
-
-                                    <option data_size_code="defaulttitle"
-                                            data_color_code="defaulttitle" class=""
-                                            value="Default Title">
-                                        Default Title
-                                    </option>
-
-
-                                </select>
-                            </div>
-
-
-                        </div>
-
-
-                    </div>
 
 
                     <div class="quantity product-quantity clearfix">
@@ -1018,10 +726,11 @@
     </div>
 
     </div>
-</div>
-<!-- END: detail -->
 
-<!-- BEGIN: detail1 -->
+</div>
+<!-- END: detail1 -->
+
+<!-- BEGIN: detail -->
 {data.navigation}
 <div id="item_detail">
   {data.img_detail}
@@ -1057,22 +766,18 @@
   	<div class="info_row">
       <div class="info_row_title">{LANG.product.price}</div>
       <div class="info_row_mid">:</div>
-      <div class="info_row_content price">{price}</div>
+      <div class="info_row_content price"><span class="auto_price"> {price}</span></div>
       <div class="clear"></div>
     </div>
     <!-- END: info_row_price -->
   	<div id="info_row-price_buy" class="info_row price_buy">
       <span>{LANG.product.price_buy}: </span>
-      <span>{data.price_buy}</span>
+      <span class="auto_price">{data.price_buy}</span>
       <div class="clear"></div>
     </div>
-    <form id="form_add_cart" action="{data.link_cart}" method="post" class="form_add_cart">
+    <form id="form_add_cart_detail" action="{data.link_cart}" method="post" class="form_add_cart_detail">
   	<!-- BEGIN: info_row -->
-  	<div class="info_row {row.info_row_class}">
-      <div class="info_row_title">{row.title}: </div>
-      <div class="info_row_content">{row.content}</div>
-      <div class="clear"></div>
-    </div>
+
     <!-- END: info_row -->
   	<div class="info_row">
       <div class="info_row_title">{LANG.product.quantity}: </div>
@@ -1081,7 +786,7 @@
     </div>
   	<div class="info_row">
       <div class="info_row_title">{LANG.product.total}: </div>
-      <div class="info_row_content price_buy" id="detail-total"><span>{data.price_buy}</span></div>
+      <div class="info_row_content price_buy" id="detail-total"><span class="auto_price">{data.price_buy}</span></div>
       <div class="clear"></div>
     </div>
   	<div id="info_row-shipping" class="info_row">
@@ -1108,7 +813,7 @@
 				is_popup = 0;
 			});
 
-			$('form.form_add_cart').submit(function(){
+			$('form.form_add_cart_detail').submit(function(){
 				loading('show');
 				var fData = $(this).serializeArray();
 
@@ -1132,10 +837,13 @@
 					} else {
 						jAlert('Thêm vào giỏ hàng thành công!', lang_js['aleft_title'], null, 'success');
 					}
-				});
+                    header_cart();
+
+                });
 
 				return false;
 			});
+            auto_price_format();
     </script>
   	<span class="info_row-share">
     	<span class="info_row-share-title">{LANG.global.share_page}</span>
@@ -1167,8 +875,11 @@
   });
   </script>
   <!-- END: tab -->
+
+
+
 </div>
-<!-- END: detail1 -->
+<!-- END: detail -->
 
 <!-- BEGIN: list_other -->
 <div class="list_other">

@@ -28,6 +28,7 @@ class sMain
 		'short' => array('form_type' => 'editor', 'editor' => 'mini', 'of_lang' => true),
 		'content' => array('form_type' => 'editor', 'of_lang' => true),
 		'is_focus' => array('form_type' => 'checkbox'),
+		'is_deal' => array('form_type' => 'checkbox'),
 		'friendly_link' => array('form_type' => 'friendly_link', 'of_lang' => true),
 		'meta_title' => array('form_type' => 'meta_title', 'of_lang' => true),
 		'meta_key' => array('form_type' => 'meta_key', 'of_lang' => true),
