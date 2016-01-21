@@ -261,7 +261,7 @@ header p.nobottommargin{
 
 .col-padding { padding: 60px; }
 
-.nopadding { padding: 0 !important; }
+.nopadding { padding: 10px 0 0 35px !important; }
 
 .noleftpadding { padding-left: 0 !important; }
 
@@ -3310,9 +3310,15 @@ Content
 .content-wrap {
 	position: relative;
 	padding: 80px 0;
+	width: 70%;
+	margin: 0 auto;
 }
 
-#content .container { position: relative; }
+#content .container {
+	position: relative;
+	width: 100%;
+	padding: 0;
+}
 
 
 /* ----------------------------------------------------------------
@@ -7093,9 +7099,9 @@ Promo Boxes
 
 }
 .promo.promo-light a.button {
-	right: 0px; 
-	position:absolute;
-	top:55px
+	right: 10px;
+	position: absolute;
+	top: 95px;
 }
 
 
@@ -13047,14 +13053,17 @@ HTML5 Youtube Video Backgrounds
 	margin-left: 550px;
 }
 .wrapper_page{
-	width: 1100px;
+	//width: 1100px;
 	margin: 0 auto;
+	width: 100%;
+	box-shadow: none;
 }
 body{
-	background-color: #f5ce11	;
+	//background-color: #f5ce11	;
 }
 .container #main_slide{
-	margin: 0px -30px;
+	//margin: 0px -30px;
+	width: 100%;
 }
 #top-bar .box_support{
 	float: right;

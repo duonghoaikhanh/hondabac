@@ -606,9 +606,9 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
 			loadpage();
 		});
   </script>
-<div class="banner_left_fix ">
+<!-- <div class="banner_left_fix ">
   <img src="{DIR_IMAGE}theme_tet4_02.png">
-</div>
+</div>-->
 <div class="banner_right_fix ">
   <img src="{DIR_IMAGE}theme_tet4_04.png">
 </div>
