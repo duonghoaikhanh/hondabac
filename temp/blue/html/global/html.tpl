@@ -295,7 +295,7 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
 
   </header>
   <!-- #header end -->
-
+  {data.main_slide}
   <!-- Content
 ============================================= -->
   <!-- Slider -->

@@ -1,8 +1,4 @@
 <!-- BEGIN: main -->
-<div class="container">
-  {data.main_slide}
-
-</div>
 
 <section id="content">
   <div class="content-wrap">

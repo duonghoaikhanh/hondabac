@@ -1,11 +1,5 @@
 <!-- BEGIN: main -->
-<div class="content-wrap">
-
-    <div class="container clearfix">
         {data.content}
-    </div>
-
-</div>
 <!-- END: main -->
 
 <!-- BEGIN: contact_info1 -->
@@ -18,7 +12,7 @@
     .google-map {width:100%;}
     .google-map .map {width:100%; height:350px; background:#dedede}
 </style>
-<div class="container">
+<div class="">
     <div class="tabs clearfix nobottommargin hidden-xs" id="tab-1">
 
         <ul class="tab-nav clearfix" style="margin-bottom: 20px;">

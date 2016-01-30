@@ -981,7 +981,7 @@ Primary Menu
 
 
 #primary-menu {
-	height: 100px;
+	height: 50px;
 	background: #ecf0f5;
 	margin:0px -30px ;
 }
@@ -1859,7 +1859,7 @@ Sticky Header
 #logo img,
 #primary-menu:not(.style-2),
 #primary-menu:not(.style-2) > ul {
-	height: 50px;
+	/*height: 50px;*/
 	-webkit-transition: height .4s ease, opacity .3s ease;
 	-o-transition: height .4s ease, opacity .3s ease;
 	transition: height .4s ease, opacity .3s ease;
@@ -3310,14 +3310,14 @@ Content
 .content-wrap {
 	position: relative;
 	padding: 80px 0;
-	width: 70%;
-	margin: 0 auto;
+	/*width: 70%;*/
+	/*margin: 0 auto;*/
 }
 
 #content .container {
 	position: relative;
-	width: 100%;
-	padding: 0;
+	/*width: 100%;*/
+	/*padding: 0;*/
 }
 
 

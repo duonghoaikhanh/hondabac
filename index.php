@@ -66,7 +66,10 @@ $data["box_search"] = $ttH->site->box_search();
 $data['share'] = $ttH->site->get_banner ('share', 0);
 $data['box_search'] = $ttH->site->box_search ();
 $data['box_search_sm'] = $ttH->site->box_search_sm ();
-
+$data['main_slide'] = '';
+if($ttH->conf['cur_act'] == 'home'){
+	$data['main_slide'] = $ttH->site->get_banner_slide ('banner-main');
+}
 $data['box_support'] = $ttH->site->box_support();
 //$data['header_user'] = $ttH->site->header_user ();
 //$data['header_cart'] = $ttH->site->header_cart ();
