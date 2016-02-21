@@ -44,6 +44,8 @@ $lang = array(
 	'product_option_del' => 'Xóa tinh năng',
 	'product_option_manage_trash' => 'Quản lý thùng rác tinh năng',
 	'product_option_manage' => 'Quản lý tinh năng',
+	'item_code' => 'Mã sản phẩm',
+	'made_country'=> 'Nước sản xuất'
 	
 	);
 ?>

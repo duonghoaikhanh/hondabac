@@ -14,7 +14,7 @@ $lang = array (
 	'num_view' => 'Lượt xem',
 	'color' => 'Màu sắc',
 	'size' => 'Size',
-	'quantity' => 'Số lượng',
+	'quantity' => 'Số lượng đặt mua',
 	'total' => 'Tổng tiền',
 	'shipping' => 'Vận chuyển',
 	'shipping_content' => '- Ship nội thành HCM giá từ 15.000 - 40.000<br />- Khách tỉnh xin liên hệ shop để được báo giá ship',
@@ -73,6 +73,10 @@ $lang = array (
 	'request_more' => 'Yêu cầu khác',
 	'facebook_commtent' => 'BÌNH LUẬN CỦA BẠN',
 	'add_cart'=>'Thêm vào giỏ',
-	'view_fast'=>'Xem nhanh'
-); 
+	'view_fast'=>'Xem nhanh',
+	'made_country'=>'Nước sản xuất',
+	'price_s'=>'Giá sĩ',
+	'price_l'=>'Giá lẽ',
+	'quantity_barrel'=>'Số lượng'
+);
 ?>

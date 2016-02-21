@@ -196,10 +196,9 @@ class sMain
 			'pic_w' => 270,
 			'pic_h' => 150,
 		);
-		
-		if($info['group_id'] == 15) {
-			$arr_in['where'] = " and price>price_buy and price_buy>0 ";
-		}
+		/*if($info['group_id'] == 15) {
+			$arr_in['where'] = " and (price>price_buy and price_buy>0)  ";
+		}*/
 		
 		//return html_list_item($arr_in);
 		$data = array(

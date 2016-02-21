@@ -136,13 +136,15 @@ $lang = array(
 	'col_title' => 'Sản phẩm',
 	'col_color' => 'Màu',
 	'col_code_pic' => 'Mã hình',
-	'col_price' => 'Giá',
+	'col_price' => 'Giá si',
 	'col_quantity' => 'Số lượng',
 	'col_total' => 'Tổng tiền',
 	'col_delete' => 'Xóa',
 	'cart_total' => 'TỔNG TIỀN',
 	'total_order' => 'Tổng hóa đơn',
 	'status_order' => 'Trạng thái hóa đơn',
+	'item_code' => 'Mã sản phẩm',
+	'made_country'=> 'Nước sản xuất'
 	
 	);
 ?>

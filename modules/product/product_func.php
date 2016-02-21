@@ -340,7 +340,7 @@ function html_list_item ($arr_in = array()){
 	
 	$where .= " order by show_order desc, date_create desc";
 	
-	$sql = "select item_id,item_code,group_id,brand_id,picture,price,percent_discount,price_buy,list_status,title,short,arr_option,friendly_link  
+	$sql = "select item_id,item_code,group_id,brand_id,picture,price,price_s,price_l,percent_discount,price_buy,list_status,title,short,arr_option,friendly_link
 					from product 
 					where is_show=1 
 					and lang='".$ttH->conf["lang_cur"]."' 
@@ -387,8 +387,8 @@ function html_list_item ($arr_in = array()){
 				$ttH->temp_act->assign('info', array('title'=>$ttH->lang['product']['price'], 'content'=>'<div class="price">'.$ttH->func->get_price_format ($row['price']).'</div>'));
 				$ttH->temp_act->parse($temp.".row_item.col_item.info");
 			}
-			
-			$row['price_buy'] = $ttH->func->get_price_format ($row['price_buy']);
+
+			$row['price_buy'] = $ttH->func->get_price_format ($row['price_s']);
 			//$ttH->temp_act->parse($temp.".row_item.col_item.info");
 			
 			$row["link_cart"] = $ttH->site_func->get_link_popup ('product','cart', array('item_id'=>$row['item_id']));

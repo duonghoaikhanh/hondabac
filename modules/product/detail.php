@@ -107,12 +107,29 @@ class sMain
 		$data["img_detail"] = $this->pic_slide ($data);
 		$data["brand_name"] = get_brand_name ($info["brand_id"],'link');
 		$data["group_name"] = get_group_name ($info["group_id"],'link');
-		$data["price"] = $ttH->func->get_price_format ($info["price"]);
-		$data["price_buy"] = $ttH->func->get_price_format ($info["price_buy"]);
-		
+		$data["price"] = $ttH->func->get_price_format ($info["price_s"]);
+		$data["price_buy"] = $ttH->func->get_price_format ($info["price_l"]);
+		$data["price_s"] = $ttH->func->get_price_format ($info["price_s"]);
+
 		if($info["price"] > $info["price_buy"] && $info["price_buy"]>0) {
 			$ttH->temp_act->assign('price', $data['price']);
 			$ttH->temp_act->parse("detail.info_row_price");
+		}
+		if($info["made_country"] != ""){
+			$ttH->temp_act->assign('made_country', $info['made_country']);
+			$ttH->temp_act->parse("detail.made_country");
+		}
+		if($info["price_s"] > 0){
+			$ttH->temp_act->assign('price_s', $info['price_s']);
+			$ttH->temp_act->parse("detail.price_s");
+		}
+		if($info["price_l"] > 0){
+			$ttH->temp_act->assign('price_l', $info['price_l']);
+			$ttH->temp_act->parse("detail.price_l");
+		}
+		if($info["quantity"] !=""){
+			$ttH->temp_act->assign('quantity', $info['quantity']);
+			$ttH->temp_act->parse("detail.quantity");
 		}
 		
 		$sql = "select option_id,title  

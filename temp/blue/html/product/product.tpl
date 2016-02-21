@@ -770,11 +770,21 @@
       <div class="clear"></div>
     </div>
     <!-- END: info_row_price -->
+  <!-- BEGIN: price_s -->
   	<div id="info_row-price_buy" class="info_row price_buy">
-      <span>{LANG.product.price_buy}: </span>
-      <span class="auto_price">{data.price_buy}</span>
+      <span>{LANG.product.price_s}: </span>
+      <span class="auto_price">{price_s}</span>
       <div class="clear"></div>
     </div>
+  <!-- END: price_s -->
+  <!-- BEGIN: price_l -->
+      <div id="info_row-price_buy" class="info_row price_buy">
+          <span>{LANG.product.price_l}: </span>
+          <span class="auto_price">{price_l}</span>
+          <div class="clear"></div>
+      </div>
+  <!-- END: price_l -->
+
     <form id="form_add_cart_detail" action="{data.link_cart}" method="post" class="form_add_cart_detail">
   	<!-- BEGIN: info_row -->
 
@@ -789,6 +799,20 @@
       <div class="info_row_content price_buy" id="detail-total"><span class="auto_price">{data.price_buy}</span></div>
       <div class="clear"></div>
     </div>
+    <!-- BEGIN: quantity -->
+    <div class="info_row">
+        <div class="info_row_title">{LANG.product.quantity_barrel}: </div>
+        <div class="info_row_content">{quantity}</div>
+        <div class="clear"></div>
+    </div>
+    <!-- END: quantity -->
+    <!-- BEGIN: made_country -->
+    <div class="info_row">
+        <div class="info_row_title">{LANG.product.made_country}: </div>
+        <div class="info_row_content">{made_country}</div>
+        <div class="clear"></div>
+    </div>
+    <!-- END: made_country -->
   	<div id="info_row-shipping" class="info_row">
       <div class="info_row_title">{LANG.product.shipping}: </div>
       <div class="info_row_content"><span>{LANG.product.shipping_content}</span></div>
