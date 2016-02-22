@@ -13075,3 +13075,71 @@ body{
 	height: 27px;
 	margin-right: 5px;
 }
+/* Table 1 */
+table.csstable1 {
+	border-bottom:1px solid #ddd;
+	border-left:1px solid #ddd;
+	min-width:400px;
+}
+table.csstable1 tr{
+
+}
+table.csstable1 tr td{
+	border-top:1px solid #ddd;
+	border-right:1px solid #ddd;
+	padding: 10px 10px;
+	line-height:25px;
+	color:#555;
+	font-size:14px;
+	text-align: left;
+}
+
+table.csstable1 tr th, table.csstable1 tr:nth-child(1) td{
+	background:#00a6ff;
+	text-align:center;
+	padding-top:5px;
+	padding-bottom:5px;
+	color:#fff;
+	font-size: 130%;
+	font-family:RobotoCondensed-Regular;
+	font-weight: normal;
+}
+table.csstable1 tr th strong, table.csstable1 tr:nth-child(1) td strong{
+	font-weight:normal;
+}
+.container .container{
+	padding-left: 0px;
+	padding-right: 0px;
+	width: inherit;
+}
+
+/* Table 12 */
+table.csstable2 {
+	border-bottom:1px solid #ddd;
+	border-left:1px solid #ddd;
+	min-width:400px;
+}
+
+table.csstable2 tr td{
+	border-top:1px solid #ddd;
+	border-right:1px solid #ddd;
+	padding: 10px 10px;
+	line-height:25px;
+	color:#555;
+	font-size:14px;
+	text-align: left;
+}
+
+table.csstable2 tr th, table.csstable2 tr td:nth-child(1){
+	/*background:#00a6ff;*/
+	text-align:center;
+	padding-top:5px;
+	padding-bottom:5px;
+	color:#000;
+	font-size: 130%;
+	font-family:RobotoCondensed-Regular;
+	font-weight: normal;
+}
+table.csstable2 tr th strong, table.csstable2 tr:nth-child(1) td strong{
+	font-weight:normal;
+}

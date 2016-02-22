@@ -434,4 +434,11 @@ function loadpage(){
 	ttHGlobal.radio_temp();
 	ttHGlobal.checkbox_temp();
 	auto_price_format();
+
+	$('.box_mid-content table').each(function(index, element) {
+		var div = $('<div class="table-responsive"></div>').insertBefore($(this));
+		var table = $(this).detach();
+
+		table.appendTo(div);
+	});
 }
