@@ -409,6 +409,7 @@ Columns & Grids
 
 
 .postcontent { width: 74%; }
+.postcontent .postcontent { width: 100%; }
 .postcontent.bothsidebar { width: 580px; }
 .sidebar { width: 22%; }
 .col_full { width: 100%; }

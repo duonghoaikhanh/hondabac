@@ -135,7 +135,7 @@
                   <i class="icon-shopping-cart"></i><span class='hidden-md hidden-lg'> {LANG.product.add_cart}</span></a>
 
 
-                <a href="#product-pop-up" class="item-quick-view fancybox-fast-view hidden-sm hidden-xs"
+                <a href="#product-pop-up" class="item-quick-view fancybox-fast-view hidden-sm hidden-xs hide"
                    product_url="/ban-cafe-4" data-toggle='tooltip' title='{LANG.product.view_fast}'>
                   <i class="icon-zoom-in2"></i><span class='hidden-md hidden-lg'> {LANG.product.view_fast}</span>
                 </a>
