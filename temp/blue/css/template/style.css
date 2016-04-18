@@ -234,8 +234,24 @@ span.middot {
 
 .nobottommargin { margin-bottom: 0 !important; }
 header p.nobottommargin{
-	font-size: 16px;
-	margin-top: 15px;
+	font-size: 14px;
+	margin-top: 5px;
+}
+header p.nobottommargin a{
+	display: block;
+	float:left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+header p.nobottommargin a.a_phone{
+	width: 28%;
+}
+header p.nobottommargin a.a_email{
+	width: 47%;
+}
+header p.nobottommargin a.a_skype{
+	width: 25%;
 }
 
 
@@ -626,7 +642,7 @@ Top Bar
 
 }
 
-#top-bar .col_half { width: auto; }
+#top-bar .col_half { width: 54%; }
 
 #top-bar .col_half.box_info_top{
 	margin-left:50px
@@ -1597,7 +1613,7 @@ Top Search
 #top-cart,
 #side-panel-trigger {
 	float: left;
-	margin-left: 50px;
+	margin-left: 20px;
 	margin-top: 25px;
 
 }
@@ -13067,9 +13083,8 @@ body{
 	width: 100%;
 }
 #top-bar .box_support{
-	float: right;
 	font-size: 16px;
-	margin-top: 15px;
+	margin-top: 5px;
 }
 #top-bar .box_support img{
 	width: 27px;
@@ -13143,4 +13158,15 @@ table.csstable2 tr th, table.csstable2 tr td:nth-child(1){
 }
 table.csstable2 tr th strong, table.csstable2 tr:nth-child(1) td strong{
 	font-weight:normal;
+}
+.banner_item p {
+	margin-bottom: 5px;
+}
+.google-map1 {
+	width: 100%;
+}
+.google-map1 .map {
+	width: 100%;
+	height: 350px;
+	background: #dedede;
 }

@@ -209,7 +209,7 @@
 </div>
 <!-- END: box_support1 -->
 
-<!-- BEGIN: box_support -->
+<!-- BEGIN: box_support2 -->
 <div class="box_support">
   <div class="arrow"></div>
   <!-- BEGIN: row -->
@@ -228,6 +228,33 @@
       </div>
       <div class="clear"></div>
     </div>
+    <!-- END: skype -->
+    <div class="clear"></div>
+  </div>
+  <!-- END: row -->
+
+</div>
+<!-- END: box_support2 -->
+
+
+<!-- BEGIN: box_support -->
+<div class="box_support">
+  <div class="arrow"></div>
+  <!-- BEGIN: row -->
+  <div class="row">
+    <!-- BEGIN: yahoo -->
+    <div class="nick yahoo" data-nick="{row.yahoo}" nick_type="yahoo">
+      <div><a class="pic" href="ymsgr:sendIM?{row.yahoo}"><img src='{DIR_IMAGE}icon_yahoo_on.png' alt="{row.yahoo}" /></a></div>
+      <div><a class="title" href="ymsgr:sendIM?{row.yahoo}">{row.title}</a></div>
+      <div class="clear"></div>
+    </div>
+    <!-- END: yahoo -->
+    <!-- BEGIN: skype -->
+    <p class="nobottommargin">
+      <a href='tel:{row.phone}' class="a_phone"><i class='icon-phone3'></i> <strong>{row.phone}</strong></a>
+      <a href='mailto:{row.email}' class="a_email"><i class='icon-email3'></i><strong>{row.email}</strong></a>
+      <a class="pic a_skype" href="Skype:{row.skype}?chat"><img src="{DIR_IMAGE}h.png" alt="{row.skype}" height="16" />{row.skype}</a>
+    </p>
     <!-- END: skype -->
     <div class="clear"></div>
   </div>

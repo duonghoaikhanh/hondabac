@@ -114,14 +114,13 @@ class sMain
 			$row['content'] = $ttH->func->input_editor_decode($row['content']);
 			$row['content'] = str_replace('{link_map}',$link_map,$row['content']);
 //			$row['content_info'] .= '<div class="contact_info">'.$row['content'].'</div>';
-
 			$contact_info .= '<div class="contact_info">'.$row['content'].'</div>';
 			if(!empty($list_markers)) {
 				if($i==1){
-
+					$map_id = $row['map_id'];
 					$data['contact_map'] = '<script language="javascript">
 					$(function() {
-						$("#contact_map1").goMap({
+						$("#contact_map'.$map_id.'").goMap({
 							markers: ['.$list_markers.'],
 							icon: "'.$ttH->dir_images.'icon_markers.png",
 							maptype: "ROADMAP",
@@ -130,9 +129,10 @@ class sMain
 					});
 					</script>';
 				}else{
+					$map_id = $row['map_id'];
 					$data['contact_map'] = '<script language="javascript">
 					$(function() {
-						$("#contact_map3").goMap({
+						$("#contact_map'.$map_id.'").goMap({
 							markers: ['.$list_markers.'],
 							icon: "'.$ttH->dir_images.'icon_markers.png",
 							maptype: "ROADMAP",
@@ -140,9 +140,12 @@ class sMain
 						});
 					});
 					</script>';
+					//$data['map_num'] = '1';
+
 				}
 
 				$row['contact_map'] = $data['contact_map'];
+				$row['link'] = 
 			}
 
 			$ttH->temp_act->assign('tab', $row);
