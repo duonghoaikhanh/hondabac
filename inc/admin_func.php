@@ -182,9 +182,9 @@ class Admin
 			if(isset($ttH->data['admin']) && is_array($ttH->data['admin']) && count($ttH->data['admin']) > 0) {
 				if($ttH->data['admin']["id"] == $_SESSION[$ttH->conf["admin_ses"]]["userid"] 
 					&& $ttH->data['admin']["username"] == $_SESSION[$ttH->conf["admin_ses"]]["username"] 
-					&& $ttH->data['admin']["password"] == $_SESSION[$ttH->conf["admin_ses"]]["password"] 
+					&& $ttH->data['admin']["password_ad"] == $_SESSION[$ttH->conf["admin_ses"]]["password"]
 					&& $ttH->data['admin']["session"] == $_SESSION[$ttH->conf["admin_ses"]]["session"]) {
-					return 1;	
+					return 1;
 				}
 			} else {
 				$ttH->data['admin'] = array();
@@ -193,7 +193,7 @@ class Admin
 			$query = "select * from admin where id=".$arr_user["userid"]."";
 			$result = $ttH->db->query($query);
 			$row = $ttH->db->fetch_row($result);
-			if($row["id"] == $arr_user["userid"] && $row["username"] == $arr_user["username"] && $row["password"] == $arr_user["password"] && $row["session"] == $arr_user["session"]) {
+			if($row["id"] == $arr_user["userid"] && $row["username"] == $arr_user["username"] && $row["password_ad"] == $arr_user["password"] && $row["session"] == $arr_user["session"]) {
 				$ttH->data['admin'] = $row;
 				$login = 1;
 			}
@@ -289,7 +289,7 @@ class Admin
 		$data['folder_upload'] = $folder_upload;
 		$data["link_up"] = $this->get_link_admin ('library','library','popup_library').'&type=1&folder_up='.$data['folder_upload'].'&fldr='.$dir.'&editor=mce_0&field_id='.$data['html_id'];
 		$output = $ttH->html->temp_box('html_form_pic', $data);
-		
+
 		return $output;
 	}
 	

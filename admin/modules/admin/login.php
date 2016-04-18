@@ -52,13 +52,20 @@ class sMain
 		{
 			$username = $ttH->post["username"];
 			$password = $ttH->func->md25($ttH->post["password"]);
-			$query = "select * from admin where username='".$username."' and password='".$password."'";
-			$result = $ttH->db->query($query);
-			if ($row = $ttH->db->fetch_row($result)) {
+			$query_username = "select * from admin where username='".$username."'";
+			$result_username = $ttH->db->query($query_username);
+			$secret_key = time();
+			if ($row = $ttH->db->fetch_row($result_username)) {
+				$secret_key= $row['secret_key'];
+			}
+			$password = crypt($password, $secret_key);
+			$query_pasword = "select * from admin where username='".$username."' and password_ad='".$password."'";
+			$result_password = $ttH->db->query($query_pasword);
+			if ($row = $ttH->db->fetch_row($result_password)) {
 				$date_login = time();
 				$_SESSION[$ttH->conf["admin_ses"]]["userid"] = $row["id"];
 				$_SESSION[$ttH->conf["admin_ses"]]["username"] = $row["username"];
-				$_SESSION[$ttH->conf["admin_ses"]]["password"] = $row["password"];
+				$_SESSION[$ttH->conf["admin_ses"]]["password"] = $row["password_ad"];
 				$_SESSION[$ttH->conf["admin_ses"]]["session"] = $row["session"]; //Muti login
 				//$_SESSION[$ttH->conf["admin_ses"]]["session"] = md5($row["username"].$date_login); //One login
 				

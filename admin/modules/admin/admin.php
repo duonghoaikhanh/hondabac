@@ -82,8 +82,11 @@ class sMain
 			
 			$username = $ttH->post["username"];
 			$full_name = $ttH->post["full_name"];
+			$secret_key = time();
 			$email = $ttH->post["email"];
 			$password = $ttH->func->md25($ttH->post["password"]);
+
+			$password = crypt($password, $secret_key);
 			
 			if(empty($err) && empty($username)) {
 				$err = $ttH->html->html_alert ($ttH->lang["admin"]["err_username_invalid"], "error");	
@@ -115,11 +118,12 @@ class sMain
 				$col = array();
 				$col["group_id"] = $ttH->post["group_id"];
 				$col["username"] = $username;
-				$col["password"] = $password;			
+				$col["password_ad"] = $password;
+				$col["secret_key"] = $secret_key;
 				$col["picture"] = $ttH->func->get_input_pic ($ttH->post["picture"]);
 				$col["full_name"] = $full_name;
 				$col["email"] = $email;
-				$ok = $ttH->db->do_insert("admin", $col);	
+				$ok = $ttH->db->do_insert("admin", $col);
 				if($ok){					
 					$err = $ttH->html->html_alert ($ttH->lang["global"]["add_success"], "success");
 				}else{
@@ -183,13 +187,19 @@ class sMain
 					}					
 				}
 			}
-			
+			$res_query = $ttH->db->query("select * from admin where id =".$id);
+			$secret_key = time();
+			if ($row_query = $ttH->db->fetch_row($res_query)) {
+				$secret_key = $row_query['secret_key'];
+				$password = crypt($password, $secret_key);
+			}
+
 			if(empty($err)){
 				$col = array();
 				$col["group_id"] = $ttH->post["group_id"];
 				$col["username"] = $username;
 				if(!empty($ttH->post["password"])) {
-					$col["password"] = $password;
+					$col["password_ad"] = $password;
 				}				
 				$col["picture"] = $ttH->func->get_input_pic ($ttH->post["picture"]);
 				$col["full_name"] = $full_name;
