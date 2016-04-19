@@ -935,6 +935,7 @@ Logo
 #header.full-header #logo {
 	padding-right: 30px;
 	margin-right: 30px;
+	margin-top: 15px;
 }
 
 #header.transparent-header.full-header #logo { border-right-color: rgba(0,0,0,0.1); }
@@ -1614,7 +1615,7 @@ Top Search
 #side-panel-trigger {
 	float: left;
 	margin-left: 20px;
-	margin-top: 25px;
+	margin-top: 40px;
 
 }
 
