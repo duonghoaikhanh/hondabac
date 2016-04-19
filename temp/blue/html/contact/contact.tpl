@@ -13,22 +13,20 @@
     .google-map .map {width:100%; height:350px; background:#dedede}
 </style>
 <div class="">
-    <div class="tabs clearfix nobottommargin hidden-xs" id="tab-1">
+    <div class="clearfix nobottommargin hidden-xs" id="tab-1">
 
         <ul class="tab-nav clearfix" style="margin-bottom: 20px;">
             <!-- BEGIN: tab -->
-            <li><a href="#tabs-{tab.stt}"><i class="icon-align-justify2"></i><span
+            <li class="{tab.active}"><a href="{tab.link}"><i class="icon-align-justify2"></i><span
                             class="hidden-xs"> {tab.title}</span></a></li>
             <!-- END: tab -->
-
-
         </ul>
 
         <div class="tab-container">
             <!-- BEGIN: tab_content -->
             <div class="tab-content clearfix" id="tabs-{tab.stt}">
                 <div class="google-map">
-                    <div id="contact_map{tab.stt}" class="map" style="position: relative; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223);">
+                    <div id="contact_map" class="map" style="position: relative; overflow: hidden; transform: translateZ(0px); background-color: rgb(229, 227, 223);">
                     </div>
                     {tab.contact_map}
                 </div>
