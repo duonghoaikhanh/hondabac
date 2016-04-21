@@ -351,54 +351,33 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document, "script");
         <!-- Footer
       ============================================= -->
         <footer id="footer" class='dark'>
-
             <div class="container">
-
                 <!-- Footer Widgets
             ============================================= -->
                 <div class="footer-widgets-wrap clearfix">
-
                     <div class="col_two_third">
-
                         <div class="col_one_third prefooter_one">
-
                             <div class="widget clearfix">
-
                                 <h4>{LANG.global.office_footer}</h4>
-
                                 <p>
-
                                 <p>{LANG.global.slogan_footer}</p>
-
                                 {data.banner_info_contact_company_footer}
-
-
                             </div>
-
                         </div>
-
                         <div class="col_one_third prefooter_one">
-
                             <div class="widget widget_links clearfix">
-
                                 <h4>{LANG.global.information}</h4>
                                 {data.footer_menu}
-
-
                             </div>
                             <div class='marginbottom hidden-lg hidden-md hidden-sm'>
-
                             </div>
                         </div>
-
                         <div class="col_one_third col_last prefooter_one">
-
                             <div class="widget clearfix">
                                 <h4>{LANG.global.page_newest}</h4>
                                 {data.list_page_newest_footer}
                             </div>
                             <div class='marginbottom hidden-lg hidden-md hidden-sm'>
-
                             </div>
                         </div>
 
