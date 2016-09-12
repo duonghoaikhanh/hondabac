@@ -1,3 +1,3 @@
-<!-- BEGIN: main -->
-{data.content}
+<!-- BEGIN: main -->
+{data.content}
 <!-- END: main --> 
