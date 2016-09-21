@@ -397,6 +397,7 @@ function header_cart(){
 function load_more_news(){
 	var start = $("#start").val();
 	console.log(start);
+	console.log(ROOT);
 	$.ajax({
 
 		type: "POST",
@@ -406,7 +407,7 @@ function load_more_news(){
 		data: { "m" : "news", "f" : "load_more_news", 'start' : start}
 
 	}).done(function( string ) {
-
+		console.log(string);
 		var data = JSON.parse(string);
 
 		$('.list_news_home').append(data.content);
