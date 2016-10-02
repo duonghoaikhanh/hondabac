@@ -104,7 +104,7 @@ ttHGlobal = {
 
 	},
 
-	
+
 
 	emaillist:function (form_id) {
 
@@ -176,7 +176,7 @@ ttHGlobal = {
 
 	},
 
-	
+
 
 	box_lang:function () {
 
@@ -200,7 +200,7 @@ ttHGlobal = {
 
 	},
 
-	
+
 
 	btn_temp:function () {
 
@@ -210,13 +210,13 @@ ttHGlobal = {
 
 				$(this).addClass('added').html(ttHTemp.html_btn($(this).val()));
 
-			}      
+			}
 
     });
 
 	},
 
-	
+
 
 	radio_temp:function () {
 
@@ -236,7 +236,7 @@ ttHGlobal = {
 
 			}
 
-			
+
 
 			if(!$(this).hasClass('added')) {
 
@@ -268,7 +268,7 @@ ttHGlobal = {
 
 	},
 
-	
+
 
 	checkbox_temp:function () {
 
@@ -288,7 +288,7 @@ ttHGlobal = {
 
 			}
 
-			
+
 
 			if(!$(this).hasClass('added')) {
 
@@ -371,41 +371,30 @@ function header_account(){
 }
 
 
-
 function header_cart(){
-
 	$.ajax({
-
 		type: "POST",
-
 		url: ROOT+"ajax.php",
-
 		data: { "m" : "product", "f" : "cart_info" }
-
 	}).done(function( string ) {
-
 		var data = JSON.parse(string);
-
 		$('#header_cart .num_cart').html(data.num_cart);
-
 	});
-
 	return false;
-
 }
 
+/**
+ * load_more_news
+ * @returns {boolean}
+ */
 function load_more_news(){
 	var start = $("#start").val();
 	console.log(start);
 	console.log(ROOT);
 	$.ajax({
-
 		type: "POST",
-
 		url: ROOT+"ajax.php",
-
 		data: { "m" : "news", "f" : "load_more_news", 'start' : start}
-
 	}).done(function( string ) {
 		console.log(string);
 		var data = JSON.parse(string);
@@ -413,8 +402,35 @@ function load_more_news(){
 		$('.list_news_home').append(data.content);
 		$("#start").val(data.start);
 
-		if(data.stop_more ==1){
+		if(data.stop_more == 1){
 			$("#load_more").addClass('not-active');
+		}
+
+	});
+
+	return false;
+
+}
+
+/**
+ * load_more_news_focus
+ * @returns {boolean}
+ */
+function load_more_news_focus(){
+	var start = $("#start").val();
+	$.ajax({
+		type: "POST",
+		url: ROOT+"ajax.php",
+		data: { "m" : "news", "f" : "load_more_news_focus", 'start' : start}
+	}).done(function( string ) {
+		console.log(string);
+		var data = JSON.parse(string);
+
+		$('.list_news_home_focus').append(data.content);
+		$("#start").val(data.start);
+
+		if(data.stop_more == 1){
+			$("#load_more_focus").addClass('not-active');
 		}
 
 	});
@@ -902,16 +918,128 @@ function loadpage(){
 
 
 	$('.box_mid-content table').each(function(index, element) {
-
 		var div = $('<div class="table-responsive"></div>').insertBefore($(this));
-
 		var table = $(this).detach();
-
-
-
 		table.appendTo(div);
 
 	});
 
 }
 
+$(document).ready(function(){
+	var parent_comment = "";
+	var parent = "";
+	var content = "";
+	$( ".show_reply_c" ).on( "click", function( event, person ) {
+		var parent = $(this).closest(".item_comment");
+		$(parent).find(".reply_c").toggleClass("show");
+	});
+});
+
+function send_comment(type_rep,item_comment){
+	if(type_rep =='reply_c'){
+		parent_comment = $(item_comment).closest(".item_comment");
+	}else{
+		parent_comment = $(item_comment).closest(".reply");
+	}
+	content = $(parent_comment).find(".content_comment").val();
+
+	if(content == ""){
+		alert(lang_js['err_valid_input']);
+		return false;
+	}
+	parent = $(parent_comment).find("input[name='parent']").val();
+
+	$(".infor_customer").toggleClass("show");
+
+}
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+function add_info(){
+	var email = $(".infor_customer #email").val();
+	var name = $(".infor_customer #full_name").val();
+	if(email == ""){
+		$(".infor_customer .err_email").text(lang_js['err_valid_input']);
+	}else{
+		$(".infor_customer .err_email").text("");
+	}
+	if (!validateEmail(email)) {
+		$(".infor_customer .err_email").text("Email không đúng dịnh dạng");
+	}
+	if(name == ""){
+		$(".infor_customer .err_name").text(lang_js['err_valid_input']);
+	}else{
+		$(".infor_customer .err_name").text("");
+	}
+	add_comment();
+}
+function add_comment(){
+	$(".infor_customer").toggleClass("show");
+	var table = $("input[name='tb']").val();
+	var table_id = $("input[name='tb_id']").val();
+	var email = $("input[name='email']").val();
+	var full_name = $("input[name='full_name']").val();
+	var fData = { "m" : "global", "f" : "comment",'parent': parent, 'table': table, 'table_id': table_id, 'email': email, 'full_name': full_name, 'content': content};
+	$.ajax({
+		type: "POST",
+		url: ROOT+"ajax.php",
+		data: fData
+	}).done(function( response ) {
+
+		var data = JSON.parse(response);
+
+		if(data.status == 1) {
+			$(".content_comment").val("");
+			alert(data.mess);
+		} else {
+			alert(data.mess);
+		}
+
+	});
+
+}
+function close_info_customer(){
+	$(".infor_customer").toggleClass("show");
+}
+
+/**
+ * receive_info_contact
+ * @param idForm
+ */
+function receive_info_contact(idForm) {
+	var stringError = "";
+	var isSubmit = true;
+	var email = $("input[name='email']").val();
+	var full_name = $("input[name='full_name']").val();
+	var phone = $("input[name='phone']").val();
+	var areas_concern = $("#areas_concern").val();
+	if (full_name == "") {
+		isSubmit = false;
+		stringError += "Hãy nhập họ và tên." + "<br />";
+	}
+	if (email == "") {
+		isSubmit = false;
+		stringError += "Hãy nhập email." + "<br />";
+	} else {
+		if (!validateEmail(email)) {
+			isSubmit = false;
+			stringError += "Email không đúng dịnh dạng." + "<br />";
+		}
+	}
+	if (phone == "") {
+		isSubmit = false;
+		stringError += "Hãy nhập số điện thoại." + "<br />";
+	}
+	if (areas_concern == "") {
+		isSubmit = false;
+		stringError += "Hãy chọn lĩnh vực quan tâm." + "<br />";
+	}
+
+	if (isSubmit) {
+		$('#' + idForm).submit();
+	} else {
+		$(".err_notification").html(stringError);
+	}
+}

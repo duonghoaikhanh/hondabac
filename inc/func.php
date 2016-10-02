@@ -1144,7 +1144,6 @@ class Func_Global
 		} else {
 			echo "Message sent!";
 		}*/
-		
 		$sent = $ttH->mailer->Send();
 		return $sent;
 	}

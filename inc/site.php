@@ -249,172 +249,75 @@ class Site
 
 
 	function list_number ($select_name="id", $min=0, $max=10, $cur="", $ext="",$arr_more=array()){
-
 		global $ttH;
-
-		
-
 		$min = (int)$min;
-
 		$max = (int)$max;
-
 		$max = ($max >= $min) ? $max : $min;
-
-		
-
 		$array = array();
-
 		for($i=$min;$i<=$max;$i++){
-
 			$array[$i] = $i;
-
 		}
-
-		
-
-		return $ttH->html->select ($select_name, $array, $cur, $ext,$arr_more); 
-
+		return $ttH->html->select ($select_name, $array, $cur, $ext,$arr_more);
 	}
-
-	
 
 	//-----------------get_logo
-
 	public function get_logo ($group_id='logo'){
-
 		global $ttH;
-
-		
-
 		$output = '';
-
-		
-
 		$arr_h1 = array('home');
-
-		
-
 		if(isset($ttH->data["banner_group"][$group_id]) && isset($ttH->data["banner"][$group_id])){
-
 			foreach($ttH->data["banner"][$group_id] as $banner){
-
 				$w = $ttH->data["banner_group"][$group_id]['width'];
-
-				$h = $ttH->data["banner_group"][$group_id]['height'];	 
-
+				$h = $ttH->data["banner_group"][$group_id]['height'];
 				$style = "width:".$w."px;";
-
 				$style .= ($h > 0) ? "height:".$h."px;overflow:hidden;" : "";
-
-				
-
 				$banner['link'] = $this->get_link_menu ($banner['link'], $banner['link_type']);
-
-				
-
 				if($banner['type'] == 'image'){
-
 					//$banner['content'] = $ttH->func->get_pic_mod ($banner['content'], $w, $h, " alt=\"".$banner['title']."\"",1 ,0, array('fix_width' => 1));
-
 					$banner['content'] = '<a href="'.$banner['link'].'" target="'.$banner['target'].'">'.$ttH->func->get_pic_mod ($banner['content'], $w, $h, " alt=\"".$banner['title']."\"",1 ,0, array('fix_width' => 1)).'</a>';
-
-				} 
-
-				
-
-				if(in_array($ttH->conf['cur_mod'],$arr_h1)) {
-
-					$banner['content'] = "<h1>".$banner['content']."<span style='display:none;'>".$banner['title']."</span></h1>";
-
 				}
-
+				if(in_array($ttH->conf['cur_mod'], $arr_h1)) {
+					$banner['content'] = "<h1>".$banner['content']."<span style='display:none;'>".$banner['title']."</span></h1>";
+				}
 				$output = '<div style="'.$style.'">'.$banner['content'].'</div>';
-
-				return $output; 
-
+				return $output;
 			}
-
 		}
 
-		
-
-		return $output; 
-
+		return $output;
 	}
 
-	
-
 	//-----------------get_banner
-
 	public function get_banner ($group_id='logo', $limit = 1){
-
 		global $ttH;
-
-		
-
 		$output = '';
-
-		
-
+//		print_arr($ttH->data["banner"][$group_id]);die;
 		if(isset($ttH->data["banner_group"][$group_id]) && isset($ttH->data["banner"][$group_id])){
-
 			$i = 0;
-
 			foreach($ttH->data["banner"][$group_id] as $banner){
-
 				$i++;
-
 				$w = $ttH->data["banner_group"][$group_id]['width'];
-
-				$h = $ttH->data["banner_group"][$group_id]['height'];	 
-
-				
-
+				$h = $ttH->data["banner_group"][$group_id]['height'];
 				$style_pic = '';
-
 				$style_frame = '';
-
 				if($ttH->data["banner_group"][$group_id]['height'] == 'fixed') {
-
 					$style_frame = "width:".$w."px;";
-
-					$style_frame .= ($h > 0) ? "height:".$h."px;overflow:hidden;" : "";
-
-					$style_frame = ($w > 0 || $h > 0) ? $style : '';
-
+//					$style_frame .= ($h > 0) ? "height:".$h."px;overflow:hidden;" : "";
+//					$style_frame = ($w > 0 || $h > 0) ? $style : '';
 				} elseif($ttH->data["banner_group"][$group_id]['height'] == 'full') {
-
 					$style_pic = "width:100%;";
-
 				}
-
-				
-
 				$banner['link'] = $this->get_link_menu ($banner['link'], $banner['link_type']);
-
-				
-
 				if($banner['type'] == 'image'){
-
 					//$banner['content'] = '<img src="'.$ttH->conf["rooturl"].'uploads/banner/'.$banner['content'].'" alt="'.$banner['title'].'" />';
-
 					$banner['content'] = '<a href="'.$banner['link'].'" target="'.$banner['target'].'">'.$ttH->func->get_pic_mod ($banner['content'], $w, $h, " alt=\"".$banner['title']."\" style=\"".$style_pic."\"",1 ,0, array('fix_width' => 1)).'</a>';
-
-				} 
-
-				$output .= '<div class="banner_item" style="'.$style_frame.'">'.$banner['content'].'</div>';
-
-				if($i >= $limit && $limit > 0) {
-
-					return $output; 
-
 				}
-
+				$output .= '<div class="banner_item" style="'.$style_frame.'">'.$banner['content'].'</div>';
+				if($i >= $limit && $limit > 0) {
+					return $output;
+				}
 			}
-
 		}
-
-		
 
 		return $output; 
 
@@ -1973,49 +1876,31 @@ class Site
 		return $output;
 	}
 
+	//=============== list news
 	function list_home_news ($start=0,$num_show = 6)
 	{
 		global $ttH;
 		$sql = "select *
-
-						from news 
-
-						where is_show=1 
-
-						and lang='".$ttH->conf["lang_cur"]."' 
-
+						from news
+						where is_show=1
+						and lang='".$ttH->conf["lang_cur"]."'
 						order by show_order desc, date_create desc
-
 						limit $start,$num_show";
+
 		$result = $ttH->db->query($sql);
 		$num_rows= mysql_num_rows($result);
 		$html_row = '';
-
-		if ($num = $ttH->db->num_rows($result))
-
-		{
-
+		if ($num = $ttH->db->num_rows($result)) {
 			$j = 0;
-
-			while ($row = $ttH->db->fetch_row($result)) 
-
+			while ($row = $ttH->db->fetch_row($result))
 			{
-
 				$j++;
-
 				$row['link'] = $ttH->site->get_link ('news','',$row['friendly_link']);
-
 				$row["picture"] = $ttH->func->get_src_mod($row["picture"], 302, 150, 1, 1);
-
 				$row['short'] = $ttH->func->short($row['content'], 120);
-
 				$row['date_update'] = date('d/m/Y',$row['date_update']);
-
 				$ttH->temp_box->assign('item', $row);
-
 				$ttH->temp_box->parse("list_home_news.item");
-
-
 			}
 			$ttH->temp_box->parse("list_home_news");
 		}
@@ -2026,19 +1911,49 @@ class Site
 			'output'=>$output
 		);
 	}
-	
+
+	//============= list new focus
+	function list_home_news_focus ($start=0, $num_show = 6)
+	{
+		global $ttH;
+		$sql = "select *
+						from news
+						where is_show = 1
+						and lang='".$ttH->conf["lang_cur"]."'
+						and is_focus = 1
+						order by show_order desc, date_create desc
+						limit $start, $num_show";
+
+		$result = $ttH->db->query($sql);
+		$num_rows= mysql_num_rows($result);
+		$html_row = '';
+		if ($num = $ttH->db->num_rows($result)) {
+			$j = 0;
+			while ($row = $ttH->db->fetch_row($result))
+			{
+				$j++;
+				$row['link'] = $ttH->site->get_link ('news','',$row['friendly_link']);
+				$row["picture"] = $ttH->func->get_src_mod($row["picture"], 302, 150, 1, 1);
+				$row['short'] = $ttH->func->short($row['content'], 120);
+				$row['date_update'] = date('d/m/Y',$row['date_update']);
+				$ttH->temp_box->assign('item', $row);
+				$ttH->temp_box->parse("list_home_news_focus.item");
+			}
+			$ttH->temp_box->parse("list_home_news_focus");
+		}
+		$stop_more = ($num_rows == $num_show) ? 0 : 1;
+		$output = $ttH->temp_box->text("list_home_news_focus");
+		return array(
+			'stop_more' => $stop_more,
+			'output' => $output
+		);
+	}
+
 	//=================news_slide===============
 
-	function news_slide ($group_id='logo'){
-
+	function news_slide ($group_id='logo') {
 		global $ttH;
-
-		
-
 		$output = '';
-
-		
-
 		if(isset($ttH->data["banner_group"][$group_id]) && isset($ttH->data["banner"][$group_id])){
 
 			foreach($ttH->data["banner"][$group_id] as $banner){
@@ -2782,99 +2697,50 @@ class Site
 	//=================box_support===============
 
 	function box_support ()
-
 	{
-
 		global $ttH;
-
-		
-
 		$output = '';
 
 		$sql = "select *
-
 					from support
-
 					where is_show=1
-
 					and lang= '".$ttH->conf['lang_cur']."'
-
 					order by show_order desc, date_update asc";
 
 		$result = $ttH->db->query($sql);
-
-
-
 		if($num = $ttH->db->num_rows($result)){
 
 			while($row = $ttH->db->fetch_row($result)){
 
 				if(isset($row['yahoo']) || isset($row['skype'])) {
-
 					$row['content'] = '';
-
-					
-
 					$ttH->temp_box->reset("box_support.row.yahoo");
 
 					$ttH->temp_box->reset("box_support.row.skype");
-
-					
-
 					if(!empty($row['yahoo'])) {
-
-
-
 						$ttH->temp_box->assign('row', $row);
-
 						$ttH->temp_box->parse("box_support.row.yahoo");
-
 					}
-
-
-
 					if(!empty($row['skype'])) {
-
-
-
 						$ttH->temp_box->assign('row', $row);
-
 						$ttH->temp_box->parse("box_support.row.skype");
-
 					}
-
-					
-
 					$ttH->temp_box->assign('row', $row);
-
 					$ttH->temp_box->parse("box_support.row");
 
 				}
 
 			}
-
 			$hotline = str_replace(',','<br />',$ttH->conf['hotline']);
-
 			$email = str_replace(',','<br />',$ttH->conf['email']);
-
-			
-
 			$output = $ttH->html->temp_box("box_support", array(
-
 					//'title' => $ttH->lang['global']['support'],
-
 					//'hotline' => $hotline,
-
 					'support_web' => $this->get_banner('support',0)
-
 				));
 
 		}
-
-		
-
 		return $output;
-
 	}
 
 	
@@ -4201,7 +4067,75 @@ function box_search_category ()
 
   }
 
-	  
+  function comment($table = "news", $table_id){
+
+		global $ttH;
+		$output= '';
+		$temp = 'comment';
+
+		$sql = "select * from comment
+					where is_show=1
+
+					and lang='".$ttH->conf["lang_cur"]."'
+
+					and `table` = '".$table."'
+					and table_id = ".$table_id."
+					and parent = 0
+					and status = 1
+					order by date_create DESC
+					limit 0,10";
+		$result = $ttH->db->query($sql);
+		$i = 0;
+		while($row = $ttH->db->fetch_row($result))
+		{
+			$i++;
+			$row['info_author'] = json_decode($row['info_customer']);
+			$row['full_name'] = $row['info_author']->full_name;
+			$row['email'] = $row['info_author']->email;
+			$row['date_create'] = date('H:i d/m/Y', $row['date_create']);
+			$row['end'] = ($i == $ttH->db->num_rows($result)) ? "end" : "";
+			$row['LANG'] = $ttH->lang['global'];
+
+			$sql_c = "select *
+					from comment
+					where is_show=1
+					and lang='".$ttH->conf["lang_cur"]."'
+					and parent = ".$row['id']."
+					and `table` = '".$table."'
+					and table_id = ".$table_id."
+					and status = 1
+					order by date_create ASC
+					limit 0,10";
+			$result_c = $ttH->db->query($sql_c);
+			while($row2 = $ttH->db->fetch_row($result_c))
+			{
+				$row2['info_author'] = json_decode($row2['info_customer']);
+				$row2['full_name'] = $row2['info_author']->full_name;
+				$row2['email'] = $row2['info_author']->email;
+				$row2['date_create'] = date('H:i d/m/Y', $row2['date_create']);
+				$ttH->temp_box->assign("row_c", $row2);
+
+				$ttH->temp_box->parse($temp.".row.row_c");
+
+			}
+			$ttH->temp_box->assign("row", $row);
+			$ttH->temp_box->parse($temp.".row");
+
+		}
+		$data = array(
+			'lang' => $ttH->lang['global'],
+			'img_close'=>$ttH->dir_images."close-lb.gif",
+			'table_id' => $table_id,
+			'table' => $table,
+			'total_comment' => $ttH->db->num_rows($result)
+		);
+		$ttH->temp_box->assign("LANG", $data['lang']);
+		$ttH->temp_box->assign("data", $data);
+		$ttH->temp_box->parse($temp);
+		$output = $ttH->temp_box->text($temp);
+		return $output;
+
+	}
 
 // end classs
 

@@ -77,13 +77,13 @@ class sMain
 
 	}
 
-	
-
+	/**
+	 * load_more_news
+	 * @return string
+	 */
 	function load_more_news ()
-
 	{
-
-		global $ttH;	
+		global $ttH;
 		$start = (isset($ttH->post['start'])) ? $ttH->post['start'] : 6;
 		$num_show = 6;
 		$output = array(
@@ -96,10 +96,7 @@ class sMain
 		$output['content'] = $output['content']['output'];
 		$output['start'] = $start + $num_show;
 		return json_encode($output);
-
 	}
-
-	
 
 }
 

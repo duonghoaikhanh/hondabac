@@ -61,7 +61,6 @@ $ttH->page_js = (isset($ttH->page_js)) ? $ttH->page_js : "";
 
 $data = array();
 $data['logo'] = $ttH->site->get_logo ('logo');
-$data['banner_quangcao'] = $ttH->site->get_logo ('banner-quangcao');
 $data["header_cart"] = $ttH->site->header_cart();
 $data["box_search"] = $ttH->site->box_search();
 $data['share'] = $ttH->site->get_banner ('share', 0);
@@ -75,12 +74,14 @@ if($ttH->conf['cur_act'] == 'home'){
 $data['box_support'] = $ttH->site->box_support();
 //$data['header_user'] = $ttH->site->header_user ();
 //$data['header_cart'] = $ttH->site->header_cart ();
-$data['share'] = $ttH->site->get_banner ('share', 0);
+//$data['share'] = $ttH->site->get_banner ('share', 0);
 $data['header_menu'] = $ttH->site->menu_single ('menu_top');
 $data['list_menu'] = $ttH->site->list_menu ('menu_header');
 $data['footer'] = $ttH->site->get_banner ('footer');
 $data['info_company_vietnam'] = $ttH->site->get_banner ('info-company-vietnam');
 $data['info_company_nhatban'] = $ttH->site->get_banner ('info-company-nhatban');
+$data['banner_left'] = $ttH->site->get_banner ('banner-left');
+$data['banner_right'] = $ttH->site->get_banner ('banner-right');
 $data['list_page_newest_footer'] = $ttH->site->box_page_newest_footer ();
 $data['banner_info_contact_company_footer'] = $ttH->site->get_banner ('banner-info-contact-company-footer');
 $data['footer_menu'] = $ttH->site->list_menu ('menu_footer', 'menu_footer');

@@ -84,7 +84,80 @@
 
 </section>
 
+<!-- END: box_main -->
 
+
+<!-- BEGIN: comment -->
+<div class="container clearfix" id="comment">
+
+  <h3>{LANG.comment} ({data.total_comment})</h3>
+  <!-- BEGIN: row -->
+    <div class="item_comment {row.end}">
+      <div class="cm_content">
+        {row.content}
+      </div>
+      <div class="author_info">
+        <strong>{row.full_name}</strong>
+        -
+        {row.date_create}
+        <a href="javascript:void(0);" class="show_reply_c">{row.LANG.reply}</a>
+        
+      </div>
+      <div class="list_comment_c">
+      <!-- BEGIN: row_c -->
+        <div class="item_c">
+          {row_c.content}
+          <div class="author_info">
+          <strong>{row_c.full_name}</strong>
+          -
+          {row_c.date_create}
+        </div>
+        </div>
+      <!-- END: row_c -->
+      <div class="reply_c">
+          <form method="post" id="reply_c">
+            <textarea placeholder="{row.LANG.y_kien_cua_ban}" style='width: 100%;height: 80px;max-width: 100%' class="content_comment"></textarea>
+            <input type="button" class="send_comment" value="{row.LANG.send_comment}" onclick="send_comment('reply_c',this)">
+            <input type="hidden" name="parent" value="{row.id}">
+            <div class="clear"></div>
+          </form>
+      </div>
+      </div>
+      
+    </div>
+  <!-- END: row -->
+  <div class="reply">
+    <form method="post" id="reply">
+      <textarea placeholder="{LANG.y_kien_cua_ban}" style='width: 100%;height: 80px;max-width: 100%' class="content_comment"></textarea>
+      <input type="button" class="send_comment" value="{LANG.send_comment}" onclick="send_comment('reply',this)">
+      <input type="hidden" name="parent" value="0">
+      <input type="hidden" name="tb" value="{data.table}">
+      <input type="hidden" name="tb_id" value="{data.table_id}">
+      <div class="infor_customer ">
+          <table>
+            <tr>
+              <td>
+                <div class="content_info_comment">
+                  <h3>
+                    {LANG.title_box}
+                    <span class="btn_close" onclick="close_info_customer()"><img src="{data.img_close}"></span>
+                  </h3>
+                  <input type="text" name="email" id="email" placeholder="{LANG.please_enter_email}" style="width: 100%;margin-bottom: 10px;">
+                  <div class="error_notifi err_email"></div>
+                  <input type="text" name="full_name" id="full_name" placeholder="{LANG.please_full_name}" style="width: 100%;margin-bottom: 10px;">
+                  <div class="error_notifi err_name"></div>
+                  <input type="button" class="info_done" onclick="add_info()" value="{LANG.info_done}">
+                </div>
+              </td>
+            </tr>
+          </table>
+      </div>
+      <div class="clear"></div>
+    </form>
+  </div>
+
+</div>
+<!-- END: comment -->
 
 <!-- END: box_main -->
 
@@ -109,6 +182,28 @@
     <div class="clear"></div>
     
 <!-- END: list_home_news -->
+
+<!-- BEGIN: list_home_news_focus -->
+  <!-- BEGIN: item -->
+  <div class="col_left">
+    <div class="media_wrapper">
+      <a href="{item.link}"
+         rel="bookmark">
+        <img src="{item.picture}" class="aligncenter" alt="{item.title}" title="{item.title}"></a>
+    </div>
+    <div class="postteaser">
+      <h2 class="posttitle">
+        <a href="{item.link}" rel="bookmark"
+           title="{item.title}">{item.title}</a>
+      </h2>
+      <p>{item.short}</p>
+      <a href="{item.link}" class="readmore" rel="bookmark" title="{item.title}">Xem thêm</a>
+    </div>
+  </div>
+  <!-- END: item -->
+<div class="clear"></div>
+
+<!-- END: list_home_news_focus -->
 
 
 
@@ -518,43 +613,25 @@
 <!-- BEGIN: box_support -->
 
 <div class="box_support">
-
   <div class="arrow"></div>
-
   <!-- BEGIN: row -->
-
   <div class="row">
-
     <!-- BEGIN: yahoo -->
-
     <div class="nick yahoo" data-nick="{row.yahoo}" nick_type="yahoo">
-
       <div><a class="pic" href="ymsgr:sendIM?{row.yahoo}"><img src='{DIR_IMAGE}icon_yahoo_on.png' alt="{row.yahoo}" /></a></div>
-
       <div><a class="title" href="ymsgr:sendIM?{row.yahoo}">{row.title}</a></div>
-
       <div class="clear"></div>
-
     </div>
-
     <!-- END: yahoo -->
 
     <!-- BEGIN: skype -->
-
     <p class="nobottommargin">
-
       <a href='tel:{row.phone}' class="a_phone"><i class='icon-phone3'></i> <strong>{row.phone}</strong></a>
-
       <a href='mailto:{row.email}' class="a_email"><i class='icon-email3'></i><strong>{row.email}</strong></a>
-
       <a class="pic a_skype" href="Skype:{row.skype}?chat"><img src="{DIR_IMAGE}h.png" alt="{row.skype}" height="16" />{row.skype}</a>
-
     </p>
-
     <!-- END: skype -->
-
     <div class="clear"></div>
-
   </div>
 
   <!-- END: row -->
@@ -1148,46 +1225,13 @@
 
 
 <!-- BEGIN: html_list_share -->
-
+<!-- Place this tag in your head or just before your close body tag. -->
 <div class="list_share">
-
-	<iframe src="//www.facebook.com/plugins/like.php?href={data.link_share}&amp;width=90px&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=false&amp;height=21;width=90" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowTransparency="true"></iframe>
-
-  
-
-  <!-- Đặt thẻ này vào nơi bạn muốn Nút +1 kết xuất. -->
-
-  <div class="g-plusone" data-size="medium" data-href="{data.link_share}"></div>
-
-  
-
-  <!-- Đặt thẻ này sau thẻ Nút +1 cuối cùng. -->
-
-  <script type="text/javascript">
-
-    window.___gcfg = {lang: 'vi'};
-
-  
-
-    (function() {
-
-      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-
-      po.src = 'https://apis.google.com/js/platform.js';
-
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-
-    })();
-
-  </script>
-
-  
-
-  <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
-
-
-
-	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  <iframe src="https://www.facebook.com/plugins/like.php?href={data.link_share}&width=122&layout=button_count&action=like&show_faces=false&share=true&height=20&appId" width="130" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <!-- Place this tag where you want the share button to render. -->
+  <div class="g-plus" data-action="share" data-href="https://www.google.com.vn/"></div>
 
 </div>
 

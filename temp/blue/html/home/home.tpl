@@ -6,6 +6,13 @@
 
   <div class="content-wrap">
 
+    <div class="container" style="padding:0px">
+      <h2 class="h2_news">{LANG.home.label_news_focus}</h2>
+      <div class="list_news_home_focus">
+        {data.list_home_news_focus}
+      </div>
+
+    </div>
 
     <div class="container" style="padding:0px">
       <h2 class="h2_news">{LANG.home.label_news}</h2>
@@ -108,43 +115,23 @@
   <!-- BEGIN: row -->
 
   <div class="col_one_third nobottommargin {row.last}">
-
     <div class="feature-box media-box">
       <div class="fbox-media">
-
         <a href='javascript:void(0)'>
-
           <img src="{row.picture}" alt="{row.title}">
-
         </a>
-
       </div>
-
       <div class="fbox-desc">
-
         <a href='javascript:void(0)'><h3>{row.title}</h3></a>
-
         <span class="subtitle">{row.short}</span>
         <p>{row.content}</p>
-
       </div>
-
     </div>
-
   </div>
-
   <!-- END: row -->
-
-
-
   <div class="clear"></div>
-
   <div class="clear"></div>
-
 </div>
-
-
-
 <!-- END: list_page_group_focus -->
 
 
@@ -152,45 +139,23 @@
 <!-- BEGIN: page_news_focus -->
 
 <div class="container clearfix">
-
   <div class="list_news_group">
-
     <!-- BEGIN: row -->
-
-    <div class="col_one_third nobottommargin {row.last}">
-
+    <div class="col_one_third nobottommargin">
       <div class="feature-box media-box">
-
-
-
         <div class="fbox-media">
-
           <a href='{row.link}'>
-
             <img src="{row.picture}" alt="{row.title}">
-
           </a>
-
         </div>
-
         <div class="fbox-desc">
-
           <a href='javascript:void(0)'><h3>{row.title}</h3></a>
-
           <span class="subtitle">{row.short}</span>
-
-
-
           <p>{row.content}</p>
-
         </div>
-
       </div>
-
     </div>
-
     <!-- END: row -->
-
     <div class="clear"></div>
 
   </div>

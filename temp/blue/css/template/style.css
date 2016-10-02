@@ -26449,3 +26449,154 @@ table.csstable2 tr th strong, table.csstable2 tr:nth-child(1) td strong{
 	background: #888;
 	border: 1px solid #888;
 }
+
+.list_news_home_focus h2{
+	font-size: 16px;
+	margin-bottom: 0;
+}
+.list_news_home_focus h2 a{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+}
+.list_news_home_focus img{
+	width: 100%;
+	max-width: 100%;
+	margin-bottom: 10px;
+}
+.list_news_home_focus{
+	margin-bottom: 25px;
+}
+.load_more_news_focus {
+	width: 20%;
+	margin: 0 auto;
+	margin-bottom: 15px;
+}
+#load_more_focus{
+	padding: 10px;
+	border: 1px solid #01c2c6;
+	background: #01c2c6;
+	color: #fff;
+	font-weight: bold;
+	display: block;
+	text-align: center;
+}
+#load_more_focus.not-active {
+	pointer-events: none;
+	cursor: default;
+	background: #888;
+	border: 1px solid #888;
+}
+
+#comment h3{
+	color: #9d234c;
+    background: #eee;
+    position: relative;
+        padding: 5px 0px 5px 10px;
+    box-sizing: border-box;
+}
+.send_comment
+{
+    background: #9d234c;
+    padding: 8px 18px 8px 17px;
+    font: 700 12px arial;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    float: right;
+    margin: 10px 0px;
+}
+.infor_customer{
+	width: 100%;
+	height: 100%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+.infor_customer table{
+	width: 100%;
+	height: 100%
+}
+.infor_customer table tr{
+	width: 100%;
+	height: 100%
+}
+.infor_customer table tr td{
+	text-align: center;
+	width: 400px;
+}
+.infor_customer .content_info_comment{
+	width: 400px;
+	margin:0 auto;
+	background: #fff;
+	text-align: left;
+	padding: 10px;
+}
+.infor_customer h3{
+	margin-bottom: 10px;
+}
+.infor_customer input{
+	    height: 30px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 0 10px;
+    font: 400 13px/30px Arial;
+    width: 100%;
+    box-sizing: border-box;
+    color: #666;
+}
+.infor_customer .info_done{
+	    height: 30px;
+    padding: 0 15px;
+    line-height: 30px;
+    border: none;
+    color: #fff;
+    background-color: #9f224e;
+    font-size: 14px;
+    cursor: pointer;
+}
+.error_notifi{
+	color: red;
+	font-weight: bold;
+}
+.infor_customer{
+	display: none;
+}
+.infor_customer.show{
+	display: block;
+}
+.btn_close{
+	position: absolute;
+	right: 10px;
+    top: 41%;
+    cursor: pointer;
+}
+.item_comment{
+	padding: 5px 0px;
+	border-bottom: 1px dashed #000;
+}
+.item_comment.end{
+	border: none;
+	margin-bottom: 20px;
+}
+.reply_c{
+	display: none;
+}
+.list_comment_c{
+	margin-left: 30px;
+}
+.reply_c.show{
+	display: block;
+}
+.show_reply_c{
+	color: #004f8b;
+	text-decoration: underline !important;
+}
+
+.err_notification {
+	margin-bottom: 20px;
+	color: red;
+}

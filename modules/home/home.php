@@ -119,12 +119,12 @@ class sMain
 		$data['content_focus'] = $this->do_list ('focus');
 
 		//$data['list_page_group_focus'] = $this->list_page_group_focus();
-
-
-
-		$data['group_news_focus'] = $this-> get_group_news_focus();
+		$data['group_news_focus'] = $this->get_group_news_focus();
 		$data['list_home_news'] = $ttH->site->list_home_news();
 		$data['list_home_news'] = $data['list_home_news']['output'];
+
+		$data['list_home_news_focus'] = $ttH->site->list_home_news_focus();
+		$data['list_home_news_focus'] = $data['list_home_news_focus']['output'];
 
 		$data['list_product_focus'] = $this->list_product_focus();
 
@@ -146,104 +146,48 @@ class sMain
 
 	}
 
-	
-
-
-
+	/**
+	 * get_group_news_focus
+	 * @return string
+	 */
 	function get_group_news_focus (){
-
 		global $ttH;
-
-		
-
 		$output = '';
-
-		
-
 		$pic_w = 500;
-
 		$pic_h = 500;
-
-		
-
-		// $sql = "select *
-
-		// 				from news_group 
-
-		// 				where is_show=1 
-
-		// 				and lang='".$ttH->conf["lang_cur"]."' 
-
-		// 				and is_focus=1 
-
-		// 				order by show_order desc, date_update desc 
-
-		// 				limit 0,3";
-
 		$sql = "select *
-
-						from news_group 
-
-						where is_show=1 
-
-						and lang='".$ttH->conf["lang_cur"]."' 
-
-						order by show_order desc, date_update desc 
-
+						from news_group
+						where is_show=1
+						and lang='".$ttH->conf["lang_cur"]."'
+						order by show_order desc, date_update desc
 						limit 0,3";
-
 		//echo $sql;
-
 		$result = $ttH->db->query($sql);
-
 		$html_row = "";
-
 		if ($num = $ttH->db->num_rows($result))
-
 		{
-
 			$i = 0;
-
-			while ($row = $ttH->db->fetch_row($result)) 
-
+			while ($row = $ttH->db->fetch_row($result))
 			{
-
 				$i++;
-
 				$row['stt'] = $i;
-
 				$row['pic_w'] = $pic_w;
-
 				$row['pic_h'] = $pic_h;
-
 				$row['link'] = $ttH->site->get_link ('news',$row['friendly_link']);
-
 				$row["picture"] = $ttH->func->get_src_mod($row["picture"], $pic_w, $pic_h, 1, 1);
-
 				if(isset($row['short'])){
-
 					$row["short"] = $ttH->func->short($row["short"], 200);
-
 				}elseif(isset($row['content'])){
-
 					$row["short"] = $ttH->func->short($row["content"], 200);
-
 				}
-
 				$ttH->temp_act->assign('row', $row);
-
 				$ttH->temp_act->parse("page_news_focus.row");
-
 			}
-
 			$ttH->temp_act->parse("page_news_focus");
 
 			$output = $ttH->temp_act->text("page_news_focus");
 
 		}
-
-		
-
 		return $output; 
 
 	}
@@ -454,94 +398,51 @@ class sMain
 
 	}
 
+	/**
+	 * list_page_group_focus
+	 * @return string
+	 */
 	function list_page_group_focus() {
-
 		global $ttH;
 		$output = '';
-
-
 		$pic_w = 371;
-
 		$pic_h = 232;
-
 		$sql_group = "select *
-
 						from page_group
-
 						where is_show=1
-
 						and lang='" . $ttH->conf["lang_cur"] . "'
-
 						and is_focus=1
-
 						order by show_order desc, date_update desc
-
 						limit 0,1";
-
 		//echo $sql;
-
-
 		$result_group = $ttH->db->query($sql_group);
-
 		$group = $ttH->db->fetch_row($result_group);
-
-
 		$sql = "select *
-
 						from page
-
 						where is_show=1
-
 						and lang='" . $ttH->conf["lang_cur"] . "'
-
 						and group_id = " . $group["id"] . "
-
 						order by show_order desc, date_update desc
-
 						limit 0,3";
-
-
 		$result = $ttH->db->query($sql);
-
 		if ($num = $ttH->db->num_rows($result)) {
-
 			$i = 0;
-
 			while ($row = $ttH->db->fetch_row($result)) {
-
 				$i++;
-
 				$row['stt'] = $i;
-
 				$row['pic_w'] = $pic_w;
-
 				$row['pic_h'] = $pic_h;
-
 				$row['link'] = $ttH->site->get_link('page', '', $row['friendly_link']);
-
 				$row["picture"] = $ttH->func->get_src_mod($row["picture"], $pic_w, $pic_h, 1, 1);
-
-
 				$row["short"] = $ttH->func->short($row["short"], 200);
-
 				$row["content"] = $ttH->func->short($row["content"], 200);
-
 				$row['last'] = $i == $num ? 'col_last' : '';
-
-
 				$ttH->temp_act->assign('row', $row);
-
 				$ttH->temp_act->parse("list_page_group_focus.row");
-
 			}
-
 			$ttH->temp_act->parse("list_page_group_focus");
-
 			$output = $ttH->temp_act->text("list_page_group_focus");
-
 		}
-
-
 		return $output;
 
 	}

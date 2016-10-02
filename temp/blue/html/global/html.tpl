@@ -1,251 +1,107 @@
-<!-- BEGIN: body --><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-
+<!-- BEGIN: body -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <!--[if lt IE 7]>
-
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-
 <!--[if IE 7]>
-
 <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
-
 <!--[if IE 8]>
-
 <html class="no-js lt-ie9" lang="en"> <![endif]-->
-
 <!--[if IE 9 ]>
-
 <html class="ie9 no-js"> <![endif]-->
-
 <!--[if (gt IE 9)|!(IE)]><!-->
-
 <html dir="ltr" lang="en-US"> <!--<![endif]-->
-
 <head>
-
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-
     <!--[if IE]>
-
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'/>
-
     <![endif]-->
-
     <title>{CONF.meta_title}</title>
-
     <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
-
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-
     <meta name="description" content="{CONF.meta_desc}"/>
-
     <meta name="keywords" itemprop="keywords" content="{CONF.meta_key}"/>
-
     <link rel="canonical" href="{CONF.canonical}"/>
-
     <meta property="og:type" content="website"/>
-
     <meta property="og:title" name="title" content="{CONF.meta_title}"/>
-
     <meta property="og:description" itemprop="description" name="description" content="{CONF.meta_desc}"/>
-
-
-
     <!--<link href="{DIR_CSS}global/cluetip/jquery.cluetip.css" rel="stylesheet">
-
       <link href="{DIR_CSS}global/layout.css" rel="stylesheet">-->
-
     <link href="{DIR_JS}fancybox/jquery.fancybox.css" rel="stylesheet">
-
-
-
     <link href="{DIR_JS}jalert/css/jquery.alerts.css" rel="stylesheet">
-
-
-
     <script type="text/javascript" language="javascript">
-
         var ROOT = "{CONF.rooturl}";
-
         var DIR_IMAGE = "{DIR_IMAGE}";
-
         var deviceType = "{data.deviceType}";
-
         var lang = "{CONF.lang_cur}";
-
         var lang_js = new Array();
-
         var go_content = 1;
-
         {LANG_JS}
-
     </script>
-
     <script src="{DIR_JS}jquery-1.10.2.js"></script>
-
     <script src="{DIR_JS}template/jquery.js" type='text/javascript'></script>
-
-
-
     <script src="{DIR_JS}jquery.hoverIntent.js"></script>
-
     <script src="{DIR_JS}fancybox/jquery.fancybox.pack.js"></script>
-
     <script src="{DIR_JS}cluetip/jquery.cluetip.js"></script>
-
     <script src="{DIR_JS}auto_numeric/autoNumeric.js"></script>
-
     <script src="{DIR_JS}jalert/js/jquery.alerts.js"></script>
-
     <script src="{DIR_JS}jquery.scrollTo.min.js"></script>
-
     <script src="{DIR_JS}javascript.js"></script>
-
     {CONF.include_js}
-
     {CONF.include_css}
-
     {CONF.include_js_content}
-
     <!--[if lt IE 9]>
-
     <script type="text/javascript" src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-
     <script type="text/javascript" src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-
-
-
     <style type="text/css">
-
         .css_bo {
-
             behavior: url({DIR_JS}PIE.htc);
-
         }
-
     </style>
-
     <![endif]-->
-
-
-
-
-
     <link href="{DIR_CSS}template/font_css_google.css" rel='stylesheet' type='text/css'/>
-
     <link href="{DIR_CSS}template/bootstrap.css" rel='stylesheet' type='text/css'/>
-
     <link href="{DIR_CSS}template/style.css" rel='stylesheet' type='text/css'/>
-
     <link href="{DIR_CSS}template/dark.css" rel='stylesheet' type='text/css'/>
-
     <link href="{DIR_CSS}template/font-icons.css" rel='stylesheet' type='text/css'/>
-
     <link href="{DIR_CSS}template/animate.css" rel='stylesheet' type='text/css'/>
-
     <link href="{DIR_CSS}template/magnific-popup.css" rel='stylesheet' type='text/css'/>
-
     <link href="{DIR_CSS}template/font_default.css" rel='stylesheet' type='text/css'/>
-
-
-
     <link href="{DIR_CSS}template/responsive.css" rel='stylesheet' type='text/css'/>
-
-
-
     <link href="{DIR_CSS}template/settings.css" type='text/css'/>
-
-
-
     <!-- pwg slider -->
-
     <link href="{DIR_CSS}template/pgwslideshow.min.css" rel='stylesheet' type='text/css'/>
-
     <link href="{DIR_CSS}template/jquery.fancybox.css" rel='stylesheet' type='text/css'/>
-
-
-
     <!-- responsive menu -->
-
     <link href="{DIR_CSS}template/simple-sidebar.css" rel='stylesheet' type='text/css'/>
-
     <!-- end responsive menu -->
-
-
-
     <!-- pwg slider -->
-
     <link href="{DIR_CSS}template/pgwslideshow.min.css" rel='stylesheet' type='text/css'/>
-
-
-
     <!-- Egany custom style -->
-
     <link href="{DIR_CSS}template/custom_style.css" rel='stylesheet' type='text/css'/>
-
-
-
     <!-- script -->
-
-
-
     <!-- Bizweb plugins END -->
-
-
-
     <script src="{DIR_JS}template/plugins.js" type='text/javascript'></script>
-
-
-
     <script src="{DIR_JS}template/jquery.gmap.js" type='text/javascript'></script>
 
     <!-- External JavaScripts
-
     ============================================= -->
-
-
-
     <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
 
     <script src="{DIR_JS}template/jquery.themepunch.tools.min.js" type='text/javascript'></script>
-
     <script src="{DIR_JS}template/jquery.themepunch.revolution.min.js" type='text/javascript'></script>
-
-
-
     <script src="{DIR_JS}template/pgwslideshow.min.js" type='text/javascript'></script>
-
-
-
     <!-- Bizweb plugins BEGIN -->
-
     <script src="{DIR_JS}template/option-selectors.js" type='text/javascript'></script>
-
     <!-- script.js -->
-
-
-
     <!-- BEGIN products scripts -->
-
     <script src="{DIR_JS}template/fly-to-cart-aothun.js" type='text/javascript'></script>
-
     <!-- END products scripts -->
-
-
-
     <!-- BEGIN fancy box -->
-
     <script src="{DIR_JS}template/jquery.fancybox.pack.js" type='text/javascript'></script>
 
     <!-- END fancy box -->
-
-
-
-
-
     <script src="{DIR_JS}template/pgwslideshow.min.js" type='text/javascript'></script>
 
     <!--Start of Zopim Live Chat Script-->
@@ -261,75 +117,30 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
 </head>
 
 
-
 <body class="stretched no-transition">
 
 <div id='body_overlay'></div>
 
 <div class="wrapper_page">
-
-
-
     <div id="menu-wrapper">
-
         <div id="sidebar-wrapper">
-
             <ul class="sidebar-nav">
-
                 <!-- Top Search
-
           ============================================= -->
-
                 {data.box_search_sm}
-
-
-
                 <!-- #top-search end -->
-
-
-
-
-
                 <li class='current'><a href="index.htm">Trang chủ</a></li>
-
-
-
-
-
-                <li class=''><a href="all.htm" class='menu'>Sản
-
-                        phẩm<span>+</span></a>
-
+                <li class=''><a href="all.htm" class='menu'>Sản phẩm<span>+</span></a>
                     <ul>
-
-
-
-
-
                         <li class=''><a class='sub-menu' href="noi-that-nha-bep.htm"
-
                                     >
-
                                 <div>Nội thất nhà bếp</div>
-
                             </a></li>
-
-
-
-
-
                         <li class=''><a class='sub-menu' href="noi-that-phong-tam.htm"
-
                                     >
-
                                 <div>Nội thất phòng tắm</div>
 
                             </a></li>
-
-
-
-
-
                         <li class=''><a class='sub-menu' href="noi-that-phong-khach.htm"
 
                                     >
@@ -337,35 +148,18 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                                 <div>Nội thất phòng khách</div>
 
                             </a></li>
-
-
-
-
-
                         <li class=''><a class='sub-menu' href="noi-that-phong-ngu.htm"
 
                                     >
-
                                 <div>Nội thất phòng ngủ</div>
 
                             </a></li>
-
-
-
-
-
                         <li class=''><a class='sub-menu' href="sofas.htm"
 
                                     >
-
                                 <div>Sofas</div>
 
                             </a></li>
-
-
-
-
-
                         <li class=''><a class='sub-menu' href="ban-cafe.htm"
 
                                     >
@@ -373,61 +167,27 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                                 <div>Bàn cafe</div>
 
                             </a></li>
-
-
-
-
-
                         <li class=''><a class='sub-menu' href="ban.htm">
 
                                 <div>Bàn</div>
 
                             </a></li>
-
-
-
-
-
                     </ul>
 
                 </li>
-
-
-
-
-
                 <li class=''><a href="#" class='menu'>Dịch vụ<span>+</span></a>
-
                     <ul>
-
-
-
-
-
                         <li class=''><a class='sub-menu' href="dich-vu-giam-sat-thi-cong.htm"
 
                                     >
-
                                 <div>Dịch vụ giám sát thi công</div>
-
                             </a></li>
-
-
-
-
-
                         <li class=''><a class='sub-menu' href="dich-vu-thi-cong-noi-that.htm"
 
                                     >
-
                                 <div>Dịch vụ thi công nội thất</div>
 
                             </a></li>
-
-
-
-
-
                         <li class=''><a class='sub-menu' href="dich-vu-thi-cong-xay-dung.htm"
 
                                     >
@@ -435,11 +195,6 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                                 <div>Dịch vụ thi công xây dựng</div>
 
                             </a></li>
-
-
-
-
-
                         <li class=''><a class='sub-menu' href="dich-vu-thiet-ke-noi-that.htm"
 
                                     >
@@ -447,113 +202,37 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                                 <div>Dịch vụ thiết kế nội thất</div>
 
                             </a></li>
-
-
-
-
-
-                        <li class=''><a class='sub-menu' href="dich-vu-thiet-ke-kien-truc.htm"
-
-                                    >
-
+                        <li class=''><a class='sub-menu' href="dich-vu-thiet-ke-kien-truc.htm">
                                 <div>Dịch vụ thiết kế kiến trúc</div>
 
                             </a></li>
-
-
-
-
-
                     </ul>
-
                 </li>
-
-
-
-
-
                 <li class=''><a href="du-an.htm">Dự án</a></li>
-
-
-
-
-
-                <li class=''><a href="gioi-thieu.htm">Giới
-
-                        thiệu</a></li>
-
-
-
-
-
+                <li class=''><a href="gioi-thieu.htm">Giới thiệu</a></li>
             </ul>
-
         </div>
-
-
-
     </div>
-
-
-
     <a href="#menu-toggle" class="btn btn-default hidden-md hidden-lg" id="menu-toggle"><i class='icon-reorder'></i></a>
-
-
-
     <div id="wrapper" class="clearfix">
-
-
-
         <header id="header" class='full-header'>
-
-
-
             <div id="header-wrap">
-
                 <div id="top-bar" class="">
-
                     <div class="container clearfix">
-
                         <div id="logo" class='col-md-3'>
-
                             {data.logo}
-
                         </div>
-
                         {data.header_cart}
-
                         {data.box_search}
-
                         <div class="col_half col_last fleft nobottommargin top_link_wrapper box_info_top">
-
-
-
                             {data.box_support}
-
                         </div>
-
-
-
-
-
                     </div>
-
-
-
                 </div>
-
-
-
                 <div class="container clearfix">
-
-
-
                     <nav id="primary-menu">
-
                         {data.list_menu}
-
                     </nav>
-
                     <a href='#' id='top_link_trigger' class='hidden-lg hidden-md'><i class='icon-ellipsis-vertical'></i></a>
 
                     <!-- end top link trigger --->
@@ -561,58 +240,32 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                     <script type="text/javascript">
 
                         $("#sidebar-wrapper ul li a span").click(function (event) {
-
                             event.preventDefault();
-
                             var li = $(this).parents('li');
-
                             li.children('ul').toggle('slow');
-
                         });
-
                     </script>
 
                     <!-- #primary-menu end -->
-
-
-
                 </div>
-
-
-
             </div>
-
-
-
         </header>
-
         <!-- #header end -->
 
         <div class="container clearfix newsest_mar" style="padding:0px;margin-top:10px">
             {data.main_slide}
             {data.newsest}
         </div>
-
         <!-- Content
-
       ============================================= -->
-
         <!-- Slider -->
-
-
-
         <!-- BEGIN: container_m_c -->
 
         <div class="wrapper">
-
             <div id="container">
-
                 <div id="content">{PAGE_CONTENT}</div>
-
                 <div class="clear"></div>
-
             </div>
-
             <div class="clear"></div>
 
         </div>
@@ -620,41 +273,25 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
         <!-- END: container_m_c -->
 
         <!-- BEGIN: container_c_m -->
-
         <div class="wrapper">
-
             <div id="container">
-
                 <div id="column_left">{PAGE_COLUMN_LEFT}</div>
-
                 <div id="content">{PAGE_CONTENT}</div>
-
                 <div class="clear"></div>
-
             </div>
-
             <div class="clear"></div>
-
         </div>
 
         <!-- END: container_c_m -->
 
         <!-- BEGIN: container_c_m_c -->
-
         <div class="wrapper">
-
             <div id="container">
-
                 <div id="column_left">{PAGE_COLUMN_LEFT}</div>
-
                 <div id="content">{PAGE_CONTENT}</div>
-
                 <div id="column">{PAGE_COLUMN}</div>
-
                 <div class="clear"></div>
-
             </div>
-
             <div class="clear"></div>
 
         </div>
@@ -662,13 +299,10 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
         <!-- END: container_c_m_c -->
 
         <!-- BEGIN: container_m -->
-
         <div class="wrapper">
 
             <div id="container">
-
                 {PAGE_CONTENT}
-
                 <div class="clear"></div>
 
             </div>
@@ -698,218 +332,76 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
       ============================================= -->
 
         <footer id="footer" class='dark'>
-
-
-
             <div class="container">
-
-
-
                 <!-- Footer Widgets
 
             ============================================= -->
 
                 <div class="footer-widgets-wrap clearfix">
-
-
-
                     <div class="col_two_third">
-
-
-
                         <div class="col_one_third prefooter_one">
-
-
-
                             <div class="widget clearfix">
-
-
-
                                 <h4>{LANG.global.office_footer}</h4>
-
-
-
-                                <p>
-
-
-
                                 <p>{LANG.global.slogan_footer}</p>
-
-
-
                                 {data.banner_info_contact_company_footer}
-
-
-
-
-
                             </div>
-
-
-
                         </div>
-
-
-
                         <div class="col_one_third prefooter_one">
-
-
-
                             <div class="widget widget_links clearfix">
-
-
-
                                 <h4>{LANG.global.information}</h4>
-
                                 {data.footer_menu}
-
-
-
-
-
                             </div>
-
                             <div class='marginbottom hidden-lg hidden-md hidden-sm'>
-
-
-
                             </div>
-
                         </div>
-
-
-
                         <div class="col_one_third col_last prefooter_one">
-
-
-
                             <div class="widget clearfix">
-
                                 <h4>{LANG.global.page_newest}</h4>
-
                                 {data.list_page_newest_footer}
-
                             </div>
-
                             <div class='marginbottom hidden-lg hidden-md hidden-sm'>
-
-
-
                             </div>
-
                         </div>
-
-
-
                     </div>
-
-
-
                     <div class="col_one_third col_last">
-
                         <div class="widget clearfix">
-
-
-
                             <h4>Facebook</h4>
-
                             {data.fanpage_facebook}
-
-
                         </div>
-
-
-
                     </div>
-
-
-
                 </div>
-
                 <!-- .footer-widgets-wrap end -->
-
             </div>
-
-
-
             <!-- Copyrights
 
         ============================================= -->
-
             <div id="copyrights">
-
-
-
                 <div class="container clearfix">
-
-
-
                     <div class="col_half">
-
                         {LANG.global.copyright}
-
                         <div class="copyright-links">
-
                         </div>
 
                     </div>
-
-
-
                     <div class="col_half col_last tright">
-
                         <div class="fright clearfix hide">
-
                             <div style='float:right;'>
-
                                 <a href="#" class="social-icon si-small si-borderless si-facebook">
-
                                     <i class="icon-facebook"></i>
-
                                     <i class="icon-facebook"></i>
-
                                 </a>
-
-
-
-
-
                                 <a href="#" class="social-icon si-small si-borderless si-twitter">
-
                                     <i class="icon-twitter"></i>
-
                                     <i class="icon-twitter"></i>
-
                                 </a>
-
-
-
-
-
                                 <a href="#" class="social-icon si-small si-borderless si-gplus">
-
                                     <i class="icon-gplus"></i>
-
                                     <i class="icon-gplus"></i>
-
                                 </a>
-
-
-
-
-
                                 <a href="#" class="social-icon si-small si-borderless si-pinterest">
-
                                     <i class="icon-pinterest"></i>
-
                                     <i class="icon-pinterest"></i>
-
                                 </a>
-
-
-
-
-
                                 <a href="#" class="social-icon si-small si-borderless si-vimeo">
 
                                     <i class="icon-vimeo"></i>
@@ -917,11 +409,6 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                                     <i class="icon-vimeo"></i>
 
                                 </a>
-
-
-
-
-
                                 <a href="#" class="social-icon si-small si-borderless si-github">
 
                                     <i class="icon-github"></i>
@@ -929,97 +416,46 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                                     <i class="icon-github"></i>
 
                                 </a>
-
-
-
-
-
                                 <a href="#" class="social-icon si-small si-borderless si-yahoo">
 
                                     <i class="icon-yahoo"></i>
 
                                     <i class="icon-yahoo"></i>
-
                                 </a>
-
-
-
-
-
                                 <a href="#" class="social-icon si-small si-borderless si-linkedin">
-
                                     <i class="icon-linkedin"></i>
-
                                     <i class="icon-linkedin"></i>
-
                                 </a>
-
-
-
                             </div>
-
                         </div>
-
                         <div class="clear"></div>
-
-
-
                         <div style="display:none;">
                             {data.info_company_vietnam}</br>
-
                             {data.info_company_nhatban}
                         </div>
-
                     </div>
-
-
-
                 </div>
-
-
-
             </div>
-
             <!-- #copyrights end -->
-
-
-
         </footer>
-
         <!-- #footer end -->
-
     </div>
-
     <!-- Go To Top
 
     ============================================= -->
 
     <div id="gotoTop" class="icon-angle-up"></div>
-
-
-
     <!-- Footer Scripts
 
     ============================================= -->
 
     <script src="{DIR_JS}template/functions.js" type='text/javascript'></script>
-
-
-
     <!-- quick add cart -->
 
     <div id='product-pop-up' style="display:none;" class="single-product shop-quick-view-ajax clearfix">
-
-
-
         <div class="ajax-modal-title">
-
             <a href='#'><h2>Pink Printed Dress</h2></a>
-
         </div>
-
-
-
         <div class="product-page product modal-padding clearfix">
 
             <div class="col_half nobottommargin">
@@ -1029,27 +465,18 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
                     <div class="product-main-image">
 
                         <ul class="pgwSlideshow">
-
-
-
                         </ul>
 
                     </div>
-
-
-
                     <div class="sale-flash">Sale!</div>
 
                 </div>
-
             </div>
 
             <div class="col_half nobottommargin col_last product-desc">
-
                 <div class="product-price">
 
                     <del>$39.99</del>
-
                     <ins>$24.99</ins>
 
                 </div>
@@ -1211,25 +638,18 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
 
 
     <script language="javascript">
-
         jQuery(document).ready(function () {
-
             loadpage();
-
         });
 
     </script>
 
-     <div class="banner_left_fix hide">
+     <div class="banner_left_fix">
+         {data.banner_left}
+     </div>
 
-          <img src="{DIR_IMAGE}theme_tet4_02.png">
-
-        </div>
-
-    <div class="banner_right_fix hide ">
-
-        <img src="{DIR_IMAGE}theme_tet4_04.png">
-
+    <div class="banner_right_fix">
+        {data.banner_right}
     </div>
 
 </div>
