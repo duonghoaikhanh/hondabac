@@ -117,7 +117,7 @@ class sMain {
             // Send mail
             // $ttH->conf['email']
             $ttH->func->send_mail_temp ('admin-contact-areas-concern', 'duonghoaikhanh@gmail.com', 'duonghoaikhanh@gmail.com', $mail_arr_key, $mail_arr_value);
-            $messageSend = 'Send mail thanh cong';
+            $messageSend = 'Gửi email đến admin thành công.';
         }
 
         $data['link_action'] = $ttH->conf['rooturl']. $ttH->conf['cur_mod_url'];

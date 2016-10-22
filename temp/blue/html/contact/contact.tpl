@@ -123,21 +123,18 @@
     <form id="recieve_info_contact" action="{data.link_action}" method="POST" enctype="multipart/form-data">
         <div class="col_one_third">
             <label for="template-contactform-name">{LANG.contact.full_name}
-                <small class="require_symbol">*</small>
             </label>
             <input type="text" id="template-contactform-name" name="full_name" value=""
                    placeholder="{LANG.contact.full_name}" class="sm-form-control required">
         </div>
         <div class="col_one_third">
             <label for="template-contactform-email">{LANG.contact.email}
-                <small class="require_symbol">*</small>
             </label>
             <input type="text" id="template-contactform-email" name="email" value="" placeholder="{LANG.contact.email}"
                    class="sm-form-control required">
         </div>
         <div class="col_one_third">
             <label for="template-contactform-phone">{LANG.contact.phone}
-                <small class="require_symbol">*</small>
             </label>
             <input type="text" id="template-contactform-phone" name="phone" value="" placeholder="{LANG.contact.phone}"
                    class="sm-form-control required">
@@ -151,7 +148,6 @@
         <div class="clear"></div>
         <div class="col_full" style="width: 515px;">
             <label for="template-contactform-message">{LANG.contact.areas_concern}
-                <small class="require_symbol">*</small>
             </label>
             <select id="areas_concern" name="areas_concern"
                     class="sm-form-control required">

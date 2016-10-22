@@ -1284,32 +1284,22 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
 
 <!-- END: header_user1 -->
 
-
-
 <!-- BEGIN: header_cart -->
 
-<div id="top-cart" class='top-cart-block'>
+<!-- <div id="top-cart" class='top-cart-block'>
 
     <a id="header_cart" href="{data.link_cart}" class="fancybox-iframe">
 
         <i class="icon-shopping-cart"></i><span class="num_cart">0<script language="javascript">header_cart();</script></span>
 
     </a>
-
-
-
     <div class="top-cart-content">
 
         <div class="top-cart-title">
-
             <h4>Giỏ hàng</h4>
-
         </div>
 
         <div class="top-cart-items">
-
-
-
         </div>
 
         <div class="top-cart-action clearfix">
@@ -1321,16 +1311,11 @@ type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
             <button onclick='window.location.href="http://the-company.bizwebvietnam.net/cart"'
 
                     class="button button-small nomargin fright">Xem giỏ hàng
-
             </button>
 
         </div>
-
-
-
     </div>
-
-</div>
+</div>-->
 
 <!-- END: header_cart -->
 

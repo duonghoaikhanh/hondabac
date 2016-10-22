@@ -1009,7 +1009,8 @@ function close_info_customer(){
  * @param idForm
  */
 function receive_info_contact(idForm) {
-	var stringError = "";
+	$('#' + idForm).submit();
+	/*var stringError = "";
 	var isSubmit = true;
 	var email = $("input[name='email']").val();
 	var full_name = $("input[name='full_name']").val();
@@ -1041,5 +1042,5 @@ function receive_info_contact(idForm) {
 		$('#' + idForm).submit();
 	} else {
 		$(".err_notification").html(stringError);
-	}
+	}*/
 }
