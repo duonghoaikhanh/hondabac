@@ -18,7 +18,7 @@ $lang = array (
 	'label_news'=> 'Tin tức',
 	'load_more_news'=> 'Tải thêm',
 	'news_other'=> 'Thông tin khác',
-	'label_news_focus'=> 'Thông tin nỗi bật',
+	'label_news_focus'=> 'Thông tin nổi bật',
 
 );
 

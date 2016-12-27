@@ -26,6 +26,8 @@ $lang = array (
 	'choose_areas_concern' => 'Chọn lĩnh vực quan tâm',
 	'study' => 'Du học',
 	'tecnical' => 'Kỹ thuật viên',
+	'receive_register_tour' => 'Gửi thông tin đăng kí tour tự chọn',
+	'content_tour' => 'Nội dung tour tự chọn',
 );
 
 ?>
