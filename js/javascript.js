@@ -1044,3 +1044,11 @@ function receive_info_contact(idForm) {
 		$(".err_notification").html(stringError);
 	}*/
 }
+
+/**
+ * receive_register_tour
+ * @param idForm
+ */
+function receive_register_tour(idForm) {
+	$('#' + idForm).submit();
+}

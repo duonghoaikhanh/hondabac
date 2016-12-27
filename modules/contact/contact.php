@@ -80,6 +80,14 @@ class sMain {
             $data['content'] = $this->recieve_info_contact();
         }
 
+        if($ttH->conf['cur_mod_url'] == 'dang-ki-tour-tu-chon'){
+            $data['content'] = $this->receive_register_tour();
+        }
+
+        if($ttH->conf['cur_mod_url'] == 'tour-registration-optional'){
+            $data['content'] = $this->receive_register_tour();
+        }
+
         $data['box_left'] = box_left();
 
         $data['box_column'] = box_column();
@@ -115,8 +123,9 @@ class sMain {
                 $mail_arr_key[$k] = '{'.$k.'}';
             }
             // Send mail
-            // $ttH->conf['email']
-            $ttH->func->send_mail_temp ('admin-contact-areas-concern', 'duonghoaikhanh@gmail.com', 'duonghoaikhanh@gmail.com', $mail_arr_key, $mail_arr_value);
+            $ttH->func->send_mail_temp ('admin-contact-areas-concern', $ttH->conf['email'], $ttH->conf['email'], $mail_arr_key, $mail_arr_value);
+            // Send mail to user
+            $ttH->func->send_mail_temp ('admin-contact-areas-concern', $ttH->input['email'], $ttH->conf['email'], $mail_arr_key, $mail_arr_value);
             $messageSend = 'Gửi email đến admin thành công.';
         }
 
@@ -127,6 +136,42 @@ class sMain {
         $ttH->temp_act->parse("recieve_info_contact");
 
         return $ttH->temp_act->text("recieve_info_contact");
+    }
+
+    /**
+     * receive_register_tour
+     * @return mixed
+     */
+    function receive_register_tour() {
+        global $ttH;
+
+        $messageSend = '';
+        if ($ttH->input) {
+            $mail_arr_value = array(
+                'full_name' => $ttH->input['full_name'],
+                'email' => $ttH->input['email'],
+                'address' => $ttH->input['address'],
+                'phone' => $ttH->input['phone'],
+                'content_tour' => $ttH->input['content_tour'],
+            );
+            $mail_arr_key = array();
+            foreach($mail_arr_value as $k => $v) {
+                $mail_arr_key[$k] = '{'.$k.'}';
+            }
+            // Send mail
+            $ttH->func->send_mail_temp ('admin-contact-areas-concern', $ttH->conf['email'], $ttH->conf['email'], $mail_arr_key, $mail_arr_value);
+            // Send mail to user
+            $ttH->func->send_mail_temp ('admin-contact-areas-concern', $ttH->input['email'], $ttH->conf['email'], $mail_arr_key, $mail_arr_value);
+            $messageSend = 'Gửi email đến admin thành công.';
+        }
+
+        $data['link_action'] = $ttH->conf['rooturl']. $ttH->conf['cur_mod_url'];
+        $data['message'] = $messageSend;
+
+        $ttH->temp_act->assign("data", $data);
+        $ttH->temp_act->parse("receive_register_tour");
+
+        return $ttH->temp_act->text("receive_register_tour");
     }
 
     // do_Contact

@@ -169,3 +169,48 @@
 </div>
 </div>
 <!-- END: recieve_info_contact -->
+
+<!-- BEGIN: receive_register_tour -->
+<div class="container">
+    <div class="postcontent nobottommargin" id="contact_form">
+        <h3>{LANG.contact.receive_register_tour}</h3>
+        <div class="err_notification">{data.message}</div>
+
+        <form id="receive_register_tour" action="{data.link_action}" method="POST" enctype="multipart/form-data">
+            <div class="col_one_third">
+                <label for="template-contactform-name">{LANG.contact.full_name}
+                </label>
+                <input type="text" id="template-contactform-name" name="full_name" value=""
+                       placeholder="{LANG.contact.full_name}" class="sm-form-control required">
+            </div>
+            <div class="col_one_third">
+                <label for="template-contactform-email">{LANG.contact.email}
+                </label>
+                <input type="text" id="template-contactform-email" name="email" value="" placeholder="{LANG.contact.email}"
+                       class="sm-form-control required">
+            </div>
+            <div class="col_one_third">
+                <label for="template-contactform-phone">{LANG.contact.phone}
+                </label>
+                <input type="text" id="template-contactform-phone" name="phone" value="" placeholder="{LANG.contact.phone}"
+                       class="sm-form-control required">
+            </div>
+            <div class="clear"></div>
+            <div class="col_full" style="width: 515px;">
+                <label for="template-contactform-message">{LANG.contact.content_tour}
+                </label>
+                <textarea name="content_tour" id="content_tour" class="form-control" rows="5">{data.content_tour}</textarea>
+            </div>
+
+            <div class="col_full">
+                <button class="button button-3d nomargin" type="button" id="register_tour-contactform-submit"
+                        value="submit" onclick="receive_register_tour('receive_register_tour')">
+                    {LANG.contact.btn_send_info}
+                </button>
+            </div>
+
+        </form>
+        <!-- </form>-->
+    </div>
+</div>
+<!-- END: receive_register_tour -->

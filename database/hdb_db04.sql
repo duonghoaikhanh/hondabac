@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 18, 2016 at 07:16 PM
--- Server version: 5.5.32
--- PHP Version: 5.4.16
+-- Generation Time: Dec 27, 2016 at 06:42 PM
+-- Server version: 10.1.16-MariaDB
+-- PHP Version: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,13 +14,11 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_hondabac`
+-- Database: `hondabac`
 --
-CREATE DATABASE IF NOT EXISTS `db_hondabac` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `db_hondabac`;
 
 -- --------------------------------------------------------
 
@@ -28,10 +26,10 @@ USE `db_hondabac`;
 -- Table structure for table `about`
 --
 
-CREATE TABLE IF NOT EXISTS `about` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `about` (
+  `id` int(10) UNSIGNED NOT NULL,
   `item_id` int(11) NOT NULL,
-  `group_id` int(10) unsigned NOT NULL,
+  `group_id` int(10) UNSIGNED NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -49,9 +47,8 @@ CREATE TABLE IF NOT EXISTS `about` (
   `is_focus3` tinyint(4) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `about`
@@ -67,17 +64,16 @@ INSERT INTO `about` (`id`, `item_id`, `group_id`, `group_nav`, `picture`, `title
 -- Table structure for table `about_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `about_setting` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `about_setting` (
+  `id` int(11) NOT NULL,
   `about_meta_title` varchar(250) NOT NULL,
   `about_meta_key` text NOT NULL,
   `about_meta_desc` text NOT NULL,
-  `num_list` int(10) unsigned NOT NULL DEFAULT '10',
-  `num_order_detail` int(10) unsigned NOT NULL DEFAULT '10',
+  `num_list` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `num_order_detail` int(10) UNSIGNED NOT NULL DEFAULT '10',
   `lang` varchar(10) NOT NULL DEFAULT 'vi',
-  `background` varchar(250) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `background` varchar(250) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `about_setting`
@@ -93,8 +89,8 @@ INSERT INTO `about_setting` (`id`, `about_meta_title`, `about_meta_key`, `about_
 -- Table structure for table `admin`
 --
 
-CREATE TABLE IF NOT EXISTS `admin` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password_ad` varchar(20) NOT NULL,
@@ -104,16 +100,15 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `full_name` varchar(150) NOT NULL,
   `email` varchar(250) NOT NULL,
   `date_login` int(11) NOT NULL,
-  `session` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+  `session` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `group_id`, `username`, `password_ad`, `password_hide`, `secret_key`, `picture`, `full_name`, `email`, `date_login`, `session`) VALUES
-(1, -1, 'admin', '14chCfgJCdPrM', '14chCfgJCdPrM', 1458481616, '', 'Phan Văn Liền', 'phanlien1093@gmail.com', 1460995532, 'e3ea33961a7c5b1ec04d6c97aa3b5379'),
+(1, -1, 'admin', '143vx2XbvpQpE', '14chCfgJCdPrM', 1458481616, '', 'Phan Văn Liền', 'phanlien1093@gmail.com', 1482851983, '658bbbdef9415ba5e2ff857f1146ba6e'),
 (5, -1, 'admin2', '14chCfgJCdPrM', '', 1459056986, '', 'lien', 'phanlien1093@yahoo.com', 1459057029, 'd347df3d73566108aa6d1b5d37b59703');
 
 -- --------------------------------------------------------
@@ -122,16 +117,15 @@ INSERT INTO `admin` (`id`, `group_id`, `username`, `password_ad`, `password_hide
 -- Table structure for table `admin_group`
 --
 
-CREATE TABLE IF NOT EXISTS `admin_group` (
-  `group_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `admin_group` (
+  `group_id` int(11) NOT NULL,
   `arr_title` text NOT NULL,
   `arr_powers` text NOT NULL,
   `show_order` float NOT NULL,
   `is_show` tinyint(1) NOT NULL,
-  `date_create` int(10) unsigned NOT NULL,
-  `date_update` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`group_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `date_create` int(10) UNSIGNED NOT NULL,
+  `date_update` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `admin_group`
@@ -146,9 +140,9 @@ INSERT INTO `admin_group` (`group_id`, `arr_title`, `arr_powers`, `show_order`, 
 -- Table structure for table `admin_menu`
 --
 
-CREATE TABLE IF NOT EXISTS `admin_menu` (
-  `menu_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `parent_id` int(10) unsigned NOT NULL DEFAULT '0',
+CREATE TABLE `admin_menu` (
+  `menu_id` int(10) UNSIGNED NOT NULL,
+  `parent_id` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `is_type` varchar(50) NOT NULL DEFAULT 'module',
   `name_action` varchar(50) NOT NULL,
   `icon_menu` varchar(50) NOT NULL,
@@ -156,11 +150,9 @@ CREATE TABLE IF NOT EXISTS `admin_menu` (
   `list_sub` varchar(250) NOT NULL,
   `is_show` tinyint(4) NOT NULL DEFAULT '1',
   `show_order` float NOT NULL DEFAULT '0',
-  `date_create` int(10) unsigned NOT NULL,
-  `date_update` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`menu_id`),
-  KEY `menu_id` (`menu_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=99 ;
+  `date_create` int(10) UNSIGNED NOT NULL,
+  `date_update` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `admin_menu`
@@ -264,7 +256,9 @@ INSERT INTO `admin_menu` (`menu_id`, `parent_id`, `is_type`, `name_action`, `ico
 (95, 93, 'action', 'group', 'fa-list', 'a:2:{s:2:"vi";s:16:"Quản lý nhóm";s:2:"en";s:16:"Quản lý nhóm";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1422843021, 1422843021),
 (96, 93, 'action', 'download', 'fa-list', 'a:2:{s:2:"vi";s:19:"Quản lý download";s:2:"en";s:19:"Quản lý download";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1422843298, 1422843298),
 (97, 15, 'action', 'widget', 'fa-list', 'a:2:{s:2:"vi";s:6:"Widget";s:2:"en";s:6:"Widget";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1423882852, 1423882852),
-(98, 15, 'action', 'sidebar', 'fa-list', 'a:2:{s:2:"vi";s:18:"Quản lý sidebar";s:2:"en";s:18:"Quản lý sidebar";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1423882872, 1423882872);
+(98, 15, 'action', 'sidebar', 'fa-list', 'a:2:{s:2:"vi";s:18:"Quản lý sidebar";s:2:"en";s:18:"Quản lý sidebar";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1423882872, 1423882872),
+(99, 0, 'module', 'comment', 'fa-folder', 'a:2:{s:2:"vi";s:18:"Quản lý comment";s:2:"en";s:18:"Quản lý comment";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1475309154, 1475309154),
+(100, 99, 'action', 'comment', 'fa fa-list', 'a:2:{s:2:"vi";s:7:"Comment";s:2:"en";s:7:"Comment";}', 'add,edit,duplicate,manage,trash,restore,del', 1, 0, 1475309228, 1475309258);
 
 -- --------------------------------------------------------
 
@@ -272,8 +266,8 @@ INSERT INTO `admin_menu` (`menu_id`, `parent_id`, `is_type`, `name_action`, `ico
 -- Table structure for table `banner`
 --
 
-CREATE TABLE IF NOT EXISTS `banner` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `banner` (
+  `id` int(10) UNSIGNED NOT NULL,
   `banner_id` int(11) NOT NULL,
   `group_id` varchar(50) NOT NULL,
   `type` varchar(50) NOT NULL,
@@ -288,11 +282,10 @@ CREATE TABLE IF NOT EXISTS `banner` (
   `show_act` text NOT NULL,
   `show_order` float NOT NULL,
   `is_show` tinyint(1) NOT NULL,
-  `date_create` int(10) unsigned NOT NULL,
-  `date_update` int(10) unsigned NOT NULL,
-  `lang` varchar(20) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=69 ;
+  `date_create` int(10) UNSIGNED NOT NULL,
+  `date_update` int(10) UNSIGNED NOT NULL,
+  `lang` varchar(20) NOT NULL DEFAULT 'vi'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `banner`
@@ -300,7 +293,7 @@ CREATE TABLE IF NOT EXISTS `banner` (
 
 INSERT INTO `banner` (`id`, `banner_id`, `group_id`, `type`, `title`, `link_type`, `link`, `target`, `content`, `date_begin`, `date_end`, `show_mod`, `show_act`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (1, 1, 'logo', 'image', 'Công Ty TNHH Giải Pháp IMS', 'site', '', '_self', 'banner/2015_01/IMS_logo.png', 0, 0, '', '', 0, 0, 1407469101, 1421222311, 'vi'),
-(3, 3, 'footer', 'text', '', 'site', '', '_self', '<div style="text-align: center;">Sử dụng nội dung ở trang n&agrave;y v&agrave; dịch vụ tại IMS c&oacute; nghĩa l&agrave; bạn đồng &yacute; với Thỏa thuận sử dụng v&agrave; Ch&iacute;nh s&aacute;ch bảo mật của ch&uacute;ng t&ocirc;i.</div>\r\n<div style="text-align: center;">Copyright &copy; IMS. All right Reserved.</div>', 0, 0, '', '', 0, 1, 1407476242, 1421402366, 'vi'),
+(3, 3, 'footer', 'text', '', 'site', '', '_self', '<div style="text-align: center;">Sử dụng nội dung ở trang n&agrave;y v&agrave; dịch vụ tại IMS c&oacute; nghĩa l&agrave; bạn đồng &yacute; với Thỏa thuận sử dụng v&agrave; Ch&iacute;nh s&aacute;ch bảo mật của ch&uacute;ng t&ocirc;i.</div>\n<div style="text-align: center;">Copyright &copy; IMS. All right Reserved.</div>', 0, 0, '', '', 0, 1, 1407476242, 1421402366, 'vi'),
 (6, 6, 'share', 'image', 'Facebook', 'web', 'http://www.facebook.com', '_blank', 'banner/2015_01/share-02.gif', 0, 0, '', '', 9, 1, 1407922065, 1421744694, 'vi'),
 (7, 7, 'ordering-complete', 'text', 'Thông báo đặt hàng thành công', 'site', '', '_self', '<p>Cảm ơn qu&yacute; kh&aacute;ch đ&atilde; đặt h&agrave;ng tại c&ocirc;ng ty ch&uacute;ng t&ocirc;i!</p>\r\n<p>Đơn h&agrave;ng sẽ được xử l&yacute; trong 24h</p>', 0, 0, '', '', 0, 1, 1408091839, 1408091839, 'vi'),
 (8, 8, 'cart-empty', 'text', 'Thông báo giỏ hàng rỗng', 'site', '', '_self', '<p>Hiện tại giỏ h&agrave;ng của bạn đang rỗng!</p>\r\n<p>Vui l&ograve;ng chọn sản phẩm mua để thanh to&aacute;n!</p>', 0, 0, '', '', 0, 1, 1408093957, 1408093957, 'vi'),
@@ -331,7 +324,7 @@ INSERT INTO `banner` (`id`, `banner_id`, `group_id`, `type`, `title`, `link_type
 (36, 35, 'share', 'image', 'Twitter', 'web', 'http://www.twitter.com', '_blank', 'banner/2015_01/share-03.gif', 0, 0, '', '', 0, 1, 1421744792, 1421744792, 'en'),
 (37, 37, 'share', 'image', 'Google', 'web', 'http://google.com', '_blank', 'banner/2015_01/share-04.gif', 0, 0, '', '', 0, 1, 1421744810, 1421744828, 'vi'),
 (38, 37, 'share', 'image', 'Google', 'web', 'http://google.com', '_blank', 'banner/2015_01/share-04.gif', 0, 0, '', '', 0, 1, 1421744810, 1421744828, 'en'),
-(39, 39, 'banner-tell-us-page-home', 'text', '', 'site', '', '_self', '<p>Gọi ngay cho ch&uacute;ng t&ocirc;i <a href="tel:+8483332541">+08.33.32541</a> hoặc email gửi tới <a href="mailto:support@domain.com">support@domain.com</a></p>', 0, 0, '', '', 0, 1, 1452001899, 1452001899, 'vi'),
+(39, 39, 'banner-tell-us-page-home', 'text', '', 'site', '', '_self', '<p>Gọi ngay cho ch&uacute;ng t&ocirc;i <a href="/hondabac/admin/+(08)&nbsp;38119158">+(08)&nbsp;38119158</a>&nbsp;hoặc email gửi tới&nbsp;<a href="mailto:seijinvn@gmail.com">seijinvn@gmail.com</a></p>', 0, 0, '', '', 0, 1, 1452001899, 1461170148, 'vi'),
 (40, 39, 'banner-tell-us-page-home', 'text', '', 'site', '', '_self', '<p>Gọi ngay cho ch&uacute;ng t&ocirc;i <a href="tel:+8483332541">+08.33.32541</a> hoặc email gửi tới <a href="mailto:support@domain.com">support@domain.com</a></p>', 0, 0, '', '', 0, 1, 1452001899, 1452001899, 'en'),
 (41, 41, 'banner-support-247', 'text', '', 'site', '', '_self', '<p>Ch&uacute;ng t&ocirc;i sẵn s&agrave;ng hỗ trợ tư vấn 24/7 để bạn c&oacute; trải nghiệm dịch vụ tuyệt vời nhất.</p>', 0, 0, '', '', 0, 1, 1452002196, 1452002272, 'vi'),
 (42, 41, 'banner-support-247', 'text', '', 'site', '', '_self', '<pre>Ch&uacute;ng t&ocirc;i sẵn s&agrave;ng hỗ trợ tư vấn 24/7 để bạn c&oacute; trải nghiệm dịch vụ tuyệt vời nhất.</pre>', 0, 0, '', '', 0, 1, 1452002196, 1452002196, 'en'),
@@ -349,18 +342,26 @@ INSERT INTO `banner` (`id`, `banner_id`, `group_id`, `type`, `title`, `link_type
 (54, 53, 'banner-brand', 'image', '', 'site', '', '_self', 'banner/2016_01/samsung.jpg', 0, 0, '', '', 0, 1, 1452407260, 1452407260, 'en'),
 (55, 55, 'banner-brand', 'image', '', 'site', '', '_self', 'banner/2016_01/sony-vaio-logo-500x500.jpg', 0, 0, '', '', 0, 1, 1452407263, 1452407263, 'vi'),
 (56, 55, 'banner-brand', 'image', '', 'site', '', '_self', 'banner/2016_01/sony-vaio-logo-500x500.jpg', 0, 0, '', '', 0, 1, 1452407263, 1452407263, 'en'),
-(57, 57, 'banner-info-contact-company-footer', 'text', '', 'site', '', '_self', '<p>Địa chỉ: <br /> 61/2 Quang Trung, P.10 <br /> Q. G&ograve; Vấp, TP. HCM<br /> Phone: (91) 8547 632521<br /> Fax: (91) 11 4752 1433<br /> Email: hi@Bizweb.com<br /> Skype: egany.com</p>', 0, 0, '', '', 0, 1, 1452408944, 1452408944, 'vi'),
+(57, 57, 'banner-info-contact-company-footer', 'text', '', 'site', '', '_self', '<p><strong>Địa chỉ:</strong><br />Sei Jin Vinacorp 123A L&ecirc; Trung Ngĩa, P12, Q. T&acirc;n B&igrave;nh, TP. HCM<br />Phone: (08)&nbsp;38119158<br />Fax: (08)&nbsp;38119159<br />Email:&nbsp;seijinvn@gmail.com<br />Mobile:&nbsp;0902 554 767 ( Ms. Chi)</p>', 0, 0, '', '', 0, 1, 1452408944, 1461169821, 'vi'),
 (58, 57, 'banner-info-contact-company-footer', 'text', '', 'site', '', '_self', '<p>Địa chỉ: <br /> 61/2 Quang Trung, P.10 <br /> Q. G&ograve; Vấp, TP. HCM<br /> Phone: (91) 8547 632521<br /> Fax: (91) 11 4752 1433<br /> Email: hi@Bizweb.com<br /> Skype: egany.com</p>', 0, 0, '', '', 0, 1, 1452408944, 1452408944, 'en'),
-(59, 59, 'logo', 'image', '', 'site', '', '_self', 'banner/2016_01/hdblogo.png', 0, 0, '', '', 0, 1, 1452410923, 1452410923, 'vi'),
+(59, 59, 'logo', 'image', '', 'site', '', '_self', 'banner/2016_10/12.jpg', 0, 0, '', '', 0, 1, 1452410923, 1475716142, 'vi'),
 (60, 59, 'logo', 'image', '', 'site', '', '_self', 'banner/2016_01/hdblogo.png', 0, 0, '', '', 0, 1, 1452410923, 1452410923, 'en'),
 (61, 61, 'banner-main', 'image', '', 'site', '', '_self', 'banner/2016_01/duhoc-980x250.png', 0, 0, '', '', 0, 1, 1452413875, 1452413875, 'vi'),
 (62, 61, 'banner-main', 'image', '', 'site', '', '_self', 'banner/2016_01/duhoc-980x250.png', 0, 0, '', '', 0, 1, 1452413875, 1452413875, 'en'),
 (63, 63, 'banner-main', 'image', '', 'site', '', '_self', 'banner/2016_01/nenkin-980x250.png', 0, 0, '', '', 0, 1, 1452413954, 1452413954, 'vi'),
 (64, 63, 'banner-main', 'image', '', 'site', '', '_self', 'banner/2016_01/nenkin-980x250.png', 0, 0, '', '', 0, 1, 1452413954, 1452413954, 'en'),
-(65, 65, 'info-company-vietnam', 'text', '', 'site', '', '_self', '<p><strong>VN</strong>: Sei Jin Vinacorp 123A Le Trung Nghia, P12, TB.</p>\r\n<p><strong>Tel</strong>: 38119158</p>\r\n<p><strong>Fax</strong> 38119159</p>\r\n<p><strong>Mob</strong>: 0902 554 767 ( Chi)</p>', 0, 0, '', '', 0, 1, 1460995892, 1460995892, 'vi'),
+(65, 65, 'info-company-vietnam', 'text', '', 'site', '', '_self', '<p><strong>VN</strong>: Sei Jin Vinacorp 123A L&ecirc; Trung Nghĩa, P. 12, Q. T&acirc;n B&igrave;nh.</p>\r\n<p><strong>Tel</strong>: (08) 38119158</p>\r\n<p><strong>Fax</strong>&nbsp;(08) 38119159</p>\r\n<p><strong>Mob</strong>: 0902 554 767 (Ms. Chi)</p>', 0, 0, '', '', 0, 1, 1460995892, 1461169903, 'vi'),
 (66, 65, 'info-company-vietnam', 'text', '', 'site', '', '_self', '<p><strong>VN</strong>: Sei Jin Vinacorp 123A Le Trung Nghia, P12, TB.</p>\r\n<p><strong>Tel</strong>: 38119158</p>\r\n<p><strong>Fax</strong> 38119159</p>\r\n<p><strong>Mob</strong>: 0902 554 767 ( Chi)</p>', 0, 0, '', '', 0, 1, 1460995892, 1460995892, 'en'),
 (67, 67, 'info-company-nhatban', 'text', '', 'site', '', '_self', '<p><strong>JP</strong>: 546-0022 Osaka-fu osaka-shi higashisumiyoshi-ku sunjiyata 8-3-23<br /><strong>TEL:</strong>　+81-6-6704-0668　　</p>\r\n<p><strong>FAX:　</strong>+81-6-6704-0669<br />**************************************************<br />代表者　潘　成仁<br />携帯　080-3783-5083 ( Mr Nh&acirc;n)<br /><a href="http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.hondabac.com%2F&amp;h=xAQHeBhzW" target="_blank" rel="nofollow">www.hondabac.com</a><br /><a href="http://www.hondabac.co.jp">www.hondabac.co.jp</a></p>\r\n<p>&nbsp;</p>', 0, 0, '', '', 0, 1, 1460995930, 1460996146, 'vi'),
-(68, 67, 'info-company-nhatban', 'text', '', 'site', '', '_self', '<p><strong>Address</strong>: 546-0022 Osaka-fu osaka-shi higashisumiyoshi-ku sunjiyata 8-3-23<br /><strong>TEL:</strong>　+81-6-6704-0668　　</p>\r\n<p><strong>FAX:　</strong>+81-6-6704-0669<br />**************************************************<br />代表者　潘　成仁<br />携帯　080-3783-5083 ( Mr Nh&acirc;n)<br /><a href="http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.hondabac.com%2F&amp;h=xAQHeBhzW" target="_blank" rel="nofollow">www.hondabac.com</a><br /><a href="http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.hondabac.co.jp%2F&amp;h=xAQHeBhzW" target="_blank" rel="nofollow">www.hondabac.co.jp</a></p>', 0, 0, '', '', 0, 1, 1460995930, 1460995930, 'en');
+(68, 67, 'info-company-nhatban', 'text', '', 'site', '', '_self', '<p><strong>Address</strong>: 546-0022 Osaka-fu osaka-shi higashisumiyoshi-ku sunjiyata 8-3-23<br /><strong>TEL:</strong>　+81-6-6704-0668　　</p>\r\n<p><strong>FAX:　</strong>+81-6-6704-0669<br />**************************************************<br />代表者　潘　成仁<br />携帯　080-3783-5083 ( Mr Nh&acirc;n)<br /><a href="http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.hondabac.com%2F&amp;h=xAQHeBhzW" target="_blank" rel="nofollow">www.hondabac.com</a><br /><a href="http://l.facebook.com/l.php?u=http%3A%2F%2Fwww.hondabac.co.jp%2F&amp;h=xAQHeBhzW" target="_blank" rel="nofollow">www.hondabac.co.jp</a></p>', 0, 0, '', '', 0, 1, 1460995930, 1460995930, 'en'),
+(69, 69, 'banner-main', 'image', '', 'site', '', '_self', 'banner/2016_05/banner_hondabac3.png', 0, 0, '', '', 0, 1, 1462287828, 1462287828, 'vi'),
+(70, 69, 'banner-main', 'image', '', 'site', '', '_self', 'banner/2016_05/banner_hondabac3.png', 0, 0, '', '', 0, 1, 1462287828, 1462287828, 'en'),
+(71, 71, 'logo', 'image', '', 'site', 'lien-he', '_self', 'banner/2016_09/theme_tet4_02.png', 0, 0, '', '', 0, 0, 1474818013, 1474818013, 'vi'),
+(72, 71, 'logo', 'image', '', 'site', 'lien-he', '_self', 'banner/2016_09/theme_tet4_02.png', 0, 0, '', '', 0, 0, 1474818013, 1474818013, 'en'),
+(73, 73, 'banner-left', 'image', '', 'site', 'lien-he-nhan-thong-tin', '_self', 'banner/2016_10/theme_tet4_02.jpg', 0, 0, '', '', 0, 1, 1474819546, 1475712984, 'vi'),
+(74, 73, 'banner-left', 'image', '', 'site', 'recieve-info-contact', '_self', 'banner/2016_09/theme_tet4_02.png', 0, 0, '', '', 0, 1, 1474819546, 1475298178, 'en'),
+(75, 75, 'banner-right', 'image', '', 'site', 'lien-he-nhan-thong-tin', '_self', 'banner/2016_10/theme_tet4_04_1.png', 0, 0, '', '', 0, 1, 1474819559, 1475713329, 'vi'),
+(76, 75, 'banner-right', 'image', '', 'site', 'recieve-info-contact', '_self', 'banner/2016_09/theme_tet4_04.png', 0, 0, '', '', 0, 1, 1474819559, 1475298217, 'en');
 
 -- --------------------------------------------------------
 
@@ -368,17 +369,16 @@ INSERT INTO `banner` (`id`, `banner_id`, `group_id`, `type`, `title`, `link_type
 -- Table structure for table `banner_group`
 --
 
-CREATE TABLE IF NOT EXISTS `banner_group` (
+CREATE TABLE `banner_group` (
   `group_id` varchar(50) NOT NULL,
   `arr_title` text NOT NULL,
-  `width` int(10) unsigned NOT NULL,
-  `height` int(10) unsigned NOT NULL,
+  `width` int(10) UNSIGNED NOT NULL,
+  `height` int(10) UNSIGNED NOT NULL,
   `type_show` varchar(20) NOT NULL DEFAULT 'fixed',
   `show_order` float NOT NULL,
   `is_show` tinyint(1) NOT NULL,
-  `date_create` int(10) unsigned NOT NULL,
-  `date_update` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`group_id`)
+  `date_create` int(10) UNSIGNED NOT NULL,
+  `date_update` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -389,8 +389,10 @@ INSERT INTO `banner_group` (`group_id`, `arr_title`, `width`, `height`, `type_sh
 ('bank', 'a:2:{s:2:"vi";s:11:"Ngân hàng";s:2:"en";s:11:"Ngân hàng";}', 102, 50, 'full', 0, 1, 1421317164, 1421317164),
 ('banner-brand', 'a:2:{s:2:"vi";s:38:"Banner thương hiệu ở trang chủ";s:2:"en";s:38:"Banner thương hiệu ở trang chủ";}', 215, 161, 'fixed', 0, 1, 1452405778, 1452408278),
 ('banner-info-contact-company-footer', 'a:2:{s:2:"vi";s:46:"Banner thông tin công ty dưới trang chủ";s:2:"en";s:46:"Banner thông tin công ty dưới trang chủ";}', 0, 0, 'fixed', 0, 1, 1452408925, 1452408925),
+('banner-left', 'a:2:{s:2:"vi";s:11:"Banner left";s:2:"en";s:11:"Banner left";}', 0, 0, 'fixed', 0, 1, 1474814829, 1474814829),
 ('banner-main', 'a:1:{s:2:"vi";s:13:"Banner chính";}', 0, 0, 'full', 0, 1, 1393908826, 1458355724),
 ('banner-pa-home', 'a:2:{s:2:"vi";s:37:"Banner quảng cáo trên trang chủ";s:2:"en";s:37:"Banner quảng cáo trên trang chủ";}', 0, 0, 'fixed', 0, 1, 1452403196, 1452403196),
+('banner-right', 'a:2:{s:2:"vi";s:12:"Banner right";s:2:"en";s:12:"Banner right";}', 0, 0, 'fixed', 0, 1, 1474814843, 1474814843),
 ('banner-support-247', 'a:2:{s:2:"vi";s:30:"Text hỗ trợ tư vấn 24/7";s:2:"en";s:30:"Text hỗ trợ tư vấn 24/7";}', 0, 0, 'fixed', 0, 1, 1452002181, 1452002181),
 ('banner-tell-us-page-home', 'a:2:{s:2:"vi";s:51:"Banner gọi ngay cho chúng tôi trên trang chủ";s:2:"en";s:51:"Banner gọi ngay cho chúng tôi trên trang chủ";}', 0, 0, 'fixed', 0, 1, 1452001866, 1452001866),
 ('cart-empty', 'a:1:{s:2:"vi";s:30:"Thông báo giỏ hàng rỗng";}', 800, 0, 'fixed', 0, 1, 1408093869, 1408093869),
@@ -421,11 +423,54 @@ INSERT INTO `banner_group` (`group_id`, `arr_title`, `width`, `height`, `type_sh
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `comment`
+--
+
+CREATE TABLE `comment` (
+  `id` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  `table` varchar(255) NOT NULL,
+  `table_id` varchar(255) NOT NULL,
+  `parent` int(11) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `content` text NOT NULL,
+  `author_id` int(11) NOT NULL,
+  `info_customer` text NOT NULL,
+  `lang` varchar(2) NOT NULL DEFAULT 'vi',
+  `is_show` tinyint(1) NOT NULL DEFAULT '1',
+  `date_create` int(11) NOT NULL,
+  `date_update` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`id`, `item_id`, `table`, `table_id`, `parent`, `status`, `content`, `author_id`, `info_customer`, `lang`, `is_show`, `date_create`, `date_update`) VALUES
+(4, 4, 'news', '31', 0, 1, 'noi dung comment 3', 0, '{"full_name":"khanh bede","email":"duonghoaikhanh@gmail.com"}', 'vi', 1, 1474702521, 1474702521),
+(5, 5, 'news', '31', 0, 1, 'noi dung comment 5', 0, '{"full_name":"phan van lien","email":"phanlien1093@gmail.com"}', 'vi', 1, 1474702760, 1474702760),
+(6, 6, 'news', '31', 0, 1, 'noi dung comment 9', 0, '{"full_name":"qweqweqeqwe","email":"lienphanit@gmail.com"}', 'vi', 1, 1474703132, 1474703132),
+(14, 14, 'news', '31', 6, 1, 'ý kiến của tao', 0, '{"full_name":"lien phan","email":"lienphanit@gmail.com"}', 'vi', 1, 1474707386, 1474707386),
+(15, 15, 'news', '31', 6, 1, 'kệ mày chứ !!!!', 0, '{"full_name":"khanh bede","email":"duonghoaikhanh@gmail.com"}', 'vi', 1, 1474707761, 1474707761),
+(16, 16, 'news', '31', 0, 1, 'comment ngu như bò', 0, '{"full_name":"Lien pHan","email":"lienphanit@gmail.com"}', 'vi', 1, 1474707926, 1474707926),
+(17, 17, 'news', '31', 16, 1, 'Mày thì có !!! :)))))', 0, '{"full_name":"Khanh Duong","email":"lienphanit@gmail.com"}', 'vi', 1, 1474707959, 1474707959),
+(18, 18, 'product', '15', 0, 1, 'Product test comment 1', 0, '{"full_name":"lien phan","email":"lienphanit@gmail.com"}', 'vi', 1, 1474708534, 1474708534),
+(19, 19, 'product', '15', 18, 0, 'Tl 1', 0, '{"full_name":"Lien","email":"lienphanit@gmail.com"}', 'vi', 1, 1474708558, 1474708558),
+(20, 20, 'news', '27', 0, 0, 'y kien 1', 0, '{"full_name":"asdad","email":"duonghoaikhanh@gmail.com"}', 'vi', 1, 1475308962, 1475308962),
+(21, 21, 'news', '27', 20, 1, 'qwqweqwe', 0, '{"full_name":"qweqe","email":"lienphanit@gmail.com"}', 'vi', 1, 1475308998, 1475308998),
+(22, 0, 'news', '27', 0, 1, 'commen test admin 1\n', 0, '{"full_name":"qwe","email":"duonghoaikhanh@gmail.com"}', 'vi', 1, 1475314376, 1475314376),
+(23, 0, 'news', '27', 0, 0, 'sqweqwe', 0, '{"full_name":"qwe","email":"duonghoaikhanh@gmail.com"}', 'vi', 1, 1475314382, 1475314382),
+(24, 0, 'news', '35', 0, 1, 'Toi quan tam den van de nay', 0, '{"full_name":"Hoai Khanh","email":"duonghoaikhanh@gmail.com"}', 'vi', 1, 1475496262, 1475496262),
+(25, 0, 'news', '35', 24, 1, '@Khanh: hi ban', 0, '{"full_name":"Kim Chi","email":"kimchi@gmail.com"}', 'vi', 1, 1475496346, 1475496346);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `config`
 --
 
-CREATE TABLE IF NOT EXISTS `config` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `config` (
+  `id` int(11) NOT NULL,
   `email` varchar(250) NOT NULL,
   `address_company` varchar(255) NOT NULL,
   `hotline` varchar(250) NOT NULL,
@@ -445,16 +490,15 @@ CREATE TABLE IF NOT EXISTS `config` (
   `share_link` varchar(250) NOT NULL,
   `share_title` varchar(250) NOT NULL,
   `is_under_construction` tinyint(4) NOT NULL DEFAULT '0',
-  `date_check` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `date_check` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `config`
 --
 
 INSERT INTO `config` (`id`, `email`, `address_company`, `hotline`, `hotline_support`, `fax`, `n_list`, `ad_skin`, `lang_view`, `skin`, `method_email`, `smtp_host`, `smtp_port`, `smtp_username`, `smtp_password`, `visitors_start`, `fanpage_facebook`, `share_link`, `share_title`, `is_under_construction`, `date_check`) VALUES
-(1, 'hoangduy0101@yahoo.com', 'EGANY Co.Ltd - 61/2 Quang Trung, Q. Gò Vấp, Tp.HCM', '080 4090 3634', '', '', 20, 'default', 'vi', 'blue', 'gmail', 'smtp.gmail.com', 465, 'imshostemail@gmail.com', 'AaBbCc1122', 500, 'https://www.facebook.com/Hondabac-Shop-147337892103658/?fref=ts', '', 'lien_cms', 0, 1458864121);
+(1, 'phanlien1093@gmail.com', 'Sei Jin Vinacorp 123A Le Trung Nghia, P12, Q. Tân Bình, Tp.HCM', '080 4090 3634', '', '', 20, 'default', 'vi', 'blue', 'gmail', 'smtp.gmail.com', 465, 'imshostemail@gmail.com', 'AaBbCc1122', 500, 'https://www.facebook.com/Hondabac-Shop-147337892103658/?fref=ts;https://www.facebook.com/seijinvn/', '', 'lien_cms', 0, 1458864121);
 
 -- --------------------------------------------------------
 
@@ -462,8 +506,8 @@ INSERT INTO `config` (`id`, `email`, `address_company`, `hotline`, `hotline_supp
 -- Table structure for table `contact`
 --
 
-CREATE TABLE IF NOT EXISTS `contact` (
-  `contact_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `contact` (
+  `contact_id` int(10) UNSIGNED NOT NULL,
   `full_name` varchar(250) NOT NULL,
   `email` varchar(250) NOT NULL,
   `email_forward` varchar(250) NOT NULL,
@@ -475,10 +519,27 @@ CREATE TABLE IF NOT EXISTS `contact` (
   `re_content` text NOT NULL,
   `is_status` tinyint(1) NOT NULL,
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
-  `date_create` int(10) unsigned NOT NULL,
-  `date_update` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`contact_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date_create` int(10) UNSIGNED NOT NULL,
+  `date_update` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`contact_id`, `full_name`, `email`, `email_forward`, `address`, `phone`, `title`, `re_title`, `content`, `re_content`, `is_status`, `is_show`, `date_create`, `date_update`) VALUES
+(1, 'phan van lien', 'phanlien1093@gmail.com', '', 'TP HCM', '0902020570', '', '', 'Contact to company.', '', 0, 1, 1461375060, 1461375060),
+(2, 'phan van lien', 'phanlien1093@gmail.com', '', 'TP HCM', '0902020570', '', '', 'Contact company', '', 0, 1, 1461376127, 1461376127),
+(3, 'phan van lien', 'phanlien1093@gmail.com', '', 'TP HCM', '0902020570', '', '', 'qqweqweqww', '', 0, 1, 1461376308, 1461376308),
+(4, 'phan van lien', 'phanlien1093@gmail.com', '', 'TP HCM', '0902020570', '', '', '231312321', '', 0, 1, 1461376407, 1461376407),
+(5, 'phan van lien', 'phanlien1093@gmail.com', '', 'TP HCM', '0902020570', '', '', '213123', '', 0, 1, 1461376573, 1461376573),
+(6, 'phan van lien', 'phanlien1093@gmail.com', '', 'TP HCM', '0902020570', '', '', 'contact', '', 0, 1, 1461376690, 1461376690),
+(7, '123', 'phanlien1093@gmail.com', '', '312312', '12312', '', '', '21313', '', 0, 1, 1461720302, 1461720302),
+(8, '1231', 'phanlien1093@gmail.com', '', '1231', '123', '', '', '23213213', '', 0, 1, 1461720347, 1461720347),
+(9, '123', 'phanlien1093@gmail.com', '', '23', '123', '', '', '12313', '', 1, 1, 1461720389, 1461720389),
+(10, '111', '111@gmail.com', '', 'aaaa', '11', '', '', '', '', 0, 1, 1475299921, 1475299921),
+(11, '111', '111@gmail.com', '', 'aaaa', '11', '', '', '', '', 1, 1, 1475299928, 1475299928),
+(12, 'duong hoaikh nah', 'duonghoaikhanh@gmail.com', '', 'binh chanh', '0103931010', '', '', 'test noi dung lien he', '', 0, 1, 1482856487, 1482856487);
 
 -- --------------------------------------------------------
 
@@ -486,8 +547,8 @@ CREATE TABLE IF NOT EXISTS `contact` (
 -- Table structure for table `contact_map`
 --
 
-CREATE TABLE IF NOT EXISTS `contact_map` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `contact_map` (
+  `id` int(10) UNSIGNED NOT NULL,
   `map_id` int(11) NOT NULL,
   `map_type` varchar(20) NOT NULL DEFAULT 'google_map',
   `map_latitude` float NOT NULL,
@@ -501,19 +562,18 @@ CREATE TABLE IF NOT EXISTS `contact_map` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `contact_map`
 --
 
 INSERT INTO `contact_map` (`id`, `map_id`, `map_type`, `map_latitude`, `map_longitude`, `title`, `short`, `content`, `map_information`, `map_picture`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
-(1, 1, 'google_map', 10.7761, 106.672, 'Trụ sở ở việt nam', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;address&gt;&lt;strong&gt;THE COMPANY HEAD OFFICE&lt;/strong&gt;&lt;br /&gt;EGANY Co.Ltd - 61/2 Quang Trung, Q. G&amp;ograve; Vấp, Tp.HCM&lt;/address&gt;\r\n&lt;p&gt;&lt;abbr title=&quot;Phone Number&quot;&gt;&lt;strong&gt;Điện thoạiSố điện thoại:&lt;/strong&gt;&lt;/abbr&gt;&amp;nbsp;080 4090 3634&lt;br /&gt;&lt;abbr title=&quot;Fax&quot;&gt;&lt;strong&gt;Fax:&lt;/strong&gt;&lt;/abbr&gt;&amp;nbsp;&lt;br /&gt;&lt;abbr title=&quot;Email Address&quot;&gt;&lt;strong&gt;Email:&lt;/strong&gt;&lt;/abbr&gt;&amp;nbsp;hoangduy0101@yahoo.com&lt;/p&gt;', '&lt;p&gt;fsadfsfds&lt;/p&gt;', '', 0, 1, 1425455383, 1453042352, 'vi'),
-(2, 1, 'google_map', 10.7761, 106.672, 'Công ty', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', '', '', 0, 1, 1425455383, 1453042352, 'en'),
-(3, 3, 'google_map', 10.7458, 106.683, 'Trụ sở ở nhật bản', '', '&lt;address&gt;\r\n&lt;p class=&quot;mydesc1&quot;&gt;&lt;strong&gt;&lt;span lang=&quot;VI&quot;&gt;HONDABAC COMPANY &lt;/span&gt;&lt;span lang=&quot;VI&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p class=&quot;mydesc1&quot;&gt;&lt;strong&gt;&lt;span lang=&quot;VI&quot;&gt;Địa chỉ: &lt;/span&gt;&lt;/strong&gt;&lt;span lang=&quot;VI&quot;&gt;546-0022 osaka-fu osaka-shi&amp;nbsp; higashisumiyoshi-ku sunjiyata 8-3-23&lt;/span&gt;&lt;/p&gt;\r\n&lt;p class=&quot;mydesc1&quot;&gt;&lt;strong&gt;&lt;span lang=&quot;VI&quot;&gt;Điện thoại : &lt;/span&gt;&lt;/strong&gt;&lt;span lang=&quot;VI&quot;&gt;81-6-6704-0668. Fax : 81-6-6704-0669&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\r\n&lt;p class=&quot;mydesc1&quot;&gt;&lt;strong&gt;&lt;span lang=&quot;VI&quot;&gt;Email:&amp;nbsp;bannhanvj@gmail.com &amp;nbsp;&amp;nbsp;ban@hondabac.co.jp &lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;\r\n&lt;strong&gt;&lt;span lang=&quot;VI&quot;&gt;Website: www. hondabac.com&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; www.hondabac.co.jp&lt;/span&gt;&lt;/strong&gt;&lt;/address&gt;', '&lt;p&gt;140 &amp;Acirc;u Dương L&amp;acirc;n, phường 3, Quận 8, Hồ Ch&amp;iacute; Minh, Việt Nam&lt;/p&gt;', '', 0, 1, 1453042389, 1460998350, 'vi'),
-(4, 3, 'google_map', 10.7458, 106.683, 'Trụ sở ở nhật bản', '', '', '&lt;p&gt;nhật bản&lt;/p&gt;', '', 0, 1, 1453042389, 1460998350, 'en');
+(1, 1, 'google_map', 10.8008, 106.649, 'Trụ sở ở việt nam', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;address&gt;&lt;strong&gt;THE COMPANY HEAD OFFICE&lt;/strong&gt;&lt;/address&gt;&lt;address&gt;Sei Jin Vinacorp 123A L&amp;ecirc; Trung Nghĩa, P. 12, Q. T&amp;acirc;n B&amp;igrave;nh,&amp;nbsp;Tp.HCM.&lt;/address&gt;\r\n&lt;p&gt;&lt;strong&gt;Điện thoại&lt;/strong&gt;: (08) 38119158&lt;br /&gt;&lt;strong&gt;Email&lt;/strong&gt;: seijinvn@gmail.com&lt;br /&gt;&lt;strong&gt;Mobile&lt;/strong&gt;: 0902 554 767 (&lt;strong&gt; Ms. Chi&lt;/strong&gt;)&lt;/p&gt;', '&lt;p&gt;Sei Jin Vinacorp&lt;/p&gt;', '', 0, 1, 1425455383, 1462590014, 'vi'),
+(2, 1, 'google_map', 10.8008, 106.649, 'Công ty', '&lt;p&gt;M&amp;ocirc; tả ngắn&lt;/p&gt;', '&lt;p&gt;Nội dung&lt;/p&gt;', '', '', 0, 1, 1425455383, 1462590014, 'en'),
+(3, 3, 'google_map', 34.6027, 135.54, 'Trụ sở ở nhật bản', '', '&lt;address&gt;\r\n&lt;p class=&quot;mydesc1&quot;&gt;&lt;strong&gt;&lt;span lang=&quot;VI&quot;&gt;HONDABAC COMPANY &lt;/span&gt;&lt;span lang=&quot;VI&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p class=&quot;mydesc1&quot;&gt;&lt;strong&gt;&lt;span lang=&quot;VI&quot;&gt;Địa chỉ: &lt;/span&gt;&lt;/strong&gt;&lt;span lang=&quot;VI&quot;&gt;546-0022 osaka-fu osaka-shi&amp;nbsp; higashisumiyoshi-ku sunjiyata 8-3-23&lt;/span&gt;&lt;/p&gt;\r\n&lt;p class=&quot;mydesc1&quot;&gt;&lt;strong&gt;&lt;span lang=&quot;VI&quot;&gt;Điện thoại : &lt;/span&gt;&lt;/strong&gt;&lt;span lang=&quot;VI&quot;&gt;81-6-6704-0668. &lt;strong&gt;Fax&lt;/strong&gt; : 81-6-6704-0669&amp;nbsp;&lt;/span&gt;&lt;/p&gt;\r\n&lt;p class=&quot;mydesc1&quot;&gt;&lt;strong&gt;&lt;span lang=&quot;VI&quot;&gt;Email:&amp;nbsp;bannhanvj@gmail.com &amp;nbsp;&amp;nbsp;ban@hondabac.co.jp &lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;\r\n&lt;strong&gt;&lt;span lang=&quot;VI&quot;&gt;Website: www. hondabac.com&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; www.hondabac.co.jp&lt;/span&gt;&lt;/strong&gt;&lt;/address&gt;', '', '', 0, 1, 1453042389, 1462589832, 'vi'),
+(4, 3, 'google_map', 34.6027, 135.54, 'Trụ sở ở nhật bản', '', '', '&lt;p&gt;nhật bản&lt;/p&gt;', '', 0, 1, 1453042389, 1462589832, 'en');
 
 -- --------------------------------------------------------
 
@@ -521,26 +581,25 @@ INSERT INTO `contact_map` (`id`, `map_id`, `map_type`, `map_latitude`, `map_long
 -- Table structure for table `contact_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `contact_setting` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `contact_setting` (
+  `id` int(11) NOT NULL,
   `contact_meta_title` varchar(250) NOT NULL,
   `contact_meta_key` text NOT NULL,
   `contact_meta_desc` text NOT NULL,
   `contact_info` text NOT NULL,
   `contact_form` text NOT NULL,
   `email` varchar(250) NOT NULL,
-  `num_order_detail` int(10) unsigned NOT NULL DEFAULT '10',
+  `num_order_detail` int(10) UNSIGNED NOT NULL DEFAULT '10',
   `lang` varchar(10) NOT NULL DEFAULT 'vi',
-  `background` varchar(250) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `background` varchar(250) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `contact_setting`
 --
 
 INSERT INTO `contact_setting` (`id`, `contact_meta_title`, `contact_meta_key`, `contact_meta_desc`, `contact_info`, `contact_form`, `email`, `num_order_detail`, `lang`, `background`) VALUES
-(1, 'Thông tin liên hệ', '', '', '&lt;p&gt;&lt;span style=&quot;color: #ff0000; font-size: 14pt;&quot;&gt;TH&amp;Ocirc;NG TIN LI&amp;Ecirc;N HỆ&lt;/span&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Địa chỉ:&lt;/strong&gt; 856 Ta Quang Buu - Ward 5 - District 8 - HCM City &amp;ndash; Vietnam&lt;br /&gt;Giai Viet Building, Level 12, Block A2, Room 06&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Tel:&lt;/strong&gt; +84 8 5431 3825 Ext 101/102&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Fax.&lt;/strong&gt; +84 8 5431 3826&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Website:&lt;/strong&gt; www.neovn.com&lt;/p&gt;', '&lt;p&gt;&lt;span style=&quot;color: #ff0000; font-size: 14pt;&quot;&gt;TH&amp;Ocirc;NG TIN CỦA BẠN&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;\r\n&lt;p&gt;Với mong muốn ng&amp;agrave;y c&amp;agrave;ng phục vụ kh&amp;aacute;ch h&amp;agrave;ng tốt hơn, ch&amp;uacute;ng t&amp;ocirc;i rất mong muốn nhận được &amp;yacute; kiến phản hồi từ Qu&amp;yacute; kh&amp;aacute;ch mua h&amp;agrave;ng. Bộ phận chăm s&amp;oacute;c kh&amp;aacute;ch h&amp;agrave;ng của ch&amp;uacute;ng t&amp;ocirc;i sẽ phản hồi trong thời gian sớm nhất.&lt;/p&gt;', 'ttthiep2007@gmail.com', 5, 'vi', ''),
+(1, 'Thông tin liên hệ', '', '', '&lt;p&gt;&lt;span style=&quot;color: #ff0000; font-size: 14pt;&quot;&gt;TH&amp;Ocirc;NG TIN LI&amp;Ecirc;N HỆ&lt;/span&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Địa chỉ:&lt;/strong&gt; 856 Ta Quang Buu - Ward 5 - District 8 - HCM City &amp;ndash; Vietnam&lt;br /&gt;Giai Viet Building, Level 12, Block A2, Room 06&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Tel:&lt;/strong&gt; +84 8 5431 3825 Ext 101/102&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Fax.&lt;/strong&gt; +84 8 5431 3826&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Website:&lt;/strong&gt; www.neovn.com&lt;/p&gt;', '&lt;p&gt;&lt;span style=&quot;color: #ff0000; font-size: 14pt;&quot;&gt;TH&amp;Ocirc;NG TIN CỦA BẠN&lt;br /&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;Với mong muốn ng&amp;agrave;y c&amp;agrave;ng phục vụ kh&amp;aacute;ch h&amp;agrave;ng tốt hơn, ch&amp;uacute;ng t&amp;ocirc;i rất mong muốn nhận được &amp;yacute; kiến phản hồi từ Qu&amp;yacute; kh&amp;aacute;ch mua h&amp;agrave;ng. Bộ phận chăm s&amp;oacute;c kh&amp;aacute;ch h&amp;agrave;ng của ch&amp;uacute;ng t&amp;ocirc;i sẽ phản hồi trong thời gian sớm nhất.&lt;/p&gt;', 'ttthiep2007@gmail.com', 5, 'vi', ''),
 (2, 'contact', '', '', '', '', 'ttthiep2007@gmail.com', 10, 'en', '');
 
 -- --------------------------------------------------------
@@ -549,10 +608,10 @@ INSERT INTO `contact_setting` (`id`, `contact_meta_title`, `contact_meta_key`, `
 -- Table structure for table `dealer`
 --
 
-CREATE TABLE IF NOT EXISTS `dealer` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `dealer` (
+  `id` int(10) UNSIGNED NOT NULL,
   `item_id` int(11) NOT NULL,
-  `group_id` int(10) unsigned NOT NULL,
+  `group_id` int(10) UNSIGNED NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_related` text NOT NULL,
   `picture` varchar(250) NOT NULL,
@@ -581,9 +640,8 @@ CREATE TABLE IF NOT EXISTS `dealer` (
   `is_focus3` tinyint(4) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `dealer`
@@ -601,8 +659,8 @@ INSERT INTO `dealer` (`id`, `item_id`, `group_id`, `group_nav`, `group_related`,
 -- Table structure for table `dealer_group`
 --
 
-CREATE TABLE IF NOT EXISTS `dealer_group` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `dealer_group` (
+  `id` int(10) UNSIGNED NOT NULL,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -625,9 +683,8 @@ CREATE TABLE IF NOT EXISTS `dealer_group` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -635,17 +692,16 @@ CREATE TABLE IF NOT EXISTS `dealer_group` (
 -- Table structure for table `dealer_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `dealer_setting` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `dealer_setting` (
+  `id` int(11) NOT NULL,
   `dealer_meta_title` varchar(250) NOT NULL,
   `dealer_meta_key` text NOT NULL,
   `dealer_meta_desc` text NOT NULL,
-  `num_list` int(10) unsigned NOT NULL DEFAULT '10',
-  `num_order_detail` int(10) unsigned NOT NULL DEFAULT '10',
+  `num_list` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `num_order_detail` int(10) UNSIGNED NOT NULL DEFAULT '10',
   `lang` varchar(10) NOT NULL DEFAULT 'vi',
-  `background` varchar(250) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `background` varchar(250) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `dealer_setting`
@@ -661,10 +717,10 @@ INSERT INTO `dealer_setting` (`id`, `dealer_meta_title`, `dealer_meta_key`, `dea
 -- Table structure for table `download`
 --
 
-CREATE TABLE IF NOT EXISTS `download` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `download` (
+  `id` int(10) UNSIGNED NOT NULL,
   `item_id` int(11) NOT NULL,
-  `group_id` int(10) unsigned NOT NULL,
+  `group_id` int(10) UNSIGNED NOT NULL,
   `group_nav` text NOT NULL,
   `picture` varchar(250) NOT NULL,
   `file` varchar(250) NOT NULL,
@@ -683,9 +739,8 @@ CREATE TABLE IF NOT EXISTS `download` (
   `is_focus3` tinyint(4) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `download`
@@ -703,8 +758,8 @@ INSERT INTO `download` (`id`, `item_id`, `group_id`, `group_nav`, `picture`, `fi
 -- Table structure for table `download_group`
 --
 
-CREATE TABLE IF NOT EXISTS `download_group` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `download_group` (
+  `id` int(10) UNSIGNED NOT NULL,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -727,9 +782,8 @@ CREATE TABLE IF NOT EXISTS `download_group` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `download_group`
@@ -745,16 +799,15 @@ INSERT INTO `download_group` (`id`, `group_id`, `group_nav`, `group_level`, `par
 -- Table structure for table `download_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `download_setting` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `download_setting` (
+  `id` int(11) NOT NULL,
   `download_meta_title` varchar(250) NOT NULL,
   `download_meta_key` text NOT NULL,
   `download_meta_desc` text NOT NULL,
-  `num_list` int(10) unsigned NOT NULL DEFAULT '10',
-  `num_order_detail` int(10) unsigned NOT NULL DEFAULT '10',
-  `lang` varchar(10) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `num_list` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `num_order_detail` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `lang` varchar(10) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `download_setting`
@@ -770,18 +823,17 @@ INSERT INTO `download_setting` (`id`, `download_meta_title`, `download_meta_key`
 -- Table structure for table `friendly_link`
 --
 
-CREATE TABLE IF NOT EXISTS `friendly_link` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `friendly_link` (
+  `id` int(10) UNSIGNED NOT NULL,
   `friendly_link` varchar(250) NOT NULL,
   `module` varchar(50) NOT NULL,
   `action` varchar(50) NOT NULL,
   `dbtable` varchar(50) NOT NULL,
   `dbtable_id` varchar(50) NOT NULL DEFAULT '0',
   `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  `date_create` int(10) unsigned NOT NULL,
-  `date_update` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1542 ;
+  `date_create` int(10) UNSIGNED NOT NULL,
+  `date_update` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `friendly_link`
@@ -789,7 +841,7 @@ CREATE TABLE IF NOT EXISTS `friendly_link` (
 
 INSERT INTO `friendly_link` (`id`, `friendly_link`, `module`, `action`, `dbtable`, `dbtable_id`, `lang`, `date_create`, `date_update`) VALUES
 (22, 'nhom-1', 'page', 'group', 'page_group_lang', '1', 'vi', 1400742794, 1420785467),
-(23, 'tin-tuc', 'page', 'group', 'page_group_lang', '2', 'vi', 1400742856, 1411034307),
+(23, 'tin-tuc-bk', 'page', 'group', 'page_group_lang', '2', 'vi', 1400742856, 1411034307),
 (24, 'cach-thanh-toan', 'page', 'detail', 'page_lang', '1', 'vi', 1400742985, 1415613862),
 (25, 'hotline', 'page', 'detail', 'page_lang', '2', 'vi', 1400743065, 1415614075),
 (26, 'about', 'page', 'detail', 'page_lang', '3', 'vi', 1400743109, 1421114680),
@@ -2007,7 +2059,7 @@ INSERT INTO `friendly_link` (`id`, `friendly_link`, `module`, `action`, `dbtable
 (1279, 'gioi-thieu-cong-ty-3', 'about', 'detail', 'about', '7', 'en', 1451995952, 1451995952),
 (1280, 'san-pham', 'product', 'product', 'modules', 'product', 'vi', 1452001612, 1452001612),
 (1281, 'san-pham1', 'product', 'product', 'modules', 'product', 'en', 1452001612, 1452001612),
-(1282, 'hang-dan-dung', 'product', 'group', 'product_group', '3', 'vi', 1452007716, 1452007716),
+(1282, 'hang-dan-dung', 'product', 'group', 'product_group', '3', 'vi', 1452007716, 1474294284),
 (1283, 'hang-dan-dung1', 'product', 'group', 'product_group', '3', 'en', 1452007716, 1452007716),
 (1284, 'dien-thoai', 'product', 'group', 'product_group', '5', 'vi', 1452009076, 1452009076),
 (1285, 'dien-thoai1', 'product', 'group', 'product_group', '5', 'en', 1452009076, 1452009076),
@@ -2045,7 +2097,7 @@ INSERT INTO `friendly_link` (`id`, `friendly_link`, `module`, `action`, `dbtable
 (1317, 'dien-thoai-microsoft-lumia-950-xl1', 'product', 'detail', 'product', '15', 'en', 1452403759, 1452403759),
 (1318, 'khach-hang-noi-ve-chung-toi', 'page', 'group', 'page_group', '5', 'vi', 1452404767, 1452404767),
 (1319, 'khach-hang-noi-ve-chung-toi1', 'page', 'group', 'page_group', '5', 'en', 1452404767, 1452404767),
-(1328, 'thong-tin', 'news', 'news', 'modules', 'news', 'vi', 1452417235, 1452417253),
+(1328, 'tin-tuc', 'news', 'news', 'modules', 'news', 'vi', 1452417235, 1452417253),
 (1329, 'thong-tin1', 'news', 'news', 'modules', 'news', 'en', 1452417235, 1452417235),
 (1332, 'thiet-ke-khu-bep-sang-trong-am-ceng', 'news', 'detail', 'news', '3', 'vi', 1452417535, 1452420684),
 (1333, 'thiet-ke-khu-bep-sang-trong-am-ceng1', 'news', 'detail', 'news', '3', 'en', 1452417535, 1452417535),
@@ -2055,22 +2107,18 @@ INSERT INTO `friendly_link` (`id`, `friendly_link`, `module`, `action`, `dbtable
 (1337, 'nha-ong-50-m2-co-cach-bo-tri-dao-nguoc1', 'news', 'detail', 'news', '7', 'en', 1452417626, 1452417626),
 (1338, 'khu-vuon-xanh-ngat-tren-mai-chung-cu-khien-hang-xom-noi-gian', 'news', 'detail', 'news', '9', 'vi', 1452417656, 1452420748),
 (1339, 'khu-vuon-xanh-ngat-tren-mai-chung-cu-khien-hang-xom-noi-gian1', 'news', 'detail', 'news', '9', 'en', 1452417656, 1452417656),
-(1340, 'khong-gian-song-dang-cap-trong-du-thuyen-sieu-sang', 'news', 'detail', 'news', '11', 'vi', 1452417701, 1452424796),
+(1340, 'khong-gian-song-dang-cap-trong-du-thuyen-sieu-sang', 'news', 'detail', 'news', '11', 'vi', 1452417701, 1474293726),
 (1341, 'khong-gian-song-dang-cap-trong-du-thuyen-sieu-sang1', 'news', 'detail', 'news', '11', 'en', 1452417701, 1452417701),
-(1342, 'noi-dung-cong-viec', 'page', 'detail', 'page', '9', 'vi', 1453016733, 1453016733),
-(1343, 'noi-dung-cong-viec1', 'page', 'detail', 'page', '9', 'en', 1453016733, 1453016733),
-(1344, 'thong-tin-lien-lac', 'page', 'detail', 'page', '11', 'vi', 1453016751, 1453016751),
+(1344, 'thong-tin-lien-lac', 'page', 'detail', 'page', '11', 'vi', 1453016751, 1462590624),
 (1345, 'thong-tin-lien-lac1', 'page', 'detail', 'page', '11', 'en', 1453016751, 1453016751),
 (1346, 'gioi-thieu-tour', 'page', 'detail', 'page', '13', 'vi', 1453016765, 1453016765),
 (1347, 'gioi-thieu-tour1', 'page', 'detail', 'page', '13', 'en', 1453016765, 1453016765),
 (1348, 'gioi-thieu-dia-diem-du-lich', 'page', 'detail', 'page', '15', 'vi', 1453016836, 1453016836),
 (1349, 'gioi-thieu-dia-diem-du-lich1', 'page', 'detail', 'page', '15', 'en', 1453016836, 1453016836),
-(1350, 'gioi-thieu-cac-truong-nhat-ngu', 'page', 'detail', 'page', '17', 'vi', 1453016846, 1458355014),
+(1350, 'gioi-thieu-cac-truong-nhat-ngu', 'page', 'detail', 'page', '17', 'vi', 1453016846, 1461343449),
 (1351, 'gioi-thieu-cac-truong-nhat-ngu1', 'page', 'detail', 'page', '17', 'en', 1453016847, 1453016847),
-(1352, 'thu-tuc-ho-so-du-hoc', 'page', 'detail', 'page', '19', 'vi', 1453016856, 1458355268),
+(1352, 'thu-tuc-ho-so-du-hoc', 'page', 'detail', 'page', '19', 'vi', 1453016856, 1461343432),
 (1353, 'thu-tuc-ho-so-du-hoc1', 'page', 'detail', 'page', '19', 'en', 1453016856, 1453016856),
-(1354, 'ho-tro-viec-lam-nha-o-tai-nhat', 'page', 'detail', 'page', '21', 'vi', 1453016865, 1453016865),
-(1355, 'ho-tro-viec-lam-nha-o-tai-nhat1', 'page', 'detail', 'page', '21', 'en', 1453016866, 1453016866),
 (1356, 'thiet-bi-cong-nghiep2', 'page', 'detail', 'page', '23', 'vi', 1453016876, 1453016876),
 (1357, 'thiet-bi-cong-nghiep3', 'page', 'detail', 'page', '23', 'en', 1453016876, 1453016876),
 (1358, 'thiet-bi-nong-nghiep2', 'page', 'detail', 'page', '25', 'vi', 1453016885, 1453016885),
@@ -2079,7 +2127,7 @@ INSERT INTO `friendly_link` (`id`, `friendly_link`, `module`, `action`, `dbtable
 (1361, 'xe-co-gioi3', 'page', 'detail', 'page', '27', 'en', 1453016893, 1453016893),
 (1362, 'nganh-xay-dung2', 'page', 'detail', 'page', '29', 'vi', 1453016901, 1453016901),
 (1363, 'nganh-xay-dung3', 'page', 'detail', 'page', '29', 'en', 1453016901, 1453016901),
-(1364, 'ky-su', 'page', 'detail', 'page', '31', 'vi', 1453016912, 1453016912),
+(1364, 'ky-su', 'page', 'detail', 'page', '31', 'vi', 1453016912, 1461171338),
 (1365, 'ky-su1', 'page', 'detail', 'page', '31', 'en', 1453016912, 1453016912),
 (1366, 'tu-nghiep-sinh', 'page', 'detail', 'page', '33', 'vi', 1453016921, 1453016921),
 (1367, 'tu-nghiep-sinh1', 'page', 'detail', 'page', '33', 'en', 1453016921, 1453016921),
@@ -2251,10 +2299,56 @@ INSERT INTO `friendly_link` (`id`, `friendly_link`, `module`, `action`, `dbtable
 (1535, 'aaaaaaaaaac0', 'product', 'detail', 'product', '153', 'en', 1456652792, 1456652792),
 (1536, 'aaoa', 'product', 'detail', 'product', '155', 'vi', 1456652834, 1456652834),
 (1537, 'aaoa1', 'product', 'detail', 'product', '155', 'en', 1456652834, 1456652834),
-(1538, 'du-hoc-nhat-ngu', 'page', 'detail', 'page', '59', 'vi', 1458355371, 1458355371),
+(1538, 'du-hoc-nhat-ngu', 'page', 'detail', 'page', '59', 'vi', 1458355371, 1461343410),
 (1539, 'du-hoc-nhat-ngu1', 'page', 'detail', 'page', '59', 'en', 1458355371, 1458355371),
-(1540, 'ky-thuat-vien-lam-viec-tai-nhat', 'page', 'detail', 'page', '61', 'vi', 1458355822, 1458356006),
-(1541, 'ky-thuat-vien-lam-viec-tai-nhat1', 'page', 'detail', 'page', '61', 'en', 1458355822, 1458355822);
+(1542, 'hoat-dong-chinh', 'page', 'detail', 'page', '63', 'vi', 1461171031, 1462590418),
+(1543, 'hoat-dong-chinh1', 'page', 'detail', 'page', '63', 'en', 1461171032, 1461171032),
+(1544, 'du-hoc', 'news', 'group', 'news_group', '5', 'vi', 1471164980, 1471166964),
+(1545, 'du-hoc-nhat-ngu2', 'news', 'group', 'news_group', '5', 'en', 1471164980, 1471164980),
+(1546, 'lao-dong', 'news', 'group', 'news_group', '7', 'vi', 1471164992, 1471166545),
+(1547, 'lao-dong1', 'news', 'group', 'news_group', '7', 'en', 1471164992, 1471164992),
+(1548, 'thuong-mai', 'news', 'group', 'news_group', '9', 'vi', 1471165001, 1471166953),
+(1549, 'thuong-mai-dien-2', 'news', 'group', 'news_group', '9', 'en', 1471165001, 1471165001),
+(1550, 'thuong-mai-1', 'news', 'detail', 'news', '13', 'vi', 1471166165, 1471166175),
+(1551, 'thuong-mai-2', 'news', 'detail', 'news', '13', 'en', 1471166166, 1471166166),
+(1552, 'khong-gian-song-dang-cap-trong-du-thuyen-sieu-sang2', 'news', 'detail', 'news', '15', 'vi', 1474293816, 1474293816),
+(1553, 'khong-gian-song-dang-cap-trong-du-thuyen-sieu-sang3', 'news', 'detail', 'news', '15', 'en', 1474293816, 1474293816),
+(1554, 'nha-ong-50-m2-co-cach-bo-tri-dao-nguoc2', 'news', 'detail', 'news', '17', 'vi', 1474293819, 1474293819),
+(1555, 'nha-ong-50-m2-co-cach-bo-tri-dao-nguoc3', 'news', 'detail', 'news', '17', 'en', 1474293819, 1474293819),
+(1556, 'cac-chung-cu-thiet-ke-dep-la-khien-nhieu-nguoi-me2', 'news', 'detail', 'news', '19', 'vi', 1474293822, 1474293822),
+(1557, 'cac-chung-cu-thiet-ke-dep-la-khien-nhieu-nguoi-me3', 'news', 'detail', 'news', '19', 'en', 1474293822, 1474293822),
+(1558, 'thiet-ke-khu-bep-sang-trong-am-ceng2', 'news', 'detail', 'news', '21', 'vi', 1474293825, 1474294117),
+(1559, 'thiet-ke-khu-bep-sang-trong-am-ceng3', 'news', 'detail', 'news', '21', 'en', 1474293825, 1474293825),
+(1560, 'thiet-ke-khu-bep-sang-trong-am-ceng4', 'news', 'detail', 'news', '23', 'vi', 1474375959, 1474375959),
+(1561, 'thiet-ke-khu-bep-sang-trong-am-ceng5', 'news', 'detail', 'news', '23', 'en', 1474375959, 1474375959),
+(1562, 'thiet-ke-khu-bep-sang-trong-am-ceng6', 'news', 'detail', 'news', '25', 'vi', 1474379483, 1475722328),
+(1563, 'thiet-ke-khu-bep-sang-trong-am-ceng7', 'news', 'detail', 'news', '25', 'en', 1474379483, 1474379483),
+(1564, 'thiet-ke-khu-bep-sang-trong-am-ceng8', 'news', 'detail', 'news', '27', 'vi', 1474379486, 1475722139),
+(1565, 'thiet-ke-khu-bep-sang-trong-am-ceng9', 'news', 'detail', 'news', '27', 'en', 1474379486, 1474379486),
+(1566, 'thiet-ke-khu-bep-sang-trong-am-cenh0', 'news', 'detail', 'news', '29', 'vi', 1474379488, 1475721899),
+(1567, 'thiet-ke-khu-bep-sang-trong-am-cenh1', 'news', 'detail', 'news', '29', 'en', 1474379488, 1474379488),
+(1568, 'thiet-ke-khu-bep-sang-trong-am-cenh2', 'news', 'detail', 'news', '31', 'vi', 1474379489, 1475720272),
+(1569, 'thiet-ke-khu-bep-sang-trong-am-cenh3', 'news', 'detail', 'news', '31', 'en', 1474379489, 1474379489),
+(1570, 'phong-vien-bi-cong-an-dam-vao-dau-giat-camera', 'news', 'detail', 'news', '33', 'vi', 1474709257, 1475719389),
+(1571, 'phong-vien-bi-cong-an-dam-vao-dau-giat-camera1', 'news', 'detail', 'news', '33', 'en', 1474709257, 1474709257),
+(1572, 'lien-he-nhan-thong-tin', 'contact', 'recieve-info', 'modules', 'contact', 'vi', 1401335590, 1407922653),
+(1573, 'recieve-info-contact', 'contact', 'recieve-info', 'modules', 'contact', 'en', 1401335590, 1407922653),
+(1574, 'comment', 'comment', 'comment', 'modules', 'comment', 'vi', 1475309531, 1475309531),
+(1575, 'comment1', 'comment', 'comment', 'modules', 'comment', 'en', 1475309531, 1475309531),
+(1576, 'nhieu-iphone-hang-xach-tay-o-viet-nam-bi-bien-thanh-cuc-gach', 'news', 'detail', 'news', '35', 'vi', 1475495800, 1475718742),
+(1577, 'nhieu-iphone-hang-xach-tay-o-viet-nam-bi-bien-thanh-cuc-gach1', 'news', 'detail', 'news', '35', 'en', 1475495800, 1475495800),
+(1578, 'so-sanh-giua-di-du-hoc-va-di-xkld-tu-nghiep-sinh', 'news', 'detail', 'news', '37', 'vi', 1476432695, 1476432695),
+(1579, 'so-sanh-giua-di-du-hoc-va-di-xkld-tu-nghiep-sinh1', 'news', 'detail', 'news', '37', 'en', 1476432695, 1476432695),
+(1580, 'bi-quyet-tiet-kiem-phi-dien-thoai-chi-1350-yenthang-o-nhat', 'news', 'detail', 'news', '39', 'vi', 1477014176, 1477014176),
+(1581, 'bi-quyet-tiet-kiem-phi-dien-thoai-chi-1350-yenthang-o-nhat1', 'news', 'detail', 'news', '39', 'en', 1477014176, 1477014176),
+(1582, 'gioi-thieu-cong-ty-4', 'page', 'detail', 'page', '65', 'vi', 1482552203, 1482552203),
+(1583, 'gioi-thieu-cong-ty-5', 'page', 'detail', 'page', '65', 'en', 1482552203, 1482552203),
+(1584, 'cau-hoi-thuong-gap-phong-van', 'page', 'detail', 'page', '67', 'vi', 1482556045, 1482556158),
+(1585, 'cau-hoi-thuong-gap-phong-van1', 'page', 'detail', 'page', '67', 'en', 1482556045, 1482556045),
+(1586, 'thong-dich-vien', 'page', 'detail', 'page', '69', 'vi', 1482556444, 1482556444),
+(1587, 'thong-dich-vien1', 'page', 'detail', 'page', '69', 'en', 1482556444, 1482556444),
+(1588, 'dang-ki-tour-tu-chon', 'contact', 'tour-registration', 'modules', 'contact', 'vi', 1401335590, 1407922653),
+(1589, 'tour-registration-optional', 'contact', 'tour-registration', 'modules', 'contact', 'en', 1401335590, 1407922653);
 
 -- --------------------------------------------------------
 
@@ -2262,11 +2356,11 @@ INSERT INTO `friendly_link` (`id`, `friendly_link`, `module`, `action`, `dbtable
 -- Table structure for table `gallery`
 --
 
-CREATE TABLE IF NOT EXISTS `gallery` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gallery` (
+  `id` int(10) UNSIGNED NOT NULL,
   `item_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
-  `group_id` int(10) unsigned NOT NULL,
+  `group_id` int(10) UNSIGNED NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
   `short` text NOT NULL,
@@ -2281,9 +2375,8 @@ CREATE TABLE IF NOT EXISTS `gallery` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `gallery`
@@ -2301,12 +2394,12 @@ INSERT INTO `gallery` (`id`, `item_id`, `group_nav`, `group_id`, `picture`, `tit
 -- Table structure for table `gallery_group`
 --
 
-CREATE TABLE IF NOT EXISTS `gallery_group` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gallery_group` (
+  `id` int(10) UNSIGNED NOT NULL,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
-  `parent_id` int(10) unsigned NOT NULL,
+  `parent_id` int(10) UNSIGNED NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
   `short` text NOT NULL,
@@ -2320,9 +2413,8 @@ CREATE TABLE IF NOT EXISTS `gallery_group` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `gallery_group`
@@ -2338,24 +2430,26 @@ INSERT INTO `gallery_group` (`id`, `group_id`, `group_nav`, `group_level`, `pare
 -- Table structure for table `gallery_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `gallery_setting` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gallery_setting` (
+  `id` int(11) NOT NULL,
   `news_meta_title` varchar(250) NOT NULL,
   `news_meta_key` text NOT NULL,
   `news_meta_desc` text NOT NULL,
-  `num_list` int(10) unsigned NOT NULL DEFAULT '10',
+  `num_list` int(10) UNSIGNED NOT NULL DEFAULT '10',
   `num_order_detail` int(11) NOT NULL DEFAULT '10',
   `lang` varchar(10) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `gallery_meta_title` varchar(250) NOT NULL,
+  `gallery_meta_key` text NOT NULL,
+  `gallery_meta_desc` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `gallery_setting`
 --
 
-INSERT INTO `gallery_setting` (`id`, `news_meta_title`, `news_meta_key`, `news_meta_desc`, `num_list`, `num_order_detail`, `lang`) VALUES
-(1, 'Tin tức', '', '', 10, 10, 'vi'),
-(2, 'aboutus', '', '', 10, 10, 'en');
+INSERT INTO `gallery_setting` (`id`, `news_meta_title`, `news_meta_key`, `news_meta_desc`, `num_list`, `num_order_detail`, `lang`, `gallery_meta_title`, `gallery_meta_key`, `gallery_meta_desc`) VALUES
+(1, 'Tin tức', '', '', 10, 10, 'vi', '', '', ''),
+(2, 'aboutus', '', '', 10, 10, 'en', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -2363,19 +2457,18 @@ INSERT INTO `gallery_setting` (`id`, `news_meta_title`, `news_meta_key`, `news_m
 -- Table structure for table `home_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `home_setting` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `home_setting` (
+  `id` int(11) NOT NULL,
   `home_meta_title` varchar(250) NOT NULL,
   `home_meta_key` text NOT NULL,
   `home_meta_desc` text NOT NULL,
-  `num_list` int(10) unsigned NOT NULL DEFAULT '10',
-  `num_order_detail` int(10) unsigned NOT NULL DEFAULT '10',
+  `num_list` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `num_order_detail` int(10) UNSIGNED NOT NULL DEFAULT '10',
   `lang` varchar(10) NOT NULL DEFAULT 'vi',
   `layout` int(11) NOT NULL,
   `sidebar_left` int(11) NOT NULL,
-  `sidebar_right` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `sidebar_right` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `home_setting`
@@ -2391,15 +2484,14 @@ INSERT INTO `home_setting` (`id`, `home_meta_title`, `home_meta_key`, `home_meta
 -- Table structure for table `lang`
 --
 
-CREATE TABLE IF NOT EXISTS `lang` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `lang` (
+  `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(50) NOT NULL DEFAULT 'vi',
   `title` varchar(250) NOT NULL,
   `is_default` tinyint(4) NOT NULL DEFAULT '0',
   `is_show` tinyint(4) NOT NULL DEFAULT '1',
-  `show_order` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `show_order` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `lang`
@@ -2415,17 +2507,16 @@ INSERT INTO `lang` (`id`, `name`, `title`, `is_default`, `is_show`, `show_order`
 -- Table structure for table `location_area`
 --
 
-CREATE TABLE IF NOT EXISTS `location_area` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `location_area` (
+  `id` int(11) NOT NULL,
   `code` varchar(20) NOT NULL,
   `title` varchar(250) NOT NULL,
   `show_order` int(11) NOT NULL,
   `is_show` tinyint(4) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `location_area`
@@ -2453,8 +2544,8 @@ INSERT INTO `location_area` (`id`, `code`, `title`, `show_order`, `is_show`, `da
 -- Table structure for table `location_country`
 --
 
-CREATE TABLE IF NOT EXISTS `location_country` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `location_country` (
+  `id` int(11) NOT NULL,
   `code` varchar(20) NOT NULL,
   `area_code` varchar(20) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -2462,9 +2553,8 @@ CREATE TABLE IF NOT EXISTS `location_country` (
   `is_show` tinyint(4) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `location_country`
@@ -2484,8 +2574,8 @@ INSERT INTO `location_country` (`id`, `code`, `area_code`, `title`, `show_order`
 -- Table structure for table `location_district`
 --
 
-CREATE TABLE IF NOT EXISTS `location_district` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `location_district` (
+  `id` int(11) NOT NULL,
   `code` varchar(20) NOT NULL,
   `area_code` varchar(20) NOT NULL,
   `country_code` varchar(20) NOT NULL,
@@ -2495,9 +2585,8 @@ CREATE TABLE IF NOT EXISTS `location_district` (
   `is_show` tinyint(4) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=698 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `location_district`
@@ -3124,8 +3213,7 @@ INSERT INTO `location_district` (`id`, `code`, `area_code`, `country_code`, `pro
 (618, '867', 'c6', 'vi', '87', 'Sa Đéc', 0, 1, 1415954105, 1415954105, 'vi'),
 (619, '868', 'c6', 'vi', '87', 'Hồng Ngự', 0, 1, 1415954105, 1415954105, 'vi'),
 (620, '869', 'c6', 'vi', '87', 'Tân Hồng', 0, 1, 1415954105, 1415954105, 'vi'),
-(621, '870', 'c6', 'vi', '87', 'Hồng Ngự', 0, 1, 1415954105, 1415954105, 'vi');
-INSERT INTO `location_district` (`id`, `code`, `area_code`, `country_code`, `province_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(621, '870', 'c6', 'vi', '87', 'Hồng Ngự', 0, 1, 1415954105, 1415954105, 'vi'),
 (622, '871', 'c6', 'vi', '87', 'Tam Nông', 0, 1, 1415954105, 1415954105, 'vi'),
 (623, '872', 'c6', 'vi', '87', 'Tháp Mười', 0, 1, 1415954105, 1415954105, 'vi'),
 (624, '873', 'c6', 'vi', '87', 'Cao Lãnh', 0, 1, 1415954105, 1415954105, 'vi'),
@@ -3144,7 +3232,8 @@ INSERT INTO `location_district` (`id`, `code`, `area_code`, `country_code`, `pro
 (637, '892', 'c6', 'vi', '89', 'Châu Thành', 0, 1, 1415954106, 1415954106, 'vi'),
 (638, '893', 'c6', 'vi', '89', 'Chợ Mới', 0, 1, 1415954106, 1415954106, 'vi'),
 (639, '894', 'c6', 'vi', '89', 'Thoại Sơn', 0, 1, 1415954106, 1415954106, 'vi'),
-(640, '899', 'c6', 'vi', '91', 'Rạch Giá', 0, 1, 1415954106, 1415954106, 'vi'),
+(640, '899', 'c6', 'vi', '91', 'Rạch Giá', 0, 1, 1415954106, 1415954106, 'vi');
+INSERT INTO `location_district` (`id`, `code`, `area_code`, `country_code`, `province_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (641, '900', 'c6', 'vi', '91', 'Hà Tiên', 0, 1, 1415954106, 1415954106, 'vi'),
 (642, '902', 'c6', 'vi', '91', 'Kiên Lương', 0, 1, 1415954106, 1415954106, 'vi'),
 (643, '903', 'c6', 'vi', '91', 'Hòn Đất', 0, 1, 1415954106, 1415954106, 'vi'),
@@ -3209,8 +3298,8 @@ INSERT INTO `location_district` (`id`, `code`, `area_code`, `country_code`, `pro
 -- Table structure for table `location_province`
 --
 
-CREATE TABLE IF NOT EXISTS `location_province` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `location_province` (
+  `id` int(11) NOT NULL,
   `code` varchar(20) NOT NULL,
   `area_code` varchar(20) NOT NULL,
   `country_code` varchar(20) NOT NULL,
@@ -3219,9 +3308,8 @@ CREATE TABLE IF NOT EXISTS `location_province` (
   `is_show` tinyint(4) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=64 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `location_province`
@@ -3298,8 +3386,8 @@ INSERT INTO `location_province` (`id`, `code`, `area_code`, `country_code`, `tit
 -- Table structure for table `location_ward`
 --
 
-CREATE TABLE IF NOT EXISTS `location_ward` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `location_ward` (
+  `id` int(11) NOT NULL,
   `code` varchar(20) NOT NULL,
   `area_code` varchar(20) NOT NULL,
   `country_code` varchar(20) NOT NULL,
@@ -3310,9 +3398,8 @@ CREATE TABLE IF NOT EXISTS `location_ward` (
   `is_show` tinyint(4) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11111 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `location_ward`
@@ -3871,8 +3958,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (550, '01603', 'c6', 'vi', '04', '049', 'Phúc Sen', 0, 1, 1415954345, 1415954345, 'vi'),
 (551, '01606', 'c6', 'vi', '04', '049', 'Chí Thảo', 0, 1, 1415954346, 1415954346, 'vi'),
 (552, '01609', 'c6', 'vi', '04', '049', 'Tự Do', 0, 1, 1415954346, 1415954346, 'vi'),
-(553, '01612', 'c6', 'vi', '04', '049', 'Hồng Định', 0, 1, 1415954346, 1415954346, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(553, '01612', 'c6', 'vi', '04', '049', 'Hồng Định', 0, 1, 1415954346, 1415954346, 'vi'),
 (554, '01615', 'c6', 'vi', '04', '049', 'Hồng Quang', 0, 1, 1415954346, 1415954346, 'vi'),
 (555, '01618', 'c6', 'vi', '04', '049', 'Ngọc Động', 0, 1, 1415954346, 1415954346, 'vi'),
 (556, '01621', 'c6', 'vi', '04', '049', 'Hoàng Hải', 0, 1, 1415954346, 1415954346, 'vi'),
@@ -3889,7 +3975,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (567, '01654', 'c6', 'vi', '04', '051', 'Nước Hai', 0, 1, 1415954347, 1415954347, 'vi'),
 (568, '01657', 'c6', 'vi', '04', '051', 'Dân Chủ', 0, 1, 1415954347, 1415954347, 'vi'),
 (569, '01660', 'c6', 'vi', '04', '051', 'Nam Tuấn', 0, 1, 1415954347, 1415954347, 'vi'),
-(570, '01663', 'c6', 'vi', '04', '051', 'Đức Xuân', 0, 1, 1415954347, 1415954347, 'vi'),
+(570, '01663', 'c6', 'vi', '04', '051', 'Đức Xuân', 0, 1, 1415954347, 1415954347, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (571, '01666', 'c6', 'vi', '04', '051', 'Đại Tiến', 0, 1, 1415954347, 1415954347, 'vi'),
 (572, '01669', 'c6', 'vi', '04', '051', 'Đức Long', 0, 1, 1415954347, 1415954347, 'vi'),
 (573, '01672', 'c6', 'vi', '04', '051', 'Ngũ Lão', 0, 1, 1415954347, 1415954347, 'vi'),
@@ -4424,8 +4511,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (1102, '03217', 'c6', 'vi', '11', '098', 'Tủa Chùa', 0, 1, 1415954388, 1415954388, 'vi'),
 (1103, '03220', 'c6', 'vi', '11', '098', 'Huổi Só', 0, 1, 1415954388, 1415954388, 'vi'),
 (1104, '03223', 'c6', 'vi', '11', '098', 'Xín Chải', 0, 1, 1415954388, 1415954388, 'vi'),
-(1105, '03226', 'c6', 'vi', '11', '098', 'Tả Sìn Thàng', 0, 1, 1415954388, 1415954388, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(1105, '03226', 'c6', 'vi', '11', '098', 'Tả Sìn Thàng', 0, 1, 1415954388, 1415954388, 'vi'),
 (1106, '03229', 'c6', 'vi', '11', '098', 'Lao Xả Phình', 0, 1, 1415954388, 1415954388, 'vi'),
 (1107, '03232', 'c6', 'vi', '11', '098', 'Tả Phìn', 0, 1, 1415954388, 1415954388, 'vi'),
 (1108, '03235', 'c6', 'vi', '11', '098', 'Tủa Thàng', 0, 1, 1415954388, 1415954388, 'vi'),
@@ -4458,7 +4544,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (1135, '03310', 'c6', 'vi', '11', '102', 'Ẳng Cang', 0, 1, 1415954389, 1415954389, 'vi'),
 (1136, '03312', 'c6', 'vi', '11', '102', 'Nặm Lịch', 0, 1, 1415954389, 1415954389, 'vi'),
 (1137, '03313', 'c6', 'vi', '11', '102', 'Mường Lạn', 0, 1, 1415954389, 1415954389, 'vi'),
-(1138, '03316', 'c6', 'vi', '11', '100', 'Nà Tấu', 0, 1, 1415954389, 1415954389, 'vi'),
+(1138, '03316', 'c6', 'vi', '11', '100', 'Nà Tấu', 0, 1, 1415954389, 1415954389, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (1139, '03317', 'c6', 'vi', '11', '100', 'Nà Nhạn', 0, 1, 1415954389, 1415954389, 'vi'),
 (1140, '03319', 'c6', 'vi', '11', '100', 'Mường Pồn', 0, 1, 1415954389, 1415954389, 'vi'),
 (1141, '03322', 'c6', 'vi', '11', '100', 'Thanh Nưa', 0, 1, 1415954389, 1415954389, 'vi'),
@@ -4971,8 +5058,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (1648, '04783', 'c6', 'vi', '15', '141', 'Phú Thịnh', 0, 1, 1415954404, 1415954404, 'vi'),
 (1649, '04786', 'c6', 'vi', '15', '141', 'Đại Minh', 0, 1, 1415954404, 1415954404, 'vi'),
 (1650, '04789', 'c6', 'vi', '17', '148', 'Hòa Bình', 0, 1, 1415954404, 1415954404, 'vi'),
-(1651, '04792', 'c6', 'vi', '17', '148', 'Tân Hòa', 0, 1, 1415954404, 1415954404, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(1651, '04792', 'c6', 'vi', '17', '148', 'Tân Hòa', 0, 1, 1415954404, 1415954404, 'vi'),
 (1652, '04795', 'c6', 'vi', '17', '148', 'Thịnh Lang', 0, 1, 1415954404, 1415954404, 'vi'),
 (1653, '04798', 'c6', 'vi', '17', '148', 'Hữu Nghị', 0, 1, 1415954404, 1415954404, 'vi'),
 (1654, '04801', 'c6', 'vi', '17', '148', 'Tân Thịnh', 0, 1, 1415954404, 1415954404, 'vi'),
@@ -5021,7 +5107,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (1697, '04930', 'c6', 'vi', '01', '276', 'Yên Bình', 0, 1, 1415954405, 1415954405, 'vi'),
 (1698, '04933', 'c6', 'vi', '17', '151', 'Yên Quang', 0, 1, 1415954405, 1415954405, 'vi'),
 (1699, '04936', 'c6', 'vi', '01', '276', 'Tiến Xuân', 0, 1, 1415954405, 1415954405, 'vi'),
-(1700, '04939', 'c6', 'vi', '01', '275', 'Đông Xuân', 0, 1, 1415954405, 1415954405, 'vi'),
+(1700, '04939', 'c6', 'vi', '01', '275', 'Đông Xuân', 0, 1, 1415954405, 1415954405, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (1701, '04942', 'c6', 'vi', '17', '152', 'Lâm Sơn', 0, 1, 1415954406, 1415954406, 'vi'),
 (1702, '04945', 'c6', 'vi', '17', '152', 'Hòa Sơn', 0, 1, 1415954406, 1415954406, 'vi'),
 (1703, '04948', 'c6', 'vi', '17', '152', 'Trường Sơn', 0, 1, 1415954406, 1415954406, 'vi'),
@@ -5521,8 +5608,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (2197, '06430', 'c6', 'vi', '20', '186', 'Hòa Lạc', 0, 1, 1415954441, 1415954441, 'vi'),
 (2198, '06433', 'c6', 'vi', '20', '186', 'Vân Nham', 0, 1, 1415954441, 1415954441, 'vi'),
 (2199, '06436', 'c6', 'vi', '20', '186', 'Đồng Tiến', 0, 1, 1415954441, 1415954441, 'vi'),
-(2200, '06439', 'c6', 'vi', '20', '186', 'Đô Lương', 0, 1, 1415954441, 1415954441, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(2200, '06439', 'c6', 'vi', '20', '186', 'Đô Lương', 0, 1, 1415954441, 1415954441, 'vi'),
 (2201, '06442', 'c6', 'vi', '20', '186', 'Tân Thành', 0, 1, 1415954441, 1415954441, 'vi'),
 (2202, '06445', 'c6', 'vi', '20', '186', 'Hòa Sơn', 0, 1, 1415954441, 1415954441, 'vi'),
 (2203, '06448', 'c6', 'vi', '20', '186', 'Minh Sơn', 0, 1, 1415954441, 1415954441, 'vi'),
@@ -5586,7 +5672,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (2261, '06622', 'c6', 'vi', '20', '189', 'Bính Xá', 0, 1, 1415954442, 1415954442, 'vi'),
 (2262, '06625', 'c6', 'vi', '20', '189', 'Kiên Mộc', 0, 1, 1415954442, 1415954442, 'vi'),
 (2263, '06628', 'c6', 'vi', '20', '189', 'Đình Lập', 0, 1, 1415954442, 1415954442, 'vi'),
-(2264, '06631', 'c6', 'vi', '20', '189', 'Thái Bình', 0, 1, 1415954442, 1415954442, 'vi'),
+(2264, '06631', 'c6', 'vi', '20', '189', 'Thái Bình', 0, 1, 1415954442, 1415954442, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (2265, '06634', 'c6', 'vi', '20', '189', 'Cường Lợi', 0, 1, 1415954442, 1415954442, 'vi'),
 (2266, '06637', 'c6', 'vi', '20', '189', 'Châu Sơn', 0, 1, 1415954442, 1415954442, 'vi'),
 (2267, '06640', 'c6', 'vi', '20', '189', 'Lâm Ca', 0, 1, 1415954442, 1415954442, 'vi'),
@@ -6070,8 +6157,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (2745, '08065', 'c6', 'vi', '25', '231', 'Hà Lương', 0, 1, 1415954455, 1415954455, 'vi'),
 (2746, '08068', 'c6', 'vi', '25', '231', 'Lệnh Khanh', 0, 1, 1415954455, 1415954455, 'vi'),
 (2747, '08071', 'c6', 'vi', '25', '231', 'Phụ Khánh', 0, 1, 1415954455, 1415954455, 'vi'),
-(2748, '08074', 'c6', 'vi', '25', '231', 'Liên Phương', 0, 1, 1415954455, 1415954455, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(2748, '08074', 'c6', 'vi', '25', '231', 'Liên Phương', 0, 1, 1415954455, 1415954455, 'vi'),
 (2749, '08077', 'c6', 'vi', '25', '231', 'Đan Thượng', 0, 1, 1415954455, 1415954455, 'vi'),
 (2750, '08080', 'c6', 'vi', '25', '231', 'Hiền Lương', 0, 1, 1415954455, 1415954455, 'vi'),
 (2751, '08083', 'c6', 'vi', '25', '231', 'Động Lâm', 0, 1, 1415954455, 1415954455, 'vi'),
@@ -6151,7 +6237,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (2825, '08299', 'c6', 'vi', '25', '234', 'Lương Sơn', 0, 1, 1415954456, 1415954456, 'vi'),
 (2826, '08302', 'c6', 'vi', '25', '234', 'Xuân An', 0, 1, 1415954456, 1415954456, 'vi'),
 (2827, '08305', 'c6', 'vi', '25', '234', 'Xuân Viên', 0, 1, 1415954456, 1415954456, 'vi'),
-(2828, '08308', 'c6', 'vi', '25', '234', 'Xuân Thủy', 0, 1, 1415954456, 1415954456, 'vi'),
+(2828, '08308', 'c6', 'vi', '25', '234', 'Xuân Thủy', 0, 1, 1415954456, 1415954456, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (2829, '08311', 'c6', 'vi', '25', '234', 'Trung Sơn', 0, 1, 1415954456, 1415954456, 'vi'),
 (2830, '08314', 'c6', 'vi', '25', '234', 'Hưng Long', 0, 1, 1415954456, 1415954456, 'vi'),
 (2831, '08317', 'c6', 'vi', '25', '234', 'Nga Hoàng', 0, 1, 1415954456, 1415954456, 'vi'),
@@ -6619,8 +6706,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (3293, '09682', 'c6', 'vi', '01', '271', 'Tiên Phong', 0, 1, 1415954486, 1415954486, 'vi'),
 (3294, '09685', 'c6', 'vi', '01', '271', 'Thụy An', 0, 1, 1415954486, 1415954486, 'vi'),
 (3295, '09688', 'c6', 'vi', '01', '271', 'Cam Thượng', 0, 1, 1415954486, 1415954486, 'vi'),
-(3296, '09691', 'c6', 'vi', '01', '271', 'Thuần Mỹ', 0, 1, 1415954486, 1415954486, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(3296, '09691', 'c6', 'vi', '01', '271', 'Thuần Mỹ', 0, 1, 1415954486, 1415954486, 'vi'),
 (3297, '09694', 'c6', 'vi', '01', '271', 'Tản Lĩnh', 0, 1, 1415954486, 1415954486, 'vi'),
 (3298, '09697', 'c6', 'vi', '01', '271', 'Ba Trại', 0, 1, 1415954486, 1415954486, 'vi'),
 (3299, '09700', 'c6', 'vi', '01', '271', 'Minh Quang', 0, 1, 1415954486, 1415954486, 'vi'),
@@ -6716,7 +6802,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (3389, '09970', 'c6', 'vi', '01', '276', 'Hương Ngải', 0, 1, 1415954489, 1415954489, 'vi'),
 (3390, '09973', 'c6', 'vi', '01', '276', 'Canh Nậu', 0, 1, 1415954489, 1415954489, 'vi'),
 (3391, '09976', 'c6', 'vi', '01', '276', 'Kim Quan', 0, 1, 1415954489, 1415954489, 'vi'),
-(3392, '09979', 'c6', 'vi', '01', '276', 'Dị Nậu', 0, 1, 1415954489, 1415954489, 'vi'),
+(3392, '09979', 'c6', 'vi', '01', '276', 'Dị Nậu', 0, 1, 1415954489, 1415954489, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (3393, '09982', 'c6', 'vi', '01', '276', 'Bình Yên', 0, 1, 1415954489, 1415954489, 'vi'),
 (3394, '09985', 'c6', 'vi', '01', '276', 'Chàng Sơn', 0, 1, 1415954489, 1415954489, 'vi'),
 (3395, '09988', 'c6', 'vi', '01', '276', 'Thạch Hoà', 0, 1, 1415954489, 1415954489, 'vi'),
@@ -7166,8 +7253,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (3839, '11317', 'c6', 'vi', '31', '303', 'Quang Trung', 0, 1, 1415954502, 1415954502, 'vi'),
 (3840, '11320', 'c6', 'vi', '31', '303', 'Hoàng Văn Thụ', 0, 1, 1415954502, 1415954502, 'vi'),
 (3841, '11323', 'c6', 'vi', '31', '303', 'Phan Bội Châu', 0, 1, 1415954502, 1415954502, 'vi'),
-(3842, '11326', 'c6', 'vi', '31', '303', 'Phạm Hồng Thái', 0, 1, 1415954502, 1415954502, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(3842, '11326', 'c6', 'vi', '31', '303', 'Phạm Hồng Thái', 0, 1, 1415954502, 1415954502, 'vi'),
 (3843, '11329', 'c6', 'vi', '31', '304', 'Máy Chai', 0, 1, 1415954502, 1415954502, 'vi'),
 (3844, '11332', 'c6', 'vi', '31', '304', 'Máy Tơ', 0, 1, 1415954502, 1415954502, 'vi'),
 (3845, '11335', 'c6', 'vi', '31', '304', 'Vạn Mỹ', 0, 1, 1415954502, 1415954502, 'vi'),
@@ -7279,7 +7365,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (3951, '11638', 'c6', 'vi', '31', '313', 'Trường Thành', 0, 1, 1415954506, 1415954506, 'vi'),
 (3952, '11641', 'c6', 'vi', '31', '313', 'An Tiến', 0, 1, 1415954506, 1415954506, 'vi'),
 (3953, '11644', 'c6', 'vi', '31', '313', 'Quang Hưng', 0, 1, 1415954506, 1415954506, 'vi'),
-(3954, '11647', 'c6', 'vi', '31', '313', 'Quang Trung', 0, 1, 1415954506, 1415954506, 'vi'),
+(3954, '11647', 'c6', 'vi', '31', '313', 'Quang Trung', 0, 1, 1415954506, 1415954506, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (3955, '11650', 'c6', 'vi', '31', '313', 'Quốc Tuấn', 0, 1, 1415954506, 1415954506, 'vi'),
 (3956, '11653', 'c6', 'vi', '31', '313', 'An Thắng', 0, 1, 1415954506, 1415954506, 'vi'),
 (3957, '11656', 'c6', 'vi', '31', '313', 'Trường Sơn', 0, 1, 1415954506, 1415954506, 'vi'),
@@ -7713,8 +7800,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (4385, '12934', 'c6', 'vi', '34', '341', 'Thái Phúc', 0, 1, 1415954528, 1415954528, 'vi'),
 (4386, '12937', 'c6', 'vi', '34', '341', 'Thái Hưng', 0, 1, 1415954528, 1415954528, 'vi'),
 (4387, '12940', 'c6', 'vi', '34', '341', 'Thái Đô', 0, 1, 1415954528, 1415954528, 'vi'),
-(4388, '12943', 'c6', 'vi', '34', '341', 'Thái Xuyên', 0, 1, 1415954528, 1415954528, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(4388, '12943', 'c6', 'vi', '34', '341', 'Thái Xuyên', 0, 1, 1415954528, 1415954528, 'vi'),
 (4389, '12946', 'c6', 'vi', '34', '341', 'Thái Hà', 0, 1, 1415954528, 1415954528, 'vi'),
 (4390, '12949', 'c6', 'vi', '34', '341', 'Mỹ Lộc', 0, 1, 1415954528, 1415954528, 'vi'),
 (4391, '12952', 'c6', 'vi', '34', '341', 'Thái Tân', 0, 1, 1415954528, 1415954528, 'vi'),
@@ -7842,7 +7928,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (4513, '13318', 'c6', 'vi', '35', '347', 'Châu Sơn', 0, 1, 1415954532, 1415954532, 'vi'),
 (4514, '13321', 'c6', 'vi', '35', '349', 'Đồng Văn', 0, 1, 1415954532, 1415954532, 'vi'),
 (4515, '13324', 'c6', 'vi', '35', '349', 'Hòa Mạc', 0, 1, 1415954532, 1415954532, 'vi'),
-(4516, '13327', 'c6', 'vi', '35', '349', 'Mộc Bắc', 0, 1, 1415954532, 1415954532, 'vi'),
+(4516, '13327', 'c6', 'vi', '35', '349', 'Mộc Bắc', 0, 1, 1415954532, 1415954532, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (4517, '13330', 'c6', 'vi', '35', '349', 'Châu Giang', 0, 1, 1415954532, 1415954532, 'vi'),
 (4518, '13333', 'c6', 'vi', '35', '349', 'Bạch Thượng', 0, 1, 1415954532, 1415954532, 'vi'),
 (4519, '13336', 'c6', 'vi', '35', '349', 'Duy Minh', 0, 1, 1415954532, 1415954532, 'vi'),
@@ -8263,8 +8350,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (4934, '14575', 'c6', 'vi', '37', '375', 'Khánh An', 0, 1, 1415954547, 1415954547, 'vi'),
 (4935, '14578', 'c6', 'vi', '37', '375', 'Khánh Cường', 0, 1, 1415954547, 1415954547, 'vi'),
 (4936, '14581', 'c6', 'vi', '37', '375', 'Khánh Cư', 0, 1, 1415954547, 1415954547, 'vi'),
-(4937, '14584', 'c6', 'vi', '37', '375', 'Khánh Thiện', 0, 1, 1415954547, 1415954547, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(4937, '14584', 'c6', 'vi', '37', '375', 'Khánh Thiện', 0, 1, 1415954547, 1415954547, 'vi'),
 (4938, '14587', 'c6', 'vi', '37', '375', 'Khánh Hải', 0, 1, 1415954547, 1415954547, 'vi'),
 (4939, '14590', 'c6', 'vi', '37', '375', 'Khánh Trung', 0, 1, 1415954547, 1415954547, 'vi'),
 (4940, '14593', 'c6', 'vi', '37', '375', 'Khánh Mậu', 0, 1, 1415954547, 1415954547, 'vi'),
@@ -8406,7 +8492,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (5076, '14998', 'c6', 'vi', '38', '387', 'Trung Thượng', 0, 1, 1415954564, 1415954564, 'vi'),
 (5077, '14999', 'c6', 'vi', '38', '387', 'Trung Tiến', 0, 1, 1415954564, 1415954564, 'vi'),
 (5078, '15001', 'c6', 'vi', '38', '387', 'Trung Hạ', 0, 1, 1415954564, 1415954564, 'vi'),
-(5079, '15004', 'c6', 'vi', '38', '387', 'Sơn Hà', 0, 1, 1415954564, 1415954564, 'vi'),
+(5079, '15004', 'c6', 'vi', '38', '387', 'Sơn Hà', 0, 1, 1415954564, 1415954564, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (5080, '15007', 'c6', 'vi', '38', '387', 'Tam Thanh', 0, 1, 1415954564, 1415954564, 'vi'),
 (5081, '15010', 'c6', 'vi', '38', '387', 'Sơn Thủy', 0, 1, 1415954564, 1415954564, 'vi'),
 (5082, '15013', 'c6', 'vi', '38', '387', 'Na Mèo', 0, 1, 1415954564, 1415954564, 'vi'),
@@ -8810,8 +8897,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (5480, '16216', 'c6', 'vi', '38', '402', 'Thanh Phong', 0, 1, 1415954577, 1415954577, 'vi'),
 (5481, '16219', 'c6', 'vi', '38', '402', 'Thanh Lâm', 0, 1, 1415954577, 1415954577, 'vi'),
 (5482, '16222', 'c6', 'vi', '38', '402', 'Thanh Sơn', 0, 1, 1415954577, 1415954577, 'vi'),
-(5483, '16225', 'c6', 'vi', '38', '402', 'Thượng Ninh', 0, 1, 1415954577, 1415954577, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(5483, '16225', 'c6', 'vi', '38', '402', 'Thượng Ninh', 0, 1, 1415954577, 1415954577, 'vi'),
 (5484, '16228', 'c6', 'vi', '38', '403', 'Bến Sung', 0, 1, 1415954577, 1415954577, 'vi'),
 (5485, '16231', 'c6', 'vi', '38', '403', 'Cán Khê', 0, 1, 1415954577, 1415954577, 'vi'),
 (5486, '16234', 'c6', 'vi', '38', '403', 'Xuân Du', 0, 1, 1415954577, 1415954577, 'vi'),
@@ -8968,7 +9054,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (5637, '16678', 'c6', 'vi', '40', '412', 'Cửa Nam', 0, 1, 1415954581, 1415954581, 'vi'),
 (5638, '16681', 'c6', 'vi', '40', '412', 'Quang Trung', 0, 1, 1415954581, 1415954581, 'vi'),
 (5639, '16684', 'c6', 'vi', '40', '412', 'Đội Cung', 0, 1, 1415954581, 1415954581, 'vi'),
-(5640, '16687', 'c6', 'vi', '40', '412', 'Lê Mao', 0, 1, 1415954581, 1415954581, 'vi'),
+(5640, '16687', 'c6', 'vi', '40', '412', 'Lê Mao', 0, 1, 1415954581, 1415954581, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (5641, '16690', 'c6', 'vi', '40', '412', 'Trường Thi', 0, 1, 1415954581, 1415954581, 'vi'),
 (5642, '16693', 'c6', 'vi', '40', '412', 'Bến Thủy', 0, 1, 1415954581, 1415954581, 'vi'),
 (5643, '16696', 'c6', 'vi', '40', '412', 'Hồng Sơn', 0, 1, 1415954581, 1415954581, 'vi'),
@@ -9356,8 +9443,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (6025, '17821', 'c6', 'vi', '40', '428', 'Thanh Xuân', 0, 1, 1415954603, 1415954603, 'vi'),
 (6026, '17824', 'c6', 'vi', '40', '428', 'Thanh Đức', 0, 1, 1415954603, 1415954603, 'vi'),
 (6027, '17827', 'c6', 'vi', '40', '429', 'Quán Hành', 0, 1, 1415954603, 1415954603, 'vi'),
-(6028, '17830', 'c6', 'vi', '40', '429', 'Nghi Văn', 0, 1, 1415954603, 1415954603, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(6028, '17830', 'c6', 'vi', '40', '429', 'Nghi Văn', 0, 1, 1415954603, 1415954603, 'vi'),
 (6029, '17833', 'c6', 'vi', '40', '429', 'Nghi Yên', 0, 1, 1415954603, 1415954603, 'vi'),
 (6030, '17836', 'c6', 'vi', '40', '429', 'Nghi Tiến', 0, 1, 1415954603, 1415954603, 'vi'),
 (6031, '17839', 'c6', 'vi', '40', '429', 'Nghi Hưng', 0, 1, 1415954603, 1415954603, 'vi'),
@@ -9531,7 +9617,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (6199, '18337', 'c6', 'vi', '42', '441', 'Hương Điền', 0, 1, 1415954608, 1415954608, 'vi'),
 (6200, '18340', 'c6', 'vi', '42', '441', 'Hương Minh', 0, 1, 1415954608, 1415954608, 'vi'),
 (6201, '18343', 'c6', 'vi', '42', '441', 'Hương Thọ', 0, 1, 1415954608, 1415954608, 'vi'),
-(6202, '18346', 'c6', 'vi', '42', '441', 'Hương Quang', 0, 1, 1415954608, 1415954608, 'vi'),
+(6202, '18346', 'c6', 'vi', '42', '441', 'Hương Quang', 0, 1, 1415954608, 1415954608, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (6203, '18349', 'c6', 'vi', '42', '442', 'Nghi Xuân', 0, 1, 1415954608, 1415954608, 'vi'),
 (6204, '18352', 'c6', 'vi', '42', '442', 'Xuân An', 0, 1, 1415954608, 1415954608, 'vi'),
 (6205, '18355', 'c6', 'vi', '42', '442', 'Xuân Hội', 0, 1, 1415954608, 1415954608, 'vi'),
@@ -9904,8 +9991,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (6572, '19450', 'c6', 'vi', '45', '465', 'Tân Hợp', 0, 1, 1415954617, 1415954617, 'vi'),
 (6573, '19453', 'c6', 'vi', '45', '465', 'Hướng Tân', 0, 1, 1415954617, 1415954617, 'vi'),
 (6574, '19456', 'c6', 'vi', '45', '465', 'Tân Thành', 0, 1, 1415954617, 1415954617, 'vi'),
-(6575, '19459', 'c6', 'vi', '45', '465', 'Tân Long', 0, 1, 1415954617, 1415954617, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(6575, '19459', 'c6', 'vi', '45', '465', 'Tân Long', 0, 1, 1415954617, 1415954617, 'vi'),
 (6576, '19462', 'c6', 'vi', '45', '465', 'Tân Lập', 0, 1, 1415954617, 1415954617, 'vi'),
 (6577, '19465', 'c6', 'vi', '45', '465', 'Tân Liên', 0, 1, 1415954617, 1415954617, 'vi'),
 (6578, '19468', 'c6', 'vi', '45', '465', 'Húc', 0, 1, 1415954617, 1415954617, 'vi'),
@@ -10096,7 +10182,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (6763, '20014', 'c6', 'vi', '46', '480', 'Hương Vinh', 0, 1, 1415954621, 1415954621, 'vi'),
 (6764, '20017', 'c6', 'vi', '46', '480', 'Hương Xuân', 0, 1, 1415954621, 1415954621, 'vi'),
 (6765, '20020', 'c6', 'vi', '46', '480', 'Hương Chữ', 0, 1, 1415954621, 1415954621, 'vi'),
-(6766, '20023', 'c6', 'vi', '46', '480', 'Hương An', 0, 1, 1415954621, 1415954621, 'vi'),
+(6766, '20023', 'c6', 'vi', '46', '480', 'Hương An', 0, 1, 1415954621, 1415954621, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (6767, '20026', 'c6', 'vi', '46', '480', 'Hương Bình', 0, 1, 1415954621, 1415954621, 'vi'),
 (6768, '20029', 'c6', 'vi', '46', '480', 'Hương Hồ', 0, 1, 1415954621, 1415954621, 'vi'),
 (6769, '20032', 'c6', 'vi', '46', '480', 'Hương Thọ', 0, 1, 1415954621, 1415954621, 'vi'),
@@ -10453,8 +10540,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (7120, '21010', 'c6', 'vi', '51', '522', 'Lê Hồng Phong', 0, 1, 1415954642, 1415954642, 'vi'),
 (7121, '21013', 'c6', 'vi', '51', '522', 'Trần Phú', 0, 1, 1415954642, 1415954642, 'vi'),
 (7122, '21016', 'c6', 'vi', '51', '522', 'Quảng Phú', 0, 1, 1415954642, 1415954642, 'vi'),
-(7123, '21019', 'c6', 'vi', '51', '522', 'Nghĩa Chánh', 0, 1, 1415954642, 1415954642, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(7123, '21019', 'c6', 'vi', '51', '522', 'Nghĩa Chánh', 0, 1, 1415954642, 1415954642, 'vi'),
 (7124, '21022', 'c6', 'vi', '51', '522', 'Trần Hưng Đạo', 0, 1, 1415954642, 1415954642, 'vi'),
 (7125, '21025', 'c6', 'vi', '51', '522', 'Nguyễn Nghiêm', 0, 1, 1415954642, 1415954642, 'vi'),
 (7126, '21028', 'c6', 'vi', '51', '522', 'Nghĩa Lộ', 0, 1, 1415954642, 1415954642, 'vi'),
@@ -10660,7 +10746,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (7326, '21613', 'c6', 'vi', '52', '542', 'An Trung', 0, 1, 1415954647, 1415954647, 'vi'),
 (7327, '21616', 'c6', 'vi', '52', '542', 'An Dũng', 0, 1, 1415954647, 1415954647, 'vi'),
 (7328, '21619', 'c6', 'vi', '52', '542', 'An Vinh', 0, 1, 1415954647, 1415954647, 'vi'),
-(7329, '21622', 'c6', 'vi', '52', '542', 'An Toàn', 0, 1, 1415954647, 1415954647, 'vi'),
+(7329, '21622', 'c6', 'vi', '52', '542', 'An Toàn', 0, 1, 1415954647, 1415954647, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (7330, '21625', 'c6', 'vi', '52', '542', 'An Tân', 0, 1, 1415954647, 1415954647, 'vi'),
 (7331, '21628', 'c6', 'vi', '52', '542', 'An Hòa', 0, 1, 1415954647, 1415954647, 'vi'),
 (7332, '21631', 'c6', 'vi', '52', '542', 'An Quang', 0, 1, 1415954647, 1415954647, 'vi'),
@@ -11001,8 +11088,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (7667, '22603', 'c6', 'vi', '56', '572', 'Ninh Ích', 0, 1, 1415954657, 1415954657, 'vi'),
 (7668, '22606', 'c6', 'vi', '56', '572', 'Ninh Vân', 0, 1, 1415954657, 1415954657, 'vi'),
 (7669, '22609', 'c6', 'vi', '56', '573', 'Khánh Vĩnh', 0, 1, 1415954657, 1415954657, 'vi'),
-(7670, '22612', 'c6', 'vi', '56', '573', 'Khánh Hiệp', 0, 1, 1415954657, 1415954657, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(7670, '22612', 'c6', 'vi', '56', '573', 'Khánh Hiệp', 0, 1, 1415954657, 1415954657, 'vi'),
 (7671, '22615', 'c6', 'vi', '56', '573', 'Khánh Bình', 0, 1, 1415954657, 1415954657, 'vi'),
 (7672, '22618', 'c6', 'vi', '56', '573', 'Khánh Trung', 0, 1, 1415954657, 1415954657, 'vi'),
 (7673, '22621', 'c6', 'vi', '56', '573', 'Khánh Đông', 0, 1, 1415954657, 1415954657, 'vi'),
@@ -11223,7 +11309,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (7888, '23234', 'c6', 'vi', '60', '594', 'Tân Thiện', 0, 1, 1415954663, 1415954663, 'vi'),
 (7889, '23235', 'c6', 'vi', '60', '594', 'Tân An', 0, 1, 1415954663, 1415954663, 'vi'),
 (7890, '23236', 'c6', 'vi', '60', '601', 'Tân Nghĩa', 0, 1, 1415954663, 1415954663, 'vi'),
-(7891, '23239', 'c6', 'vi', '60', '601', 'Sông Phan', 0, 1, 1415954663, 1415954663, 'vi'),
+(7891, '23239', 'c6', 'vi', '60', '601', 'Sông Phan', 0, 1, 1415954663, 1415954663, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (7892, '23242', 'c6', 'vi', '60', '601', 'Tân Phúc', 0, 1, 1415954663, 1415954663, 'vi'),
 (7893, '23245', 'c6', 'vi', '60', '594', 'Tân Hải', 0, 1, 1415954663, 1415954663, 'vi'),
 (7894, '23246', 'c6', 'vi', '60', '594', 'Tân Tiến', 0, 1, 1415954663, 1415954663, 'vi'),
@@ -11556,8 +11643,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (8221, '24106', 'c6', 'vi', '64', '637', 'Chư Ngọc', 0, 1, 1415954683, 1415954683, 'vi'),
 (8222, '24109', 'c6', 'vi', '64', '637', 'Uar', 0, 1, 1415954683, 1415954683, 'vi'),
 (8223, '24112', 'c6', 'vi', '64', '637', 'Chư Rcăm', 0, 1, 1415954683, 1415954683, 'vi'),
-(8224, '24115', 'c6', 'vi', '64', '637', 'Krông Năng', 0, 1, 1415954683, 1415954683, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(8224, '24115', 'c6', 'vi', '64', '637', 'Krông Năng', 0, 1, 1415954683, 1415954683, 'vi'),
 (8225, '24118', 'c6', 'vi', '66', '643', 'Tân Lập', 0, 1, 1415954684, 1415954684, 'vi'),
 (8226, '24121', 'c6', 'vi', '66', '643', 'Tân Hoà', 0, 1, 1415954684, 1415954684, 'vi'),
 (8227, '24124', 'c6', 'vi', '66', '643', 'Tân An', 0, 1, 1415954684, 1415954684, 'vi'),
@@ -11793,7 +11879,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (8457, '24721', 'c6', 'vi', '67', '665', 'Nam Bình', 0, 1, 1415954691, 1415954691, 'vi'),
 (8458, '24722', 'c6', 'vi', '67', '665', 'Thuận Hà', 0, 1, 1415954691, 1415954691, 'vi'),
 (8459, '24724', 'c6', 'vi', '67', '665', 'Thuận Hạnh', 0, 1, 1415954691, 1415954691, 'vi'),
-(8460, '24727', 'c6', 'vi', '67', '665', 'Đắk Rung', 0, 1, 1415954691, 1415954691, 'vi'),
+(8460, '24727', 'c6', 'vi', '67', '665', 'Đắk Rung', 0, 1, 1415954691, 1415954691, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (8461, '24728', 'c6', 'vi', '67', '665', 'Nâm N''jang', 0, 1, 1415954691, 1415954691, 'vi'),
 (8462, '24730', 'c6', 'vi', '67', '665', 'Trường Xuân', 0, 1, 1415954691, 1415954691, 'vi'),
 (8463, '24733', 'c6', 'vi', '67', '666', 'Kiến Đức', 0, 1, 1415954691, 1415954691, 'vi'),
@@ -12110,8 +12197,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (8774, '25561', 'c6', 'vi', '72', '707', 'Phước Ninh', 0, 1, 1415954700, 1415954700, 'vi'),
 (8775, '25564', 'c6', 'vi', '72', '707', 'Phước Minh', 0, 1, 1415954700, 1415954700, 'vi'),
 (8776, '25567', 'c6', 'vi', '72', '707', 'Bàu Năng', 0, 1, 1415954700, 1415954700, 'vi'),
-(8777, '25570', 'c6', 'vi', '72', '707', 'Chà Là', 0, 1, 1415954700, 1415954700, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(8777, '25570', 'c6', 'vi', '72', '707', 'Chà Là', 0, 1, 1415954700, 1415954700, 'vi'),
 (8778, '25573', 'c6', 'vi', '72', '707', 'Cầu Khởi', 0, 1, 1415954700, 1415954700, 'vi'),
 (8779, '25576', 'c6', 'vi', '72', '707', 'Bến Củi', 0, 1, 1415954700, 1415954700, 'vi'),
 (8780, '25579', 'c6', 'vi', '72', '707', 'Lộc Ninh', 0, 1, 1415954700, 1415954700, 'vi'),
@@ -12359,7 +12445,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (9022, '26284', 'c6', 'vi', '75', '737', 'Đồi 61', 0, 1, 1415954715, 1415954715, 'vi'),
 (9023, '26287', 'c6', 'vi', '75', '737', 'Hưng Thịnh', 0, 1, 1415954715, 1415954715, 'vi'),
 (9024, '26290', 'c6', 'vi', '75', '737', 'Quảng Tiến', 0, 1, 1415954715, 1415954715, 'vi'),
-(9025, '26293', 'c6', 'vi', '75', '737', 'Giang Điền', 0, 1, 1415954715, 1415954715, 'vi'),
+(9025, '26293', 'c6', 'vi', '75', '737', 'Giang Điền', 0, 1, 1415954715, 1415954715, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (9026, '26296', 'c6', 'vi', '75', '737', 'An Viễn', 0, 1, 1415954715, 1415954715, 'vi'),
 (9027, '26299', 'c6', 'vi', '75', '738', 'Gia Tân 1', 0, 1, 1415954715, 1415954715, 'vi'),
 (9028, '26302', 'c6', 'vi', '75', '738', 'Gia Tân 2', 0, 1, 1415954715, 1415954715, 'vi'),
@@ -12666,8 +12753,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (9329, '27172', 'c6', 'vi', '79', '771', '12', 0, 1, 1415954724, 1415954724, 'vi'),
 (9330, '27175', 'c6', 'vi', '79', '771', '11', 0, 1, 1415954724, 1415954724, 'vi'),
 (9331, '27178', 'c6', 'vi', '79', '771', '10', 0, 1, 1415954724, 1415954724, 'vi'),
-(9332, '27181', 'c6', 'vi', '79', '771', '09', 0, 1, 1415954724, 1415954724, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(9332, '27181', 'c6', 'vi', '79', '771', '09', 0, 1, 1415954724, 1415954724, 'vi'),
 (9333, '27184', 'c6', 'vi', '79', '771', '01', 0, 1, 1415954724, 1415954724, 'vi'),
 (9334, '27187', 'c6', 'vi', '79', '771', '08', 0, 1, 1415954724, 1415954724, 'vi'),
 (9335, '27190', 'c6', 'vi', '79', '771', '02', 0, 1, 1415954724, 1415954724, 'vi'),
@@ -12932,7 +13018,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (9594, '27961', 'c6', 'vi', '80', '802', 'Tân Phú', 0, 1, 1415954733, 1415954733, 'vi'),
 (9595, '27964', 'c6', 'vi', '80', '802', 'Mỹ Hạnh Bắc', 0, 1, 1415954733, 1415954733, 'vi'),
 (9596, '27967', 'c6', 'vi', '80', '802', 'Đức Hòa Thượng', 0, 1, 1415954733, 1415954733, 'vi'),
-(9597, '27970', 'c6', 'vi', '80', '802', 'Hòa Khánh Tây', 0, 1, 1415954733, 1415954733, 'vi'),
+(9597, '27970', 'c6', 'vi', '80', '802', 'Hòa Khánh Tây', 0, 1, 1415954733, 1415954733, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (9598, '27973', 'c6', 'vi', '80', '802', 'Hòa Khánh Đông', 0, 1, 1415954733, 1415954733, 'vi'),
 (9599, '27976', 'c6', 'vi', '80', '802', 'Mỹ Hạnh Nam', 0, 1, 1415954733, 1415954733, 'vi'),
 (9600, '27979', 'c6', 'vi', '80', '802', 'Hòa Khánh Nam', 0, 1, 1415954733, 1415954733, 'vi'),
@@ -13218,8 +13305,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (9880, '28816', 'c6', 'vi', '83', '831', 'Giao Hòa', 0, 1, 1415954741, 1415954741, 'vi'),
 (9881, '28819', 'c6', 'vi', '83', '831', 'Phú Túc', 0, 1, 1415954741, 1415954741, 'vi'),
 (9882, '28822', 'c6', 'vi', '83', '831', 'Phú Đức', 0, 1, 1415954741, 1415954741, 'vi'),
-(9883, '28825', 'c6', 'vi', '83', '831', 'Phú An Hòa', 0, 1, 1415954741, 1415954741, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(9883, '28825', 'c6', 'vi', '83', '831', 'Phú An Hòa', 0, 1, 1415954741, 1415954741, 'vi'),
 (9884, '28828', 'c6', 'vi', '83', '831', 'An Phước', 0, 1, 1415954741, 1415954741, 'vi'),
 (9885, '28831', 'c6', 'vi', '83', '831', 'Tam Phước', 0, 1, 1415954741, 1415954741, 'vi'),
 (9886, '28834', 'c6', 'vi', '83', '831', 'Thành Triệu', 0, 1, 1415954741, 1415954741, 'vi'),
@@ -13494,7 +13580,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (10155, '29626', 'c6', 'vi', '86', '858', 'Mỹ Phước', 0, 1, 1415954791, 1415954791, 'vi'),
 (10156, '29629', 'c6', 'vi', '86', '858', 'An Phước', 0, 1, 1415954791, 1415954791, 'vi'),
 (10157, '29632', 'c6', 'vi', '86', '858', 'Nhơn Phú', 0, 1, 1415954791, 1415954791, 'vi'),
-(10158, '29635', 'c6', 'vi', '86', '858', 'Long Mỹ', 0, 1, 1415954791, 1415954791, 'vi'),
+(10158, '29635', 'c6', 'vi', '86', '858', 'Long Mỹ', 0, 1, 1415954791, 1415954791, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (10159, '29638', 'c6', 'vi', '86', '858', 'Hòa Tịnh', 0, 1, 1415954791, 1415954791, 'vi'),
 (10160, '29641', 'c6', 'vi', '86', '858', 'Chánh Hội', 0, 1, 1415954791, 1415954791, 'vi'),
 (10161, '29644', 'c6', 'vi', '86', '858', 'Bình Phước', 0, 1, 1415954791, 1415954791, 'vi'),
@@ -13760,8 +13847,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (10421, '30391', 'c6', 'vi', '89', '887', 'Long An', 0, 1, 1415954799, 1415954799, 'vi'),
 (10422, '30394', 'c6', 'vi', '89', '887', 'Long Phú', 0, 1, 1415954799, 1415954799, 'vi'),
 (10423, '30397', 'c6', 'vi', '89', '887', 'Châu Phong', 0, 1, 1415954799, 1415954799, 'vi'),
-(10424, '30400', 'c6', 'vi', '89', '887', 'Phú Vĩnh', 0, 1, 1415954799, 1415954799, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(10424, '30400', 'c6', 'vi', '89', '887', 'Phú Vĩnh', 0, 1, 1415954799, 1415954799, 'vi'),
 (10425, '30403', 'c6', 'vi', '89', '887', 'Lê Chánh', 0, 1, 1415954799, 1415954799, 'vi'),
 (10426, '30406', 'c6', 'vi', '89', '888', 'Phú Mỹ', 0, 1, 1415954799, 1415954799, 'vi'),
 (10427, '30409', 'c6', 'vi', '89', '888', 'Chợ Vàm', 0, 1, 1415954799, 1415954799, 'vi'),
@@ -14050,7 +14136,8 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (10710, '31195', 'c6', 'vi', '92', '919', 'Ba Láng', 0, 1, 1415954806, 1415954806, 'vi'),
 (10711, '31198', 'c6', 'vi', '92', '919', 'Thường Thạnh', 0, 1, 1415954806, 1415954806, 'vi'),
 (10712, '31201', 'c6', 'vi', '92', '919', 'Phú Thứ', 0, 1, 1415954806, 1415954806, 'vi'),
-(10713, '31204', 'c6', 'vi', '92', '919', 'Tân Phú', 0, 1, 1415954806, 1415954806, 'vi'),
+(10713, '31204', 'c6', 'vi', '92', '919', 'Tân Phú', 0, 1, 1415954806, 1415954806, 'vi');
+INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (10714, '31207', 'c6', 'vi', '92', '923', 'Thốt Nốt', 0, 1, 1415954806, 1415954806, 'vi'),
 (10715, '31210', 'c6', 'vi', '92', '923', 'Thới Thuận', 0, 1, 1415954806, 1415954806, 'vi'),
 (10716, '31211', 'c6', 'vi', '92', '924', 'Vĩnh Bình', 0, 1, 1415954806, 1415954806, 'vi'),
@@ -14301,8 +14388,7 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 (10961, '31858', 'c6', 'vi', '95', '956', 'Vĩnh Lộc', 0, 1, 1415954812, 1415954812, 'vi'),
 (10962, '31861', 'c6', 'vi', '95', '956', 'Vĩnh Lộc A', 0, 1, 1415954812, 1415954812, 'vi'),
 (10963, '31863', 'c6', 'vi', '95', '956', 'Ninh Thạnh Lợi A', 0, 1, 1415954812, 1415954812, 'vi'),
-(10964, '31864', 'c6', 'vi', '95', '956', 'Ninh Thạnh Lợi', 0, 1, 1415954812, 1415954812, 'vi');
-INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `province_code`, `district_code`, `title`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(10964, '31864', 'c6', 'vi', '95', '956', 'Ninh Thạnh Lợi', 0, 1, 1415954812, 1415954812, 'vi'),
 (10965, '31867', 'c6', 'vi', '95', '957', 'Phước Long', 0, 1, 1415954812, 1415954812, 'vi'),
 (10966, '31870', 'c6', 'vi', '95', '957', 'Vĩnh Phú Đông', 0, 1, 1415954812, 1415954812, 'vi'),
 (10967, '31873', 'c6', 'vi', '95', '957', 'Vĩnh Phú Tây', 0, 1, 1415954812, 1415954812, 'vi'),
@@ -14456,13 +14542,13 @@ INSERT INTO `location_ward` (`id`, `code`, `area_code`, `country_code`, `provinc
 -- Table structure for table `menu`
 --
 
-CREATE TABLE IF NOT EXISTS `menu` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `menu` (
+  `id` int(10) UNSIGNED NOT NULL,
   `menu_id` int(11) NOT NULL,
   `group_id` varchar(20) NOT NULL DEFAULT 'menu_header',
   `menu_nav` varchar(250) NOT NULL,
   `menu_level` tinyint(2) NOT NULL,
-  `parent_id` int(10) unsigned NOT NULL,
+  `parent_id` int(10) UNSIGNED NOT NULL,
   `name_action` varchar(50) NOT NULL,
   `target` varchar(20) NOT NULL DEFAULT '_self',
   `title` varchar(250) NOT NULL,
@@ -14475,11 +14561,10 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `show_act` text NOT NULL,
   `show_order` float NOT NULL,
   `is_show` tinyint(1) NOT NULL,
-  `date_create` int(10) unsigned NOT NULL,
-  `date_update` int(10) unsigned NOT NULL,
-  `lang` varchar(5) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=119 ;
+  `date_create` int(10) UNSIGNED NOT NULL,
+  `date_update` int(10) UNSIGNED NOT NULL,
+  `lang` varchar(5) NOT NULL DEFAULT 'vi'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `menu`
@@ -14488,10 +14573,6 @@ CREATE TABLE IF NOT EXISTS `menu` (
 INSERT INTO `menu` (`id`, `menu_id`, `group_id`, `menu_nav`, `menu_level`, `parent_id`, `name_action`, `target`, `title`, `short`, `link_type`, `link`, `auto_sub`, `lock_title`, `show_mod`, `show_act`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (1, 1, 'menu_header', '1', 1, 0, 'home', '_self', 'Trang chủ', '', 'site', 'trang-chu', '', 0, '', '', 0, 1, 1421140615, 1421140615, 'vi'),
 (2, 1, 'menu_header', '1', 1, 0, 'home', '_self', 'Trang chủ', '', 'site', 'trang-chu', '', 0, '', '', 0, 1, 1421140615, 1421140615, 'en'),
-(33, 33, 'menu_header', '1,33', 2, 1, 'about-item-7', '_self', 'Giới thiệu công ty', '', 'site', 'gioi-thieu-cong-ty.html', '', 0, '', '', 0, 1, 1451996100, 1452009668, 'vi'),
-(34, 33, 'menu_header', '1,33', 2, 1, 'about-item-7', '_self', 'Giới thiệu công ty', '', 'site', '', '', 0, '', '', 0, 1, 1451996100, 1452009668, 'en'),
-(35, 35, 'menu_header', '1,35', 2, 1, 'page-item-9', '_self', 'Nội dung công việc', '', 'site', 'noi-dung-cong-viec.html', '', 0, '', '', 0, 1, 1451996141, 1453016999, 'vi'),
-(36, 35, 'menu_header', '1,35', 2, 1, 'page-item-9', '_self', 'Nội dung công việc', '', 'site', '', '', 0, '', '', 0, 1, 1451996141, 1453016999, 'en'),
 (37, 37, 'menu_header', '1,37', 2, 1, 'page-item-11', '_self', 'Thông tin liên lạc', '', 'site', 'thong-tin-lien-lac.html', '', 0, '', '', 0, 1, 1451996152, 1453017024, 'vi'),
 (38, 37, 'menu_header', '1,37', 2, 1, 'page-item-11', '_self', 'Nội dung công việc', '', 'site', '', '', 0, '', '', 0, 1, 1451996152, 1453017024, 'en'),
 (39, 39, 'menu_header', '39', 1, 0, '1451996168', '_self', 'Du lịch', '', 'site', '', '', 0, '', '', 0, 1, 1451996168, 1453014697, 'vi'),
@@ -14506,8 +14587,6 @@ INSERT INTO `menu` (`id`, `menu_id`, `group_id`, `menu_nav`, `menu_level`, `pare
 (48, 47, 'menu_header', '45,47', 2, 45, 'page-item-17', '_self', 'Trường nhật ngữ', '', 'site', '', '', 0, '', '', 0, 1, 1451996252, 1453017158, 'en'),
 (49, 49, 'menu_header', '45,49', 2, 45, 'page-item-19', '_self', 'Thủ tục hồ sơ du học', '', 'site', 'thu-tuc-ho-so-du-hoc.html', '', 0, '', '', 0, 1, 1451996283, 1453017181, 'vi'),
 (50, 49, 'menu_header', '45,49', 2, 45, 'page-item-19', '_self', 'Thủ tục hồ sơ du học', '', 'site', '', '', 0, '', '', 0, 1, 1451996283, 1453017181, 'en'),
-(51, 51, 'menu_header', '45,51', 2, 45, 'page-item-21', '_self', 'Hổ trợ việc làm nhà ở tại Nhật', '', 'site', 'ho-tro-viec-lam-nha-o-tai-nhat.html', '', 0, '', '', 0, 1, 1451996300, 1453017206, 'vi'),
-(52, 51, 'menu_header', '45,51', 2, 45, 'page-item-21', '_self', 'Hổ trợ việc làm nhà ở tại Nhật', '', 'site', '', '', 0, '', '', 0, 1, 1451996300, 1453017206, 'en'),
 (53, 53, 'menu_header', '53', 1, 0, 'product-group-11', '_self', 'Xuất nhập khẩu', '', 'site', 'xuat-nhap-khau', '', 0, '', '', 0, 1, 1451996321, 1452009470, 'vi'),
 (54, 53, 'menu_header', '53', 1, 0, 'product-group-11', '_self', 'Xuất nhập khẩu', '', 'site', '', '', 0, '', '', 0, 1, 1451996321, 1452009470, 'en'),
 (55, 55, 'menu_header', '53,55', 2, 53, 'product-group-13', '_self', 'Thiết bị công nghiệp', '', 'site', 'thiet-bi-cong-nghiep', '', 0, '', '', 0, 1, 1451996343, 1452009584, 'vi'),
@@ -14516,34 +14595,32 @@ INSERT INTO `menu` (`id`, `menu_id`, `group_id`, `menu_nav`, `menu_level`, `pare
 (58, 57, 'menu_header', '53,57', 2, 53, 'product-group-15', '_self', 'Thiết bị nông nghiệp', '', 'site', '', '', 0, '', '', 0, 1, 1451996352, 1452009570, 'en'),
 (59, 59, 'menu_header', '53,59', 2, 53, 'product-group-17', '_self', 'Xe cơ giới', '', 'site', 'xe-co-gioi', '', 0, '', '', 0, 1, 1451996361, 1452009602, 'vi'),
 (60, 59, 'menu_header', '53,59', 2, 53, 'product-group-17', '_self', 'Xe cơ giới', '', 'site', '', '', 0, '', '', 0, 1, 1451996361, 1452009602, 'en'),
-(61, 61, 'menu_header', '53,61', 2, 53, 'product-group-19', '_self', 'Ngành xây dựng', '', 'site', 'nganh-xay-dung', '', 0, '', '', 0, 1, 1451996370, 1452009500, 'vi'),
-(62, 61, 'menu_header', '53,61', 2, 53, 'product-group-19', '_self', 'Ngành xây dựng', '', 'site', '', '', 0, '', '', 0, 1, 1451996370, 1452009500, 'en'),
+(61, 61, 'menu_header', '53,61', 2, 53, 'product-group-19', '_self', 'Ngành xây dựng', '', 'site', 'nganh-xay-dung', '', 0, '', '', 0, 0, 1451996370, 1452009500, 'vi'),
+(62, 61, 'menu_header', '53,61', 2, 53, 'product-group-19', '_self', 'Ngành xây dựng', '', 'site', '', '', 0, '', '', 0, 0, 1451996370, 1452009500, 'en'),
 (63, 63, 'menu_header', '63', 1, 0, '1451996406', '_self', 'Hơp tác lao động', '', 'site', '', '', 0, '', '', 0, 1, 1451996406, 1451996406, 'vi'),
 (64, 63, 'menu_header', '63', 1, 0, '1451996406', '_self', 'Hơp tác lao động', '', 'site', '', '', 0, '', '', 0, 1, 1451996406, 1451996406, 'en'),
 (65, 65, 'menu_header', '63,65', 2, 63, 'page-item-31', '_self', 'Kỹ sư', '', 'site', 'ky-su.html', '', 0, '', '', 0, 1, 1451996418, 1453017256, 'vi'),
 (66, 65, 'menu_header', '63,65', 2, 63, 'page-item-31', '_self', 'Kỹ sư', '', 'site', '', '', 0, '', '', 0, 1, 1451996418, 1453017256, 'en'),
-(67, 67, 'menu_header', '63,67', 2, 63, 'page-item-33', '_self', 'Tu nghiệp sinh', '', 'site', ' tu-nghiep-sinh.html', '', 0, '', '', 0, 1, 1451996426, 1453017275, 'vi'),
-(68, 67, 'menu_header', '63,67', 2, 63, 'page-item-33', '_self', 'Tu nghiệp sinh', '', 'site', '', '', 0, '', '', 0, 1, 1451996426, 1453017275, 'en'),
-(69, 69, 'menu_header', '69', 1, 0, 'product-group-3', '_self', 'Hàng dân dụng', '', 'site', 'hang-dan-dung', '', 0, '', '', 0, 1, 1451996444, 1452007739, 'vi'),
-(70, 69, 'menu_header', '69', 1, 0, 'product-group-3', '_self', 'Hàng dân dụng', '', 'site', '', '', 0, '', '', 0, 1, 1451996444, 1452007739, 'en'),
-(71, 71, 'menu_header', '69,71', 2, 69, 'product-group-5', '_self', 'Điện thoai', '', 'site', 'dien-thoai', '', 0, '', '', 0, 1, 1451996454, 1452009316, 'vi'),
-(72, 71, 'menu_header', '69,71', 2, 69, 'product-group-5', '_self', 'Điện thoai', '', 'site', '', '', 0, '', '', 0, 1, 1451996454, 1452009316, 'en'),
-(73, 73, 'menu_header', '69,73', 2, 69, 'product-group-7', '_self', 'Máy tính', '', 'site', 'may-tinh', '', 0, '', '', 0, 1, 1451996464, 1452009353, 'vi'),
-(74, 73, 'menu_header', '69,73', 2, 69, 'product-group-7', '_self', 'Máy tính', '', 'site', '', '', 0, '', '', 0, 1, 1451996464, 1452009353, 'en'),
-(75, 75, 'menu_header', '69,75', 2, 69, 'product-group-9', '_self', 'Điện gia dụng', '', 'site', 'dien-gia-dung', '', 0, '', '', 0, 1, 1451996473, 1452009373, 'vi'),
-(76, 75, 'menu_header', '69,75', 2, 69, 'product-group-9', '_self', 'Điện gia dụng', '', 'site', '', '', 0, '', '', 0, 1, 1451996473, 1452009373, 'en'),
+(67, 67, 'menu_header', '63,67', 2, 63, 'page-item-33', '_self', 'Tu nghiệp sinh', '', 'site', ' tu-nghiep-sinh.html', '', 0, '', '', 0, 0, 1451996426, 1453017275, 'vi'),
+(68, 67, 'menu_header', '63,67', 2, 63, 'page-item-33', '_self', 'Tu nghiệp sinh', '', 'site', '', '', 0, '', '', 0, 0, 1451996426, 1453017275, 'en'),
+(69, 69, 'menu_header', '53,69', 2, 53, 'product-group-3', '_self', 'Hàng dân dụng', '', 'site', 'hang-dan-dung', '', 0, '', '', 0, 1, 1451996444, 1474294299, 'vi'),
+(70, 69, 'menu_header', '53,69', 2, 53, 'product-group-3', '_self', 'Hàng dân dụng', '', 'site', '', '', 0, '', '', 0, 1, 1451996444, 1474294299, 'en'),
+(71, 71, 'menu_header', '53,69,71', 3, 69, 'product-group-5', '_self', 'Điện thoai', '', 'site', 'dien-thoai', '', 0, '', '', 0, 1, 1451996454, 1452009316, 'vi'),
+(72, 71, 'menu_header', '53,69,71', 3, 69, 'product-group-5', '_self', 'Điện thoai', '', 'site', '', '', 0, '', '', 0, 1, 1451996454, 1452009316, 'en'),
+(73, 73, 'menu_header', '53,69,73', 3, 69, 'product-group-7', '_self', 'Máy tính', '', 'site', 'may-tinh', '', 0, '', '', 0, 1, 1451996464, 1452009353, 'vi'),
+(74, 73, 'menu_header', '53,69,73', 3, 69, 'product-group-7', '_self', 'Máy tính', '', 'site', '', '', 0, '', '', 0, 1, 1451996464, 1452009353, 'en'),
+(75, 75, 'menu_header', '53,69,75', 3, 69, 'product-group-9', '_self', 'Điện gia dụng', '', 'site', 'dien-gia-dung', '', 0, '', '', 0, 1, 1451996473, 1452009373, 'vi'),
+(76, 75, 'menu_header', '53,69,75', 3, 69, 'product-group-9', '_self', 'Điện gia dụng', '', 'site', '', '', 0, '', '', 0, 1, 1451996473, 1452009373, 'en'),
 (77, 77, 'menu_header', '77', 1, 0, '1451996481', '_self', 'Tư vấn hồ sơ', '', 'site', '', '', 0, '', '', 0, 1, 1451996481, 1453014742, 'vi'),
 (78, 77, 'menu_header', '77', 1, 0, '1451996481', '_self', 'Tư vấn hồ sơ', '', 'site', '', '', 0, '', '', 0, 1, 1451996481, 1453014742, 'en'),
 (79, 79, 'menu_header', '77,79', 2, 77, 'page-item-35', '_self', 'Hỗ trợ lấy nenkin', '', 'site', 'ho-tro-lay-nenkin.html', '', 0, '', '', 0, 1, 1451996495, 1453017306, 'vi'),
 (80, 79, 'menu_header', '77,79', 2, 77, 'page-item-35', '_self', 'Hỗ trợ lấy nenkin', '', 'site', '', '', 0, '', '', 0, 1, 1451996495, 1453017306, 'en'),
-(81, 81, 'menu_header', '77,81', 2, 77, 'page-item-37', '_self', 'Hướng dẫn làm thuế', '', 'site', 'huong-dan-lam-thue.html', '', 0, '', '', 0, 1, 1451996500, 1453017324, 'vi'),
-(82, 81, 'menu_header', '77,81', 2, 77, 'page-item-37', '_self', 'Hướng dẫn làm thuế', '', 'site', '', '', 0, '', '', 0, 1, 1451996500, 1453017324, 'en'),
+(81, 81, 'menu_header', '77,81', 2, 77, 'page-item-37', '_self', 'Hướng dẫn làm thuế', '', 'site', 'huong-dan-lam-thue.html', '', 0, '', '', 0, 0, 1451996500, 1453017324, 'vi'),
+(82, 81, 'menu_header', '77,81', 2, 77, 'page-item-37', '_self', 'Hướng dẫn làm thuế', '', 'site', '', '', 0, '', '', 0, 0, 1451996500, 1453017324, 'en'),
 (83, 83, 'menu_header', '77,83', 2, 77, 'page-item-39', '_self', 'Hướng dẫn xin visa', '', 'site', 'huong-dan-xin-visa.html', '', 0, '', '', 0, 1, 1451996509, 1453017412, 'vi'),
 (84, 83, 'menu_header', '77,83', 2, 77, 'page-item-39', '_self', 'Hướng dẫn xin visa', '', 'site', '', '', 0, '', '', 0, 1, 1451996509, 1453017412, 'en'),
 (85, 85, 'menu_header', '77,85', 2, 77, 'page-item-41', '_self', 'Dịch thuật giáy tờ Viêt Nhật', '', 'site', 'dich-thuat-giay-to-viet-nhat.html', '', 0, '', '', 0, 1, 1451996521, 1453017430, 'vi'),
 (86, 85, 'menu_header', '77,85', 2, 77, 'page-item-41', '_self', 'Dịch thuật giáy tờ Viêt Nhật', '', 'site', '', '', 0, '', '', 0, 1, 1451996521, 1453017430, 'en'),
-(87, 87, 'menu_header', '87', 1, 0, 'news', '_self', 'Thông tin', '', 'site', 'thong-tin', '', 0, '', '', 0, 0, 1451996534, 1452417208, 'vi'),
-(88, 87, 'menu_header', '87', 1, 0, 'news', '_self', 'Thông tin', '', 'site', '', '', 0, '', '', 0, 0, 1451996534, 1452417208, 'en'),
 (89, 89, 'menu_header', '89', 1, 0, 'contact', '_self', 'Liên hệ', '', 'site', 'lien-he', '', 0, '', '', 0, 1, 1452000466, 1453014771, 'vi'),
 (90, 89, 'menu_header', '89', 1, 0, 'contact', '_self', 'Liên hệ', '', 'site', '', '', 0, '', '', 0, 1, 1452000466, 1453014771, 'en'),
 (91, 91, 'menu_footer', '91', 1, 0, 'page-item-43', '_self', 'Hướng dẫn thanh toán', '', 'site', 'huong-dan-thanh-toan.html', '', 0, '', '', 0, 1, 1452408729, 1453018933, 'vi'),
@@ -14558,22 +14635,36 @@ INSERT INTO `menu` (`id`, `menu_id`, `group_id`, `menu_nav`, `menu_level`, `pare
 (100, 99, 'menu_footer', '99', 1, 0, 'contact', '_self', 'Liên hệ', '', 'site', 'lien-he', '', 0, '', '', 0, 1, 1452408766, 1452408766, 'en'),
 (101, 101, 'menu_footer', '101', 1, 0, 'page-item-49', '_self', 'Tuyển dụng', '', 'site', 'tuyen-dung.html', '', 0, '', '', 0, 1, 1452408774, 1453018877, 'vi'),
 (102, 101, 'menu_footer', '101', 1, 0, 'page-item-49', '_self', 'Tuyển dụng', '', 'site', '', '', 0, '', '', 0, 1, 1452408774, 1453018877, 'en'),
-(103, 103, 'menu_header', '103', 1, 0, 'news', '_self', 'Thông Tin', '', 'site', 'thong-tin', '', 0, '', '', 0, 1, 1452417393, 1453014646, 'vi'),
-(104, 103, 'menu_header', '103', 1, 0, 'news', '_self', 'Tin Tức', '', 'site', 'tin-tuc2', '', 0, '', '', 0, 1, 1452417393, 1453014646, 'en'),
-(105, 105, 'menu_header', '39,105', 2, 39, 'page-group-15', '_self', 'Tour', '', 'site', 'tour', '', 0, '', '', 0, 0, 1456150969, 1456150969, 'vi'),
-(106, 105, 'menu_header', '39,105', 2, 39, 'page-group-15', '_self', 'Tour', '', 'site', 'tour-osaka-nara-kobe-kyoto-phusi-tokyo2', '', 0, '', '', 0, 0, 1456150969, 1456150969, 'en'),
-(107, 107, 'menu_header', '39,107', 2, 39, 'page-item-51', '_self', 'Tour osaka-nara-kobe-kyoto-phusi-tokyo', '', 'site', 'tour-osaka-nara-kobe-kyoto-phusi-tokyo.html', '', 0, '', '', 0, 1, 1456151122, 1456151122, 'vi'),
-(108, 107, 'menu_header', '39,107', 2, 39, 'page-item-51', '_self', 'Tour osaka-nara-kobe-kyoto-phusi-tokyo', '', 'site', 'tour-osaka-nara-kobe-kyoto-phusi-tokyo1.html', '', 0, '', '', 0, 1, 1456151122, 1456151122, 'en'),
-(109, 109, 'menu_header', '39,109', 2, 39, 'page-item-53', '_self', 'Tour osaka-nara-kobe-tokyo', '', 'site', 'tour-osaka-nara-kobe-tokyo.html', '', 0, '', '', 0, 1, 1456154038, 1456154038, 'vi'),
-(110, 109, 'menu_header', '39,109', 2, 39, 'page-item-53', '_self', 'Tour osaka-nara-kobe-tokyo', '', 'site', 'tour-osaka-nara-kobe-tokyo1.html', '', 0, '', '', 0, 1, 1456154038, 1456154038, 'en'),
-(111, 111, 'menu_header', '39,111', 2, 39, 'page-item-55', '_self', 'TOUR HOMESTAY (OSAKA-KOBE-NARA-KYOTO-HOKKAIDO-TOKYO-NUI PHUSI-TOKYO)', '', 'site', 'tour-homestay-osaka-kobe-nara-kyoto-hokkaido-tokyo-nui-phusi-tokyo.html', '', 0, '', '', 0, 1, 1456154050, 1456154050, 'vi'),
-(112, 111, 'menu_header', '39,111', 2, 39, 'page-item-55', '_self', 'TOUR HOMESTAY (OSAKA-KOBE-NARA-KYOTO-HOKKAIDO-TOKYO-NUI PHUSI-TOKYO)', '', 'site', 'tour-homestay-osaka-kobe-nara-kyoto-hokkaido-tokyo-nui-phusi-tokyo1.html', '', 0, '', '', 0, 1, 1456154050, 1456154050, 'en'),
-(113, 113, 'menu_header', '39,113', 2, 39, 'page-item-57', '_self', 'Lâu đài osaka', '', 'site', 'lau-dai-osaka.html', '', 0, '', '', 0, 1, 1456154057, 1456154057, 'vi'),
-(114, 113, 'menu_header', '39,113', 2, 39, 'page-item-57', '_self', 'Lâu đài osaka', '', 'site', 'lau-dai-osaka1.html', '', 0, '', '', 0, 1, 1456154057, 1456154057, 'en'),
-(115, 115, 'menu_header', '45,115', 2, 45, 'page-item-59', '_self', 'Du học Nhật ngữ', '', 'site', 'du-hoc-nhat-ngu.html', '', 0, '', '', 0, 1, 1458355428, 1458355428, 'vi'),
-(116, 115, 'menu_header', '45,115', 2, 45, 'page-item-59', '_self', 'Du học Nhật ngữ', '', 'site', 'du-hoc-nhat-ngu1.html', '', 0, '', '', 0, 1, 1458355428, 1458355428, 'en'),
-(117, 117, 'menu_header', '45,117', 2, 45, 'page-item-61', '_self', 'Kỹ thuật viên làm việc tại Nhật', '', 'site', 'ky-thuat-vien-lam-viec-tai-nhat.html', '', 0, '', '', 0, 1, 1458355841, 1458355841, 'vi'),
-(118, 117, 'menu_header', '45,117', 2, 45, 'page-item-61', '_self', 'Kỹ thuật viên làm việc tại Nhật', '', 'site', 'ky-thuat-vien-lam-viec-tai-nhat1.html', '', 0, '', '', 0, 1, 1458355841, 1458355841, 'en');
+(103, 103, 'menu_header', '103', 1, 0, 'news', '_self', 'Tin tức', '', 'site', 'tin-tuc', '', 0, '', '', 0, 1, 1452417393, 1482556641, 'vi'),
+(104, 103, 'menu_header', '103', 1, 0, 'news', '_self', 'Tin Tức', '', 'site', 'tin-tuc2', '', 0, '', '', 0, 1, 1452417393, 1482556641, 'en'),
+(107, 107, 'menu_header', '39,107', 2, 39, 'page-item-51', '_self', 'Tour osaka-nara-kobe-kyoto-phusi-tokyo', '', 'site', 'tour-osaka-nara-kobe-kyoto-phusi-tokyo.html', '', 0, '', '', 0, 0, 1456151122, 1456151122, 'vi'),
+(108, 107, 'menu_header', '39,107', 2, 39, 'page-item-51', '_self', 'Tour osaka-nara-kobe-kyoto-phusi-tokyo', '', 'site', 'tour-osaka-nara-kobe-kyoto-phusi-tokyo1.html', '', 0, '', '', 0, 0, 1456151122, 1456151122, 'en'),
+(109, 109, 'menu_header', '39,109', 2, 39, 'page-item-53', '_self', 'Tour osaka-nara-kobe-tokyo', '', 'site', 'tour-osaka-nara-kobe-tokyo.html', '', 0, '', '', 0, 0, 1456154038, 1456154038, 'vi'),
+(110, 109, 'menu_header', '39,109', 2, 39, 'page-item-53', '_self', 'Tour osaka-nara-kobe-tokyo', '', 'site', 'tour-osaka-nara-kobe-tokyo1.html', '', 0, '', '', 0, 0, 1456154038, 1456154038, 'en'),
+(111, 111, 'menu_header', '39,111', 2, 39, 'page-item-55', '_self', 'TOUR HOMESTAY (OSAKA-KOBE-NARA-KYOTO-HOKKAIDO-TOKYO-NUI PHUSI-TOKYO)', '', 'site', 'tour-homestay-osaka-kobe-nara-kyoto-hokkaido-tokyo-nui-phusi-tokyo.html', '', 0, '', '', 0, 0, 1456154050, 1456154050, 'vi'),
+(112, 111, 'menu_header', '39,111', 2, 39, 'page-item-55', '_self', 'TOUR HOMESTAY (OSAKA-KOBE-NARA-KYOTO-HOKKAIDO-TOKYO-NUI PHUSI-TOKYO)', '', 'site', 'tour-homestay-osaka-kobe-nara-kyoto-hokkaido-tokyo-nui-phusi-tokyo1.html', '', 0, '', '', 0, 0, 1456154050, 1456154050, 'en'),
+(113, 113, 'menu_header', '39,113', 2, 39, 'page-item-57', '_self', 'Lâu đài osaka', '', 'site', 'lau-dai-osaka.html', '', 0, '', '', 0, 0, 1456154057, 1456154057, 'vi'),
+(114, 113, 'menu_header', '39,113', 2, 39, 'page-item-57', '_self', 'Lâu đài osaka', '', 'site', 'lau-dai-osaka1.html', '', 0, '', '', 0, 0, 1456154057, 1456154057, 'en'),
+(115, 115, 'menu_header', '45,115', 2, 45, 'page-item-59', '_self', 'Du học Nhật ngữ', '', 'site', 'du-hoc-nhat-ngu.html', '', 0, '', '', 0, 0, 1458355428, 1458355428, 'vi'),
+(116, 115, 'menu_header', '45,115', 2, 45, 'page-item-59', '_self', 'Du học Nhật ngữ', '', 'site', 'du-hoc-nhat-ngu1.html', '', 0, '', '', 0, 0, 1458355428, 1458355428, 'en'),
+(119, 119, 'menu_header', '1,119', 2, 1, 'page-item-63', '_self', 'Hoạt động chính', '', 'site', 'hoat-dong-chinh.html', '', 1, '', '', 0, 0, 1461171053, 1461171053, 'vi'),
+(120, 119, 'menu_header', '1,119', 2, 1, 'page-item-63', '_self', 'Hoạt động chính', '', 'site', 'hoat-dong-chinh1.html', '', 1, '', '', 0, 0, 1461171053, 1461171053, 'en'),
+(121, 121, 'menu_header', '1,121', 2, 1, 'page-item-65', '_self', 'Giới thiệu công ty', '', 'site', 'gioi-thieu-cong-ty-4.html', '', 0, '', '', 1, 1, 1482552230, 1482552230, 'vi'),
+(122, 121, 'menu_header', '1,121', 2, 1, 'page-item-65', '_self', 'Giới thiệu công ty', '', 'site', 'gioi-thieu-cong-ty-5.html', '', 0, '', '', 1, 1, 1482552230, 1482552230, 'en'),
+(123, 123, 'menu_header', '39,41,123', 3, 41, 'page-item-55', '_self', 'TOUR HOMESTAY (OSAKA-KOBE-NARA-KYOTO-HOKKAIDO-TOKYO-NUI PHUSI-TOKYO)', '', 'site', 'tour-homestay-osaka-kobe-nara-kyoto-hokkaido-tokyo-nui-phusi-tokyo.html', '', 0, '', '', 0, 1, 1482553005, 1482553005, 'vi'),
+(124, 123, 'menu_header', '39,41,123', 3, 41, 'page-item-55', '_self', 'TOUR HOMESTAY (OSAKA-KOBE-NARA-KYOTO-HOKKAIDO-TOKYO-NUI PHUSI-TOKYO)', '', 'site', 'tour-homestay-osaka-kobe-nara-kyoto-hokkaido-tokyo-nui-phusi-tokyo1.html', '', 0, '', '', 0, 1, 1482553005, 1482553005, 'en'),
+(125, 125, 'menu_header', '39,41,125', 3, 41, 'page-item-53', '_self', 'Tour osaka-nara-kobe-tokyo', '', 'site', 'tour-osaka-nara-kobe-tokyo.html', '', 0, '', '', 0, 1, 1482553114, 1482553114, 'vi'),
+(126, 125, 'menu_header', '39,41,125', 3, 41, 'page-item-53', '_self', 'Tour osaka-nara-kobe-tokyo', '', 'site', 'tour-osaka-nara-kobe-tokyo1.html', '', 0, '', '', 0, 1, 1482553114, 1482553114, 'en'),
+(127, 127, 'menu_header', '39,41,127', 3, 41, 'page-item-51', '_self', 'Tour osaka-nara-kobe-kyoto-phusi-tokyo', '', 'site', 'tour-osaka-nara-kobe-kyoto-phusi-tokyo.html', '', 0, '', '', 0, 1, 1482553138, 1482553138, 'vi'),
+(128, 127, 'menu_header', '39,41,127', 3, 41, 'page-item-51', '_self', 'Tour osaka-nara-kobe-kyoto-phusi-tokyo', '', 'site', 'tour-osaka-nara-kobe-kyoto-phusi-tokyo1.html', '', 0, '', '', 0, 1, 1482553138, 1482553138, 'en'),
+(129, 129, 'menu_header', '39,41,129', 3, 41, 'page-item-57', '_self', 'Lâu đài osaka', '', 'site', 'lau-dai-osaka.html', '', 0, '', '', 0, 1, 1482553153, 1482553153, 'vi'),
+(130, 129, 'menu_header', '39,41,129', 3, 41, 'page-item-57', '_self', 'Lâu đài osaka', '', 'site', 'lau-dai-osaka1.html', '', 0, '', '', 0, 1, 1482553153, 1482553153, 'en'),
+(131, 131, 'menu_header', '45,131', 2, 45, 'page-item-67', '_self', 'Câu hỏi thường gặp phỏng vấn', '', 'site', 'cau-hoi-thuong-gap-phong-van.html', '', 0, '', '', 0, 1, 1482556066, 1482556066, 'vi'),
+(132, 131, 'menu_header', '45,131', 2, 45, 'page-item-67', '_self', 'Câu hỏi thường gặp phỏng vấn', '', 'site', 'cau-hoi-thuong-gap-phong-van1.html', '', 0, '', '', 0, 1, 1482556066, 1482556066, 'en'),
+(133, 133, 'menu_header', '63,133', 2, 63, 'page-item-69', '_self', 'Thông dịch viên', '', 'site', 'thong-dich-vien.html', '', 0, '', '', 0, 1, 1482556476, 1482556476, 'vi'),
+(134, 133, 'menu_header', '63,133', 2, 63, 'page-item-69', '_self', 'Thông dịch viên', '', 'site', 'thong-dich-vien1.html', '', 0, '', '', 0, 1, 1482556476, 1482556476, 'en'),
+(135, 135, 'menu_header', '39,135', 2, 39, 'dang-ki-tour-tu-chon', '_self', 'Đăng kí tour tự chọn', '', 'site', 'dang-ki-tour-tu-chon', '', 0, '', '', 0, 1, 1482854451, 1482854451, 'vi'),
+(136, 135, 'menu_header', '39,135', 2, 39, 'dang-ki-tour-tu-chon', '_self', 'Đăng kí tour tự chọn', '', 'site', 'dang-ki-tour-tu-chon', '', 0, '', '', 0, 1, 1482854451, 1482854451, 'en');
 
 -- --------------------------------------------------------
 
@@ -14581,15 +14672,14 @@ INSERT INTO `menu` (`id`, `menu_id`, `group_id`, `menu_nav`, `menu_level`, `pare
 -- Table structure for table `modules`
 --
 
-CREATE TABLE IF NOT EXISTS `modules` (
-  `mod_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `modules` (
+  `mod_id` int(10) UNSIGNED NOT NULL,
   `name_action` varchar(50) NOT NULL,
   `arr_title` text NOT NULL,
   `arr_friendly_link` text NOT NULL,
   `show_order` int(11) NOT NULL,
-  `is_show` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`mod_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+  `is_show` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `modules`
@@ -14604,7 +14694,8 @@ INSERT INTO `modules` (`mod_id`, `name_action`, `arr_title`, `arr_friendly_link`
 (9, 'service', 'a:2:{s:2:"vi";s:7:"Service";s:2:"en";s:7:"Service";}', 'a:2:{s:2:"vi";s:7:"dich-vu";s:2:"en";s:7:"service";}', 0, 1),
 (10, 'project', 'a:2:{s:2:"vi";s:8:"Dự án";s:2:"en";s:7:"Project";}', 'a:2:{s:2:"vi";s:5:"du-an";s:2:"en";s:7:"project";}', 0, 1),
 (11, 'product', 'a:2:{s:2:"vi";s:12:"Sản phẩm";s:2:"en";s:12:"Sản phẩm";}', 'a:2:{s:2:"vi";s:8:"san-pham";s:2:"en";s:9:"san-pham1";}', 0, 1),
-(12, 'news', 'a:2:{s:2:"vi";s:10:"Thông Tin";s:2:"en";s:9:"Tin Tức";}', 'a:2:{s:2:"vi";s:9:"thong-tin";s:2:"en";s:10:"thong-tin1";}', 0, 1);
+(12, 'news', 'a:2:{s:2:"vi";s:10:"Thông Tin";s:2:"en";s:9:"Tin Tức";}', 'a:2:{s:2:"vi";s:9:"thong-tin";s:2:"en";s:10:"thong-tin1";}', 0, 1),
+(13, 'comment', 'a:2:{s:2:"vi";s:7:"Comment";s:2:"en";s:7:"Comment";}', 'a:2:{s:2:"vi";s:7:"comment";s:2:"en";s:8:"comment1";}', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -14612,11 +14703,11 @@ INSERT INTO `modules` (`mod_id`, `name_action`, `arr_title`, `arr_friendly_link`
 -- Table structure for table `news`
 --
 
-CREATE TABLE IF NOT EXISTS `news` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `news` (
+  `id` int(10) UNSIGNED NOT NULL,
   `item_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
-  `group_id` int(10) unsigned NOT NULL,
+  `group_id` int(10) UNSIGNED NOT NULL,
   `group_related` text NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -14632,9 +14723,8 @@ CREATE TABLE IF NOT EXISTS `news` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `news`
@@ -14643,16 +14733,48 @@ CREATE TABLE IF NOT EXISTS `news` (
 INSERT INTO `news` (`id`, `item_id`, `group_nav`, `group_id`, `group_related`, `picture`, `title`, `short`, `content`, `friendly_link`, `meta_title`, `meta_key`, `meta_desc`, `is_focus`, `is_focus_group`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (1, 1, '1', 1, '1', 'news/2015_03/blue_glow_green_background_04_vector_158357.jpg', 'Công Ty TNHH Sống Vui', '&lt;p&gt;sadadas&lt;/p&gt;', '&lt;p&gt;asdasdas&lt;/p&gt;', 'cong-ty-tnhh-song-vui', 'Công Ty TNHH Sống Vui | Cong Ty TNHH Song Vui', 'Công Ty TNHH Sống Vui, Cong Ty TNHH Song Vui', 'asdasdas', 0, 0, 0, 0, 1425358483, 1425358483, 'vi'),
 (2, 1, '1', 1, '1', 'news/2015_03/blue_glow_green_background_04_vector_158357.jpg', 'Công Ty TNHH Sống Vui', '&lt;p&gt;sadadas&lt;/p&gt;', '&lt;p&gt;asdasdas&lt;/p&gt;', 'cong-ty-tnhh-song-vui-1', 'Công Ty TNHH Sống Vui | Cong Ty TNHH Song Vui', 'Công Ty TNHH Sống Vui, Cong Ty TNHH Song Vui', 'asdasdas', 0, 0, 0, 0, 1425358483, 1425358483, 'en'),
-(3, 3, '', 0, '', 'news/2016_01/0112-03.png', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG', '', '&lt;p&gt;Chọn chậu rửa ph&amp;ugrave; hợp với kh&amp;ocirc;ng gian v&amp;agrave; phục vụ hiệu quả cho việc nấu nướng l&amp;agrave; mục đ&amp;iacute;ch chung của nhiều gia chủ khi l&amp;ecirc;n &amp;yacute; tưởng thiết kế khu bếp.&lt;br /&gt;C&amp;aacute;c chuy&amp;ecirc;n gia đến từ Hafele (Đức) vẫn thường nhận được những thắc mắc như &quot;Chọn chậu rửa với độ s&amp;acirc;u bao nhi&amp;ecirc;u th&amp;igrave; ph&amp;ugrave; hợp?&quot;, &quot;V&amp;ograve;i rửa loại n&amp;agrave;o sẽ kh&amp;ocirc;ng bị r&amp;ograve; rỉ nước?&quot;, &amp;ldquo;L&amp;agrave;m sao để tiết kiệm thời gian khi chuẩn bị m&amp;oacute;n ăn?&amp;rdquo; v&amp;agrave; h&amp;agrave;ng loạt những c&amp;acirc;u hỏi kh&amp;aacute;c li&amp;ecirc;n quan đến khu vực chuẩn bị, dọn rửa, nơi bố tr&amp;iacute; bồn rửa v&amp;agrave; v&amp;ograve;i bếp.&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Để giải đ&amp;aacute;p những băn khoăn ấy, c&amp;aacute;c chuy&amp;ecirc;n gia Hafele đưa ra những lời khuy&amp;ecirc;n hữu &amp;iacute;ch sau đ&amp;acirc;y.&lt;/p&gt;\r\n&lt;p&gt;Chậu rửa&lt;/p&gt;\r\n&lt;p&gt;Về chất liệu, chậu rửa n&amp;ecirc;n chọn th&amp;eacute;p kh&amp;ocirc;ng gỉ. Đ&amp;acirc;y l&amp;agrave; lựa chọn th&amp;ocirc;ng dụng hiện nay với vẻ đẹp vượt thời gian, ưu điểm chịu nhiệt tốt v&amp;agrave; vệ sinh dễ d&amp;agrave;ng. Ngo&amp;agrave;i ra, nếu gia chủ đầu tư hơn một ch&amp;uacute;t, chậu rửa bằng đ&amp;aacute; Granite với độ bền cao, thiết kế tinh tế sẽ g&amp;oacute;p phần mang lại vẻ sang trọng cho ng&amp;ocirc;i nh&amp;agrave; của bạn&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-01.jpg?v=1448982594829&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Chậu rửa Granite sang trọng v&amp;agrave; tinh tế.&lt;/p&gt;\r\n&lt;p&gt;Về k&amp;iacute;ch thước, chậu rửa thường c&amp;oacute; hai loại l&amp;agrave; chậu đơn v&amp;agrave; chậu đ&amp;ocirc;i. Chậu đơn thường c&amp;oacute; k&amp;iacute;ch thước rộng v&amp;agrave; s&amp;acirc;u gi&amp;uacute;p bạn ng&amp;acirc;m v&amp;agrave; rửa thực phẩm hay ch&amp;eacute;n b&amp;aacute;t với số lượng lớn. Nếu b&amp;agrave;n bếp của bạn c&amp;ograve;n khoảng trống từ 870mm trở l&amp;ecirc;n, bạn cũng c&amp;oacute; thể chọn chậu đ&amp;ocirc;i để tăng th&amp;ecirc;m kh&amp;ocirc;ng gian, việc dọn rửa dễ d&amp;agrave;ng, thoải m&amp;aacute;i hơn. B&amp;ecirc;n cạnh đ&amp;oacute;, chiều s&amp;acirc;u trung b&amp;igrave;nh từ 180mm - 250mm l&amp;agrave; k&amp;iacute;ch thước l&amp;yacute; tưởng được nghi&amp;ecirc;n cứu v&amp;agrave; &amp;aacute;p dụng cho c&amp;aacute;c loại chậu rửa hiện nay.&lt;/p&gt;\r\n&lt;p&gt;V&amp;ograve;i rửa&lt;/p&gt;\r\n&lt;p&gt;Ngo&amp;agrave;i c&amp;aacute;c loại v&amp;ograve;i truyền thống, nhiều loại v&amp;ograve;i hiện đại cũng được thiết kế với khả năng k&amp;eacute;o d&amp;agrave;i đầu v&amp;ograve;i, cho ph&amp;eacute;p linh hoạt điều chỉnh v&amp;ograve;i tới vị tr&amp;iacute; bạn mong muốn.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-02.png?v=1448982698836&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;V&amp;ograve;i bếp được sản xuất với ti&amp;ecirc;u chuẩn Đức c&amp;oacute; độ bền cao. Sản phẩm c&amp;oacute; b&amp;aacute;n tại showroom Hafele to&amp;agrave;n quốc.&lt;/p&gt;\r\n&lt;p&gt;Y&amp;ecirc;u cầu về &amp;aacute;p lực nước của v&amp;ograve;i, c&amp;aacute;c chuy&amp;ecirc;n gia khuy&amp;ecirc;n d&amp;ograve;ng chảy tối thiểu của v&amp;ograve;i phải đạt từ 0.5 tới 1.0 bar (đơn vị đo &amp;aacute;p suất). Nếu thấp hơn, nước sẽ chỉ nhỏ giọt ra khỏi v&amp;ograve;i, khiến bạn tốn nhiều thời gian v&amp;agrave; c&amp;ocirc;ng sức hơn cho dọn rửa. Tuy nhi&amp;ecirc;n cũng đừng chọn loại v&amp;ograve;i c&amp;oacute; &amp;aacute;p suất qu&amp;aacute; cao (tr&amp;ecirc;n 10 bar) nếu bạn kh&amp;ocirc;ng muốn nước bắn tung t&amp;oacute;e trong bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Bạn n&amp;ecirc;n thiết kế v&amp;ograve;i rửa ph&amp;ugrave; hợp với phong c&amp;aacute;ch bếp. Đối với bếp truyền thống đa số sử dụng loại v&amp;ograve;i tr&amp;ograve;n. Với bếp hiện đại, v&amp;ograve;i thiết kế kiểu c&amp;aacute;ch v&amp;agrave; tinh tế sẽ l&amp;agrave;m nổi bật kh&amp;ocirc;ng gian bếp hơn.&lt;/p&gt;\r\n&lt;p&gt;Về gi&amp;aacute; cả, những v&amp;ograve;i rửa chất lượng thấp sẽ l&amp;agrave;m tăng khả năng g&amp;acirc;y ra c&amp;aacute;c sự cố r&amp;ograve; rỉ nước. V&amp;igrave; vậy, đừng ngại đầu tư một chiếc v&amp;ograve;i đạt chuẩn với tuổi thọ d&amp;agrave;i v&amp;agrave; chất lượng tốt gi&amp;uacute;p bạn tiết kiệm chi ph&amp;iacute; thay thế.&lt;/p&gt;\r\n&lt;p&gt;Ngăn k&amp;eacute;o th&amp;ocirc;ng minh dưới bồn rửa&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-03.png?v=1448982892490&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Ray hộp Tandembox tiện dụng cho ngăn k&amp;eacute;o dưới bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Kh&amp;ocirc;ng gian ngay dưới bồn rửa v&amp;agrave; v&amp;ograve;i bếp thường bị l&amp;atilde;ng qu&amp;ecirc;n, &amp;iacute;t khi được sử dụng hiệu quả. Ray hộp Tandembox của Blum d&amp;agrave;nh cho ngăn k&amp;eacute;o dưới bồn rửa sẽ gi&amp;uacute;p bạn tận dụng tốt kh&amp;ocirc;ng gian n&amp;agrave;y, sắp xếp c&amp;aacute;c dụng cụ dọn rửa gọn g&amp;agrave;ng v&amp;agrave; tiện lợi hơn.&lt;/p&gt;\r\n&lt;div class=&quot;clear&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;div class=&quot;si-share noborder clearfix&quot;&gt;Chia sẻ:&lt;/div&gt;', 'thiet-ke-khu-bep-sang-trong-am-ceng', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG | THIET KE KHU BEP SANG TRONG, AM CENG', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG, THIET KE KHU BEP SANG TRONG, AM CENG', 'Chọn chậu rửa phù hợp với không gian và phục vụ hiệu quả cho việc nấu nướng là mục đích chung của nhiều gia chủ khi lên...', 0, 0, 0, 1, 1452417535, 1452420684, 'vi'),
-(4, 3, '', 0, '', 'news/2016_01/0112-03.png', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG', '', '&lt;p&gt;Chọn chậu rửa ph&amp;ugrave; hợp với kh&amp;ocirc;ng gian v&amp;agrave; phục vụ hiệu quả cho việc nấu nướng l&amp;agrave; mục đ&amp;iacute;ch chung của nhiều gia chủ khi l&amp;ecirc;n &amp;yacute; tưởng thiết kế khu bếp.&lt;br /&gt;C&amp;aacute;c chuy&amp;ecirc;n gia đến từ Hafele (Đức) vẫn thường nhận được những thắc mắc như &quot;Chọn chậu rửa với độ s&amp;acirc;u bao nhi&amp;ecirc;u th&amp;igrave; ph&amp;ugrave; hợp?&quot;, &quot;V&amp;ograve;i rửa loại n&amp;agrave;o sẽ kh&amp;ocirc;ng bị r&amp;ograve; rỉ nước?&quot;, &amp;ldquo;L&amp;agrave;m sao để tiết kiệm thời gian khi chuẩn bị m&amp;oacute;n ăn?&amp;rdquo; v&amp;agrave; h&amp;agrave;ng loạt những c&amp;acirc;u hỏi kh&amp;aacute;c li&amp;ecirc;n quan đến khu vực chuẩn bị, dọn rửa, nơi bố tr&amp;iacute; bồn rửa v&amp;agrave; v&amp;ograve;i bếp.&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Để giải đ&amp;aacute;p những băn khoăn ấy, c&amp;aacute;c chuy&amp;ecirc;n gia Hafele đưa ra những lời khuy&amp;ecirc;n hữu &amp;iacute;ch sau đ&amp;acirc;y.&lt;/p&gt;\r\n&lt;p&gt;Chậu rửa&lt;/p&gt;\r\n&lt;p&gt;Về chất liệu, chậu rửa n&amp;ecirc;n chọn th&amp;eacute;p kh&amp;ocirc;ng gỉ. Đ&amp;acirc;y l&amp;agrave; lựa chọn th&amp;ocirc;ng dụng hiện nay với vẻ đẹp vượt thời gian, ưu điểm chịu nhiệt tốt v&amp;agrave; vệ sinh dễ d&amp;agrave;ng. Ngo&amp;agrave;i ra, nếu gia chủ đầu tư hơn một ch&amp;uacute;t, chậu rửa bằng đ&amp;aacute; Granite với độ bền cao, thiết kế tinh tế sẽ g&amp;oacute;p phần mang lại vẻ sang trọng cho ng&amp;ocirc;i nh&amp;agrave; của bạn&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-01.jpg?v=1448982594829&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Chậu rửa Granite sang trọng v&amp;agrave; tinh tế.&lt;/p&gt;\r\n&lt;p&gt;Về k&amp;iacute;ch thước, chậu rửa thường c&amp;oacute; hai loại l&amp;agrave; chậu đơn v&amp;agrave; chậu đ&amp;ocirc;i. Chậu đơn thường c&amp;oacute; k&amp;iacute;ch thước rộng v&amp;agrave; s&amp;acirc;u gi&amp;uacute;p bạn ng&amp;acirc;m v&amp;agrave; rửa thực phẩm hay ch&amp;eacute;n b&amp;aacute;t với số lượng lớn. Nếu b&amp;agrave;n bếp của bạn c&amp;ograve;n khoảng trống từ 870mm trở l&amp;ecirc;n, bạn cũng c&amp;oacute; thể chọn chậu đ&amp;ocirc;i để tăng th&amp;ecirc;m kh&amp;ocirc;ng gian, việc dọn rửa dễ d&amp;agrave;ng, thoải m&amp;aacute;i hơn. B&amp;ecirc;n cạnh đ&amp;oacute;, chiều s&amp;acirc;u trung b&amp;igrave;nh từ 180mm - 250mm l&amp;agrave; k&amp;iacute;ch thước l&amp;yacute; tưởng được nghi&amp;ecirc;n cứu v&amp;agrave; &amp;aacute;p dụng cho c&amp;aacute;c loại chậu rửa hiện nay.&lt;/p&gt;\r\n&lt;p&gt;V&amp;ograve;i rửa&lt;/p&gt;\r\n&lt;p&gt;Ngo&amp;agrave;i c&amp;aacute;c loại v&amp;ograve;i truyền thống, nhiều loại v&amp;ograve;i hiện đại cũng được thiết kế với khả năng k&amp;eacute;o d&amp;agrave;i đầu v&amp;ograve;i, cho ph&amp;eacute;p linh hoạt điều chỉnh v&amp;ograve;i tới vị tr&amp;iacute; bạn mong muốn.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-02.png?v=1448982698836&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;V&amp;ograve;i bếp được sản xuất với ti&amp;ecirc;u chuẩn Đức c&amp;oacute; độ bền cao. Sản phẩm c&amp;oacute; b&amp;aacute;n tại showroom Hafele to&amp;agrave;n quốc.&lt;/p&gt;\r\n&lt;p&gt;Y&amp;ecirc;u cầu về &amp;aacute;p lực nước của v&amp;ograve;i, c&amp;aacute;c chuy&amp;ecirc;n gia khuy&amp;ecirc;n d&amp;ograve;ng chảy tối thiểu của v&amp;ograve;i phải đạt từ 0.5 tới 1.0 bar (đơn vị đo &amp;aacute;p suất). Nếu thấp hơn, nước sẽ chỉ nhỏ giọt ra khỏi v&amp;ograve;i, khiến bạn tốn nhiều thời gian v&amp;agrave; c&amp;ocirc;ng sức hơn cho dọn rửa. Tuy nhi&amp;ecirc;n cũng đừng chọn loại v&amp;ograve;i c&amp;oacute; &amp;aacute;p suất qu&amp;aacute; cao (tr&amp;ecirc;n 10 bar) nếu bạn kh&amp;ocirc;ng muốn nước bắn tung t&amp;oacute;e trong bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Bạn n&amp;ecirc;n thiết kế v&amp;ograve;i rửa ph&amp;ugrave; hợp với phong c&amp;aacute;ch bếp. Đối với bếp truyền thống đa số sử dụng loại v&amp;ograve;i tr&amp;ograve;n. Với bếp hiện đại, v&amp;ograve;i thiết kế kiểu c&amp;aacute;ch v&amp;agrave; tinh tế sẽ l&amp;agrave;m nổi bật kh&amp;ocirc;ng gian bếp hơn.&lt;/p&gt;\r\n&lt;p&gt;Về gi&amp;aacute; cả, những v&amp;ograve;i rửa chất lượng thấp sẽ l&amp;agrave;m tăng khả năng g&amp;acirc;y ra c&amp;aacute;c sự cố r&amp;ograve; rỉ nước. V&amp;igrave; vậy, đừng ngại đầu tư một chiếc v&amp;ograve;i đạt chuẩn với tuổi thọ d&amp;agrave;i v&amp;agrave; chất lượng tốt gi&amp;uacute;p bạn tiết kiệm chi ph&amp;iacute; thay thế.&lt;/p&gt;\r\n&lt;p&gt;Ngăn k&amp;eacute;o th&amp;ocirc;ng minh dưới bồn rửa&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-03.png?v=1448982892490&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Ray hộp Tandembox tiện dụng cho ngăn k&amp;eacute;o dưới bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Kh&amp;ocirc;ng gian ngay dưới bồn rửa v&amp;agrave; v&amp;ograve;i bếp thường bị l&amp;atilde;ng qu&amp;ecirc;n, &amp;iacute;t khi được sử dụng hiệu quả. Ray hộp Tandembox của Blum d&amp;agrave;nh cho ngăn k&amp;eacute;o dưới bồn rửa sẽ gi&amp;uacute;p bạn tận dụng tốt kh&amp;ocirc;ng gian n&amp;agrave;y, sắp xếp c&amp;aacute;c dụng cụ dọn rửa gọn g&amp;agrave;ng v&amp;agrave; tiện lợi hơn.&lt;/p&gt;\r\n&lt;div class=&quot;clear&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;div class=&quot;si-share noborder clearfix&quot;&gt;Chia sẻ:&lt;/div&gt;', 'thiet-ke-khu-bep-sang-trong-am-ceng1', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG | THIET KE KHU BEP SANG TRONG, AM CENG', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG, THIET KE KHU BEP SANG TRONG, AM CENG', 'Chọn chậu rửa ph&ugrave; hợp với kh&ocirc;ng gian v&agrave; phục vụ hiệu quả cho việc nấu nướng l&agrave; mục đ&iacute;ch chung của nhiều gia chủ khi l&ecirc;n...', 0, 0, 0, 1, 1452417535, 1452420684, 'en'),
-(5, 5, '', 0, '', 'news/2016_01/untitled-7-4065-1447125363.jpg', 'CÁC CHUNG CƯ THIẾT KẾ ĐẸP LẠ KHIẾN NHIỀU NGƯỜI MÊ', '', '&lt;p&gt;Khu nh&amp;agrave; giống tr&amp;ograve; chơi xếp gạch của trẻ, phủ k&amp;iacute;n c&amp;acirc;y xanh hay lấy cảm hứng từ đ&amp;aacute;m m&amp;acirc;y, tảng băng... đem lại cảm gi&amp;aacute;c th&amp;iacute;ch th&amp;uacute; cho nhiều người.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/untitled-7-4065-1447125363.jpg?v=1448720738819&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Tại Festival Kiến tr&amp;uacute;c Thế giới, khu nh&amp;agrave; The Interlace (Singapore) được vinh danh l&amp;agrave; C&amp;ocirc;ng tr&amp;igrave;nh đẹp nhất năm. &amp;nbsp;Nh&amp;igrave;n từ tr&amp;ecirc;n cao, chung cư n&amp;agrave;y tr&amp;ocirc;ng giống như tr&amp;ograve; chơi xếp gạch Lego của trẻ nhỏ. Ảnh: Domusweb.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/nha1-5594-1447125364.jpg?v=1448720761840&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Khu nh&amp;agrave; ở Đan Mạch lấy cảm hứng từ c&amp;aacute;c tảng băng gồm c&amp;aacute;c căn hộ c&amp;oacute; diện t&amp;iacute;ch từ 55 tới 227 m2. Ảnh: Designboom.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/chungcccu1-3945-1448072496.jpg?v=1448720788620&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Cao ốc 65 tầng c&amp;oacute; thiết kế như c&amp;aacute;c đ&amp;aacute;m m&amp;acirc;y trắng với bể bơi, c&amp;acirc;y xanh giữa c&amp;aacute;c tầng. Đ&amp;acirc;y l&amp;agrave; một dự &amp;aacute;n của Hiệp hội Kiến tr&amp;uacute;c sư Kazakhstan. (Xem cả nh&amp;agrave;). Ảnh: Inhabitat.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/nhachungcu1a-9787-1448072496.jpg?v=1448720813033&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;C&amp;ocirc;ng tr&amp;igrave;nh ở Stockholm (Thụy Điển) do Bjarke Ingels Group thiết kế kh&amp;ocirc;ng chỉ độc đ&amp;aacute;o về kiến tr&amp;uacute;c với h&amp;igrave;nh ảnh bậc thang m&amp;agrave; c&amp;ograve;n bắt mắt nhờ c&amp;acirc;y xanh được trồng tr&amp;ecirc;n m&amp;aacute;i. Ảnh: Designboom.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/nha2-3109-1447125364.jpg?v=1448720849146&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;T&amp;ograve;a th&amp;aacute;p đ&amp;ocirc;i Bosco Verticale (Rừng thẳng đứng) ở Milan (Italy) g&amp;acirc;y x&amp;ocirc;n xao với h&amp;agrave;ng trăm c&amp;acirc;y xanh khắp c&amp;aacute;c tầng, m&amp;aacute;i nh&amp;agrave;, gi&amp;uacute;p lọc kh&amp;ocirc;ng kh&amp;iacute;, l&amp;agrave;m đẹp th&amp;agrave;nh phố. (Xem cả nh&amp;agrave;). Ảnh: Bored Panda.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/nha-6-1505-1447125364.jpg?v=1448720900183&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Sau khi ho&amp;agrave;n th&amp;agrave;nh c&amp;ocirc;ng tr&amp;igrave;nh ở Italy, c&amp;ocirc;ng ty Stefano Boeri Architetti tiếp tục l&amp;agrave;m th&amp;ecirc;m t&amp;ograve;a th&amp;aacute;p c&amp;acirc;y ở Lausanne (Thụy Sĩ). D&amp;ugrave; mặt bằng nhỏ nhưng lượng c&amp;acirc;y ở đ&amp;acirc;y phủ xanh diện t&amp;iacute;ch 3.000 m2 v&amp;agrave; vẫn đảm bảo những khoảng th&amp;ocirc;ng tho&amp;aacute;ng cho c&amp;aacute;c căn hộ. (Xem cả nh&amp;agrave;). Ảnh: Inhabitat.&lt;/p&gt;', 'cac-chung-cu-thiet-ke-dep-la-khien-nhieu-nguoi-me', 'CÁC CHUNG CƯ THIẾT KẾ ĐẸP LẠ KHIẾN NHIỀU NGƯỜI MÊ | CAC CHUNG CU THIET KE DEP LA KHIEN NHIEU NGUOI ME', 'CÁC CHUNG CƯ THIẾT KẾ ĐẸP LẠ KHIẾN NHIỀU NGƯỜI MÊ, CAC CHUNG CU THIET KE DEP LA KHIEN NHIEU NGUOI ME', 'Khu nhà giống trò chơi xếp gạch của trẻ, phủ kín cây xanh hay lấy cảm hứng từ đám mây, tảng băng... đem lại cảm giác...', 0, 0, 0, 1, 1452417589, 1452420725, 'vi'),
-(6, 5, '', 0, '', 'news/2016_01/untitled-7-4065-1447125363.jpg', 'CÁC CHUNG CƯ THIẾT KẾ ĐẸP LẠ KHIẾN NHIỀU NGƯỜI MÊ', '', '&lt;p&gt;Khu nh&amp;agrave; giống tr&amp;ograve; chơi xếp gạch của trẻ, phủ k&amp;iacute;n c&amp;acirc;y xanh hay lấy cảm hứng từ đ&amp;aacute;m m&amp;acirc;y, tảng băng... đem lại cảm gi&amp;aacute;c th&amp;iacute;ch th&amp;uacute; cho nhiều người.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;Tại Festival Kiến tr&amp;uacute;c Thế giới, khu nh&amp;agrave; The Interlace (Singapore) được vinh danh l&amp;agrave; C&amp;ocirc;ng tr&amp;igrave;nh đẹp nhất năm. Nh&amp;igrave;n từ tr&amp;ecirc;n cao, chung cư n&amp;agrave;y tr&amp;ocirc;ng giống như tr&amp;ograve; chơi xếp gạch Lego của trẻ nhỏ. Ảnh: Domusweb.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;Khu nh&amp;agrave; ở Đan Mạch lấy cảm hứng từ c&amp;aacute;c tảng băng gồm c&amp;aacute;c căn hộ c&amp;oacute; diện t&amp;iacute;ch từ 55 tới 227 m2. Ảnh: Designboom.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;Cao ốc 65 tầng c&amp;oacute; thiết kế như c&amp;aacute;c đ&amp;aacute;m m&amp;acirc;y trắng với bể bơi, c&amp;acirc;y xanh giữa c&amp;aacute;c tầng. Đ&amp;acirc;y l&amp;agrave; một dự &amp;aacute;n của Hiệp hội Kiến tr&amp;uacute;c sư Kazakhstan. (Xem cả nh&amp;agrave;). Ảnh: Inhabitat.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;C&amp;ocirc;ng tr&amp;igrave;nh ở Stockholm (Thụy Điển) do Bjarke Ingels Group thiết kế kh&amp;ocirc;ng chỉ độc đ&amp;aacute;o về kiến tr&amp;uacute;c với h&amp;igrave;nh ảnh bậc thang m&amp;agrave; c&amp;ograve;n bắt mắt nhờ c&amp;acirc;y xanh được trồng tr&amp;ecirc;n m&amp;aacute;i. Ảnh: Designboom.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;T&amp;ograve;a th&amp;aacute;p đ&amp;ocirc;i Bosco Verticale (Rừng thẳng đứng) ở Milan (Italy) g&amp;acirc;y x&amp;ocirc;n xao với h&amp;agrave;ng trăm c&amp;acirc;y xanh khắp c&amp;aacute;c tầng, m&amp;aacute;i nh&amp;agrave;, gi&amp;uacute;p lọc kh&amp;ocirc;ng kh&amp;iacute;, l&amp;agrave;m đẹp th&amp;agrave;nh phố. (Xem cả nh&amp;agrave;). Ảnh: Bored Panda.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Sau khi ho&amp;agrave;n th&amp;agrave;nh c&amp;ocirc;ng tr&amp;igrave;nh ở Italy, c&amp;ocirc;ng ty Stefano Boeri Architetti tiếp tục l&amp;agrave;m th&amp;ecirc;m t&amp;ograve;a th&amp;aacute;p c&amp;acirc;y ở Lausanne (Thụy Sĩ). D&amp;ugrave; mặt bằng nhỏ nhưng lượng c&amp;acirc;y ở đ&amp;acirc;y phủ xanh diện t&amp;iacute;ch 3.000 m2 v&amp;agrave; vẫn đảm bảo những khoảng th&amp;ocirc;ng tho&amp;aacute;ng cho c&amp;aacute;c căn hộ. (Xem cả nh&amp;agrave;). Ảnh: Inhabitat.&lt;/p&gt;', 'cac-chung-cu-thiet-ke-dep-la-khien-nhieu-nguoi-me1', 'CÁC CHUNG CƯ THIẾT KẾ ĐẸP LẠ KHIẾN NHIỀU NGƯỜI MÊ | CAC CHUNG CU THIET KE DEP LA KHIEN NHIEU NGUOI ME', 'CÁC CHUNG CƯ THIẾT KẾ ĐẸP LẠ KHIẾN NHIỀU NGƯỜI MÊ, CAC CHUNG CU THIET KE DEP LA KHIEN NHIEU NGUOI ME', 'Khu nh&agrave; giống tr&ograve; chơi xếp gạch của trẻ, phủ k&iacute;n c&acirc;y xanh hay lấy cảm hứng từ đ&aacute;m m&acirc;y, tảng băng... đem lại cảm gi&aacute;c...', 0, 0, 0, 1, 1452417589, 1452420725, 'en'),
-(7, 7, '', 0, '', 'news/2016_01/c-1-1448443170-660x0.jpg', 'NHÀ ỐNG 50 M2 CÓ CÁCH BỐ TRÍ ĐẢO NGƯỢC', '', '&lt;p&gt;Ph&amp;ograve;ng ngủ được bố tr&amp;iacute; ở tầng một c&amp;ograve;n kh&amp;ocirc;ng gian sinh hoạt chung lại nằm ở tầng 2.&lt;br /&gt;Nữ chủ nh&amp;agrave; ở Sao Paulo (Brazil) mua ng&amp;ocirc;i nh&amp;agrave; đ&amp;atilde; xuống cấp v&amp;agrave; tiến h&amp;agrave;nh cải tạo lại. C&amp;ocirc; sống một m&amp;igrave;nh n&amp;ecirc;n muốn nơi ở vừa đ&amp;aacute;p ứng cuộc sống hiện nay vừa đ&amp;aacute;p ứng nhu cầu trong tương lai.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/c-1-1448443170-660x0.jpg?v=1448720510040&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Bởi vậy, chủ nh&amp;agrave; muốn tầng một l&amp;agrave; kh&amp;ocirc;ng gian ri&amp;ecirc;ng tư (ph&amp;ograve;ng ngủ, WC) được sử dụng nhiều hơn trong thời gian hiện tại. Tầng 2 l&amp;agrave; khu sinh hoạt chung gồm ph&amp;ograve;ng kh&amp;aacute;ch, bếp ăn.&lt;/p&gt;\r\n&lt;p&gt;Ở tầng một, kiến tr&amp;uacute;c sư bố tr&amp;iacute; một khoảng diện t&amp;iacute;ch l&amp;agrave;m s&amp;acirc;n vườn gi&amp;uacute;p cho cả ph&amp;ograve;ng ngủ, khu WC đều được th&amp;ocirc;ng tho&amp;aacute;ng. Chủ nh&amp;agrave; trồng c&amp;aacute;c c&amp;acirc;y treo tường gi&amp;uacute;p tiết kiệm diện t&amp;iacute;ch mặt s&amp;agrave;n.&lt;br /&gt;Tầng 2 l&amp;agrave; kh&amp;ocirc;ng gian th&amp;uacute; vị khi kiến tr&amp;uacute;c sư kết hợp giữa c&amp;aacute;i cũ v&amp;agrave; c&amp;aacute;i mới. Ở đ&amp;acirc;y c&amp;oacute; sự tương phản giữa mảng tường gạch th&amp;ocirc; với c&amp;aacute;c bức tường, trần nh&amp;agrave;, s&amp;agrave;n v&amp;agrave; cả nội thất s&amp;aacute;ng m&amp;agrave;u, trau chuốt.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/d-1-1448443171-660x0.jpg?v=1448720567578&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Từ cửa sổ tầng 2 c&amp;oacute; thể nh&amp;igrave;n ra khung cảnh xanh mướt b&amp;ecirc;n ngo&amp;agrave;i n&amp;ecirc;n người thiết kế tạo ra khung gỗ rộng c&amp;oacute; thể ngồi b&amp;ecirc;n cửa sổ thư gi&amp;atilde;n.&amp;nbsp;&lt;/p&gt;', 'nha-ong-50-m2-co-cach-bo-tri-dao-nguoc', 'NHÀ ỐNG 50 M2 CÓ CÁCH BỐ TRÍ ĐẢO NGƯỢC | NHA ONG 50 M2 CO CACH BO TRI DAO NGUOC', 'NHÀ ỐNG 50 M2 CÓ CÁCH BỐ TRÍ ĐẢO NGƯỢC, NHA ONG 50 M2 CO CACH BO TRI DAO NGUOC', 'Phòng ngủ được bố trí ở tầng một còn không gian sinh hoạt chung lại nằm ở tầng 2.Nữ chủ nhà ở Sao Paulo (Brazil) mua ngôi...', 0, 0, 0, 1, 1452417626, 1452420739, 'vi'),
-(8, 7, '', 0, '', 'news/2016_01/c-1-1448443170-660x0.jpg', 'NHÀ ỐNG 50 M2 CÓ CÁCH BỐ TRÍ ĐẢO NGƯỢC', '', '&lt;p&gt;Ph&amp;ograve;ng ngủ được bố tr&amp;iacute; ở tầng một c&amp;ograve;n kh&amp;ocirc;ng gian sinh hoạt chung lại nằm ở tầng 2.&lt;br /&gt;Nữ chủ nh&amp;agrave; ở Sao Paulo (Brazil) mua ng&amp;ocirc;i nh&amp;agrave; đ&amp;atilde; xuống cấp v&amp;agrave; tiến h&amp;agrave;nh cải tạo lại. C&amp;ocirc; sống một m&amp;igrave;nh n&amp;ecirc;n muốn nơi ở vừa đ&amp;aacute;p ứng cuộc sống hiện nay vừa đ&amp;aacute;p ứng nhu cầu trong tương lai.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/c-1-1448443170-660x0.jpg?v=1448720510040&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Bởi vậy, chủ nh&amp;agrave; muốn tầng một l&amp;agrave; kh&amp;ocirc;ng gian ri&amp;ecirc;ng tư (ph&amp;ograve;ng ngủ, WC) được sử dụng nhiều hơn trong thời gian hiện tại. Tầng 2 l&amp;agrave; khu sinh hoạt chung gồm ph&amp;ograve;ng kh&amp;aacute;ch, bếp ăn.&lt;/p&gt;\r\n&lt;p&gt;Ở tầng một, kiến tr&amp;uacute;c sư bố tr&amp;iacute; một khoảng diện t&amp;iacute;ch l&amp;agrave;m s&amp;acirc;n vườn gi&amp;uacute;p cho cả ph&amp;ograve;ng ngủ, khu WC đều được th&amp;ocirc;ng tho&amp;aacute;ng. Chủ nh&amp;agrave; trồng c&amp;aacute;c c&amp;acirc;y treo tường gi&amp;uacute;p tiết kiệm diện t&amp;iacute;ch mặt s&amp;agrave;n.&lt;br /&gt;Tầng 2 l&amp;agrave; kh&amp;ocirc;ng gian th&amp;uacute; vị khi kiến tr&amp;uacute;c sư kết hợp giữa c&amp;aacute;i cũ v&amp;agrave; c&amp;aacute;i mới. Ở đ&amp;acirc;y c&amp;oacute; sự tương phản giữa mảng tường gạch th&amp;ocirc; với c&amp;aacute;c bức tường, trần nh&amp;agrave;, s&amp;agrave;n v&amp;agrave; cả nội thất s&amp;aacute;ng m&amp;agrave;u, trau chuốt.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/d-1-1448443171-660x0.jpg?v=1448720567578&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Từ cửa sổ tầng 2 c&amp;oacute; thể nh&amp;igrave;n ra khung cảnh xanh mướt b&amp;ecirc;n ngo&amp;agrave;i n&amp;ecirc;n người thiết kế tạo ra khung gỗ rộng c&amp;oacute; thể ngồi b&amp;ecirc;n cửa sổ thư gi&amp;atilde;n.&amp;nbsp;&lt;/p&gt;', 'nha-ong-50-m2-co-cach-bo-tri-dao-nguoc1', 'NHÀ ỐNG 50 M2 CÓ CÁCH BỐ TRÍ ĐẢO NGƯỢC | NHA ONG 50 M2 CO CACH BO TRI DAO NGUOC', 'NHÀ ỐNG 50 M2 CÓ CÁCH BỐ TRÍ ĐẢO NGƯỢC, NHA ONG 50 M2 CO CACH BO TRI DAO NGUOC', 'Ph&ograve;ng ngủ được bố tr&iacute; ở tầng một c&ograve;n kh&ocirc;ng gian sinh hoạt chung lại nằm ở tầng 2.Nữ chủ nh&agrave; ở Sao Paulo (Brazil) mua ng&ocirc;i...', 0, 0, 0, 1, 1452417626, 1452420739, 'en'),
-(9, 9, '', 0, '', 'news/2016_01/0-6328-1448418103.jpg', 'KHU VƯỜN XANH NGÁT TRÊN MÁI CHUNG CƯ KHIẾN HÀNG XÓM NỔI GIẬN', '', '&lt;p&gt;Chủ nh&amp;agrave; c&amp;oacute; thể uống tr&amp;agrave; giữa vườn hoa đẹp rực rỡ, đủ rau ăn quanh năm, nhưng h&amp;agrave;ng x&amp;oacute;m ph&amp;agrave;n n&amp;agrave;n nh&amp;agrave; bị dột.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0-6328-1448418103.jpg?v=1448694381149&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;Ocirc;ng Gao (68 tuổi) sống tr&amp;ecirc;n tầng 6 của một khu nh&amp;agrave; chung cư ở Dongcheng (Bắc Kinh, Trung Quốc) v&amp;agrave; l&amp;agrave;m vườn tr&amp;ecirc;n m&amp;aacute;i nh&amp;agrave; được 5 năm.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/1-8055-1448418103.jpg?v=1448694409232&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Cấu tr&amp;uacute;c của nh&amp;agrave; gồm nhiều m&amp;aacute;i dốc, ban c&amp;ocirc;ng n&amp;ecirc;n &amp;ocirc;ng Gao c&amp;oacute; thể tạo lập được khu vườn giống như khu rừng với nhiều tầng c&amp;acirc;y.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/2a-6378-1448418103.jpg?v=1448694440952&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Chi ph&amp;iacute; đầu tư v&amp;agrave;o khu vườn đ&amp;atilde; l&amp;ecirc;n tới 50.000 tệ (176 triệu đồng).&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/3-1-3043-1448418104.jpg?v=1448694476995&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Kh&amp;ocirc;ng chỉ quan t&amp;acirc;m tới việc trồng c&amp;acirc;y, &amp;ocirc;ng Gao c&amp;ograve;n thiết kế ra kh&amp;ocirc;ng gian ngồi thư gi&amp;atilde;n, ngắm cảnh giữa vườn hoa nở rực rỡ.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/5-6049-1448418105.jpg?v=1448694520705&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Tuy nhi&amp;ecirc;n, 18 hộ gia đ&amp;igrave;nh sống trong khu nh&amp;agrave; đều ph&amp;agrave;n n&amp;agrave;n rằng khu vườn tr&amp;ecirc;n m&amp;aacute;i đ&amp;atilde; l&amp;agrave;m nh&amp;agrave; họ hư hỏng v&amp;agrave; g&amp;acirc;y mất an to&amp;agrave;n.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/7-3418-1448418105.jpg?v=1448694553209&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Nhiều người cho biết, m&amp;aacute;i bị dột v&amp;agrave; nước thấm v&amp;agrave;o nh&amp;agrave; ng&amp;agrave;y c&amp;agrave;ng nghi&amp;ecirc;m trọng. C&amp;oacute; gia đ&amp;igrave;nh bị nước thấm v&amp;agrave;o nh&amp;agrave; tắm, bếp, l&amp;agrave;m hỏng gạo, bột.&lt;/p&gt;', 'khu-vuon-xanh-ngat-tren-mai-chung-cu-khien-hang-xom-noi-gian', 'KHU VƯỜN XANH NGÁT TRÊN MÁI CHUNG CƯ KHIẾN HÀNG XÓM NỔI GIẬN | KHU VUON XANH NGAT TREN MAI CHUNG CU KHIEN HANG XOM NOI GIAN', 'KHU VƯỜN XANH NGÁT TRÊN MÁI CHUNG CƯ KHIẾN HÀNG XÓM NỔI GIẬN, KHU VUON XANH NGAT TREN MAI CHUNG CU KHIEN HANG XOM NOI GIAN', 'Chủ nhà có thể uống trà giữa vườn hoa đẹp rực rỡ, đủ rau ăn quanh năm, nhưng hàng xóm phàn nàn nhà bị...', 0, 0, 0, 1, 1452417656, 1452420748, 'vi'),
-(10, 9, '', 0, '', 'news/2016_01/0-6328-1448418103.jpg', 'KHU VƯỜN XANH NGÁT TRÊN MÁI CHUNG CƯ KHIẾN HÀNG XÓM NỔI GIẬN', '', '&lt;p&gt;Chủ nh&amp;agrave; c&amp;oacute; thể uống tr&amp;agrave; giữa vườn hoa đẹp rực rỡ, đủ rau ăn quanh năm, nhưng h&amp;agrave;ng x&amp;oacute;m ph&amp;agrave;n n&amp;agrave;n nh&amp;agrave; bị dột.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0-6328-1448418103.jpg?v=1448694381149&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;Ocirc;ng Gao (68 tuổi) sống tr&amp;ecirc;n tầng 6 của một khu nh&amp;agrave; chung cư ở Dongcheng (Bắc Kinh, Trung Quốc) v&amp;agrave; l&amp;agrave;m vườn tr&amp;ecirc;n m&amp;aacute;i nh&amp;agrave; được 5 năm.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/1-8055-1448418103.jpg?v=1448694409232&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Cấu tr&amp;uacute;c của nh&amp;agrave; gồm nhiều m&amp;aacute;i dốc, ban c&amp;ocirc;ng n&amp;ecirc;n &amp;ocirc;ng Gao c&amp;oacute; thể tạo lập được khu vườn giống như khu rừng với nhiều tầng c&amp;acirc;y.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/2a-6378-1448418103.jpg?v=1448694440952&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Chi ph&amp;iacute; đầu tư v&amp;agrave;o khu vườn đ&amp;atilde; l&amp;ecirc;n tới 50.000 tệ (176 triệu đồng).&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/3-1-3043-1448418104.jpg?v=1448694476995&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Kh&amp;ocirc;ng chỉ quan t&amp;acirc;m tới việc trồng c&amp;acirc;y, &amp;ocirc;ng Gao c&amp;ograve;n thiết kế ra kh&amp;ocirc;ng gian ngồi thư gi&amp;atilde;n, ngắm cảnh giữa vườn hoa nở rực rỡ.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/5-6049-1448418105.jpg?v=1448694520705&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Tuy nhi&amp;ecirc;n, 18 hộ gia đ&amp;igrave;nh sống trong khu nh&amp;agrave; đều ph&amp;agrave;n n&amp;agrave;n rằng khu vườn tr&amp;ecirc;n m&amp;aacute;i đ&amp;atilde; l&amp;agrave;m nh&amp;agrave; họ hư hỏng v&amp;agrave; g&amp;acirc;y mất an to&amp;agrave;n.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/7-3418-1448418105.jpg?v=1448694553209&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Nhiều người cho biết, m&amp;aacute;i bị dột v&amp;agrave; nước thấm v&amp;agrave;o nh&amp;agrave; ng&amp;agrave;y c&amp;agrave;ng nghi&amp;ecirc;m trọng. C&amp;oacute; gia đ&amp;igrave;nh bị nước thấm v&amp;agrave;o nh&amp;agrave; tắm, bếp, l&amp;agrave;m hỏng gạo, bột.&lt;/p&gt;', 'khu-vuon-xanh-ngat-tren-mai-chung-cu-khien-hang-xom-noi-gian1', 'KHU VƯỜN XANH NGÁT TRÊN MÁI CHUNG CƯ KHIẾN HÀNG XÓM NỔI GIẬN | KHU VUON XANH NGAT TREN MAI CHUNG CU KHIEN HANG XOM NOI GIAN', 'KHU VƯỜN XANH NGÁT TRÊN MÁI CHUNG CƯ KHIẾN HÀNG XÓM NỔI GIẬN, KHU VUON XANH NGAT TREN MAI CHUNG CU KHIEN HANG XOM NOI GIAN', 'Chủ nh&agrave; c&oacute; thể uống tr&agrave; giữa vườn hoa đẹp rực rỡ, đủ rau ăn quanh năm, nhưng h&agrave;ng x&oacute;m ph&agrave;n n&agrave;n nh&agrave; bị...', 0, 0, 0, 1, 1452417656, 1452420748, 'en'),
-(11, 11, '', 0, '', 'news/2016_01/1-1448435512-660x0.jpg', 'KHÔNG GIAN SỐNG ĐẲNG CẤP TRONG DU THUYỀN SIÊU SANG', '', '&lt;p&gt;D&amp;ugrave; phải l&amp;ecirc;nh đ&amp;ecirc;nh tr&amp;ecirc;n biển nhưng chủ thuyền vẫn c&amp;oacute; thể tận hưởng cuộc sống tiện nghi.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/1-1448435512-660x0.jpg?v=1448693949019&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Người chủ mong muốn c&amp;oacute; một kh&amp;ocirc;ng gian tinh tế, thanh lịch nhưng cũng phải tạo ra cảm gi&amp;aacute;c thoải m&amp;aacute;i giống ở nh&amp;agrave;. Boong t&amp;agrave;u như một ph&amp;ograve;ng kh&amp;aacute;ch ngo&amp;agrave;i trời, gi&amp;uacute;p chủ thuyền v&amp;agrave; bạn b&amp;egrave; c&amp;oacute; thể tận hưởng nắng gi&amp;oacute; ngo&amp;agrave;i biển.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/3-1448435513-660x0.jpg?v=1448693983094&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Để tạo ra một nơi ở thoải m&amp;aacute;i trong kh&amp;ocirc;ng gian hạn chế của thuyền kh&amp;ocirc;ng hề đơn giản. Người thiết kế lựa chọn t&amp;ocirc;ng m&amp;agrave;u trắng, x&amp;aacute;m v&amp;agrave; xanh nhạt ph&amp;ugrave; hợp với khung cảnh biển trời.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/5-1448435513-660x0.jpg?v=1448694009710&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Ph&amp;ograve;ng kh&amp;aacute;ch lớn với b&amp;agrave;n ăn tr&amp;ograve;n c&amp;oacute; một v&amp;agrave;i điểm trang tr&amp;iacute; nhỏ nhưng thu h&amp;uacute;t như đ&amp;egrave;n trần hay hoa b&amp;agrave;y l&amp;uacute;c kh&amp;ocirc;ng c&amp;oacute; bữa ăn.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/7-1448435514-660x0.jpg?v=1448694034486&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Ph&amp;ograve;ng kh&amp;aacute;ch v&amp;agrave; b&amp;agrave;n ăn li&amp;ecirc;n th&amp;ocirc;ng chỉ cần sử dụng chung một chiếc đ&amp;egrave;n ch&amp;ugrave;m l&amp;agrave; đủ tạo &amp;aacute;nh s&amp;aacute;ng ấm &amp;aacute;p v&amp;agrave;o buổi tối.&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/9-1448435514-660x0.jpg?v=1448694059153&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Tr&amp;ecirc;n thuyền cũng c&amp;oacute; b&amp;agrave;n l&amp;agrave;m việc v&amp;agrave; khu xem phim thoải m&amp;aacute;i.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/10-1448435514-660x0.jpg?v=1448694083553&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;', 'khong-gian-song-dang-cap-trong-du-thuyen-sieu-sang', 'KHÔNG GIAN SỐNG ĐẲNG CẤP TRONG DU THUYỀN SIÊU SANG | KHONG GIAN SONG DANG CAP TRONG DU THUYEN SIEU SANG', 'KHÔNG GIAN SỐNG ĐẲNG CẤP TRONG DU THUYỀN SIÊU SANG, KHONG GIAN SONG DANG CAP TRONG DU THUYEN SIEU SANG', 'Dù phải lênh đênh trên biển nhưng chủ thuyền vẫn có thể tận hưởng cuộc sống tiện nghi.\r\nNgười chủ mong muốn có một không...', 0, 0, 0, 1, 1452417701, 1452424796, 'vi'),
-(12, 11, '', 0, '', 'news/2016_01/1-1448435512-660x0.jpg', 'KHÔNG GIAN SỐNG ĐẲNG CẤP TRONG DU THUYỀN SIÊU SANG', '', '&lt;p&gt;D&amp;ugrave; phải l&amp;ecirc;nh đ&amp;ecirc;nh tr&amp;ecirc;n biển nhưng chủ thuyền vẫn c&amp;oacute; thể tận hưởng cuộc sống tiện nghi.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/1-1448435512-660x0.jpg?v=1448693949019&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Người chủ mong muốn c&amp;oacute; một kh&amp;ocirc;ng gian tinh tế, thanh lịch nhưng cũng phải tạo ra cảm gi&amp;aacute;c thoải m&amp;aacute;i giống ở nh&amp;agrave;. Boong t&amp;agrave;u như một ph&amp;ograve;ng kh&amp;aacute;ch ngo&amp;agrave;i trời, gi&amp;uacute;p chủ thuyền v&amp;agrave; bạn b&amp;egrave; c&amp;oacute; thể tận hưởng nắng gi&amp;oacute; ngo&amp;agrave;i biển.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/3-1448435513-660x0.jpg?v=1448693983094&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Để tạo ra một nơi ở thoải m&amp;aacute;i trong kh&amp;ocirc;ng gian hạn chế của thuyền kh&amp;ocirc;ng hề đơn giản. Người thiết kế lựa chọn t&amp;ocirc;ng m&amp;agrave;u trắng, x&amp;aacute;m v&amp;agrave; xanh nhạt ph&amp;ugrave; hợp với khung cảnh biển trời.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/5-1448435513-660x0.jpg?v=1448694009710&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Ph&amp;ograve;ng kh&amp;aacute;ch lớn với b&amp;agrave;n ăn tr&amp;ograve;n c&amp;oacute; một v&amp;agrave;i điểm trang tr&amp;iacute; nhỏ nhưng thu h&amp;uacute;t như đ&amp;egrave;n trần hay hoa b&amp;agrave;y l&amp;uacute;c kh&amp;ocirc;ng c&amp;oacute; bữa ăn.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/7-1448435514-660x0.jpg?v=1448694034486&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Ph&amp;ograve;ng kh&amp;aacute;ch v&amp;agrave; b&amp;agrave;n ăn li&amp;ecirc;n th&amp;ocirc;ng chỉ cần sử dụng chung một chiếc đ&amp;egrave;n ch&amp;ugrave;m l&amp;agrave; đủ tạo &amp;aacute;nh s&amp;aacute;ng ấm &amp;aacute;p v&amp;agrave;o buổi tối.&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/9-1448435514-660x0.jpg?v=1448694059153&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Tr&amp;ecirc;n thuyền cũng c&amp;oacute; b&amp;agrave;n l&amp;agrave;m việc v&amp;agrave; khu xem phim thoải m&amp;aacute;i.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/10-1448435514-660x0.jpg?v=1448694083553&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;', 'khong-gian-song-dang-cap-trong-du-thuyen-sieu-sang1', 'KHÔNG GIAN SỐNG ĐẲNG CẤP TRONG DU THUYỀN SIÊU SANG | KHONG GIAN SONG DANG CAP TRONG DU THUYEN SIEU SANG', 'KHÔNG GIAN SỐNG ĐẲNG CẤP TRONG DU THUYỀN SIÊU SANG, KHONG GIAN SONG DANG CAP TRONG DU THUYEN SIEU SANG', 'D&ugrave; phải l&ecirc;nh đ&ecirc;nh tr&ecirc;n biển nhưng chủ thuyền vẫn c&oacute; thể tận hưởng cuộc sống tiện nghi.\r\nNgười chủ mong muốn c&oacute; một kh&ocirc;ng...', 0, 0, 0, 1, 1452417701, 1452424796, 'en');
+(3, 3, '', 0, '', 'news/2016_01/0112-03.png', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG', '', '&lt;p&gt;Chọn chậu rửa ph&amp;ugrave; hợp với kh&amp;ocirc;ng gian v&amp;agrave; phục vụ hiệu quả cho việc nấu nướng l&amp;agrave; mục đ&amp;iacute;ch chung của nhiều gia chủ khi l&amp;ecirc;n &amp;yacute; tưởng thiết kế khu bếp.&lt;br /&gt;C&amp;aacute;c chuy&amp;ecirc;n gia đến từ Hafele (Đức) vẫn thường nhận được những thắc mắc như &quot;Chọn chậu rửa với độ s&amp;acirc;u bao nhi&amp;ecirc;u th&amp;igrave; ph&amp;ugrave; hợp?&quot;, &quot;V&amp;ograve;i rửa loại n&amp;agrave;o sẽ kh&amp;ocirc;ng bị r&amp;ograve; rỉ nước?&quot;, &amp;ldquo;L&amp;agrave;m sao để tiết kiệm thời gian khi chuẩn bị m&amp;oacute;n ăn?&amp;rdquo; v&amp;agrave; h&amp;agrave;ng loạt những c&amp;acirc;u hỏi kh&amp;aacute;c li&amp;ecirc;n quan đến khu vực chuẩn bị, dọn rửa, nơi bố tr&amp;iacute; bồn rửa v&amp;agrave; v&amp;ograve;i bếp.&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Để giải đ&amp;aacute;p những băn khoăn ấy, c&amp;aacute;c chuy&amp;ecirc;n gia Hafele đưa ra những lời khuy&amp;ecirc;n hữu &amp;iacute;ch sau đ&amp;acirc;y.&lt;/p&gt;\r\n&lt;p&gt;Chậu rửa&lt;/p&gt;\r\n&lt;p&gt;Về chất liệu, chậu rửa n&amp;ecirc;n chọn th&amp;eacute;p kh&amp;ocirc;ng gỉ. Đ&amp;acirc;y l&amp;agrave; lựa chọn th&amp;ocirc;ng dụng hiện nay với vẻ đẹp vượt thời gian, ưu điểm chịu nhiệt tốt v&amp;agrave; vệ sinh dễ d&amp;agrave;ng. Ngo&amp;agrave;i ra, nếu gia chủ đầu tư hơn một ch&amp;uacute;t, chậu rửa bằng đ&amp;aacute; Granite với độ bền cao, thiết kế tinh tế sẽ g&amp;oacute;p phần mang lại vẻ sang trọng cho ng&amp;ocirc;i nh&amp;agrave; của bạn&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-01.jpg?v=1448982594829&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Chậu rửa Granite sang trọng v&amp;agrave; tinh tế.&lt;/p&gt;\r\n&lt;p&gt;Về k&amp;iacute;ch thước, chậu rửa thường c&amp;oacute; hai loại l&amp;agrave; chậu đơn v&amp;agrave; chậu đ&amp;ocirc;i. Chậu đơn thường c&amp;oacute; k&amp;iacute;ch thước rộng v&amp;agrave; s&amp;acirc;u gi&amp;uacute;p bạn ng&amp;acirc;m v&amp;agrave; rửa thực phẩm hay ch&amp;eacute;n b&amp;aacute;t với số lượng lớn. Nếu b&amp;agrave;n bếp của bạn c&amp;ograve;n khoảng trống từ 870mm trở l&amp;ecirc;n, bạn cũng c&amp;oacute; thể chọn chậu đ&amp;ocirc;i để tăng th&amp;ecirc;m kh&amp;ocirc;ng gian, việc dọn rửa dễ d&amp;agrave;ng, thoải m&amp;aacute;i hơn. B&amp;ecirc;n cạnh đ&amp;oacute;, chiều s&amp;acirc;u trung b&amp;igrave;nh từ 180mm - 250mm l&amp;agrave; k&amp;iacute;ch thước l&amp;yacute; tưởng được nghi&amp;ecirc;n cứu v&amp;agrave; &amp;aacute;p dụng cho c&amp;aacute;c loại chậu rửa hiện nay.&lt;/p&gt;\r\n&lt;p&gt;V&amp;ograve;i rửa&lt;/p&gt;\r\n&lt;p&gt;Ngo&amp;agrave;i c&amp;aacute;c loại v&amp;ograve;i truyền thống, nhiều loại v&amp;ograve;i hiện đại cũng được thiết kế với khả năng k&amp;eacute;o d&amp;agrave;i đầu v&amp;ograve;i, cho ph&amp;eacute;p linh hoạt điều chỉnh v&amp;ograve;i tới vị tr&amp;iacute; bạn mong muốn.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-02.png?v=1448982698836&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;V&amp;ograve;i bếp được sản xuất với ti&amp;ecirc;u chuẩn Đức c&amp;oacute; độ bền cao. Sản phẩm c&amp;oacute; b&amp;aacute;n tại showroom Hafele to&amp;agrave;n quốc.&lt;/p&gt;\r\n&lt;p&gt;Y&amp;ecirc;u cầu về &amp;aacute;p lực nước của v&amp;ograve;i, c&amp;aacute;c chuy&amp;ecirc;n gia khuy&amp;ecirc;n d&amp;ograve;ng chảy tối thiểu của v&amp;ograve;i phải đạt từ 0.5 tới 1.0 bar (đơn vị đo &amp;aacute;p suất). Nếu thấp hơn, nước sẽ chỉ nhỏ giọt ra khỏi v&amp;ograve;i, khiến bạn tốn nhiều thời gian v&amp;agrave; c&amp;ocirc;ng sức hơn cho dọn rửa. Tuy nhi&amp;ecirc;n cũng đừng chọn loại v&amp;ograve;i c&amp;oacute; &amp;aacute;p suất qu&amp;aacute; cao (tr&amp;ecirc;n 10 bar) nếu bạn kh&amp;ocirc;ng muốn nước bắn tung t&amp;oacute;e trong bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Bạn n&amp;ecirc;n thiết kế v&amp;ograve;i rửa ph&amp;ugrave; hợp với phong c&amp;aacute;ch bếp. Đối với bếp truyền thống đa số sử dụng loại v&amp;ograve;i tr&amp;ograve;n. Với bếp hiện đại, v&amp;ograve;i thiết kế kiểu c&amp;aacute;ch v&amp;agrave; tinh tế sẽ l&amp;agrave;m nổi bật kh&amp;ocirc;ng gian bếp hơn.&lt;/p&gt;\r\n&lt;p&gt;Về gi&amp;aacute; cả, những v&amp;ograve;i rửa chất lượng thấp sẽ l&amp;agrave;m tăng khả năng g&amp;acirc;y ra c&amp;aacute;c sự cố r&amp;ograve; rỉ nước. V&amp;igrave; vậy, đừng ngại đầu tư một chiếc v&amp;ograve;i đạt chuẩn với tuổi thọ d&amp;agrave;i v&amp;agrave; chất lượng tốt gi&amp;uacute;p bạn tiết kiệm chi ph&amp;iacute; thay thế.&lt;/p&gt;\r\n&lt;p&gt;Ngăn k&amp;eacute;o th&amp;ocirc;ng minh dưới bồn rửa&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-03.png?v=1448982892490&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Ray hộp Tandembox tiện dụng cho ngăn k&amp;eacute;o dưới bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Kh&amp;ocirc;ng gian ngay dưới bồn rửa v&amp;agrave; v&amp;ograve;i bếp thường bị l&amp;atilde;ng qu&amp;ecirc;n, &amp;iacute;t khi được sử dụng hiệu quả. Ray hộp Tandembox của Blum d&amp;agrave;nh cho ngăn k&amp;eacute;o dưới bồn rửa sẽ gi&amp;uacute;p bạn tận dụng tốt kh&amp;ocirc;ng gian n&amp;agrave;y, sắp xếp c&amp;aacute;c dụng cụ dọn rửa gọn g&amp;agrave;ng v&amp;agrave; tiện lợi hơn.&lt;/p&gt;\r\n&lt;div class=&quot;clear&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;div class=&quot;si-share noborder clearfix&quot;&gt;Chia sẻ:&lt;/div&gt;', 'thiet-ke-khu-bep-sang-trong-am-ceng', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG | THIET KE KHU BEP SANG TRONG, AM CENG', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG, THIET KE KHU BEP SANG TRONG, AM CENG', 'Chọn chậu rửa phù hợp với không gian và phục vụ hiệu quả cho việc nấu nướng là mục đích chung của nhiều gia chủ khi lên...', 0, 0, 0, 0, 1452417535, 1452420684, 'vi'),
+(4, 3, '', 0, '', 'news/2016_01/0112-03.png', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG', '', '&lt;p&gt;Chọn chậu rửa ph&amp;ugrave; hợp với kh&amp;ocirc;ng gian v&amp;agrave; phục vụ hiệu quả cho việc nấu nướng l&amp;agrave; mục đ&amp;iacute;ch chung của nhiều gia chủ khi l&amp;ecirc;n &amp;yacute; tưởng thiết kế khu bếp.&lt;br /&gt;C&amp;aacute;c chuy&amp;ecirc;n gia đến từ Hafele (Đức) vẫn thường nhận được những thắc mắc như &quot;Chọn chậu rửa với độ s&amp;acirc;u bao nhi&amp;ecirc;u th&amp;igrave; ph&amp;ugrave; hợp?&quot;, &quot;V&amp;ograve;i rửa loại n&amp;agrave;o sẽ kh&amp;ocirc;ng bị r&amp;ograve; rỉ nước?&quot;, &amp;ldquo;L&amp;agrave;m sao để tiết kiệm thời gian khi chuẩn bị m&amp;oacute;n ăn?&amp;rdquo; v&amp;agrave; h&amp;agrave;ng loạt những c&amp;acirc;u hỏi kh&amp;aacute;c li&amp;ecirc;n quan đến khu vực chuẩn bị, dọn rửa, nơi bố tr&amp;iacute; bồn rửa v&amp;agrave; v&amp;ograve;i bếp.&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Để giải đ&amp;aacute;p những băn khoăn ấy, c&amp;aacute;c chuy&amp;ecirc;n gia Hafele đưa ra những lời khuy&amp;ecirc;n hữu &amp;iacute;ch sau đ&amp;acirc;y.&lt;/p&gt;\r\n&lt;p&gt;Chậu rửa&lt;/p&gt;\r\n&lt;p&gt;Về chất liệu, chậu rửa n&amp;ecirc;n chọn th&amp;eacute;p kh&amp;ocirc;ng gỉ. Đ&amp;acirc;y l&amp;agrave; lựa chọn th&amp;ocirc;ng dụng hiện nay với vẻ đẹp vượt thời gian, ưu điểm chịu nhiệt tốt v&amp;agrave; vệ sinh dễ d&amp;agrave;ng. Ngo&amp;agrave;i ra, nếu gia chủ đầu tư hơn một ch&amp;uacute;t, chậu rửa bằng đ&amp;aacute; Granite với độ bền cao, thiết kế tinh tế sẽ g&amp;oacute;p phần mang lại vẻ sang trọng cho ng&amp;ocirc;i nh&amp;agrave; của bạn&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-01.jpg?v=1448982594829&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Chậu rửa Granite sang trọng v&amp;agrave; tinh tế.&lt;/p&gt;\r\n&lt;p&gt;Về k&amp;iacute;ch thước, chậu rửa thường c&amp;oacute; hai loại l&amp;agrave; chậu đơn v&amp;agrave; chậu đ&amp;ocirc;i. Chậu đơn thường c&amp;oacute; k&amp;iacute;ch thước rộng v&amp;agrave; s&amp;acirc;u gi&amp;uacute;p bạn ng&amp;acirc;m v&amp;agrave; rửa thực phẩm hay ch&amp;eacute;n b&amp;aacute;t với số lượng lớn. Nếu b&amp;agrave;n bếp của bạn c&amp;ograve;n khoảng trống từ 870mm trở l&amp;ecirc;n, bạn cũng c&amp;oacute; thể chọn chậu đ&amp;ocirc;i để tăng th&amp;ecirc;m kh&amp;ocirc;ng gian, việc dọn rửa dễ d&amp;agrave;ng, thoải m&amp;aacute;i hơn. B&amp;ecirc;n cạnh đ&amp;oacute;, chiều s&amp;acirc;u trung b&amp;igrave;nh từ 180mm - 250mm l&amp;agrave; k&amp;iacute;ch thước l&amp;yacute; tưởng được nghi&amp;ecirc;n cứu v&amp;agrave; &amp;aacute;p dụng cho c&amp;aacute;c loại chậu rửa hiện nay.&lt;/p&gt;\r\n&lt;p&gt;V&amp;ograve;i rửa&lt;/p&gt;\r\n&lt;p&gt;Ngo&amp;agrave;i c&amp;aacute;c loại v&amp;ograve;i truyền thống, nhiều loại v&amp;ograve;i hiện đại cũng được thiết kế với khả năng k&amp;eacute;o d&amp;agrave;i đầu v&amp;ograve;i, cho ph&amp;eacute;p linh hoạt điều chỉnh v&amp;ograve;i tới vị tr&amp;iacute; bạn mong muốn.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-02.png?v=1448982698836&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;V&amp;ograve;i bếp được sản xuất với ti&amp;ecirc;u chuẩn Đức c&amp;oacute; độ bền cao. Sản phẩm c&amp;oacute; b&amp;aacute;n tại showroom Hafele to&amp;agrave;n quốc.&lt;/p&gt;\r\n&lt;p&gt;Y&amp;ecirc;u cầu về &amp;aacute;p lực nước của v&amp;ograve;i, c&amp;aacute;c chuy&amp;ecirc;n gia khuy&amp;ecirc;n d&amp;ograve;ng chảy tối thiểu của v&amp;ograve;i phải đạt từ 0.5 tới 1.0 bar (đơn vị đo &amp;aacute;p suất). Nếu thấp hơn, nước sẽ chỉ nhỏ giọt ra khỏi v&amp;ograve;i, khiến bạn tốn nhiều thời gian v&amp;agrave; c&amp;ocirc;ng sức hơn cho dọn rửa. Tuy nhi&amp;ecirc;n cũng đừng chọn loại v&amp;ograve;i c&amp;oacute; &amp;aacute;p suất qu&amp;aacute; cao (tr&amp;ecirc;n 10 bar) nếu bạn kh&amp;ocirc;ng muốn nước bắn tung t&amp;oacute;e trong bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Bạn n&amp;ecirc;n thiết kế v&amp;ograve;i rửa ph&amp;ugrave; hợp với phong c&amp;aacute;ch bếp. Đối với bếp truyền thống đa số sử dụng loại v&amp;ograve;i tr&amp;ograve;n. Với bếp hiện đại, v&amp;ograve;i thiết kế kiểu c&amp;aacute;ch v&amp;agrave; tinh tế sẽ l&amp;agrave;m nổi bật kh&amp;ocirc;ng gian bếp hơn.&lt;/p&gt;\r\n&lt;p&gt;Về gi&amp;aacute; cả, những v&amp;ograve;i rửa chất lượng thấp sẽ l&amp;agrave;m tăng khả năng g&amp;acirc;y ra c&amp;aacute;c sự cố r&amp;ograve; rỉ nước. V&amp;igrave; vậy, đừng ngại đầu tư một chiếc v&amp;ograve;i đạt chuẩn với tuổi thọ d&amp;agrave;i v&amp;agrave; chất lượng tốt gi&amp;uacute;p bạn tiết kiệm chi ph&amp;iacute; thay thế.&lt;/p&gt;\r\n&lt;p&gt;Ngăn k&amp;eacute;o th&amp;ocirc;ng minh dưới bồn rửa&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-03.png?v=1448982892490&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Ray hộp Tandembox tiện dụng cho ngăn k&amp;eacute;o dưới bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Kh&amp;ocirc;ng gian ngay dưới bồn rửa v&amp;agrave; v&amp;ograve;i bếp thường bị l&amp;atilde;ng qu&amp;ecirc;n, &amp;iacute;t khi được sử dụng hiệu quả. Ray hộp Tandembox của Blum d&amp;agrave;nh cho ngăn k&amp;eacute;o dưới bồn rửa sẽ gi&amp;uacute;p bạn tận dụng tốt kh&amp;ocirc;ng gian n&amp;agrave;y, sắp xếp c&amp;aacute;c dụng cụ dọn rửa gọn g&amp;agrave;ng v&amp;agrave; tiện lợi hơn.&lt;/p&gt;\r\n&lt;div class=&quot;clear&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;div class=&quot;si-share noborder clearfix&quot;&gt;Chia sẻ:&lt;/div&gt;', 'thiet-ke-khu-bep-sang-trong-am-ceng1', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG | THIET KE KHU BEP SANG TRONG, AM CENG', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG, THIET KE KHU BEP SANG TRONG, AM CENG', 'Chọn chậu rửa ph&ugrave; hợp với kh&ocirc;ng gian v&agrave; phục vụ hiệu quả cho việc nấu nướng l&agrave; mục đ&iacute;ch chung của nhiều gia chủ khi l&ecirc;n...', 0, 0, 0, 0, 1452417535, 1452420684, 'en'),
+(5, 5, '', 0, '', 'news/2016_01/untitled-7-4065-1447125363.jpg', 'CÁC CHUNG CƯ THIẾT KẾ ĐẸP LẠ KHIẾN NHIỀU NGƯỜI MÊ', '', '&lt;p&gt;Khu nh&amp;agrave; giống tr&amp;ograve; chơi xếp gạch của trẻ, phủ k&amp;iacute;n c&amp;acirc;y xanh hay lấy cảm hứng từ đ&amp;aacute;m m&amp;acirc;y, tảng băng... đem lại cảm gi&amp;aacute;c th&amp;iacute;ch th&amp;uacute; cho nhiều người.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/untitled-7-4065-1447125363.jpg?v=1448720738819&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Tại Festival Kiến tr&amp;uacute;c Thế giới, khu nh&amp;agrave; The Interlace (Singapore) được vinh danh l&amp;agrave; C&amp;ocirc;ng tr&amp;igrave;nh đẹp nhất năm. &amp;nbsp;Nh&amp;igrave;n từ tr&amp;ecirc;n cao, chung cư n&amp;agrave;y tr&amp;ocirc;ng giống như tr&amp;ograve; chơi xếp gạch Lego của trẻ nhỏ. Ảnh: Domusweb.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/nha1-5594-1447125364.jpg?v=1448720761840&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Khu nh&amp;agrave; ở Đan Mạch lấy cảm hứng từ c&amp;aacute;c tảng băng gồm c&amp;aacute;c căn hộ c&amp;oacute; diện t&amp;iacute;ch từ 55 tới 227 m2. Ảnh: Designboom.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/chungcccu1-3945-1448072496.jpg?v=1448720788620&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Cao ốc 65 tầng c&amp;oacute; thiết kế như c&amp;aacute;c đ&amp;aacute;m m&amp;acirc;y trắng với bể bơi, c&amp;acirc;y xanh giữa c&amp;aacute;c tầng. Đ&amp;acirc;y l&amp;agrave; một dự &amp;aacute;n của Hiệp hội Kiến tr&amp;uacute;c sư Kazakhstan. (Xem cả nh&amp;agrave;). Ảnh: Inhabitat.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/nhachungcu1a-9787-1448072496.jpg?v=1448720813033&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;C&amp;ocirc;ng tr&amp;igrave;nh ở Stockholm (Thụy Điển) do Bjarke Ingels Group thiết kế kh&amp;ocirc;ng chỉ độc đ&amp;aacute;o về kiến tr&amp;uacute;c với h&amp;igrave;nh ảnh bậc thang m&amp;agrave; c&amp;ograve;n bắt mắt nhờ c&amp;acirc;y xanh được trồng tr&amp;ecirc;n m&amp;aacute;i. Ảnh: Designboom.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/nha2-3109-1447125364.jpg?v=1448720849146&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;T&amp;ograve;a th&amp;aacute;p đ&amp;ocirc;i Bosco Verticale (Rừng thẳng đứng) ở Milan (Italy) g&amp;acirc;y x&amp;ocirc;n xao với h&amp;agrave;ng trăm c&amp;acirc;y xanh khắp c&amp;aacute;c tầng, m&amp;aacute;i nh&amp;agrave;, gi&amp;uacute;p lọc kh&amp;ocirc;ng kh&amp;iacute;, l&amp;agrave;m đẹp th&amp;agrave;nh phố. (Xem cả nh&amp;agrave;). Ảnh: Bored Panda.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/nha-6-1505-1447125364.jpg?v=1448720900183&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Sau khi ho&amp;agrave;n th&amp;agrave;nh c&amp;ocirc;ng tr&amp;igrave;nh ở Italy, c&amp;ocirc;ng ty Stefano Boeri Architetti tiếp tục l&amp;agrave;m th&amp;ecirc;m t&amp;ograve;a th&amp;aacute;p c&amp;acirc;y ở Lausanne (Thụy Sĩ). D&amp;ugrave; mặt bằng nhỏ nhưng lượng c&amp;acirc;y ở đ&amp;acirc;y phủ xanh diện t&amp;iacute;ch 3.000 m2 v&amp;agrave; vẫn đảm bảo những khoảng th&amp;ocirc;ng tho&amp;aacute;ng cho c&amp;aacute;c căn hộ. (Xem cả nh&amp;agrave;). Ảnh: Inhabitat.&lt;/p&gt;', 'cac-chung-cu-thiet-ke-dep-la-khien-nhieu-nguoi-me', 'CÁC CHUNG CƯ THIẾT KẾ ĐẸP LẠ KHIẾN NHIỀU NGƯỜI MÊ | CAC CHUNG CU THIET KE DEP LA KHIEN NHIEU NGUOI ME', 'CÁC CHUNG CƯ THIẾT KẾ ĐẸP LẠ KHIẾN NHIỀU NGƯỜI MÊ, CAC CHUNG CU THIET KE DEP LA KHIEN NHIEU NGUOI ME', 'Khu nhà giống trò chơi xếp gạch của trẻ, phủ kín cây xanh hay lấy cảm hứng từ đám mây, tảng băng... đem lại cảm giác...', 0, 0, 0, 0, 1452417589, 1452420725, 'vi'),
+(6, 5, '', 0, '', 'news/2016_01/untitled-7-4065-1447125363.jpg', 'CÁC CHUNG CƯ THIẾT KẾ ĐẸP LẠ KHIẾN NHIỀU NGƯỜI MÊ', '', '&lt;p&gt;Khu nh&amp;agrave; giống tr&amp;ograve; chơi xếp gạch của trẻ, phủ k&amp;iacute;n c&amp;acirc;y xanh hay lấy cảm hứng từ đ&amp;aacute;m m&amp;acirc;y, tảng băng... đem lại cảm gi&amp;aacute;c th&amp;iacute;ch th&amp;uacute; cho nhiều người.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;Tại Festival Kiến tr&amp;uacute;c Thế giới, khu nh&amp;agrave; The Interlace (Singapore) được vinh danh l&amp;agrave; C&amp;ocirc;ng tr&amp;igrave;nh đẹp nhất năm. Nh&amp;igrave;n từ tr&amp;ecirc;n cao, chung cư n&amp;agrave;y tr&amp;ocirc;ng giống như tr&amp;ograve; chơi xếp gạch Lego của trẻ nhỏ. Ảnh: Domusweb.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;Khu nh&amp;agrave; ở Đan Mạch lấy cảm hứng từ c&amp;aacute;c tảng băng gồm c&amp;aacute;c căn hộ c&amp;oacute; diện t&amp;iacute;ch từ 55 tới 227 m2. Ảnh: Designboom.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;Cao ốc 65 tầng c&amp;oacute; thiết kế như c&amp;aacute;c đ&amp;aacute;m m&amp;acirc;y trắng với bể bơi, c&amp;acirc;y xanh giữa c&amp;aacute;c tầng. Đ&amp;acirc;y l&amp;agrave; một dự &amp;aacute;n của Hiệp hội Kiến tr&amp;uacute;c sư Kazakhstan. (Xem cả nh&amp;agrave;). Ảnh: Inhabitat.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;C&amp;ocirc;ng tr&amp;igrave;nh ở Stockholm (Thụy Điển) do Bjarke Ingels Group thiết kế kh&amp;ocirc;ng chỉ độc đ&amp;aacute;o về kiến tr&amp;uacute;c với h&amp;igrave;nh ảnh bậc thang m&amp;agrave; c&amp;ograve;n bắt mắt nhờ c&amp;acirc;y xanh được trồng tr&amp;ecirc;n m&amp;aacute;i. Ảnh: Designboom.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;T&amp;ograve;a th&amp;aacute;p đ&amp;ocirc;i Bosco Verticale (Rừng thẳng đứng) ở Milan (Italy) g&amp;acirc;y x&amp;ocirc;n xao với h&amp;agrave;ng trăm c&amp;acirc;y xanh khắp c&amp;aacute;c tầng, m&amp;aacute;i nh&amp;agrave;, gi&amp;uacute;p lọc kh&amp;ocirc;ng kh&amp;iacute;, l&amp;agrave;m đẹp th&amp;agrave;nh phố. (Xem cả nh&amp;agrave;). Ảnh: Bored Panda.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Sau khi ho&amp;agrave;n th&amp;agrave;nh c&amp;ocirc;ng tr&amp;igrave;nh ở Italy, c&amp;ocirc;ng ty Stefano Boeri Architetti tiếp tục l&amp;agrave;m th&amp;ecirc;m t&amp;ograve;a th&amp;aacute;p c&amp;acirc;y ở Lausanne (Thụy Sĩ). D&amp;ugrave; mặt bằng nhỏ nhưng lượng c&amp;acirc;y ở đ&amp;acirc;y phủ xanh diện t&amp;iacute;ch 3.000 m2 v&amp;agrave; vẫn đảm bảo những khoảng th&amp;ocirc;ng tho&amp;aacute;ng cho c&amp;aacute;c căn hộ. (Xem cả nh&amp;agrave;). Ảnh: Inhabitat.&lt;/p&gt;', 'cac-chung-cu-thiet-ke-dep-la-khien-nhieu-nguoi-me1', 'CÁC CHUNG CƯ THIẾT KẾ ĐẸP LẠ KHIẾN NHIỀU NGƯỜI MÊ | CAC CHUNG CU THIET KE DEP LA KHIEN NHIEU NGUOI ME', 'CÁC CHUNG CƯ THIẾT KẾ ĐẸP LẠ KHIẾN NHIỀU NGƯỜI MÊ, CAC CHUNG CU THIET KE DEP LA KHIEN NHIEU NGUOI ME', 'Khu nh&agrave; giống tr&ograve; chơi xếp gạch của trẻ, phủ k&iacute;n c&acirc;y xanh hay lấy cảm hứng từ đ&aacute;m m&acirc;y, tảng băng... đem lại cảm gi&aacute;c...', 0, 0, 0, 0, 1452417589, 1452420725, 'en'),
+(7, 7, '', 0, '', 'news/2016_01/c-1-1448443170-660x0.jpg', 'NHÀ ỐNG 50 M2 CÓ CÁCH BỐ TRÍ ĐẢO NGƯỢC', '', '&lt;p&gt;Ph&amp;ograve;ng ngủ được bố tr&amp;iacute; ở tầng một c&amp;ograve;n kh&amp;ocirc;ng gian sinh hoạt chung lại nằm ở tầng 2.&lt;br /&gt;Nữ chủ nh&amp;agrave; ở Sao Paulo (Brazil) mua ng&amp;ocirc;i nh&amp;agrave; đ&amp;atilde; xuống cấp v&amp;agrave; tiến h&amp;agrave;nh cải tạo lại. C&amp;ocirc; sống một m&amp;igrave;nh n&amp;ecirc;n muốn nơi ở vừa đ&amp;aacute;p ứng cuộc sống hiện nay vừa đ&amp;aacute;p ứng nhu cầu trong tương lai.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/c-1-1448443170-660x0.jpg?v=1448720510040&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Bởi vậy, chủ nh&amp;agrave; muốn tầng một l&amp;agrave; kh&amp;ocirc;ng gian ri&amp;ecirc;ng tư (ph&amp;ograve;ng ngủ, WC) được sử dụng nhiều hơn trong thời gian hiện tại. Tầng 2 l&amp;agrave; khu sinh hoạt chung gồm ph&amp;ograve;ng kh&amp;aacute;ch, bếp ăn.&lt;/p&gt;\r\n&lt;p&gt;Ở tầng một, kiến tr&amp;uacute;c sư bố tr&amp;iacute; một khoảng diện t&amp;iacute;ch l&amp;agrave;m s&amp;acirc;n vườn gi&amp;uacute;p cho cả ph&amp;ograve;ng ngủ, khu WC đều được th&amp;ocirc;ng tho&amp;aacute;ng. Chủ nh&amp;agrave; trồng c&amp;aacute;c c&amp;acirc;y treo tường gi&amp;uacute;p tiết kiệm diện t&amp;iacute;ch mặt s&amp;agrave;n.&lt;br /&gt;Tầng 2 l&amp;agrave; kh&amp;ocirc;ng gian th&amp;uacute; vị khi kiến tr&amp;uacute;c sư kết hợp giữa c&amp;aacute;i cũ v&amp;agrave; c&amp;aacute;i mới. Ở đ&amp;acirc;y c&amp;oacute; sự tương phản giữa mảng tường gạch th&amp;ocirc; với c&amp;aacute;c bức tường, trần nh&amp;agrave;, s&amp;agrave;n v&amp;agrave; cả nội thất s&amp;aacute;ng m&amp;agrave;u, trau chuốt.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/d-1-1448443171-660x0.jpg?v=1448720567578&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Từ cửa sổ tầng 2 c&amp;oacute; thể nh&amp;igrave;n ra khung cảnh xanh mướt b&amp;ecirc;n ngo&amp;agrave;i n&amp;ecirc;n người thiết kế tạo ra khung gỗ rộng c&amp;oacute; thể ngồi b&amp;ecirc;n cửa sổ thư gi&amp;atilde;n.&amp;nbsp;&lt;/p&gt;', 'nha-ong-50-m2-co-cach-bo-tri-dao-nguoc', 'NHÀ ỐNG 50 M2 CÓ CÁCH BỐ TRÍ ĐẢO NGƯỢC | NHA ONG 50 M2 CO CACH BO TRI DAO NGUOC', 'NHÀ ỐNG 50 M2 CÓ CÁCH BỐ TRÍ ĐẢO NGƯỢC, NHA ONG 50 M2 CO CACH BO TRI DAO NGUOC', 'Phòng ngủ được bố trí ở tầng một còn không gian sinh hoạt chung lại nằm ở tầng 2.Nữ chủ nhà ở Sao Paulo (Brazil) mua ngôi...', 0, 0, 0, 0, 1452417626, 1452420739, 'vi'),
+(8, 7, '', 0, '', 'news/2016_01/c-1-1448443170-660x0.jpg', 'NHÀ ỐNG 50 M2 CÓ CÁCH BỐ TRÍ ĐẢO NGƯỢC', '', '&lt;p&gt;Ph&amp;ograve;ng ngủ được bố tr&amp;iacute; ở tầng một c&amp;ograve;n kh&amp;ocirc;ng gian sinh hoạt chung lại nằm ở tầng 2.&lt;br /&gt;Nữ chủ nh&amp;agrave; ở Sao Paulo (Brazil) mua ng&amp;ocirc;i nh&amp;agrave; đ&amp;atilde; xuống cấp v&amp;agrave; tiến h&amp;agrave;nh cải tạo lại. C&amp;ocirc; sống một m&amp;igrave;nh n&amp;ecirc;n muốn nơi ở vừa đ&amp;aacute;p ứng cuộc sống hiện nay vừa đ&amp;aacute;p ứng nhu cầu trong tương lai.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/c-1-1448443170-660x0.jpg?v=1448720510040&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Bởi vậy, chủ nh&amp;agrave; muốn tầng một l&amp;agrave; kh&amp;ocirc;ng gian ri&amp;ecirc;ng tư (ph&amp;ograve;ng ngủ, WC) được sử dụng nhiều hơn trong thời gian hiện tại. Tầng 2 l&amp;agrave; khu sinh hoạt chung gồm ph&amp;ograve;ng kh&amp;aacute;ch, bếp ăn.&lt;/p&gt;\r\n&lt;p&gt;Ở tầng một, kiến tr&amp;uacute;c sư bố tr&amp;iacute; một khoảng diện t&amp;iacute;ch l&amp;agrave;m s&amp;acirc;n vườn gi&amp;uacute;p cho cả ph&amp;ograve;ng ngủ, khu WC đều được th&amp;ocirc;ng tho&amp;aacute;ng. Chủ nh&amp;agrave; trồng c&amp;aacute;c c&amp;acirc;y treo tường gi&amp;uacute;p tiết kiệm diện t&amp;iacute;ch mặt s&amp;agrave;n.&lt;br /&gt;Tầng 2 l&amp;agrave; kh&amp;ocirc;ng gian th&amp;uacute; vị khi kiến tr&amp;uacute;c sư kết hợp giữa c&amp;aacute;i cũ v&amp;agrave; c&amp;aacute;i mới. Ở đ&amp;acirc;y c&amp;oacute; sự tương phản giữa mảng tường gạch th&amp;ocirc; với c&amp;aacute;c bức tường, trần nh&amp;agrave;, s&amp;agrave;n v&amp;agrave; cả nội thất s&amp;aacute;ng m&amp;agrave;u, trau chuốt.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/d-1-1448443171-660x0.jpg?v=1448720567578&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Từ cửa sổ tầng 2 c&amp;oacute; thể nh&amp;igrave;n ra khung cảnh xanh mướt b&amp;ecirc;n ngo&amp;agrave;i n&amp;ecirc;n người thiết kế tạo ra khung gỗ rộng c&amp;oacute; thể ngồi b&amp;ecirc;n cửa sổ thư gi&amp;atilde;n.&amp;nbsp;&lt;/p&gt;', 'nha-ong-50-m2-co-cach-bo-tri-dao-nguoc1', 'NHÀ ỐNG 50 M2 CÓ CÁCH BỐ TRÍ ĐẢO NGƯỢC | NHA ONG 50 M2 CO CACH BO TRI DAO NGUOC', 'NHÀ ỐNG 50 M2 CÓ CÁCH BỐ TRÍ ĐẢO NGƯỢC, NHA ONG 50 M2 CO CACH BO TRI DAO NGUOC', 'Ph&ograve;ng ngủ được bố tr&iacute; ở tầng một c&ograve;n kh&ocirc;ng gian sinh hoạt chung lại nằm ở tầng 2.Nữ chủ nh&agrave; ở Sao Paulo (Brazil) mua ng&ocirc;i...', 0, 0, 0, 0, 1452417626, 1452420739, 'en'),
+(9, 9, '', 0, '', 'news/2016_01/0-6328-1448418103.jpg', 'KHU VƯỜN XANH NGÁT TRÊN MÁI CHUNG CƯ KHIẾN HÀNG XÓM NỔI GIẬN', '', '&lt;p&gt;Chủ nh&amp;agrave; c&amp;oacute; thể uống tr&amp;agrave; giữa vườn hoa đẹp rực rỡ, đủ rau ăn quanh năm, nhưng h&amp;agrave;ng x&amp;oacute;m ph&amp;agrave;n n&amp;agrave;n nh&amp;agrave; bị dột.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0-6328-1448418103.jpg?v=1448694381149&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;Ocirc;ng Gao (68 tuổi) sống tr&amp;ecirc;n tầng 6 của một khu nh&amp;agrave; chung cư ở Dongcheng (Bắc Kinh, Trung Quốc) v&amp;agrave; l&amp;agrave;m vườn tr&amp;ecirc;n m&amp;aacute;i nh&amp;agrave; được 5 năm.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/1-8055-1448418103.jpg?v=1448694409232&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Cấu tr&amp;uacute;c của nh&amp;agrave; gồm nhiều m&amp;aacute;i dốc, ban c&amp;ocirc;ng n&amp;ecirc;n &amp;ocirc;ng Gao c&amp;oacute; thể tạo lập được khu vườn giống như khu rừng với nhiều tầng c&amp;acirc;y.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/2a-6378-1448418103.jpg?v=1448694440952&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Chi ph&amp;iacute; đầu tư v&amp;agrave;o khu vườn đ&amp;atilde; l&amp;ecirc;n tới 50.000 tệ (176 triệu đồng).&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/3-1-3043-1448418104.jpg?v=1448694476995&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Kh&amp;ocirc;ng chỉ quan t&amp;acirc;m tới việc trồng c&amp;acirc;y, &amp;ocirc;ng Gao c&amp;ograve;n thiết kế ra kh&amp;ocirc;ng gian ngồi thư gi&amp;atilde;n, ngắm cảnh giữa vườn hoa nở rực rỡ.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/5-6049-1448418105.jpg?v=1448694520705&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Tuy nhi&amp;ecirc;n, 18 hộ gia đ&amp;igrave;nh sống trong khu nh&amp;agrave; đều ph&amp;agrave;n n&amp;agrave;n rằng khu vườn tr&amp;ecirc;n m&amp;aacute;i đ&amp;atilde; l&amp;agrave;m nh&amp;agrave; họ hư hỏng v&amp;agrave; g&amp;acirc;y mất an to&amp;agrave;n.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/7-3418-1448418105.jpg?v=1448694553209&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Nhiều người cho biết, m&amp;aacute;i bị dột v&amp;agrave; nước thấm v&amp;agrave;o nh&amp;agrave; ng&amp;agrave;y c&amp;agrave;ng nghi&amp;ecirc;m trọng. C&amp;oacute; gia đ&amp;igrave;nh bị nước thấm v&amp;agrave;o nh&amp;agrave; tắm, bếp, l&amp;agrave;m hỏng gạo, bột.&lt;/p&gt;', 'khu-vuon-xanh-ngat-tren-mai-chung-cu-khien-hang-xom-noi-gian', 'KHU VƯỜN XANH NGÁT TRÊN MÁI CHUNG CƯ KHIẾN HÀNG XÓM NỔI GIẬN | KHU VUON XANH NGAT TREN MAI CHUNG CU KHIEN HANG XOM NOI GIAN', 'KHU VƯỜN XANH NGÁT TRÊN MÁI CHUNG CƯ KHIẾN HÀNG XÓM NỔI GIẬN, KHU VUON XANH NGAT TREN MAI CHUNG CU KHIEN HANG XOM NOI GIAN', 'Chủ nhà có thể uống trà giữa vườn hoa đẹp rực rỡ, đủ rau ăn quanh năm, nhưng hàng xóm phàn nàn nhà bị...', 0, 0, 0, 0, 1452417656, 1452420748, 'vi'),
+(10, 9, '', 0, '', 'news/2016_01/0-6328-1448418103.jpg', 'KHU VƯỜN XANH NGÁT TRÊN MÁI CHUNG CƯ KHIẾN HÀNG XÓM NỔI GIẬN', '', '&lt;p&gt;Chủ nh&amp;agrave; c&amp;oacute; thể uống tr&amp;agrave; giữa vườn hoa đẹp rực rỡ, đủ rau ăn quanh năm, nhưng h&amp;agrave;ng x&amp;oacute;m ph&amp;agrave;n n&amp;agrave;n nh&amp;agrave; bị dột.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0-6328-1448418103.jpg?v=1448694381149&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;Ocirc;ng Gao (68 tuổi) sống tr&amp;ecirc;n tầng 6 của một khu nh&amp;agrave; chung cư ở Dongcheng (Bắc Kinh, Trung Quốc) v&amp;agrave; l&amp;agrave;m vườn tr&amp;ecirc;n m&amp;aacute;i nh&amp;agrave; được 5 năm.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/1-8055-1448418103.jpg?v=1448694409232&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Cấu tr&amp;uacute;c của nh&amp;agrave; gồm nhiều m&amp;aacute;i dốc, ban c&amp;ocirc;ng n&amp;ecirc;n &amp;ocirc;ng Gao c&amp;oacute; thể tạo lập được khu vườn giống như khu rừng với nhiều tầng c&amp;acirc;y.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/2a-6378-1448418103.jpg?v=1448694440952&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Chi ph&amp;iacute; đầu tư v&amp;agrave;o khu vườn đ&amp;atilde; l&amp;ecirc;n tới 50.000 tệ (176 triệu đồng).&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/3-1-3043-1448418104.jpg?v=1448694476995&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Kh&amp;ocirc;ng chỉ quan t&amp;acirc;m tới việc trồng c&amp;acirc;y, &amp;ocirc;ng Gao c&amp;ograve;n thiết kế ra kh&amp;ocirc;ng gian ngồi thư gi&amp;atilde;n, ngắm cảnh giữa vườn hoa nở rực rỡ.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/5-6049-1448418105.jpg?v=1448694520705&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Tuy nhi&amp;ecirc;n, 18 hộ gia đ&amp;igrave;nh sống trong khu nh&amp;agrave; đều ph&amp;agrave;n n&amp;agrave;n rằng khu vườn tr&amp;ecirc;n m&amp;aacute;i đ&amp;atilde; l&amp;agrave;m nh&amp;agrave; họ hư hỏng v&amp;agrave; g&amp;acirc;y mất an to&amp;agrave;n.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/7-3418-1448418105.jpg?v=1448694553209&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Nhiều người cho biết, m&amp;aacute;i bị dột v&amp;agrave; nước thấm v&amp;agrave;o nh&amp;agrave; ng&amp;agrave;y c&amp;agrave;ng nghi&amp;ecirc;m trọng. C&amp;oacute; gia đ&amp;igrave;nh bị nước thấm v&amp;agrave;o nh&amp;agrave; tắm, bếp, l&amp;agrave;m hỏng gạo, bột.&lt;/p&gt;', 'khu-vuon-xanh-ngat-tren-mai-chung-cu-khien-hang-xom-noi-gian1', 'KHU VƯỜN XANH NGÁT TRÊN MÁI CHUNG CƯ KHIẾN HÀNG XÓM NỔI GIẬN | KHU VUON XANH NGAT TREN MAI CHUNG CU KHIEN HANG XOM NOI GIAN', 'KHU VƯỜN XANH NGÁT TRÊN MÁI CHUNG CƯ KHIẾN HÀNG XÓM NỔI GIẬN, KHU VUON XANH NGAT TREN MAI CHUNG CU KHIEN HANG XOM NOI GIAN', 'Chủ nh&agrave; c&oacute; thể uống tr&agrave; giữa vườn hoa đẹp rực rỡ, đủ rau ăn quanh năm, nhưng h&agrave;ng x&oacute;m ph&agrave;n n&agrave;n nh&agrave; bị...', 0, 0, 0, 0, 1452417656, 1452420748, 'en'),
+(11, 11, '', 0, '', 'news/2016_01/1-1448435512-660x0.jpg', 'KHÔNG GIANG SỐNG ĐẲNG CẤP TRONG DU THUYỂN SIÊU SANG', '', '&lt;p&gt;D&amp;ugrave; phải l&amp;ecirc;nh đ&amp;ecirc;nh tr&amp;ecirc;n biển nhưng chủ thuyền vẫn c&amp;oacute; thể tận hưởng cuộc sống tiện nghi.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/1-1448435512-660x0.jpg?v=1448693949019&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Người chủ mong muốn c&amp;oacute; một kh&amp;ocirc;ng gian tinh tế, thanh lịch nhưng cũng phải tạo ra cảm gi&amp;aacute;c thoải m&amp;aacute;i giống ở nh&amp;agrave;. Boong t&amp;agrave;u như một ph&amp;ograve;ng kh&amp;aacute;ch ngo&amp;agrave;i trời, gi&amp;uacute;p chủ thuyền v&amp;agrave; bạn b&amp;egrave; c&amp;oacute; thể tận hưởng nắng gi&amp;oacute; ngo&amp;agrave;i biển.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/3-1448435513-660x0.jpg?v=1448693983094&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Để tạo ra một nơi ở thoải m&amp;aacute;i trong kh&amp;ocirc;ng gian hạn chế của thuyền kh&amp;ocirc;ng hề đơn giản. Người thiết kế lựa chọn t&amp;ocirc;ng m&amp;agrave;u trắng, x&amp;aacute;m v&amp;agrave; xanh nhạt ph&amp;ugrave; hợp với khung cảnh biển trời.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/5-1448435513-660x0.jpg?v=1448694009710&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Ph&amp;ograve;ng kh&amp;aacute;ch lớn với b&amp;agrave;n ăn tr&amp;ograve;n c&amp;oacute; một v&amp;agrave;i điểm trang tr&amp;iacute; nhỏ nhưng thu h&amp;uacute;t như đ&amp;egrave;n trần hay hoa b&amp;agrave;y l&amp;uacute;c kh&amp;ocirc;ng c&amp;oacute; bữa ăn.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/7-1448435514-660x0.jpg?v=1448694034486&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Ph&amp;ograve;ng kh&amp;aacute;ch v&amp;agrave; b&amp;agrave;n ăn li&amp;ecirc;n th&amp;ocirc;ng chỉ cần sử dụng chung một chiếc đ&amp;egrave;n ch&amp;ugrave;m l&amp;agrave; đủ tạo &amp;aacute;nh s&amp;aacute;ng ấm &amp;aacute;p v&amp;agrave;o buổi tối.&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/9-1448435514-660x0.jpg?v=1448694059153&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Tr&amp;ecirc;n thuyền cũng c&amp;oacute; b&amp;agrave;n l&amp;agrave;m việc v&amp;agrave; khu xem phim thoải m&amp;aacute;i.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/10-1448435514-660x0.jpg?v=1448694083553&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;', 'khong-gian-song-dang-cap-trong-du-thuyen-sieu-sang', 'KHÔNG GIAN SỐNG ĐẲNG CẤP TRONG DU THUYỀN SIÊU SANG | KHONG GIAN SONG DANG CAP TRONG DU THUYEN SIEU SANG', 'KHÔNG GIAN SỐNG ĐẲNG CẤP TRONG DU THUYỀN SIÊU SANG, KHONG GIAN SONG DANG CAP TRONG DU THUYEN SIEU SANG', 'Dù phải lênh đênh trên biển nhưng chủ thuyền vẫn có thể tận hưởng cuộc sống tiện nghi.\r\nNgười chủ mong muốn có một không...', 0, 0, 0, 0, 1452417701, 1474293726, 'vi'),
+(12, 11, '', 0, '', 'news/2016_01/1-1448435512-660x0.jpg', 'KHÔNG GIAN SỐNG ĐẲNG CẤP TRONG DU THUYỀN SIÊU SANG', '', '&lt;p&gt;D&amp;ugrave; phải l&amp;ecirc;nh đ&amp;ecirc;nh tr&amp;ecirc;n biển nhưng chủ thuyền vẫn c&amp;oacute; thể tận hưởng cuộc sống tiện nghi.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/1-1448435512-660x0.jpg?v=1448693949019&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Người chủ mong muốn c&amp;oacute; một kh&amp;ocirc;ng gian tinh tế, thanh lịch nhưng cũng phải tạo ra cảm gi&amp;aacute;c thoải m&amp;aacute;i giống ở nh&amp;agrave;. Boong t&amp;agrave;u như một ph&amp;ograve;ng kh&amp;aacute;ch ngo&amp;agrave;i trời, gi&amp;uacute;p chủ thuyền v&amp;agrave; bạn b&amp;egrave; c&amp;oacute; thể tận hưởng nắng gi&amp;oacute; ngo&amp;agrave;i biển.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/3-1448435513-660x0.jpg?v=1448693983094&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Để tạo ra một nơi ở thoải m&amp;aacute;i trong kh&amp;ocirc;ng gian hạn chế của thuyền kh&amp;ocirc;ng hề đơn giản. Người thiết kế lựa chọn t&amp;ocirc;ng m&amp;agrave;u trắng, x&amp;aacute;m v&amp;agrave; xanh nhạt ph&amp;ugrave; hợp với khung cảnh biển trời.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/5-1448435513-660x0.jpg?v=1448694009710&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Ph&amp;ograve;ng kh&amp;aacute;ch lớn với b&amp;agrave;n ăn tr&amp;ograve;n c&amp;oacute; một v&amp;agrave;i điểm trang tr&amp;iacute; nhỏ nhưng thu h&amp;uacute;t như đ&amp;egrave;n trần hay hoa b&amp;agrave;y l&amp;uacute;c kh&amp;ocirc;ng c&amp;oacute; bữa ăn.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/7-1448435514-660x0.jpg?v=1448694034486&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Ph&amp;ograve;ng kh&amp;aacute;ch v&amp;agrave; b&amp;agrave;n ăn li&amp;ecirc;n th&amp;ocirc;ng chỉ cần sử dụng chung một chiếc đ&amp;egrave;n ch&amp;ugrave;m l&amp;agrave; đủ tạo &amp;aacute;nh s&amp;aacute;ng ấm &amp;aacute;p v&amp;agrave;o buổi tối.&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/9-1448435514-660x0.jpg?v=1448694059153&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Tr&amp;ecirc;n thuyền cũng c&amp;oacute; b&amp;agrave;n l&amp;agrave;m việc v&amp;agrave; khu xem phim thoải m&amp;aacute;i.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/10-1448435514-660x0.jpg?v=1448694083553&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;', 'khong-gian-song-dang-cap-trong-du-thuyen-sieu-sang1', 'KHÔNG GIAN SỐNG ĐẲNG CẤP TRONG DU THUYỀN SIÊU SANG | KHONG GIAN SONG DANG CAP TRONG DU THUYEN SIEU SANG', 'KHÔNG GIAN SỐNG ĐẲNG CẤP TRONG DU THUYỀN SIÊU SANG, KHONG GIAN SONG DANG CAP TRONG DU THUYEN SIEU SANG', 'D&ugrave; phải l&ecirc;nh đ&ecirc;nh tr&ecirc;n biển nhưng chủ thuyền vẫn c&oacute; thể tận hưởng cuộc sống tiện nghi.\r\nNgười chủ mong muốn c&oacute; một kh&ocirc;ng...', 0, 0, 0, 0, 1452417701, 1474293726, 'en'),
+(13, 13, '9', 9, '', '', 'Thương mại 1', '&lt;p&gt;Thương mại 1&lt;/p&gt;', '&lt;p&gt;Thương mại 1&lt;/p&gt;', 'thuong-mai-1', 'Thương mại 1 | Thuong mai 1', 'Thương mại 1, Thuong mai 1', 'Thương mại 1', 0, 0, 0, 0, 1471166165, 1471166175, 'vi'),
+(14, 13, '9', 9, '', '', 'Thương mại 1', '&lt;p&gt;Thương mại 1&lt;/p&gt;', '&lt;p&gt;Thương mại 1&lt;/p&gt;', 'thuong-mai-2', 'Thương mại 1 | Thuong mai 1', 'Thương mại 1, Thuong mai 1', 'Thương mại 1', 0, 0, 0, 0, 1471166165, 1471166175, 'en'),
+(15, 15, '', 0, '', 'news/2016_01/1-1448435512-660x0.jpg', 'KHÔNG GIANG SỐNG ĐẲNG CẤP TRONG DU THUYỂN SIÊU SANG', '', '&lt;p&gt;D&amp;ugrave; phải l&amp;ecirc;nh đ&amp;ecirc;nh tr&amp;ecirc;n biển nhưng chủ thuyền vẫn c&amp;oacute; thể tận hưởng cuộc sống tiện nghi.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/1-1448435512-660x0.jpg?v=1448693949019&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Người chủ mong muốn c&amp;oacute; một kh&amp;ocirc;ng gian tinh tế, thanh lịch nhưng cũng phải tạo ra cảm gi&amp;aacute;c thoải m&amp;aacute;i giống ở nh&amp;agrave;. Boong t&amp;agrave;u như một ph&amp;ograve;ng kh&amp;aacute;ch ngo&amp;agrave;i trời, gi&amp;uacute;p chủ thuyền v&amp;agrave; bạn b&amp;egrave; c&amp;oacute; thể tận hưởng nắng gi&amp;oacute; ngo&amp;agrave;i biển.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/3-1448435513-660x0.jpg?v=1448693983094&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Để tạo ra một nơi ở thoải m&amp;aacute;i trong kh&amp;ocirc;ng gian hạn chế của thuyền kh&amp;ocirc;ng hề đơn giản. Người thiết kế lựa chọn t&amp;ocirc;ng m&amp;agrave;u trắng, x&amp;aacute;m v&amp;agrave; xanh nhạt ph&amp;ugrave; hợp với khung cảnh biển trời.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/5-1448435513-660x0.jpg?v=1448694009710&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Ph&amp;ograve;ng kh&amp;aacute;ch lớn với b&amp;agrave;n ăn tr&amp;ograve;n c&amp;oacute; một v&amp;agrave;i điểm trang tr&amp;iacute; nhỏ nhưng thu h&amp;uacute;t như đ&amp;egrave;n trần hay hoa b&amp;agrave;y l&amp;uacute;c kh&amp;ocirc;ng c&amp;oacute; bữa ăn.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/7-1448435514-660x0.jpg?v=1448694034486&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Ph&amp;ograve;ng kh&amp;aacute;ch v&amp;agrave; b&amp;agrave;n ăn li&amp;ecirc;n th&amp;ocirc;ng chỉ cần sử dụng chung một chiếc đ&amp;egrave;n ch&amp;ugrave;m l&amp;agrave; đủ tạo &amp;aacute;nh s&amp;aacute;ng ấm &amp;aacute;p v&amp;agrave;o buổi tối.&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/9-1448435514-660x0.jpg?v=1448694059153&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Tr&amp;ecirc;n thuyền cũng c&amp;oacute; b&amp;agrave;n l&amp;agrave;m việc v&amp;agrave; khu xem phim thoải m&amp;aacute;i.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/10-1448435514-660x0.jpg?v=1448694083553&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;', 'khong-gian-song-dang-cap-trong-du-thuyen-sieu-sang2', 'KHÔNG GIAN SỐNG ĐẲNG CẤP TRONG DU THUYỀN SIÊU SANG | KHONG GIAN SONG DANG CAP TRONG DU THUYEN SIEU SANG', 'KHÔNG GIAN SỐNG ĐẲNG CẤP TRONG DU THUYỀN SIÊU SANG, KHONG GIAN SONG DANG CAP TRONG DU THUYEN SIEU SANG', 'Dù phải lênh đênh trên biển nhưng chủ thuyền vẫn có thể tận hưởng cuộc sống tiện nghi.\r\nNgười chủ mong muốn có một không...', 0, 0, 0, 0, 1474293816, 1474293816, 'vi'),
+(16, 15, '', 0, '', 'news/2016_01/1-1448435512-660x0.jpg', 'KHÔNG GIAN SỐNG ĐẲNG CẤP TRONG DU THUYỀN SIÊU SANG', '', '&lt;p&gt;D&amp;ugrave; phải l&amp;ecirc;nh đ&amp;ecirc;nh tr&amp;ecirc;n biển nhưng chủ thuyền vẫn c&amp;oacute; thể tận hưởng cuộc sống tiện nghi.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/1-1448435512-660x0.jpg?v=1448693949019&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Người chủ mong muốn c&amp;oacute; một kh&amp;ocirc;ng gian tinh tế, thanh lịch nhưng cũng phải tạo ra cảm gi&amp;aacute;c thoải m&amp;aacute;i giống ở nh&amp;agrave;. Boong t&amp;agrave;u như một ph&amp;ograve;ng kh&amp;aacute;ch ngo&amp;agrave;i trời, gi&amp;uacute;p chủ thuyền v&amp;agrave; bạn b&amp;egrave; c&amp;oacute; thể tận hưởng nắng gi&amp;oacute; ngo&amp;agrave;i biển.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/3-1448435513-660x0.jpg?v=1448693983094&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Để tạo ra một nơi ở thoải m&amp;aacute;i trong kh&amp;ocirc;ng gian hạn chế của thuyền kh&amp;ocirc;ng hề đơn giản. Người thiết kế lựa chọn t&amp;ocirc;ng m&amp;agrave;u trắng, x&amp;aacute;m v&amp;agrave; xanh nhạt ph&amp;ugrave; hợp với khung cảnh biển trời.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/5-1448435513-660x0.jpg?v=1448694009710&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Ph&amp;ograve;ng kh&amp;aacute;ch lớn với b&amp;agrave;n ăn tr&amp;ograve;n c&amp;oacute; một v&amp;agrave;i điểm trang tr&amp;iacute; nhỏ nhưng thu h&amp;uacute;t như đ&amp;egrave;n trần hay hoa b&amp;agrave;y l&amp;uacute;c kh&amp;ocirc;ng c&amp;oacute; bữa ăn.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/7-1448435514-660x0.jpg?v=1448694034486&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Ph&amp;ograve;ng kh&amp;aacute;ch v&amp;agrave; b&amp;agrave;n ăn li&amp;ecirc;n th&amp;ocirc;ng chỉ cần sử dụng chung một chiếc đ&amp;egrave;n ch&amp;ugrave;m l&amp;agrave; đủ tạo &amp;aacute;nh s&amp;aacute;ng ấm &amp;aacute;p v&amp;agrave;o buổi tối.&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/9-1448435514-660x0.jpg?v=1448694059153&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Tr&amp;ecirc;n thuyền cũng c&amp;oacute; b&amp;agrave;n l&amp;agrave;m việc v&amp;agrave; khu xem phim thoải m&amp;aacute;i.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/10-1448435514-660x0.jpg?v=1448694083553&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;', 'khong-gian-song-dang-cap-trong-du-thuyen-sieu-sang3', 'KHÔNG GIAN SỐNG ĐẲNG CẤP TRONG DU THUYỀN SIÊU SANG | KHONG GIAN SONG DANG CAP TRONG DU THUYEN SIEU SANG', 'KHÔNG GIAN SỐNG ĐẲNG CẤP TRONG DU THUYỀN SIÊU SANG, KHONG GIAN SONG DANG CAP TRONG DU THUYEN SIEU SANG', 'D&ugrave; phải l&ecirc;nh đ&ecirc;nh tr&ecirc;n biển nhưng chủ thuyền vẫn c&oacute; thể tận hưởng cuộc sống tiện nghi.\r\nNgười chủ mong muốn c&oacute; một kh&ocirc;ng...', 0, 0, 0, 0, 1452417701, 1474293726, 'en'),
+(17, 17, '', 0, '', 'news/2016_01/c-1-1448443170-660x0.jpg', 'NHÀ ỐNG 50 M2 CÓ CÁCH BỐ TRÍ ĐẢO NGƯỢC', '', '&lt;p&gt;Ph&amp;ograve;ng ngủ được bố tr&amp;iacute; ở tầng một c&amp;ograve;n kh&amp;ocirc;ng gian sinh hoạt chung lại nằm ở tầng 2.&lt;br /&gt;Nữ chủ nh&amp;agrave; ở Sao Paulo (Brazil) mua ng&amp;ocirc;i nh&amp;agrave; đ&amp;atilde; xuống cấp v&amp;agrave; tiến h&amp;agrave;nh cải tạo lại. C&amp;ocirc; sống một m&amp;igrave;nh n&amp;ecirc;n muốn nơi ở vừa đ&amp;aacute;p ứng cuộc sống hiện nay vừa đ&amp;aacute;p ứng nhu cầu trong tương lai.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/c-1-1448443170-660x0.jpg?v=1448720510040&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Bởi vậy, chủ nh&amp;agrave; muốn tầng một l&amp;agrave; kh&amp;ocirc;ng gian ri&amp;ecirc;ng tư (ph&amp;ograve;ng ngủ, WC) được sử dụng nhiều hơn trong thời gian hiện tại. Tầng 2 l&amp;agrave; khu sinh hoạt chung gồm ph&amp;ograve;ng kh&amp;aacute;ch, bếp ăn.&lt;/p&gt;\r\n&lt;p&gt;Ở tầng một, kiến tr&amp;uacute;c sư bố tr&amp;iacute; một khoảng diện t&amp;iacute;ch l&amp;agrave;m s&amp;acirc;n vườn gi&amp;uacute;p cho cả ph&amp;ograve;ng ngủ, khu WC đều được th&amp;ocirc;ng tho&amp;aacute;ng. Chủ nh&amp;agrave; trồng c&amp;aacute;c c&amp;acirc;y treo tường gi&amp;uacute;p tiết kiệm diện t&amp;iacute;ch mặt s&amp;agrave;n.&lt;br /&gt;Tầng 2 l&amp;agrave; kh&amp;ocirc;ng gian th&amp;uacute; vị khi kiến tr&amp;uacute;c sư kết hợp giữa c&amp;aacute;i cũ v&amp;agrave; c&amp;aacute;i mới. Ở đ&amp;acirc;y c&amp;oacute; sự tương phản giữa mảng tường gạch th&amp;ocirc; với c&amp;aacute;c bức tường, trần nh&amp;agrave;, s&amp;agrave;n v&amp;agrave; cả nội thất s&amp;aacute;ng m&amp;agrave;u, trau chuốt.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/d-1-1448443171-660x0.jpg?v=1448720567578&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Từ cửa sổ tầng 2 c&amp;oacute; thể nh&amp;igrave;n ra khung cảnh xanh mướt b&amp;ecirc;n ngo&amp;agrave;i n&amp;ecirc;n người thiết kế tạo ra khung gỗ rộng c&amp;oacute; thể ngồi b&amp;ecirc;n cửa sổ thư gi&amp;atilde;n.&amp;nbsp;&lt;/p&gt;', 'nha-ong-50-m2-co-cach-bo-tri-dao-nguoc2', 'NHÀ ỐNG 50 M2 CÓ CÁCH BỐ TRÍ ĐẢO NGƯỢC | NHA ONG 50 M2 CO CACH BO TRI DAO NGUOC', 'NHÀ ỐNG 50 M2 CÓ CÁCH BỐ TRÍ ĐẢO NGƯỢC, NHA ONG 50 M2 CO CACH BO TRI DAO NGUOC', 'Phòng ngủ được bố trí ở tầng một còn không gian sinh hoạt chung lại nằm ở tầng 2.Nữ chủ nhà ở Sao Paulo (Brazil) mua ngôi...', 0, 0, 0, 0, 1474293819, 1474293819, 'vi'),
+(18, 17, '', 0, '', 'news/2016_01/c-1-1448443170-660x0.jpg', 'NHÀ ỐNG 50 M2 CÓ CÁCH BỐ TRÍ ĐẢO NGƯỢC', '', '&lt;p&gt;Ph&amp;ograve;ng ngủ được bố tr&amp;iacute; ở tầng một c&amp;ograve;n kh&amp;ocirc;ng gian sinh hoạt chung lại nằm ở tầng 2.&lt;br /&gt;Nữ chủ nh&amp;agrave; ở Sao Paulo (Brazil) mua ng&amp;ocirc;i nh&amp;agrave; đ&amp;atilde; xuống cấp v&amp;agrave; tiến h&amp;agrave;nh cải tạo lại. C&amp;ocirc; sống một m&amp;igrave;nh n&amp;ecirc;n muốn nơi ở vừa đ&amp;aacute;p ứng cuộc sống hiện nay vừa đ&amp;aacute;p ứng nhu cầu trong tương lai.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/c-1-1448443170-660x0.jpg?v=1448720510040&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Bởi vậy, chủ nh&amp;agrave; muốn tầng một l&amp;agrave; kh&amp;ocirc;ng gian ri&amp;ecirc;ng tư (ph&amp;ograve;ng ngủ, WC) được sử dụng nhiều hơn trong thời gian hiện tại. Tầng 2 l&amp;agrave; khu sinh hoạt chung gồm ph&amp;ograve;ng kh&amp;aacute;ch, bếp ăn.&lt;/p&gt;\r\n&lt;p&gt;Ở tầng một, kiến tr&amp;uacute;c sư bố tr&amp;iacute; một khoảng diện t&amp;iacute;ch l&amp;agrave;m s&amp;acirc;n vườn gi&amp;uacute;p cho cả ph&amp;ograve;ng ngủ, khu WC đều được th&amp;ocirc;ng tho&amp;aacute;ng. Chủ nh&amp;agrave; trồng c&amp;aacute;c c&amp;acirc;y treo tường gi&amp;uacute;p tiết kiệm diện t&amp;iacute;ch mặt s&amp;agrave;n.&lt;br /&gt;Tầng 2 l&amp;agrave; kh&amp;ocirc;ng gian th&amp;uacute; vị khi kiến tr&amp;uacute;c sư kết hợp giữa c&amp;aacute;i cũ v&amp;agrave; c&amp;aacute;i mới. Ở đ&amp;acirc;y c&amp;oacute; sự tương phản giữa mảng tường gạch th&amp;ocirc; với c&amp;aacute;c bức tường, trần nh&amp;agrave;, s&amp;agrave;n v&amp;agrave; cả nội thất s&amp;aacute;ng m&amp;agrave;u, trau chuốt.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/d-1-1448443171-660x0.jpg?v=1448720567578&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Từ cửa sổ tầng 2 c&amp;oacute; thể nh&amp;igrave;n ra khung cảnh xanh mướt b&amp;ecirc;n ngo&amp;agrave;i n&amp;ecirc;n người thiết kế tạo ra khung gỗ rộng c&amp;oacute; thể ngồi b&amp;ecirc;n cửa sổ thư gi&amp;atilde;n.&amp;nbsp;&lt;/p&gt;', 'nha-ong-50-m2-co-cach-bo-tri-dao-nguoc3', 'NHÀ ỐNG 50 M2 CÓ CÁCH BỐ TRÍ ĐẢO NGƯỢC | NHA ONG 50 M2 CO CACH BO TRI DAO NGUOC', 'NHÀ ỐNG 50 M2 CÓ CÁCH BỐ TRÍ ĐẢO NGƯỢC, NHA ONG 50 M2 CO CACH BO TRI DAO NGUOC', 'Ph&ograve;ng ngủ được bố tr&iacute; ở tầng một c&ograve;n kh&ocirc;ng gian sinh hoạt chung lại nằm ở tầng 2.Nữ chủ nh&agrave; ở Sao Paulo (Brazil) mua ng&ocirc;i...', 0, 0, 0, 0, 1452417626, 1452420739, 'en');
+INSERT INTO `news` (`id`, `item_id`, `group_nav`, `group_id`, `group_related`, `picture`, `title`, `short`, `content`, `friendly_link`, `meta_title`, `meta_key`, `meta_desc`, `is_focus`, `is_focus_group`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(19, 19, '', 0, '', 'news/2016_01/untitled-7-4065-1447125363.jpg', 'CÁC CHUNG CƯ THIẾT KẾ ĐẸP LẠ KHIẾN NHIỀU NGƯỜI MÊ', '', '&lt;p&gt;Khu nh&amp;agrave; giống tr&amp;ograve; chơi xếp gạch của trẻ, phủ k&amp;iacute;n c&amp;acirc;y xanh hay lấy cảm hứng từ đ&amp;aacute;m m&amp;acirc;y, tảng băng... đem lại cảm gi&amp;aacute;c th&amp;iacute;ch th&amp;uacute; cho nhiều người.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/untitled-7-4065-1447125363.jpg?v=1448720738819&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Tại Festival Kiến tr&amp;uacute;c Thế giới, khu nh&amp;agrave; The Interlace (Singapore) được vinh danh l&amp;agrave; C&amp;ocirc;ng tr&amp;igrave;nh đẹp nhất năm. &amp;nbsp;Nh&amp;igrave;n từ tr&amp;ecirc;n cao, chung cư n&amp;agrave;y tr&amp;ocirc;ng giống như tr&amp;ograve; chơi xếp gạch Lego của trẻ nhỏ. Ảnh: Domusweb.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/nha1-5594-1447125364.jpg?v=1448720761840&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Khu nh&amp;agrave; ở Đan Mạch lấy cảm hứng từ c&amp;aacute;c tảng băng gồm c&amp;aacute;c căn hộ c&amp;oacute; diện t&amp;iacute;ch từ 55 tới 227 m2. Ảnh: Designboom.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/chungcccu1-3945-1448072496.jpg?v=1448720788620&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Cao ốc 65 tầng c&amp;oacute; thiết kế như c&amp;aacute;c đ&amp;aacute;m m&amp;acirc;y trắng với bể bơi, c&amp;acirc;y xanh giữa c&amp;aacute;c tầng. Đ&amp;acirc;y l&amp;agrave; một dự &amp;aacute;n của Hiệp hội Kiến tr&amp;uacute;c sư Kazakhstan. (Xem cả nh&amp;agrave;). Ảnh: Inhabitat.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/nhachungcu1a-9787-1448072496.jpg?v=1448720813033&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;C&amp;ocirc;ng tr&amp;igrave;nh ở Stockholm (Thụy Điển) do Bjarke Ingels Group thiết kế kh&amp;ocirc;ng chỉ độc đ&amp;aacute;o về kiến tr&amp;uacute;c với h&amp;igrave;nh ảnh bậc thang m&amp;agrave; c&amp;ograve;n bắt mắt nhờ c&amp;acirc;y xanh được trồng tr&amp;ecirc;n m&amp;aacute;i. Ảnh: Designboom.&lt;br /&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/nha2-3109-1447125364.jpg?v=1448720849146&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;T&amp;ograve;a th&amp;aacute;p đ&amp;ocirc;i Bosco Verticale (Rừng thẳng đứng) ở Milan (Italy) g&amp;acirc;y x&amp;ocirc;n xao với h&amp;agrave;ng trăm c&amp;acirc;y xanh khắp c&amp;aacute;c tầng, m&amp;aacute;i nh&amp;agrave;, gi&amp;uacute;p lọc kh&amp;ocirc;ng kh&amp;iacute;, l&amp;agrave;m đẹp th&amp;agrave;nh phố. (Xem cả nh&amp;agrave;). Ảnh: Bored Panda.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/nha-6-1505-1447125364.jpg?v=1448720900183&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Sau khi ho&amp;agrave;n th&amp;agrave;nh c&amp;ocirc;ng tr&amp;igrave;nh ở Italy, c&amp;ocirc;ng ty Stefano Boeri Architetti tiếp tục l&amp;agrave;m th&amp;ecirc;m t&amp;ograve;a th&amp;aacute;p c&amp;acirc;y ở Lausanne (Thụy Sĩ). D&amp;ugrave; mặt bằng nhỏ nhưng lượng c&amp;acirc;y ở đ&amp;acirc;y phủ xanh diện t&amp;iacute;ch 3.000 m2 v&amp;agrave; vẫn đảm bảo những khoảng th&amp;ocirc;ng tho&amp;aacute;ng cho c&amp;aacute;c căn hộ. (Xem cả nh&amp;agrave;). Ảnh: Inhabitat.&lt;/p&gt;', 'cac-chung-cu-thiet-ke-dep-la-khien-nhieu-nguoi-me2', 'CÁC CHUNG CƯ THIẾT KẾ ĐẸP LẠ KHIẾN NHIỀU NGƯỜI MÊ | CAC CHUNG CU THIET KE DEP LA KHIEN NHIEU NGUOI ME', 'CÁC CHUNG CƯ THIẾT KẾ ĐẸP LẠ KHIẾN NHIỀU NGƯỜI MÊ, CAC CHUNG CU THIET KE DEP LA KHIEN NHIEU NGUOI ME', 'Khu nhà giống trò chơi xếp gạch của trẻ, phủ kín cây xanh hay lấy cảm hứng từ đám mây, tảng băng... đem lại cảm giác...', 0, 0, 0, 0, 1474293822, 1474293822, 'vi'),
+(20, 19, '', 0, '', 'news/2016_01/untitled-7-4065-1447125363.jpg', 'CÁC CHUNG CƯ THIẾT KẾ ĐẸP LẠ KHIẾN NHIỀU NGƯỜI MÊ', '', '&lt;p&gt;Khu nh&amp;agrave; giống tr&amp;ograve; chơi xếp gạch của trẻ, phủ k&amp;iacute;n c&amp;acirc;y xanh hay lấy cảm hứng từ đ&amp;aacute;m m&amp;acirc;y, tảng băng... đem lại cảm gi&amp;aacute;c th&amp;iacute;ch th&amp;uacute; cho nhiều người.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;Tại Festival Kiến tr&amp;uacute;c Thế giới, khu nh&amp;agrave; The Interlace (Singapore) được vinh danh l&amp;agrave; C&amp;ocirc;ng tr&amp;igrave;nh đẹp nhất năm. Nh&amp;igrave;n từ tr&amp;ecirc;n cao, chung cư n&amp;agrave;y tr&amp;ocirc;ng giống như tr&amp;ograve; chơi xếp gạch Lego của trẻ nhỏ. Ảnh: Domusweb.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;Khu nh&amp;agrave; ở Đan Mạch lấy cảm hứng từ c&amp;aacute;c tảng băng gồm c&amp;aacute;c căn hộ c&amp;oacute; diện t&amp;iacute;ch từ 55 tới 227 m2. Ảnh: Designboom.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;Cao ốc 65 tầng c&amp;oacute; thiết kế như c&amp;aacute;c đ&amp;aacute;m m&amp;acirc;y trắng với bể bơi, c&amp;acirc;y xanh giữa c&amp;aacute;c tầng. Đ&amp;acirc;y l&amp;agrave; một dự &amp;aacute;n của Hiệp hội Kiến tr&amp;uacute;c sư Kazakhstan. (Xem cả nh&amp;agrave;). Ảnh: Inhabitat.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;C&amp;ocirc;ng tr&amp;igrave;nh ở Stockholm (Thụy Điển) do Bjarke Ingels Group thiết kế kh&amp;ocirc;ng chỉ độc đ&amp;aacute;o về kiến tr&amp;uacute;c với h&amp;igrave;nh ảnh bậc thang m&amp;agrave; c&amp;ograve;n bắt mắt nhờ c&amp;acirc;y xanh được trồng tr&amp;ecirc;n m&amp;aacute;i. Ảnh: Designboom.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;T&amp;ograve;a th&amp;aacute;p đ&amp;ocirc;i Bosco Verticale (Rừng thẳng đứng) ở Milan (Italy) g&amp;acirc;y x&amp;ocirc;n xao với h&amp;agrave;ng trăm c&amp;acirc;y xanh khắp c&amp;aacute;c tầng, m&amp;aacute;i nh&amp;agrave;, gi&amp;uacute;p lọc kh&amp;ocirc;ng kh&amp;iacute;, l&amp;agrave;m đẹp th&amp;agrave;nh phố. (Xem cả nh&amp;agrave;). Ảnh: Bored Panda.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Sau khi ho&amp;agrave;n th&amp;agrave;nh c&amp;ocirc;ng tr&amp;igrave;nh ở Italy, c&amp;ocirc;ng ty Stefano Boeri Architetti tiếp tục l&amp;agrave;m th&amp;ecirc;m t&amp;ograve;a th&amp;aacute;p c&amp;acirc;y ở Lausanne (Thụy Sĩ). D&amp;ugrave; mặt bằng nhỏ nhưng lượng c&amp;acirc;y ở đ&amp;acirc;y phủ xanh diện t&amp;iacute;ch 3.000 m2 v&amp;agrave; vẫn đảm bảo những khoảng th&amp;ocirc;ng tho&amp;aacute;ng cho c&amp;aacute;c căn hộ. (Xem cả nh&amp;agrave;). Ảnh: Inhabitat.&lt;/p&gt;', 'cac-chung-cu-thiet-ke-dep-la-khien-nhieu-nguoi-me3', 'CÁC CHUNG CƯ THIẾT KẾ ĐẸP LẠ KHIẾN NHIỀU NGƯỜI MÊ | CAC CHUNG CU THIET KE DEP LA KHIEN NHIEU NGUOI ME', 'CÁC CHUNG CƯ THIẾT KẾ ĐẸP LẠ KHIẾN NHIỀU NGƯỜI MÊ, CAC CHUNG CU THIET KE DEP LA KHIEN NHIEU NGUOI ME', 'Khu nh&agrave; giống tr&ograve; chơi xếp gạch của trẻ, phủ k&iacute;n c&acirc;y xanh hay lấy cảm hứng từ đ&aacute;m m&acirc;y, tảng băng... đem lại cảm gi&aacute;c...', 0, 0, 0, 0, 1452417589, 1452420725, 'en'),
+(21, 21, '', 0, '', 'news/2016_01/0112-03.png', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG', '', '&lt;p&gt;Chọn chậu rửa ph&amp;ugrave; hợp với kh&amp;ocirc;ng gian v&amp;agrave; phục vụ hiệu quả cho việc nấu nướng l&amp;agrave; mục đ&amp;iacute;ch chung của nhiều gia chủ khi l&amp;ecirc;n &amp;yacute; tưởng thiết kế khu bếp.&lt;br /&gt;C&amp;aacute;c chuy&amp;ecirc;n gia đến từ Hafele (Đức) vẫn thường nhận được những thắc mắc như &quot;Chọn chậu rửa với độ s&amp;acirc;u bao nhi&amp;ecirc;u th&amp;igrave; ph&amp;ugrave; hợp?&quot;, &quot;V&amp;ograve;i rửa loại n&amp;agrave;o sẽ kh&amp;ocirc;ng bị r&amp;ograve; rỉ nước?&quot;, &amp;ldquo;L&amp;agrave;m sao để tiết kiệm thời gian khi chuẩn bị m&amp;oacute;n ăn?&amp;rdquo; v&amp;agrave; h&amp;agrave;ng loạt những c&amp;acirc;u hỏi kh&amp;aacute;c li&amp;ecirc;n quan đến khu vực chuẩn bị, dọn rửa, nơi bố tr&amp;iacute; bồn rửa v&amp;agrave; v&amp;ograve;i bếp.&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Để giải đ&amp;aacute;p những băn khoăn ấy, c&amp;aacute;c chuy&amp;ecirc;n gia Hafele đưa ra những lời khuy&amp;ecirc;n hữu &amp;iacute;ch sau đ&amp;acirc;y.&lt;/p&gt;\r\n&lt;p&gt;Chậu rửa&lt;/p&gt;\r\n&lt;p&gt;Về chất liệu, chậu rửa n&amp;ecirc;n chọn th&amp;eacute;p kh&amp;ocirc;ng gỉ. Đ&amp;acirc;y l&amp;agrave; lựa chọn th&amp;ocirc;ng dụng hiện nay với vẻ đẹp vượt thời gian, ưu điểm chịu nhiệt tốt v&amp;agrave; vệ sinh dễ d&amp;agrave;ng. Ngo&amp;agrave;i ra, nếu gia chủ đầu tư hơn một ch&amp;uacute;t, chậu rửa bằng đ&amp;aacute; Granite với độ bền cao, thiết kế tinh tế sẽ g&amp;oacute;p phần mang lại vẻ sang trọng cho ng&amp;ocirc;i nh&amp;agrave; của bạn&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-01.jpg?v=1448982594829&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Chậu rửa Granite sang trọng v&amp;agrave; tinh tế.&lt;/p&gt;\r\n&lt;p&gt;Về k&amp;iacute;ch thước, chậu rửa thường c&amp;oacute; hai loại l&amp;agrave; chậu đơn v&amp;agrave; chậu đ&amp;ocirc;i. Chậu đơn thường c&amp;oacute; k&amp;iacute;ch thước rộng v&amp;agrave; s&amp;acirc;u gi&amp;uacute;p bạn ng&amp;acirc;m v&amp;agrave; rửa thực phẩm hay ch&amp;eacute;n b&amp;aacute;t với số lượng lớn. Nếu b&amp;agrave;n bếp của bạn c&amp;ograve;n khoảng trống từ 870mm trở l&amp;ecirc;n, bạn cũng c&amp;oacute; thể chọn chậu đ&amp;ocirc;i để tăng th&amp;ecirc;m kh&amp;ocirc;ng gian, việc dọn rửa dễ d&amp;agrave;ng, thoải m&amp;aacute;i hơn. B&amp;ecirc;n cạnh đ&amp;oacute;, chiều s&amp;acirc;u trung b&amp;igrave;nh từ 180mm - 250mm l&amp;agrave; k&amp;iacute;ch thước l&amp;yacute; tưởng được nghi&amp;ecirc;n cứu v&amp;agrave; &amp;aacute;p dụng cho c&amp;aacute;c loại chậu rửa hiện nay.&lt;/p&gt;\r\n&lt;p&gt;V&amp;ograve;i rửa&lt;/p&gt;\r\n&lt;p&gt;Ngo&amp;agrave;i c&amp;aacute;c loại v&amp;ograve;i truyền thống, nhiều loại v&amp;ograve;i hiện đại cũng được thiết kế với khả năng k&amp;eacute;o d&amp;agrave;i đầu v&amp;ograve;i, cho ph&amp;eacute;p linh hoạt điều chỉnh v&amp;ograve;i tới vị tr&amp;iacute; bạn mong muốn.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-02.png?v=1448982698836&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;V&amp;ograve;i bếp được sản xuất với ti&amp;ecirc;u chuẩn Đức c&amp;oacute; độ bền cao. Sản phẩm c&amp;oacute; b&amp;aacute;n tại showroom Hafele to&amp;agrave;n quốc.&lt;/p&gt;\r\n&lt;p&gt;Y&amp;ecirc;u cầu về &amp;aacute;p lực nước của v&amp;ograve;i, c&amp;aacute;c chuy&amp;ecirc;n gia khuy&amp;ecirc;n d&amp;ograve;ng chảy tối thiểu của v&amp;ograve;i phải đạt từ 0.5 tới 1.0 bar (đơn vị đo &amp;aacute;p suất). Nếu thấp hơn, nước sẽ chỉ nhỏ giọt ra khỏi v&amp;ograve;i, khiến bạn tốn nhiều thời gian v&amp;agrave; c&amp;ocirc;ng sức hơn cho dọn rửa. Tuy nhi&amp;ecirc;n cũng đừng chọn loại v&amp;ograve;i c&amp;oacute; &amp;aacute;p suất qu&amp;aacute; cao (tr&amp;ecirc;n 10 bar) nếu bạn kh&amp;ocirc;ng muốn nước bắn tung t&amp;oacute;e trong bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Bạn n&amp;ecirc;n thiết kế v&amp;ograve;i rửa ph&amp;ugrave; hợp với phong c&amp;aacute;ch bếp. Đối với bếp truyền thống đa số sử dụng loại v&amp;ograve;i tr&amp;ograve;n. Với bếp hiện đại, v&amp;ograve;i thiết kế kiểu c&amp;aacute;ch v&amp;agrave; tinh tế sẽ l&amp;agrave;m nổi bật kh&amp;ocirc;ng gian bếp hơn.&lt;/p&gt;\r\n&lt;p&gt;Về gi&amp;aacute; cả, những v&amp;ograve;i rửa chất lượng thấp sẽ l&amp;agrave;m tăng khả năng g&amp;acirc;y ra c&amp;aacute;c sự cố r&amp;ograve; rỉ nước. V&amp;igrave; vậy, đừng ngại đầu tư một chiếc v&amp;ograve;i đạt chuẩn với tuổi thọ d&amp;agrave;i v&amp;agrave; chất lượng tốt gi&amp;uacute;p bạn tiết kiệm chi ph&amp;iacute; thay thế.&lt;/p&gt;\r\n&lt;p&gt;Ngăn k&amp;eacute;o th&amp;ocirc;ng minh dưới bồn rửa&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-03.png?v=1448982892490&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Ray hộp Tandembox tiện dụng cho ngăn k&amp;eacute;o dưới bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Kh&amp;ocirc;ng gian ngay dưới bồn rửa v&amp;agrave; v&amp;ograve;i bếp thường bị l&amp;atilde;ng qu&amp;ecirc;n, &amp;iacute;t khi được sử dụng hiệu quả. Ray hộp Tandembox của Blum d&amp;agrave;nh cho ngăn k&amp;eacute;o dưới bồn rửa sẽ gi&amp;uacute;p bạn tận dụng tốt kh&amp;ocirc;ng gian n&amp;agrave;y, sắp xếp c&amp;aacute;c dụng cụ dọn rửa gọn g&amp;agrave;ng v&amp;agrave; tiện lợi hơn.&lt;/p&gt;\r\n&lt;p&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/YFoGysOVEqA&quot; width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;\r\n&lt;div class=&quot;clear&quot;&gt;&amp;nbsp;&lt;/div&gt;', 'thiet-ke-khu-bep-sang-trong-am-ceng2', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG | THIET KE KHU BEP SANG TRONG, AM CENG', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG, THIET KE KHU BEP SANG TRONG, AM CENG', 'Chọn chậu rửa phù hợp với không gian và phục vụ hiệu quả cho việc nấu nướng là mục đích chung của nhiều gia chủ khi lên...', 0, 0, 0, 0, 1474293825, 1474294117, 'vi'),
+(22, 21, '', 0, '', 'news/2016_01/0112-03.png', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG', '', '&lt;p&gt;Chọn chậu rửa ph&amp;ugrave; hợp với kh&amp;ocirc;ng gian v&amp;agrave; phục vụ hiệu quả cho việc nấu nướng l&amp;agrave; mục đ&amp;iacute;ch chung của nhiều gia chủ khi l&amp;ecirc;n &amp;yacute; tưởng thiết kế khu bếp.&lt;br /&gt;C&amp;aacute;c chuy&amp;ecirc;n gia đến từ Hafele (Đức) vẫn thường nhận được những thắc mắc như &quot;Chọn chậu rửa với độ s&amp;acirc;u bao nhi&amp;ecirc;u th&amp;igrave; ph&amp;ugrave; hợp?&quot;, &quot;V&amp;ograve;i rửa loại n&amp;agrave;o sẽ kh&amp;ocirc;ng bị r&amp;ograve; rỉ nước?&quot;, &amp;ldquo;L&amp;agrave;m sao để tiết kiệm thời gian khi chuẩn bị m&amp;oacute;n ăn?&amp;rdquo; v&amp;agrave; h&amp;agrave;ng loạt những c&amp;acirc;u hỏi kh&amp;aacute;c li&amp;ecirc;n quan đến khu vực chuẩn bị, dọn rửa, nơi bố tr&amp;iacute; bồn rửa v&amp;agrave; v&amp;ograve;i bếp.&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Để giải đ&amp;aacute;p những băn khoăn ấy, c&amp;aacute;c chuy&amp;ecirc;n gia Hafele đưa ra những lời khuy&amp;ecirc;n hữu &amp;iacute;ch sau đ&amp;acirc;y.&lt;/p&gt;\r\n&lt;p&gt;Chậu rửa&lt;/p&gt;\r\n&lt;p&gt;Về chất liệu, chậu rửa n&amp;ecirc;n chọn th&amp;eacute;p kh&amp;ocirc;ng gỉ. Đ&amp;acirc;y l&amp;agrave; lựa chọn th&amp;ocirc;ng dụng hiện nay với vẻ đẹp vượt thời gian, ưu điểm chịu nhiệt tốt v&amp;agrave; vệ sinh dễ d&amp;agrave;ng. Ngo&amp;agrave;i ra, nếu gia chủ đầu tư hơn một ch&amp;uacute;t, chậu rửa bằng đ&amp;aacute; Granite với độ bền cao, thiết kế tinh tế sẽ g&amp;oacute;p phần mang lại vẻ sang trọng cho ng&amp;ocirc;i nh&amp;agrave; của bạn&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-01.jpg?v=1448982594829&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Chậu rửa Granite sang trọng v&amp;agrave; tinh tế.&lt;/p&gt;\r\n&lt;p&gt;Về k&amp;iacute;ch thước, chậu rửa thường c&amp;oacute; hai loại l&amp;agrave; chậu đơn v&amp;agrave; chậu đ&amp;ocirc;i. Chậu đơn thường c&amp;oacute; k&amp;iacute;ch thước rộng v&amp;agrave; s&amp;acirc;u gi&amp;uacute;p bạn ng&amp;acirc;m v&amp;agrave; rửa thực phẩm hay ch&amp;eacute;n b&amp;aacute;t với số lượng lớn. Nếu b&amp;agrave;n bếp của bạn c&amp;ograve;n khoảng trống từ 870mm trở l&amp;ecirc;n, bạn cũng c&amp;oacute; thể chọn chậu đ&amp;ocirc;i để tăng th&amp;ecirc;m kh&amp;ocirc;ng gian, việc dọn rửa dễ d&amp;agrave;ng, thoải m&amp;aacute;i hơn. B&amp;ecirc;n cạnh đ&amp;oacute;, chiều s&amp;acirc;u trung b&amp;igrave;nh từ 180mm - 250mm l&amp;agrave; k&amp;iacute;ch thước l&amp;yacute; tưởng được nghi&amp;ecirc;n cứu v&amp;agrave; &amp;aacute;p dụng cho c&amp;aacute;c loại chậu rửa hiện nay.&lt;/p&gt;\r\n&lt;p&gt;V&amp;ograve;i rửa&lt;/p&gt;\r\n&lt;p&gt;Ngo&amp;agrave;i c&amp;aacute;c loại v&amp;ograve;i truyền thống, nhiều loại v&amp;ograve;i hiện đại cũng được thiết kế với khả năng k&amp;eacute;o d&amp;agrave;i đầu v&amp;ograve;i, cho ph&amp;eacute;p linh hoạt điều chỉnh v&amp;ograve;i tới vị tr&amp;iacute; bạn mong muốn.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-02.png?v=1448982698836&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;V&amp;ograve;i bếp được sản xuất với ti&amp;ecirc;u chuẩn Đức c&amp;oacute; độ bền cao. Sản phẩm c&amp;oacute; b&amp;aacute;n tại showroom Hafele to&amp;agrave;n quốc.&lt;/p&gt;\r\n&lt;p&gt;Y&amp;ecirc;u cầu về &amp;aacute;p lực nước của v&amp;ograve;i, c&amp;aacute;c chuy&amp;ecirc;n gia khuy&amp;ecirc;n d&amp;ograve;ng chảy tối thiểu của v&amp;ograve;i phải đạt từ 0.5 tới 1.0 bar (đơn vị đo &amp;aacute;p suất). Nếu thấp hơn, nước sẽ chỉ nhỏ giọt ra khỏi v&amp;ograve;i, khiến bạn tốn nhiều thời gian v&amp;agrave; c&amp;ocirc;ng sức hơn cho dọn rửa. Tuy nhi&amp;ecirc;n cũng đừng chọn loại v&amp;ograve;i c&amp;oacute; &amp;aacute;p suất qu&amp;aacute; cao (tr&amp;ecirc;n 10 bar) nếu bạn kh&amp;ocirc;ng muốn nước bắn tung t&amp;oacute;e trong bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Bạn n&amp;ecirc;n thiết kế v&amp;ograve;i rửa ph&amp;ugrave; hợp với phong c&amp;aacute;ch bếp. Đối với bếp truyền thống đa số sử dụng loại v&amp;ograve;i tr&amp;ograve;n. Với bếp hiện đại, v&amp;ograve;i thiết kế kiểu c&amp;aacute;ch v&amp;agrave; tinh tế sẽ l&amp;agrave;m nổi bật kh&amp;ocirc;ng gian bếp hơn.&lt;/p&gt;\r\n&lt;p&gt;Về gi&amp;aacute; cả, những v&amp;ograve;i rửa chất lượng thấp sẽ l&amp;agrave;m tăng khả năng g&amp;acirc;y ra c&amp;aacute;c sự cố r&amp;ograve; rỉ nước. V&amp;igrave; vậy, đừng ngại đầu tư một chiếc v&amp;ograve;i đạt chuẩn với tuổi thọ d&amp;agrave;i v&amp;agrave; chất lượng tốt gi&amp;uacute;p bạn tiết kiệm chi ph&amp;iacute; thay thế.&lt;/p&gt;\r\n&lt;p&gt;Ngăn k&amp;eacute;o th&amp;ocirc;ng minh dưới bồn rửa&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-03.png?v=1448982892490&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Ray hộp Tandembox tiện dụng cho ngăn k&amp;eacute;o dưới bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Kh&amp;ocirc;ng gian ngay dưới bồn rửa v&amp;agrave; v&amp;ograve;i bếp thường bị l&amp;atilde;ng qu&amp;ecirc;n, &amp;iacute;t khi được sử dụng hiệu quả. Ray hộp Tandembox của Blum d&amp;agrave;nh cho ngăn k&amp;eacute;o dưới bồn rửa sẽ gi&amp;uacute;p bạn tận dụng tốt kh&amp;ocirc;ng gian n&amp;agrave;y, sắp xếp c&amp;aacute;c dụng cụ dọn rửa gọn g&amp;agrave;ng v&amp;agrave; tiện lợi hơn.&lt;/p&gt;\r\n&lt;div class=&quot;clear&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;div class=&quot;si-share noborder clearfix&quot;&gt;Chia sẻ:&lt;/div&gt;', 'thiet-ke-khu-bep-sang-trong-am-ceng3', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG | THIET KE KHU BEP SANG TRONG, AM CENG', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG, THIET KE KHU BEP SANG TRONG, AM CENG', 'Chọn chậu rửa ph&ugrave; hợp với kh&ocirc;ng gian v&agrave; phục vụ hiệu quả cho việc nấu nướng l&agrave; mục đ&iacute;ch chung của nhiều gia chủ khi l&ecirc;n...', 0, 0, 0, 0, 1452417535, 1474294117, 'en'),
+(23, 23, '', 0, '', 'news/2016_01/0112-03.png', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG', '', '&lt;p&gt;Chọn chậu rửa ph&amp;ugrave; hợp với kh&amp;ocirc;ng gian v&amp;agrave; phục vụ hiệu quả cho việc nấu nướng l&amp;agrave; mục đ&amp;iacute;ch chung của nhiều gia chủ khi l&amp;ecirc;n &amp;yacute; tưởng thiết kế khu bếp.&lt;br /&gt;C&amp;aacute;c chuy&amp;ecirc;n gia đến từ Hafele (Đức) vẫn thường nhận được những thắc mắc như &quot;Chọn chậu rửa với độ s&amp;acirc;u bao nhi&amp;ecirc;u th&amp;igrave; ph&amp;ugrave; hợp?&quot;, &quot;V&amp;ograve;i rửa loại n&amp;agrave;o sẽ kh&amp;ocirc;ng bị r&amp;ograve; rỉ nước?&quot;, &amp;ldquo;L&amp;agrave;m sao để tiết kiệm thời gian khi chuẩn bị m&amp;oacute;n ăn?&amp;rdquo; v&amp;agrave; h&amp;agrave;ng loạt những c&amp;acirc;u hỏi kh&amp;aacute;c li&amp;ecirc;n quan đến khu vực chuẩn bị, dọn rửa, nơi bố tr&amp;iacute; bồn rửa v&amp;agrave; v&amp;ograve;i bếp.&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Để giải đ&amp;aacute;p những băn khoăn ấy, c&amp;aacute;c chuy&amp;ecirc;n gia Hafele đưa ra những lời khuy&amp;ecirc;n hữu &amp;iacute;ch sau đ&amp;acirc;y.&lt;/p&gt;\r\n&lt;p&gt;Chậu rửa&lt;/p&gt;\r\n&lt;p&gt;Về chất liệu, chậu rửa n&amp;ecirc;n chọn th&amp;eacute;p kh&amp;ocirc;ng gỉ. Đ&amp;acirc;y l&amp;agrave; lựa chọn th&amp;ocirc;ng dụng hiện nay với vẻ đẹp vượt thời gian, ưu điểm chịu nhiệt tốt v&amp;agrave; vệ sinh dễ d&amp;agrave;ng. Ngo&amp;agrave;i ra, nếu gia chủ đầu tư hơn một ch&amp;uacute;t, chậu rửa bằng đ&amp;aacute; Granite với độ bền cao, thiết kế tinh tế sẽ g&amp;oacute;p phần mang lại vẻ sang trọng cho ng&amp;ocirc;i nh&amp;agrave; của bạn&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-01.jpg?v=1448982594829&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Chậu rửa Granite sang trọng v&amp;agrave; tinh tế.&lt;/p&gt;\r\n&lt;p&gt;Về k&amp;iacute;ch thước, chậu rửa thường c&amp;oacute; hai loại l&amp;agrave; chậu đơn v&amp;agrave; chậu đ&amp;ocirc;i. Chậu đơn thường c&amp;oacute; k&amp;iacute;ch thước rộng v&amp;agrave; s&amp;acirc;u gi&amp;uacute;p bạn ng&amp;acirc;m v&amp;agrave; rửa thực phẩm hay ch&amp;eacute;n b&amp;aacute;t với số lượng lớn. Nếu b&amp;agrave;n bếp của bạn c&amp;ograve;n khoảng trống từ 870mm trở l&amp;ecirc;n, bạn cũng c&amp;oacute; thể chọn chậu đ&amp;ocirc;i để tăng th&amp;ecirc;m kh&amp;ocirc;ng gian, việc dọn rửa dễ d&amp;agrave;ng, thoải m&amp;aacute;i hơn. B&amp;ecirc;n cạnh đ&amp;oacute;, chiều s&amp;acirc;u trung b&amp;igrave;nh từ 180mm - 250mm l&amp;agrave; k&amp;iacute;ch thước l&amp;yacute; tưởng được nghi&amp;ecirc;n cứu v&amp;agrave; &amp;aacute;p dụng cho c&amp;aacute;c loại chậu rửa hiện nay.&lt;/p&gt;\r\n&lt;p&gt;V&amp;ograve;i rửa&lt;/p&gt;\r\n&lt;p&gt;Ngo&amp;agrave;i c&amp;aacute;c loại v&amp;ograve;i truyền thống, nhiều loại v&amp;ograve;i hiện đại cũng được thiết kế với khả năng k&amp;eacute;o d&amp;agrave;i đầu v&amp;ograve;i, cho ph&amp;eacute;p linh hoạt điều chỉnh v&amp;ograve;i tới vị tr&amp;iacute; bạn mong muốn.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-02.png?v=1448982698836&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;V&amp;ograve;i bếp được sản xuất với ti&amp;ecirc;u chuẩn Đức c&amp;oacute; độ bền cao. Sản phẩm c&amp;oacute; b&amp;aacute;n tại showroom Hafele to&amp;agrave;n quốc.&lt;/p&gt;\r\n&lt;p&gt;Y&amp;ecirc;u cầu về &amp;aacute;p lực nước của v&amp;ograve;i, c&amp;aacute;c chuy&amp;ecirc;n gia khuy&amp;ecirc;n d&amp;ograve;ng chảy tối thiểu của v&amp;ograve;i phải đạt từ 0.5 tới 1.0 bar (đơn vị đo &amp;aacute;p suất). Nếu thấp hơn, nước sẽ chỉ nhỏ giọt ra khỏi v&amp;ograve;i, khiến bạn tốn nhiều thời gian v&amp;agrave; c&amp;ocirc;ng sức hơn cho dọn rửa. Tuy nhi&amp;ecirc;n cũng đừng chọn loại v&amp;ograve;i c&amp;oacute; &amp;aacute;p suất qu&amp;aacute; cao (tr&amp;ecirc;n 10 bar) nếu bạn kh&amp;ocirc;ng muốn nước bắn tung t&amp;oacute;e trong bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Bạn n&amp;ecirc;n thiết kế v&amp;ograve;i rửa ph&amp;ugrave; hợp với phong c&amp;aacute;ch bếp. Đối với bếp truyền thống đa số sử dụng loại v&amp;ograve;i tr&amp;ograve;n. Với bếp hiện đại, v&amp;ograve;i thiết kế kiểu c&amp;aacute;ch v&amp;agrave; tinh tế sẽ l&amp;agrave;m nổi bật kh&amp;ocirc;ng gian bếp hơn.&lt;/p&gt;\r\n&lt;p&gt;Về gi&amp;aacute; cả, những v&amp;ograve;i rửa chất lượng thấp sẽ l&amp;agrave;m tăng khả năng g&amp;acirc;y ra c&amp;aacute;c sự cố r&amp;ograve; rỉ nước. V&amp;igrave; vậy, đừng ngại đầu tư một chiếc v&amp;ograve;i đạt chuẩn với tuổi thọ d&amp;agrave;i v&amp;agrave; chất lượng tốt gi&amp;uacute;p bạn tiết kiệm chi ph&amp;iacute; thay thế.&lt;/p&gt;\r\n&lt;p&gt;Ngăn k&amp;eacute;o th&amp;ocirc;ng minh dưới bồn rửa&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-03.png?v=1448982892490&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Ray hộp Tandembox tiện dụng cho ngăn k&amp;eacute;o dưới bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Kh&amp;ocirc;ng gian ngay dưới bồn rửa v&amp;agrave; v&amp;ograve;i bếp thường bị l&amp;atilde;ng qu&amp;ecirc;n, &amp;iacute;t khi được sử dụng hiệu quả. Ray hộp Tandembox của Blum d&amp;agrave;nh cho ngăn k&amp;eacute;o dưới bồn rửa sẽ gi&amp;uacute;p bạn tận dụng tốt kh&amp;ocirc;ng gian n&amp;agrave;y, sắp xếp c&amp;aacute;c dụng cụ dọn rửa gọn g&amp;agrave;ng v&amp;agrave; tiện lợi hơn.&lt;/p&gt;\r\n&lt;p&gt;&lt;iframe src=&quot;https://www.youtube.com/embed/YFoGysOVEqA&quot; width=&quot;560&quot; height=&quot;315&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;allowfullscreen&quot;&gt;&lt;/iframe&gt;&lt;/p&gt;\r\n&lt;div class=&quot;clear&quot;&gt;&amp;nbsp;&lt;/div&gt;', 'thiet-ke-khu-bep-sang-trong-am-ceng4', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG | THIET KE KHU BEP SANG TRONG, AM CENG', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG, THIET KE KHU BEP SANG TRONG, AM CENG', 'Chọn chậu rửa phù hợp với không gian và phục vụ hiệu quả cho việc nấu nướng là mục đích chung của nhiều gia chủ khi lên...', 0, 0, 0, 0, 1474375959, 1474375959, 'vi'),
+(24, 23, '', 0, '', 'news/2016_01/0112-03.png', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG', '', '&lt;p&gt;Chọn chậu rửa ph&amp;ugrave; hợp với kh&amp;ocirc;ng gian v&amp;agrave; phục vụ hiệu quả cho việc nấu nướng l&amp;agrave; mục đ&amp;iacute;ch chung của nhiều gia chủ khi l&amp;ecirc;n &amp;yacute; tưởng thiết kế khu bếp.&lt;br /&gt;C&amp;aacute;c chuy&amp;ecirc;n gia đến từ Hafele (Đức) vẫn thường nhận được những thắc mắc như &quot;Chọn chậu rửa với độ s&amp;acirc;u bao nhi&amp;ecirc;u th&amp;igrave; ph&amp;ugrave; hợp?&quot;, &quot;V&amp;ograve;i rửa loại n&amp;agrave;o sẽ kh&amp;ocirc;ng bị r&amp;ograve; rỉ nước?&quot;, &amp;ldquo;L&amp;agrave;m sao để tiết kiệm thời gian khi chuẩn bị m&amp;oacute;n ăn?&amp;rdquo; v&amp;agrave; h&amp;agrave;ng loạt những c&amp;acirc;u hỏi kh&amp;aacute;c li&amp;ecirc;n quan đến khu vực chuẩn bị, dọn rửa, nơi bố tr&amp;iacute; bồn rửa v&amp;agrave; v&amp;ograve;i bếp.&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Để giải đ&amp;aacute;p những băn khoăn ấy, c&amp;aacute;c chuy&amp;ecirc;n gia Hafele đưa ra những lời khuy&amp;ecirc;n hữu &amp;iacute;ch sau đ&amp;acirc;y.&lt;/p&gt;\r\n&lt;p&gt;Chậu rửa&lt;/p&gt;\r\n&lt;p&gt;Về chất liệu, chậu rửa n&amp;ecirc;n chọn th&amp;eacute;p kh&amp;ocirc;ng gỉ. Đ&amp;acirc;y l&amp;agrave; lựa chọn th&amp;ocirc;ng dụng hiện nay với vẻ đẹp vượt thời gian, ưu điểm chịu nhiệt tốt v&amp;agrave; vệ sinh dễ d&amp;agrave;ng. Ngo&amp;agrave;i ra, nếu gia chủ đầu tư hơn một ch&amp;uacute;t, chậu rửa bằng đ&amp;aacute; Granite với độ bền cao, thiết kế tinh tế sẽ g&amp;oacute;p phần mang lại vẻ sang trọng cho ng&amp;ocirc;i nh&amp;agrave; của bạn&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-01.jpg?v=1448982594829&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Chậu rửa Granite sang trọng v&amp;agrave; tinh tế.&lt;/p&gt;\r\n&lt;p&gt;Về k&amp;iacute;ch thước, chậu rửa thường c&amp;oacute; hai loại l&amp;agrave; chậu đơn v&amp;agrave; chậu đ&amp;ocirc;i. Chậu đơn thường c&amp;oacute; k&amp;iacute;ch thước rộng v&amp;agrave; s&amp;acirc;u gi&amp;uacute;p bạn ng&amp;acirc;m v&amp;agrave; rửa thực phẩm hay ch&amp;eacute;n b&amp;aacute;t với số lượng lớn. Nếu b&amp;agrave;n bếp của bạn c&amp;ograve;n khoảng trống từ 870mm trở l&amp;ecirc;n, bạn cũng c&amp;oacute; thể chọn chậu đ&amp;ocirc;i để tăng th&amp;ecirc;m kh&amp;ocirc;ng gian, việc dọn rửa dễ d&amp;agrave;ng, thoải m&amp;aacute;i hơn. B&amp;ecirc;n cạnh đ&amp;oacute;, chiều s&amp;acirc;u trung b&amp;igrave;nh từ 180mm - 250mm l&amp;agrave; k&amp;iacute;ch thước l&amp;yacute; tưởng được nghi&amp;ecirc;n cứu v&amp;agrave; &amp;aacute;p dụng cho c&amp;aacute;c loại chậu rửa hiện nay.&lt;/p&gt;\r\n&lt;p&gt;V&amp;ograve;i rửa&lt;/p&gt;\r\n&lt;p&gt;Ngo&amp;agrave;i c&amp;aacute;c loại v&amp;ograve;i truyền thống, nhiều loại v&amp;ograve;i hiện đại cũng được thiết kế với khả năng k&amp;eacute;o d&amp;agrave;i đầu v&amp;ograve;i, cho ph&amp;eacute;p linh hoạt điều chỉnh v&amp;ograve;i tới vị tr&amp;iacute; bạn mong muốn.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-02.png?v=1448982698836&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;V&amp;ograve;i bếp được sản xuất với ti&amp;ecirc;u chuẩn Đức c&amp;oacute; độ bền cao. Sản phẩm c&amp;oacute; b&amp;aacute;n tại showroom Hafele to&amp;agrave;n quốc.&lt;/p&gt;\r\n&lt;p&gt;Y&amp;ecirc;u cầu về &amp;aacute;p lực nước của v&amp;ograve;i, c&amp;aacute;c chuy&amp;ecirc;n gia khuy&amp;ecirc;n d&amp;ograve;ng chảy tối thiểu của v&amp;ograve;i phải đạt từ 0.5 tới 1.0 bar (đơn vị đo &amp;aacute;p suất). Nếu thấp hơn, nước sẽ chỉ nhỏ giọt ra khỏi v&amp;ograve;i, khiến bạn tốn nhiều thời gian v&amp;agrave; c&amp;ocirc;ng sức hơn cho dọn rửa. Tuy nhi&amp;ecirc;n cũng đừng chọn loại v&amp;ograve;i c&amp;oacute; &amp;aacute;p suất qu&amp;aacute; cao (tr&amp;ecirc;n 10 bar) nếu bạn kh&amp;ocirc;ng muốn nước bắn tung t&amp;oacute;e trong bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Bạn n&amp;ecirc;n thiết kế v&amp;ograve;i rửa ph&amp;ugrave; hợp với phong c&amp;aacute;ch bếp. Đối với bếp truyền thống đa số sử dụng loại v&amp;ograve;i tr&amp;ograve;n. Với bếp hiện đại, v&amp;ograve;i thiết kế kiểu c&amp;aacute;ch v&amp;agrave; tinh tế sẽ l&amp;agrave;m nổi bật kh&amp;ocirc;ng gian bếp hơn.&lt;/p&gt;\r\n&lt;p&gt;Về gi&amp;aacute; cả, những v&amp;ograve;i rửa chất lượng thấp sẽ l&amp;agrave;m tăng khả năng g&amp;acirc;y ra c&amp;aacute;c sự cố r&amp;ograve; rỉ nước. V&amp;igrave; vậy, đừng ngại đầu tư một chiếc v&amp;ograve;i đạt chuẩn với tuổi thọ d&amp;agrave;i v&amp;agrave; chất lượng tốt gi&amp;uacute;p bạn tiết kiệm chi ph&amp;iacute; thay thế.&lt;/p&gt;\r\n&lt;p&gt;Ngăn k&amp;eacute;o th&amp;ocirc;ng minh dưới bồn rửa&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-03.png?v=1448982892490&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Ray hộp Tandembox tiện dụng cho ngăn k&amp;eacute;o dưới bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Kh&amp;ocirc;ng gian ngay dưới bồn rửa v&amp;agrave; v&amp;ograve;i bếp thường bị l&amp;atilde;ng qu&amp;ecirc;n, &amp;iacute;t khi được sử dụng hiệu quả. Ray hộp Tandembox của Blum d&amp;agrave;nh cho ngăn k&amp;eacute;o dưới bồn rửa sẽ gi&amp;uacute;p bạn tận dụng tốt kh&amp;ocirc;ng gian n&amp;agrave;y, sắp xếp c&amp;aacute;c dụng cụ dọn rửa gọn g&amp;agrave;ng v&amp;agrave; tiện lợi hơn.&lt;/p&gt;\r\n&lt;div class=&quot;clear&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;div class=&quot;si-share noborder clearfix&quot;&gt;Chia sẻ:&lt;/div&gt;', 'thiet-ke-khu-bep-sang-trong-am-ceng5', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG | THIET KE KHU BEP SANG TRONG, AM CENG', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG, THIET KE KHU BEP SANG TRONG, AM CENG', 'Chọn chậu rửa ph&ugrave; hợp với kh&ocirc;ng gian v&agrave; phục vụ hiệu quả cho việc nấu nướng l&agrave; mục đ&iacute;ch chung của nhiều gia chủ khi l&ecirc;n...', 0, 0, 0, 0, 1452417535, 1474294117, 'en'),
+(25, 25, '', 0, '', 'news/2016_10/du-hoc-nhat-ban.jpg', 'Các Hình Thức Du Học Nhật Bản Tự Túc', '&lt;p&gt;DHS Việt Nam chủ yếu đi du học tự t&amp;uacute;c Nhật Bản dưới c&amp;aacute;c chủ yếu sau: &lt;br /&gt; (1)&lt;strong&gt;Du học ti&lt;/strong&gt;&lt;strong&gt;ế&lt;/strong&gt;&lt;strong&gt;ng Nhật l&amp;agrave; chương tr&amp;igrave;nh đ&amp;agrave;o tạo ti&lt;/strong&gt;&lt;strong&gt;ế&lt;/strong&gt;&lt;strong&gt;ng Nhật&lt;/strong&gt; từ 1 đến 2 năm d&amp;agrave;nh cho đối tượng chưa biết tiếng Nhật hoặc tiếng Nhật chưa đủ giỏi để v&amp;agrave;o học đại học, cao đẳng, trung học chuy&amp;ecirc;n nghiệp,&amp;hellip; hoặc c&amp;oacute; mục đ&amp;iacute;ch học giỏi tiếng Nhật để đi l&amp;agrave;m. Hiện nay tr&amp;ecirc;n to&amp;agrave;n quốc Nhật Bản c&amp;oacute; khoảng 370 trường Nhật ngữ c&amp;oacute; chương tr&amp;igrave;nh đ&amp;agrave;o tạo tiếng Nhật n&amp;agrave;y d&amp;agrave;nh cho DHS. Ngo&amp;agrave;i ra, tại 52 trường đại học d&amp;acirc;n lập, 11 trường đại học ngắn hạn c&amp;ograve;n c&amp;oacute; Khoa Du học sinh (Ryugakusei Bekka) nơi cung cấp chương tr&amp;igrave;nh gi&amp;aacute;o dục dự bị (bao gồm gi&amp;aacute;o dục tiếng Nhật v&amp;agrave; văn ho&amp;aacute; Nhật Bản) cho c&amp;aacute;c đối tượng chuẩn bị thi v&amp;agrave;o đại học, cao học,&amp;hellip; Nhật Bản.&lt;/p&gt;', '&lt;p&gt;&lt;em&gt;Khoa Du học sinh (Ryugakusei Bekka) của c&amp;aacute;c trường đại học d&amp;acirc;n lập&lt;/em&gt;&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Khoa Du học sinh l&amp;agrave; khoa c&amp;oacute; chương tr&amp;igrave;nh gi&amp;aacute;o dục dự bị d&amp;agrave;nh cho những du học sinh, nghi&amp;ecirc;n cứu sinh chuẩn bị thi v&amp;agrave;o đại học, cao học, đại học ngắn hạn. Đ&amp;acirc;y l&amp;agrave; chương tr&amp;igrave;nh gi&amp;aacute;o dục ch&amp;iacute;nh quy nằm trong chương tr&amp;igrave;nh giảng dạy của một trường đại học. Nội dung chương tr&amp;igrave;nh bao gồm dạy tiếng Nhật, văn ho&amp;aacute; Nhật Bản v&amp;agrave; những kiến thức cần thiết kh&amp;aacute;c về Nhật Bản. Visa của những du học sinh học ở khoa n&amp;agrave;y l&amp;agrave; visa &amp;ldquo;du học&amp;rdquo;. Phần lớn Khoa Du học sinh của c&amp;aacute;c trường đại học dạy văn ho&amp;aacute; v&amp;agrave; những kiến thức về Nhật Bản bằng tiếng Nhật, nhưng c&amp;oacute; một số nơi dạy bằng tiếng Anh.&lt;/p&gt;\r\n&lt;p&gt;Nhật Bản c&amp;oacute; 52 trường đại học d&amp;acirc;n lập v&amp;agrave; 11 trường đại học ngắn hạn d&amp;acirc;n lập c&amp;oacute; Khoa Du học sinh. Bạn phải căn cứ v&amp;agrave;o mục đ&amp;iacute;ch du học, lĩnh vực cần học, chương tr&amp;igrave;nh bạn dự định sẽ học sau khi học xong Nhật ngữ m&amp;agrave; chọn trường đại học c&amp;oacute; Khoa Du học ph&amp;ugrave; hợp. Nếu bạn dự định học tiếp l&amp;ecirc;n cao học của trường c&amp;oacute; Khoa Du học m&amp;agrave; bạn chọn, tuỳ mỗi trường c&amp;oacute; c&amp;aacute;ch tuyển chọn ri&amp;ecirc;ng, nhưng cũng c&amp;oacute; trường c&amp;oacute; chế độ cho chuyển thẳng từ Khoa Du học l&amp;ecirc;n đại học.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;em&gt; C&amp;aacute;c trường Nhật ngữ được Hiệp hội Chấn hưng Gi&amp;aacute;o dục Nhật ngữ c&amp;ocirc;ng nhận ( c&amp;oacute; khoảng 370 trường)&lt;/em&gt;&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Hiệp hội Chấn hưng Gi&amp;aacute;o dục Nhật ngữ tiến h&amp;agrave;nh đ&amp;aacute;nh gi&amp;aacute; v&amp;agrave; c&amp;ocirc;ng nhận c&amp;aacute;c trường dạy tiếng Nhật. Nếu bạn dự định học tiếng Nhật tại một trường Nhật ngữ n&amp;agrave;o đ&amp;oacute; để chuẩn bị thi v&amp;agrave;o đại học, cao học, th&amp;igrave; bạn phải kiểm tra xem trường đ&amp;oacute; c&amp;oacute; đạt được một số ti&amp;ecirc;u chuẩn nhất định m&amp;agrave; Hiệp hội Chấn hưng Gi&amp;aacute;o dục Nhật ngữ đặt ra kh&amp;ocirc;ng. Nếu bạn v&amp;agrave;o học tại c&amp;aacute;c trường Nhật ngữ được Hiệp hội Chấn hưng Nhật ngữ c&amp;ocirc;ng nhận, visa của bạn sẽ l&amp;agrave; visa &amp;ldquo;du học&amp;rdquo; hoặc &amp;ldquo;đi học&amp;rdquo;.&lt;/p&gt;\r\n&lt;p&gt;&lt;em&gt;C&amp;aacute;c chương trinh đ&amp;agrave;o tạo ti&lt;/em&gt;&lt;em&gt;ế&lt;/em&gt;&lt;em&gt;ng Nhật hoặc chương tr&amp;igrave;nh gi&amp;aacute;o dục dự bị n&amp;agrave;y chủ y&lt;/em&gt;&lt;em&gt;ế&lt;/em&gt;&lt;em&gt;u x&amp;eacute;t tuyển dựa tr&amp;ecirc;n hồ sơ. Sau khi tốt nghiệp kho&amp;aacute; ti&lt;/em&gt;&lt;em&gt;ế&lt;/em&gt;&lt;em&gt;ng Nhật n&amp;agrave;y, một số du học sinh th&amp;igrave; đi l&amp;agrave;m ngay (tại Nhật hoặc v&lt;/em&gt;&lt;em&gt;ề&lt;/em&gt;&lt;em&gt; Việt Nam), một số thi học ti&lt;/em&gt;&lt;em&gt;ế&lt;/em&gt;&lt;em&gt;p theo c&amp;aacute;c h&amp;igrave;nh thức (2) hoặc (3) dưới đ&amp;acirc;y tuỳ theo năng lực.&lt;/em&gt;&lt;/p&gt;\r\n&lt;p&gt;(2) &lt;strong&gt;Du học Kho&amp;aacute; Kenkyusei (nghi&amp;ecirc;n cứu sinh)&lt;/strong&gt; tại c&amp;aacute;c trường đại học Nhật Bản: Kenkyusei l&amp;agrave; cơ chế ri&amp;ecirc;ng của Nhật Bản, theo đ&amp;oacute; sinh vi&amp;ecirc;n kh&amp;ocirc;ng thuộc diện sinh vi&amp;ecirc;n ch&amp;iacute;nh quy, được ph&amp;eacute;p tiến h&amp;agrave;nh nghi&amp;ecirc;n cứu một đề t&amp;agrave;i n&amp;agrave;o đ&amp;oacute; dưới sự hướng dẫn của một gi&amp;aacute;o sư trong một học kỳ hoặc một năm v&amp;agrave; kh&amp;ocirc;ng được cấp một loại bằng n&amp;agrave;o v&amp;agrave;o cuối kho&amp;aacute; học. Rất nhiều du học sinh đ&amp;atilde; v&amp;agrave;o học kho&amp;aacute; n&amp;agrave;y 1 năm để chuẩn bị &amp;ocirc;n thi v&amp;agrave;o cao học (Thạc sĩ hoặc Tiến sĩ). Tuy nhi&amp;ecirc;n, kh&amp;ocirc;ng phải tất cả c&amp;aacute;c du học sinh sau khi tham dự kho&amp;aacute; nghi&amp;ecirc;n cứu sinh n&amp;agrave;y đều thi đỗ v&amp;agrave;o cao học, một số 　　du học sinh thi trượt đ&amp;atilde; phải về nước. Ngo&amp;agrave;i ra, cũng c&amp;oacute; một số trường đại học hay một số khoa lại bắt buộc muốn du học sinh tham dự kho&amp;aacute; nghi&amp;ecirc;n cứu sinh trước khi thi v&amp;agrave;o cao học.&lt;/p&gt;\r\n&lt;p&gt;DHS khi tốt nghiệp kho&amp;aacute; tiếng Nhật (1) n&amp;oacute;i tr&amp;ecirc;n nhưng chưa đủ điều kiện thi v&amp;agrave;o cao học thường chọn v&amp;agrave;o học Kho&amp;aacute; Kenkyusei n&amp;agrave;y để chuẩn bị &amp;ocirc;n thi v&amp;agrave;o cao học. Ngo&amp;agrave;i ra, một số du học sinh khi vẫn c&amp;ograve;n ở nước ngo&amp;agrave;i nhất l&amp;agrave; những người đ&amp;atilde; biết tiếng Nhật cũng c&amp;oacute; thể nộp hồ sơ v&amp;agrave; được chấp thuận v&amp;agrave;o học Kho&amp;aacute; n&amp;agrave;y v&amp;igrave; điều kiện tuyển chọn v&amp;agrave;o l&amp;agrave;m kenkyusei kh&amp;ocirc;ng khắt khe bằng tuyển chọn v&amp;agrave;o cao học .&lt;/p&gt;\r\n&lt;p&gt;(3) &lt;strong&gt;Du học d&amp;agrave;i hạn l&amp;agrave; chương tr&amp;igrave;nh đ&amp;agrave;o tạo ch&amp;iacute;nh quy lấy học vị cử nh&amp;acirc;n cao đẳng, cử nh&amp;acirc;n, thạc sĩ, ti&lt;/strong&gt;&lt;strong&gt;ế&lt;/strong&gt;&lt;strong&gt;n sĩ,&amp;hellip; tại c&amp;aacute;c trường cao đẳng, dạy ngh&lt;/strong&gt;&lt;strong&gt;ề&lt;/strong&gt;&lt;strong&gt;, đại học,&amp;hellip;của Nhật Bản. &lt;/strong&gt;Để v&amp;agrave;o học c&amp;aacute;c chương tr&amp;igrave;nh ch&amp;iacute;nh quy, du học sinh cần phải trải qua một kỳ thi đầu v&amp;agrave;o. Phần lớn c&amp;aacute;c kỳ thi đầu v&amp;agrave;o đều tổ chức tại Nhật Bản. Th&amp;ocirc;ng thường, du học sinh sau khi tốt nghiệp c&amp;aacute;c chương tr&amp;igrave;nh đ&amp;agrave;o tạo tiếng Nhật tại Nhật Bản như giới thiệu ở tr&amp;ecirc;n sẽ tham dự c&amp;aacute;c kỳ thi đầu v&amp;agrave;o n&amp;agrave;y để học tiếp l&amp;ecirc;n c&amp;aacute;c chương tr&amp;igrave;nh đ&amp;agrave;o tạo ch&amp;iacute;nh quy.Tuy nhi&amp;ecirc;n, để tạo điều kiện thuận lợi cho những người đ&amp;atilde; học tiếng Nhật ở nước ngo&amp;agrave;i kh&amp;ocirc;ng cần sang Nhật để tham dự kỳ thi đầu v&amp;agrave;o n&amp;agrave;y, từ năm 2002, Cơ quan Hỗ trợ Sinh vi&amp;ecirc;n Nhật Bản (JASSO) đ&amp;atilde; bắt đầu tổ chức Kỳ thi &lt;a href=&quot;http://www.duhocnhatban.edu.vn/&quot;&gt;Du học Nhật Bản&lt;/a&gt; (EJU) tại nước ngo&amp;agrave;i.&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Du học theo chương tr&amp;igrave;nh trao đổi:&lt;/strong&gt;&amp;nbsp; l&amp;agrave; chương tr&amp;igrave;nh trao đổi sinh vi&amp;ecirc;n giữa c&amp;aacute;c &lt;a href=&quot;http://www.duhocnhatban.edu.vn/truong-dai-hoc-nhat-ban.html&quot;&gt;trường đại học Nhật Bản&lt;/a&gt; v&amp;agrave; Việt Nam c&amp;oacute; k&amp;yacute; kết hợp t&amp;aacute;c. Thời gian du học th&amp;ocirc;ng thường khoảng 1 năm.&lt;/p&gt;\r\n&lt;p&gt;Nguồn Sư Tầm&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;', 'thiet-ke-khu-bep-sang-trong-am-ceng6', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG | THIET KE KHU BEP SANG TRONG, AM CENG', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG, THIET KE KHU BEP SANG TRONG, AM CENG', 'Chọn chậu rửa phù hợp với không gian và phục vụ hiệu quả cho việc nấu nướng là mục đích chung của nhiều gia chủ khi lên...', 1, 0, 0, 1, 1474379483, 1475722328, 'vi'),
+(26, 25, '', 0, '', 'news/2016_10/du-hoc-nhat-ban.jpg', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG', '', '&lt;p&gt;Chọn chậu rửa ph&amp;ugrave; hợp với kh&amp;ocirc;ng gian v&amp;agrave; phục vụ hiệu quả cho việc nấu nướng l&amp;agrave; mục đ&amp;iacute;ch chung của nhiều gia chủ khi l&amp;ecirc;n &amp;yacute; tưởng thiết kế khu bếp.&lt;br /&gt;C&amp;aacute;c chuy&amp;ecirc;n gia đến từ Hafele (Đức) vẫn thường nhận được những thắc mắc như &quot;Chọn chậu rửa với độ s&amp;acirc;u bao nhi&amp;ecirc;u th&amp;igrave; ph&amp;ugrave; hợp?&quot;, &quot;V&amp;ograve;i rửa loại n&amp;agrave;o sẽ kh&amp;ocirc;ng bị r&amp;ograve; rỉ nước?&quot;, &amp;ldquo;L&amp;agrave;m sao để tiết kiệm thời gian khi chuẩn bị m&amp;oacute;n ăn?&amp;rdquo; v&amp;agrave; h&amp;agrave;ng loạt những c&amp;acirc;u hỏi kh&amp;aacute;c li&amp;ecirc;n quan đến khu vực chuẩn bị, dọn rửa, nơi bố tr&amp;iacute; bồn rửa v&amp;agrave; v&amp;ograve;i bếp.&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Để giải đ&amp;aacute;p những băn khoăn ấy, c&amp;aacute;c chuy&amp;ecirc;n gia Hafele đưa ra những lời khuy&amp;ecirc;n hữu &amp;iacute;ch sau đ&amp;acirc;y.&lt;/p&gt;\r\n&lt;p&gt;Chậu rửa&lt;/p&gt;\r\n&lt;p&gt;Về chất liệu, chậu rửa n&amp;ecirc;n chọn th&amp;eacute;p kh&amp;ocirc;ng gỉ. Đ&amp;acirc;y l&amp;agrave; lựa chọn th&amp;ocirc;ng dụng hiện nay với vẻ đẹp vượt thời gian, ưu điểm chịu nhiệt tốt v&amp;agrave; vệ sinh dễ d&amp;agrave;ng. Ngo&amp;agrave;i ra, nếu gia chủ đầu tư hơn một ch&amp;uacute;t, chậu rửa bằng đ&amp;aacute; Granite với độ bền cao, thiết kế tinh tế sẽ g&amp;oacute;p phần mang lại vẻ sang trọng cho ng&amp;ocirc;i nh&amp;agrave; của bạn&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-01.jpg?v=1448982594829&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Chậu rửa Granite sang trọng v&amp;agrave; tinh tế.&lt;/p&gt;\r\n&lt;p&gt;Về k&amp;iacute;ch thước, chậu rửa thường c&amp;oacute; hai loại l&amp;agrave; chậu đơn v&amp;agrave; chậu đ&amp;ocirc;i. Chậu đơn thường c&amp;oacute; k&amp;iacute;ch thước rộng v&amp;agrave; s&amp;acirc;u gi&amp;uacute;p bạn ng&amp;acirc;m v&amp;agrave; rửa thực phẩm hay ch&amp;eacute;n b&amp;aacute;t với số lượng lớn. Nếu b&amp;agrave;n bếp của bạn c&amp;ograve;n khoảng trống từ 870mm trở l&amp;ecirc;n, bạn cũng c&amp;oacute; thể chọn chậu đ&amp;ocirc;i để tăng th&amp;ecirc;m kh&amp;ocirc;ng gian, việc dọn rửa dễ d&amp;agrave;ng, thoải m&amp;aacute;i hơn. B&amp;ecirc;n cạnh đ&amp;oacute;, chiều s&amp;acirc;u trung b&amp;igrave;nh từ 180mm - 250mm l&amp;agrave; k&amp;iacute;ch thước l&amp;yacute; tưởng được nghi&amp;ecirc;n cứu v&amp;agrave; &amp;aacute;p dụng cho c&amp;aacute;c loại chậu rửa hiện nay.&lt;/p&gt;\r\n&lt;p&gt;V&amp;ograve;i rửa&lt;/p&gt;\r\n&lt;p&gt;Ngo&amp;agrave;i c&amp;aacute;c loại v&amp;ograve;i truyền thống, nhiều loại v&amp;ograve;i hiện đại cũng được thiết kế với khả năng k&amp;eacute;o d&amp;agrave;i đầu v&amp;ograve;i, cho ph&amp;eacute;p linh hoạt điều chỉnh v&amp;ograve;i tới vị tr&amp;iacute; bạn mong muốn.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-02.png?v=1448982698836&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;V&amp;ograve;i bếp được sản xuất với ti&amp;ecirc;u chuẩn Đức c&amp;oacute; độ bền cao. Sản phẩm c&amp;oacute; b&amp;aacute;n tại showroom Hafele to&amp;agrave;n quốc.&lt;/p&gt;\r\n&lt;p&gt;Y&amp;ecirc;u cầu về &amp;aacute;p lực nước của v&amp;ograve;i, c&amp;aacute;c chuy&amp;ecirc;n gia khuy&amp;ecirc;n d&amp;ograve;ng chảy tối thiểu của v&amp;ograve;i phải đạt từ 0.5 tới 1.0 bar (đơn vị đo &amp;aacute;p suất). Nếu thấp hơn, nước sẽ chỉ nhỏ giọt ra khỏi v&amp;ograve;i, khiến bạn tốn nhiều thời gian v&amp;agrave; c&amp;ocirc;ng sức hơn cho dọn rửa. Tuy nhi&amp;ecirc;n cũng đừng chọn loại v&amp;ograve;i c&amp;oacute; &amp;aacute;p suất qu&amp;aacute; cao (tr&amp;ecirc;n 10 bar) nếu bạn kh&amp;ocirc;ng muốn nước bắn tung t&amp;oacute;e trong bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Bạn n&amp;ecirc;n thiết kế v&amp;ograve;i rửa ph&amp;ugrave; hợp với phong c&amp;aacute;ch bếp. Đối với bếp truyền thống đa số sử dụng loại v&amp;ograve;i tr&amp;ograve;n. Với bếp hiện đại, v&amp;ograve;i thiết kế kiểu c&amp;aacute;ch v&amp;agrave; tinh tế sẽ l&amp;agrave;m nổi bật kh&amp;ocirc;ng gian bếp hơn.&lt;/p&gt;\r\n&lt;p&gt;Về gi&amp;aacute; cả, những v&amp;ograve;i rửa chất lượng thấp sẽ l&amp;agrave;m tăng khả năng g&amp;acirc;y ra c&amp;aacute;c sự cố r&amp;ograve; rỉ nước. V&amp;igrave; vậy, đừng ngại đầu tư một chiếc v&amp;ograve;i đạt chuẩn với tuổi thọ d&amp;agrave;i v&amp;agrave; chất lượng tốt gi&amp;uacute;p bạn tiết kiệm chi ph&amp;iacute; thay thế.&lt;/p&gt;\r\n&lt;p&gt;Ngăn k&amp;eacute;o th&amp;ocirc;ng minh dưới bồn rửa&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-03.png?v=1448982892490&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Ray hộp Tandembox tiện dụng cho ngăn k&amp;eacute;o dưới bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Kh&amp;ocirc;ng gian ngay dưới bồn rửa v&amp;agrave; v&amp;ograve;i bếp thường bị l&amp;atilde;ng qu&amp;ecirc;n, &amp;iacute;t khi được sử dụng hiệu quả. Ray hộp Tandembox của Blum d&amp;agrave;nh cho ngăn k&amp;eacute;o dưới bồn rửa sẽ gi&amp;uacute;p bạn tận dụng tốt kh&amp;ocirc;ng gian n&amp;agrave;y, sắp xếp c&amp;aacute;c dụng cụ dọn rửa gọn g&amp;agrave;ng v&amp;agrave; tiện lợi hơn.&lt;/p&gt;\r\n&lt;div class=&quot;clear&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;div class=&quot;si-share noborder clearfix&quot;&gt;Chia sẻ:&lt;/div&gt;', 'thiet-ke-khu-bep-sang-trong-am-ceng7', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG | THIET KE KHU BEP SANG TRONG, AM CENG', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG, THIET KE KHU BEP SANG TRONG, AM CENG', 'Chọn chậu rửa ph&ugrave; hợp với kh&ocirc;ng gian v&agrave; phục vụ hiệu quả cho việc nấu nướng l&agrave; mục đ&iacute;ch chung của nhiều gia chủ khi l&ecirc;n...', 1, 0, 0, 1, 1452417535, 1475722328, 'en');
+INSERT INTO `news` (`id`, `item_id`, `group_nav`, `group_id`, `group_related`, `picture`, `title`, `short`, `content`, `friendly_link`, `meta_title`, `meta_key`, `meta_desc`, `is_focus`, `is_focus_group`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(27, 27, '', 0, '', 'news/2016_10/du-hoc-Nhat-ban.jpg', 'Du học Nhật Bản tự túc 2016', '&lt;p&gt;&amp;nbsp;C&amp;oacute; rất nhiều con đường để dẫn tới th&amp;agrave;nh c&amp;ocirc;ng, v&amp;agrave; ng&amp;agrave;y nay nhiều bạn trẻ đ&amp;atilde; chọn con đường du học để khẳng định bản th&amp;acirc;n. Nhưng đ&amp;acirc;u phải ai cũng đủ giỏi, đủ th&amp;ocirc;ng minh để gi&amp;agrave;nh về cho m&amp;igrave;nh những học bổng to&amp;agrave;n phần hay b&amp;aacute;n phần từ c&amp;aacute;c chương tr&amp;igrave;nh. V&amp;igrave; thế m&amp;agrave; kh&amp;ocirc;ng &amp;iacute;t bạn đ&amp;atilde; chọn cho m&amp;igrave;nh con đường &lt;strong&gt;du học Nhật Bản tự t&amp;uacute;c&lt;/strong&gt;. V&amp;agrave; ng&amp;agrave;y c&amp;agrave;ng nhiều bạn trẻ đ&amp;atilde; lựa chọn đất nước hoa anh đ&amp;agrave;o l&amp;agrave; nơi dừng ch&amp;acirc;n của m&amp;igrave;nh.&lt;/p&gt;', '&lt;p&gt;Du học Nhật Bản tự t&amp;uacute;c sẽ gi&amp;uacute;p bạn biến những ước mơ trở th&amp;agrave;nh hiện thực, nhưng cũng c&amp;oacute; thể khiến bạn mất hết tất cả. Đ&amp;oacute; l&amp;agrave; thời gian, tiền bạc, v&amp;agrave; cả tương lai của bạn nữa. Nhu cầu du học Nhật Bản tự t&amp;uacute;c ng&amp;agrave;y c&amp;agrave;ng nhiều, hệ lụy của n&amp;oacute; l&amp;agrave; c&amp;aacute;c c&amp;ocirc;ng ty tư vấn du học lừa đảo mọc l&amp;ecirc;n như nấm. Chi ph&amp;iacute; cho một c&amp;aacute; nh&amp;acirc;n Du học Nhật Bản tự t&amp;uacute;c cao ngất ngưởng, học sinh thiếu c&amp;aacute;i nh&amp;igrave;n thực tế về du học. Ch&amp;iacute;nh v&amp;igrave; thế m&amp;agrave; c&amp;oacute; kh&amp;ocirc;ng &amp;iacute;t bạn đ&amp;atilde; rơi v&amp;agrave;o trạng th&amp;aacute;i khủng hoảng, bế tắc kh&amp;ocirc;ng t&amp;igrave;m được lối tho&amp;aacute;t cho ch&amp;iacute;nh bản th&amp;acirc;n m&amp;igrave;nh.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Nhiều bạn đang c&amp;oacute; nhu cầu đi du học Nhật Bản tự t&amp;uacute;c sẽ thắc mắc v&amp;agrave; lu&amp;ocirc;n đặt ra c&amp;acirc;u hỏi: Vậy chi ph&amp;iacute; đi du học Nhật Bản tự t&amp;uacute;c l&amp;agrave; bao nhi&amp;ecirc;u? Rẻ qu&amp;aacute; th&amp;igrave; lo chất lượng kh&amp;ocirc;ng tốt m&amp;agrave; đắt qu&amp;aacute; th&amp;igrave; lo bị lừa? Thực ra chi ph&amp;iacute; bao nhi&amp;ecirc;u l&amp;agrave; đ&amp;uacute;ng?&lt;/p&gt;\r\n&lt;h3&gt;Du học Nhật Bản tự t&amp;uacute;c gi&amp;aacute; bao nhi&amp;ecirc;u&lt;/h3&gt;\r\n&lt;p&gt;&amp;nbsp; &amp;nbsp;Thanh Giang xin giới thiệu cho c&amp;aacute;c bạn chương tr&amp;igrave;nh du học Nhật Bản vừa học vừa l&amp;agrave;m với chi ph&amp;iacute; tối ưu nhất. C&amp;aacute;c bạn sẽ kh&amp;ocirc;ng phải lo lắng về những khoản chi ph&amp;iacute; ph&amp;aacute;t sinh. Tất cả đều được c&amp;ocirc;ng khai minh bạch r&amp;otilde; r&amp;agrave;ng từng khoản mục.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp; &amp;nbsp;Về ph&amp;iacute; hồ sơ, dịch vụ trọn g&amp;oacute;i ở Thanh Giang chỉ 1000 USD.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp; &amp;nbsp;V&amp;eacute; m&amp;aacute;y bay 1 chiều l&amp;agrave; 500 USD gia đ&amp;igrave;nh c&amp;oacute; thể tự mua hoặc chuyển khoản hoặc trung t&amp;acirc;m sẽ mua gi&amp;uacute;p c&amp;aacute;c bạn.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp; &amp;nbsp;Học ph&amp;iacute; tiếng Nhật trong nước l&amp;agrave; 9 triệu học li&amp;ecirc;n tục từ thứ 2 đến thứ 6, 9 tiếng/ ng&amp;agrave;y.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp; &amp;nbsp;Tiền nh&amp;agrave; trọ tầm 5- 6 triệu/ th&amp;aacute;ng nếu bạn ở Tokyo c&amp;ograve;n ở c&amp;aacute;c v&amp;ugrave;ng kh&amp;aacute;c chỉ mất 2,5 -3 triệu. &amp;nbsp; &amp;nbsp;Nhưng tiền nh&amp;agrave; trọ n&amp;agrave;y bạn sẽ thanh to&amp;aacute;n tại Nhật.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp; &amp;nbsp;Về học ph&amp;iacute; Thanh Giang xin đưa ra 2 giải ph&amp;aacute;p như sau:&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;+ GP1:&amp;nbsp; C&amp;aacute;c bạn c&amp;oacute; thể đ&amp;oacute;ng học ph&amp;iacute; 6 th&amp;aacute;ng tầm 60-70 triệu (bao gồm : học ph&amp;iacute; 6 th&amp;aacute;ng, bảo hiểm 1 năm, ph&amp;iacute; đăng k&amp;yacute;, ph&amp;iacute; nhập học, ph&amp;iacute; kh&amp;aacute;c)&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;+ GP2 :&amp;nbsp; Những gia đ&amp;igrave;nh n&amp;agrave;o c&amp;oacute; điều kiện hơn th&amp;igrave; đ&amp;oacute;ng 1 năm học ph&amp;iacute; tầm 106- 138triệu (bao gồm : học ph&amp;iacute; 1 năm, bảo hiểm 1 năm, ph&amp;iacute; đăng k&amp;yacute;, ph&amp;iacute; nhập học, ph&amp;iacute; kh&amp;aacute;c). Những con số n&amp;agrave;y c&amp;oacute; trong giấy b&amp;aacute;o nhập học của trường gửi về n&amp;ecirc;n bạn c&amp;oacute; thể y&amp;ecirc;n t&amp;acirc;m nh&amp;eacute;.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp; &amp;nbsp;Vậy&amp;nbsp; tổng cộng c&amp;aacute;c bạn chỉ mất:&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp; &amp;nbsp;100- 110 triệu cho 6 th&amp;aacute;ng học ph&amp;iacute;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp; &amp;nbsp;146- 178 triệu cho 1 năm học ph&amp;iacute;&lt;/p&gt;\r\n&lt;p&gt;Th&amp;agrave;nh c&amp;ocirc;ng vẫn lu&amp;ocirc;n d&amp;agrave;nh cho những ai lu&amp;ocirc;n biết cố gắng v&amp;agrave; vượt qua ch&amp;iacute;nh bản th&amp;acirc;n m&amp;igrave;nh. Du học Nhật Bản tự t&amp;uacute;c cũng sẽ l&amp;agrave; một con đường đưa bạn đến với th&amp;agrave;nh c&amp;ocirc;ng, nếu như bạn c&amp;oacute; những sự chuẩn bị thật chu đ&amp;aacute;o, c&amp;oacute; sự quyết t&amp;acirc;m v&amp;agrave; kh&amp;ocirc;ng ngừng cố gắng. Thanh Giang mong rằng với những chia sẻ n&amp;agrave;y, sẽ kh&amp;ocirc;ng c&amp;ograve;n nhiều t&amp;igrave;nh trạng c&amp;aacute;c bạn l&amp;ecirc;n cộng đồng mạng k&amp;ecirc;u ca v&amp;igrave; m&amp;igrave;nh bị c&amp;aacute;c c&amp;ocirc;ng ty du học lừa nữa.&lt;/p&gt;\r\n&lt;p&gt;Ch&amp;uacute;c c&amp;aacute;c bạn đạt được ước mơ của m&amp;igrave;nh&amp;nbsp;!&lt;/p&gt;\r\n&lt;p&gt;Nguồn sư tầm Thanh Giang.&lt;/p&gt;', 'thiet-ke-khu-bep-sang-trong-am-ceng8', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG | THIET KE KHU BEP SANG TRONG, AM CENG', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG, THIET KE KHU BEP SANG TRONG, AM CENG', 'Chọn chậu rửa phù hợp với không gian và phục vụ hiệu quả cho việc nấu nướng là mục đích chung của nhiều gia chủ khi lên...', 1, 0, 0, 1, 1474379486, 1475722139, 'vi'),
+(28, 27, '', 0, '', 'news/2016_10/du-hoc-Nhat-ban.jpg', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG', '', '&lt;p&gt;Chọn chậu rửa ph&amp;ugrave; hợp với kh&amp;ocirc;ng gian v&amp;agrave; phục vụ hiệu quả cho việc nấu nướng l&amp;agrave; mục đ&amp;iacute;ch chung của nhiều gia chủ khi l&amp;ecirc;n &amp;yacute; tưởng thiết kế khu bếp.&lt;br /&gt;C&amp;aacute;c chuy&amp;ecirc;n gia đến từ Hafele (Đức) vẫn thường nhận được những thắc mắc như &quot;Chọn chậu rửa với độ s&amp;acirc;u bao nhi&amp;ecirc;u th&amp;igrave; ph&amp;ugrave; hợp?&quot;, &quot;V&amp;ograve;i rửa loại n&amp;agrave;o sẽ kh&amp;ocirc;ng bị r&amp;ograve; rỉ nước?&quot;, &amp;ldquo;L&amp;agrave;m sao để tiết kiệm thời gian khi chuẩn bị m&amp;oacute;n ăn?&amp;rdquo; v&amp;agrave; h&amp;agrave;ng loạt những c&amp;acirc;u hỏi kh&amp;aacute;c li&amp;ecirc;n quan đến khu vực chuẩn bị, dọn rửa, nơi bố tr&amp;iacute; bồn rửa v&amp;agrave; v&amp;ograve;i bếp.&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Để giải đ&amp;aacute;p những băn khoăn ấy, c&amp;aacute;c chuy&amp;ecirc;n gia Hafele đưa ra những lời khuy&amp;ecirc;n hữu &amp;iacute;ch sau đ&amp;acirc;y.&lt;/p&gt;\r\n&lt;p&gt;Chậu rửa&lt;/p&gt;\r\n&lt;p&gt;Về chất liệu, chậu rửa n&amp;ecirc;n chọn th&amp;eacute;p kh&amp;ocirc;ng gỉ. Đ&amp;acirc;y l&amp;agrave; lựa chọn th&amp;ocirc;ng dụng hiện nay với vẻ đẹp vượt thời gian, ưu điểm chịu nhiệt tốt v&amp;agrave; vệ sinh dễ d&amp;agrave;ng. Ngo&amp;agrave;i ra, nếu gia chủ đầu tư hơn một ch&amp;uacute;t, chậu rửa bằng đ&amp;aacute; Granite với độ bền cao, thiết kế tinh tế sẽ g&amp;oacute;p phần mang lại vẻ sang trọng cho ng&amp;ocirc;i nh&amp;agrave; của bạn&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-01.jpg?v=1448982594829&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Chậu rửa Granite sang trọng v&amp;agrave; tinh tế.&lt;/p&gt;\r\n&lt;p&gt;Về k&amp;iacute;ch thước, chậu rửa thường c&amp;oacute; hai loại l&amp;agrave; chậu đơn v&amp;agrave; chậu đ&amp;ocirc;i. Chậu đơn thường c&amp;oacute; k&amp;iacute;ch thước rộng v&amp;agrave; s&amp;acirc;u gi&amp;uacute;p bạn ng&amp;acirc;m v&amp;agrave; rửa thực phẩm hay ch&amp;eacute;n b&amp;aacute;t với số lượng lớn. Nếu b&amp;agrave;n bếp của bạn c&amp;ograve;n khoảng trống từ 870mm trở l&amp;ecirc;n, bạn cũng c&amp;oacute; thể chọn chậu đ&amp;ocirc;i để tăng th&amp;ecirc;m kh&amp;ocirc;ng gian, việc dọn rửa dễ d&amp;agrave;ng, thoải m&amp;aacute;i hơn. B&amp;ecirc;n cạnh đ&amp;oacute;, chiều s&amp;acirc;u trung b&amp;igrave;nh từ 180mm - 250mm l&amp;agrave; k&amp;iacute;ch thước l&amp;yacute; tưởng được nghi&amp;ecirc;n cứu v&amp;agrave; &amp;aacute;p dụng cho c&amp;aacute;c loại chậu rửa hiện nay.&lt;/p&gt;\r\n&lt;p&gt;V&amp;ograve;i rửa&lt;/p&gt;\r\n&lt;p&gt;Ngo&amp;agrave;i c&amp;aacute;c loại v&amp;ograve;i truyền thống, nhiều loại v&amp;ograve;i hiện đại cũng được thiết kế với khả năng k&amp;eacute;o d&amp;agrave;i đầu v&amp;ograve;i, cho ph&amp;eacute;p linh hoạt điều chỉnh v&amp;ograve;i tới vị tr&amp;iacute; bạn mong muốn.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-02.png?v=1448982698836&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;V&amp;ograve;i bếp được sản xuất với ti&amp;ecirc;u chuẩn Đức c&amp;oacute; độ bền cao. Sản phẩm c&amp;oacute; b&amp;aacute;n tại showroom Hafele to&amp;agrave;n quốc.&lt;/p&gt;\r\n&lt;p&gt;Y&amp;ecirc;u cầu về &amp;aacute;p lực nước của v&amp;ograve;i, c&amp;aacute;c chuy&amp;ecirc;n gia khuy&amp;ecirc;n d&amp;ograve;ng chảy tối thiểu của v&amp;ograve;i phải đạt từ 0.5 tới 1.0 bar (đơn vị đo &amp;aacute;p suất). Nếu thấp hơn, nước sẽ chỉ nhỏ giọt ra khỏi v&amp;ograve;i, khiến bạn tốn nhiều thời gian v&amp;agrave; c&amp;ocirc;ng sức hơn cho dọn rửa. Tuy nhi&amp;ecirc;n cũng đừng chọn loại v&amp;ograve;i c&amp;oacute; &amp;aacute;p suất qu&amp;aacute; cao (tr&amp;ecirc;n 10 bar) nếu bạn kh&amp;ocirc;ng muốn nước bắn tung t&amp;oacute;e trong bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Bạn n&amp;ecirc;n thiết kế v&amp;ograve;i rửa ph&amp;ugrave; hợp với phong c&amp;aacute;ch bếp. Đối với bếp truyền thống đa số sử dụng loại v&amp;ograve;i tr&amp;ograve;n. Với bếp hiện đại, v&amp;ograve;i thiết kế kiểu c&amp;aacute;ch v&amp;agrave; tinh tế sẽ l&amp;agrave;m nổi bật kh&amp;ocirc;ng gian bếp hơn.&lt;/p&gt;\r\n&lt;p&gt;Về gi&amp;aacute; cả, những v&amp;ograve;i rửa chất lượng thấp sẽ l&amp;agrave;m tăng khả năng g&amp;acirc;y ra c&amp;aacute;c sự cố r&amp;ograve; rỉ nước. V&amp;igrave; vậy, đừng ngại đầu tư một chiếc v&amp;ograve;i đạt chuẩn với tuổi thọ d&amp;agrave;i v&amp;agrave; chất lượng tốt gi&amp;uacute;p bạn tiết kiệm chi ph&amp;iacute; thay thế.&lt;/p&gt;\r\n&lt;p&gt;Ngăn k&amp;eacute;o th&amp;ocirc;ng minh dưới bồn rửa&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-03.png?v=1448982892490&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Ray hộp Tandembox tiện dụng cho ngăn k&amp;eacute;o dưới bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Kh&amp;ocirc;ng gian ngay dưới bồn rửa v&amp;agrave; v&amp;ograve;i bếp thường bị l&amp;atilde;ng qu&amp;ecirc;n, &amp;iacute;t khi được sử dụng hiệu quả. Ray hộp Tandembox của Blum d&amp;agrave;nh cho ngăn k&amp;eacute;o dưới bồn rửa sẽ gi&amp;uacute;p bạn tận dụng tốt kh&amp;ocirc;ng gian n&amp;agrave;y, sắp xếp c&amp;aacute;c dụng cụ dọn rửa gọn g&amp;agrave;ng v&amp;agrave; tiện lợi hơn.&lt;/p&gt;\r\n&lt;div class=&quot;clear&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;div class=&quot;si-share noborder clearfix&quot;&gt;Chia sẻ:&lt;/div&gt;', 'thiet-ke-khu-bep-sang-trong-am-ceng9', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG | THIET KE KHU BEP SANG TRONG, AM CENG', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG, THIET KE KHU BEP SANG TRONG, AM CENG', 'Chọn chậu rửa ph&ugrave; hợp với kh&ocirc;ng gian v&agrave; phục vụ hiệu quả cho việc nấu nướng l&agrave; mục đ&iacute;ch chung của nhiều gia chủ khi l&ecirc;n...', 1, 0, 0, 1, 1452417535, 1475722139, 'en'),
+(29, 29, '', 0, '', 'news/2016_10/du-hoc-japan.jpg', 'TƯ VẤN DU HỌC NHẬT BẢN SEI JIN', '', '&lt;p&gt;C&amp;acirc;u 1.&amp;nbsp;Những đối tượng n&amp;agrave;o c&amp;oacute; thể đi du học Nhật Bản?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p:Học sinh tốt nghiệp THPT trở l&amp;ecirc;n. Nam/Nữ độ tuổi từ 18 ~&lt;/p&gt;\r\n&lt;p&gt;Th&amp;agrave;nh t&amp;iacute;ch học bạ từ 5,5 trở l&amp;ecirc;n kh&amp;ocirc;ng c&amp;oacute; m&amp;ocirc;n n&amp;agrave;o dưới 4,0.&lt;/p&gt;\r\n&lt;p&gt;Kh&amp;ocirc;ng c&amp;oacute; tiền &amp;aacute;n, tiền sự, mắc bệnh hiểm ngh&amp;egrave;o. Kh&amp;ocirc;ng thuộc diện cấm xuất nhập cảnh của cục QLXN cảnh Việt Nam &amp;ndash; Nhật Bản&lt;/p&gt;\r\n&lt;p&gt;Tr&amp;igrave;nh độ tiếng Nhật từ sơ cấp (N5) trở l&amp;ecirc;n .(Khoảng 3 th&amp;aacute;ng～ học li&amp;ecirc;n tục tiếng Nhật)&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;C&amp;acirc;u 2.&amp;nbsp;T&amp;ocirc;i muốn biết y&amp;ecirc;u cầu về tr&amp;igrave;nh độ tiếng Nhật đối với học vi&amp;ecirc;n trước khi đi du học?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p: Tr&amp;igrave;nh độ tiếng Nhật từ sơ cấp (N5) trở l&amp;ecirc;n. (Khoảng 3 th&amp;aacute;ng～ học li&amp;ecirc;n tục tiếng Nhật)&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;C&amp;acirc;u 3.&amp;nbsp;Tốt nghiệp cấp 3 xong. Nghỉ học đi l&amp;agrave;m 4 năm. Sau đ&amp;oacute; học trung cấp 1,5 năm. C&amp;oacute; đủ điều kiện đi du học Nhật Bản kh&amp;ocirc;ng?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p:&amp;nbsp;C&amp;oacute; đủ điều kiện.&lt;/p&gt;\r\n&lt;p&gt;C&amp;acirc;u 4.&amp;nbsp;Nếu tốt nghiệp Cao đẳng (hệ 3 năm) độ tuổi tối đa c&amp;oacute; thể đi du học Nhật Bản l&amp;agrave; bao nhi&amp;ecirc;u?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p:&amp;nbsp;Nếu học THPT, sau đ&amp;oacute; học cao đẳng. Tuổi tối đa l&amp;agrave; 25 tuổi.&amp;nbsp;Nếu học trung cấp, sau đ&amp;oacute; l&amp;ecirc;n cao đẳng. Tuổi tối đa l&amp;agrave; 27 tuổi l&amp;agrave; theo quy định của c&amp;aacute;c trung t&amp;acirc;m kh&amp;aacute;c, Ri&amp;ecirc;ng Sei Jin c&amp;aacute;c bạn tr&amp;ecirc;n 27 tuổi vẫn c&amp;oacute; thể du học được.&lt;/p&gt;\r\n&lt;p&gt;C&amp;acirc;u 5.&amp;nbsp;T&amp;ocirc;i bị Vi&amp;ecirc;m gan B c&amp;oacute; thể đi du học Nhật Bản kh&amp;ocirc;ng?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p:&amp;nbsp;Đối với du học Nhật Bản th&amp;igrave; cũng vẫn cần sức khỏe tốt nhưng ở đ&amp;acirc;y theo quy định của Nhật th&amp;igrave; những người mắc bệnh vi&amp;ecirc;m gan B vẫn được đi du học b&amp;igrave;nh thường. V&amp;igrave; vậy nếu bạn bị mắc bệnh vi&amp;ecirc;m gan B th&amp;igrave; cũng đừng lo lắng, c&amp;ograve;n mắc c&amp;aacute;c bệnh HIV, H5N1 th&amp;igrave; bạn kh&amp;ocirc;ng được đi du học.&lt;/p&gt;\r\n&lt;p&gt;C&amp;acirc;u 6.&amp;nbsp;Hồ sơ du học Nhật Bản c&amp;oacute; cần giấy kh&amp;aacute;m sức khỏe kh&amp;ocirc;ng?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p:&amp;nbsp;Theo y&amp;ecirc;u cầu của c&amp;aacute;c truờng b&amp;ecirc;n Nhật Bản, hồ sơ du học kh&amp;ocirc;ng cần giấy kh&amp;aacute;m sức khỏe.&lt;/p&gt;\r\n&lt;p&gt;C&amp;acirc;u 7.&amp;nbsp;Chi ph&amp;iacute; học tập giữa c&amp;aacute;c v&amp;ugrave;ng của Nhật v&amp;agrave; giữa c&amp;aacute;c trường của Nhật c&amp;oacute; kh&amp;aacute;c nhau kh&amp;ocirc;ng?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p: Chi ph&amp;iacute; học du học Nhật Bản kh&amp;ocirc;ng c&amp;oacute; sự kh&amp;aacute;c nhau giữa c&amp;aacute;c v&amp;ugrave;ng, m&amp;agrave; chỉ c&amp;oacute; sự kh&amp;aacute;c nhau giữa c&amp;aacute;c trường v&amp;agrave; t&amp;ugrave;y thuộc v&amp;agrave;o mức ph&amp;iacute; của c&amp;aacute;c trường đưa ra l&amp;agrave; kh&amp;aacute;c nhau. Nhưng nh&amp;igrave;n chung, sự ch&amp;ecirc;nh lệch n&amp;agrave;y kh&amp;ocirc;ng đ&amp;aacute;ng kể.&lt;br /&gt; Một v&amp;iacute; dụ : Nếu bạn sống ở Tokyo, mức chi ph&amp;iacute; sinh hoạt của bạn sẽ cao hơn, tuy nhi&amp;ecirc;n, mức luơng l&amp;agrave;m th&amp;ecirc;m tại Tokyo lại cao hơn c&amp;aacute;c th&amp;agrave;nh phố kh&amp;aacute;c.&lt;/p&gt;\r\n&lt;p&gt;C&amp;acirc;u 8.&amp;nbsp;Chi ph&amp;iacute; thu&amp;ecirc; nh&amp;agrave; ở của du học sinh tại Tokyo khoảng bao nhi&amp;ecirc;u/th&amp;aacute;ng? Ở chung tối đa mấy người/ph&amp;ograve;ng?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p:&amp;nbsp;Chi ph&amp;iacute; thu&amp;ecirc; nh&amp;agrave; ở của du học sinh tại Tokyo khoảng 4 man/th&amp;aacute;ng, v&amp;agrave; ở chung 2 người　trở l&amp;ecirc;n sẽ chia tiền nh&amp;agrave; cho nhau&lt;/p&gt;\r\n&lt;p&gt;C&amp;acirc;u 9.&amp;nbsp;Nếu bị trượt Visa, c&amp;ocirc;ng ty c&amp;oacute; chịu tr&amp;aacute;ch nhiệm kh&amp;ocirc;ng?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p:&amp;nbsp;C&amp;ocirc;ng ty sẽ c&amp;ugrave;ng học sinh v&amp;agrave; gia đ&amp;igrave;nh x&amp;aacute;c định r&amp;otilde; nguy&amp;ecirc;n nh&amp;acirc;n g&amp;acirc;y ra sự việc đ&amp;aacute;ng tiếc đ&amp;oacute; v&amp;agrave; c&amp;ugrave;ng bắt tay với gia đ&amp;igrave;nh học sinh giải quyết thỏa đ&amp;aacute;ng ho&amp;agrave;n trả tiền đặt cọc.&lt;/p&gt;\r\n&lt;p&gt;Tuy nhi&amp;ecirc;n, hầu như chưa c&amp;oacute; trường hợp n&amp;agrave;o trượt visa nếu như hồ sơ của học sinh được chuẩn bị đầy đủ v&amp;agrave; gia đ&amp;igrave;nh học sinh tu&amp;acirc;n thủ đ&amp;uacute;ng c&amp;aacute;c hướng dẫn của cty.&lt;/p&gt;\r\n&lt;p&gt;10. Du học sinh Nhật Bản được đi l&amp;agrave;m th&amp;ecirc;m tối đa bao nhi&amp;ecirc;u ng&amp;agrave;y trong tuần, tối đa bao nhi&amp;ecirc;u tiếng một tuần?&lt;/p&gt;\r\n&lt;p&gt;Ngay sau khi nh&amp;agrave; trường v&amp;agrave; ph&amp;ograve;ng xuất nhập cảnh địa phương cho ph&amp;eacute;p, DHS đ&amp;atilde; c&amp;oacute; thể bắt đầu c&amp;ocirc;ng việc l&amp;agrave;m th&amp;ecirc;m ngay từ năm đầu ti&amp;ecirc;n.(Khoảng 2 th&amp;aacute;ng sau khi đến Nhật )&lt;br /&gt; Thời gian l&amp;agrave;m th&amp;ecirc;m: tối đa 28h/ tuần v&amp;agrave; kh&amp;ocirc;ng qu&amp;aacute; 4h/ng&amp;agrave;y.&lt;br /&gt; Ngo&amp;agrave;i ra v&amp;agrave;o những kỳ nghỉ d&amp;agrave;i như (nghỉ xu&amp;acirc;n, ngh&amp;igrave; h&amp;egrave;, nghỉ thu, nghỉ đ&amp;ocirc;ng, nghỉ Tết, nghỉ tuần lễ v&amp;agrave;ng&amp;hellip;) th&amp;igrave; du học sinh c&amp;oacute; thể l&amp;agrave;m 8 tiếng/ng&amp;agrave;y.&lt;/p&gt;\r\n&lt;p&gt;C&amp;acirc;u 11.&amp;nbsp;Thu thập l&amp;agrave;m th&amp;ecirc;m của du học sinh Nhật Bản trong khoảng bao nhi&amp;ecirc;u/giờ, bao nhi&amp;ecirc;u/th&amp;aacute;ng nếu l&amp;agrave;m đủ theo quy định của Nh&amp;agrave; nước Nhật Bản?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p:&amp;nbsp;Thu nhập dao động khoảng 900Y&amp;ecirc;n/h &amp;ndash; 1200 Y&amp;ecirc;n/h, v&amp;agrave; trong 1 th&amp;aacute;ng, du học sinh c&amp;oacute; thể kiếm th&amp;ecirc;m khoảng 100,000y&amp;ecirc;n &amp;ndash; 150,000 Y&amp;ecirc;n (khoảng 1000usd &amp;ndash; 1500 USD)&lt;br /&gt; Kinh nghiệm cho thấy sẽ kh&amp;ocirc;ng qu&amp;aacute; kh&amp;oacute; để c&amp;oacute; mức thu nhập cao nếu bạn l&amp;agrave; người th&amp;agrave;nh thạo tiếng Nhật v&amp;agrave; cần c&amp;ugrave;, cẩn thận trong c&amp;ocirc;ng việc.&lt;/p&gt;\r\n&lt;p&gt;C&amp;acirc;u 12.&amp;nbsp;Một số c&amp;ocirc;ng việc l&amp;agrave;m th&amp;ecirc;m phổ biến m&amp;agrave; du học sinh c&amp;oacute; thể l&amp;agrave;m tại Nhật Bản?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p:&amp;nbsp;&amp;ndash; B&amp;aacute;n h&amp;agrave;ng si&amp;ecirc;u thị, Ph&amp;acirc;n loại h&amp;agrave;ng h&amp;oacute;a&lt;br /&gt; &amp;ndash; Vệ sinh văn ph&amp;ograve;ng, kh&amp;aacute;ch sạn.&lt;br /&gt; &amp;ndash; Phụ việc qu&amp;aacute;n ăn, phục vụ nh&amp;agrave; h&amp;agrave;ng , C&amp;ocirc;ng ty thực phẩm&lt;br /&gt; &amp;ndash; Dạy ngoại ngữ&amp;hellip;&lt;/p&gt;\r\n&lt;p&gt;13. Du học sinh kh&amp;ocirc;ng tốt nghiệp được trường Nhật ngữ (hay kh&amp;ocirc;ng vượt qua được kỳ thi năng lực tiếng Nhật) c&amp;oacute; bị trục xuất về nước kh&amp;ocirc;ng. Nếu c&amp;oacute;, sau bao l&amp;acirc;u?&lt;/p&gt;\r\n&lt;p&gt;Du học sinh kh&amp;ocirc;ng tốt nghiệp được truờng Nhật ngữ, c&amp;oacute; thể gia hạn visa để học th&amp;ecirc;m.&lt;/p&gt;\r\n&lt;p&gt;C&amp;acirc;u 14.&amp;nbsp;Sau khi tốt nghiệp trường tiếng Nhật ra th&amp;igrave; c&amp;aacute;c du học sinh sẽ học tiếp như thế n&amp;agrave;o?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p:&amp;nbsp;Sau khi du học sinh tốt nghiệp trường tiếng Nhật ,t&amp;ugrave;y theo nhu cầu v&amp;agrave; khả năng của du học sinh c&amp;aacute;c trường tiếng Nhật sẽ gi&amp;uacute;p đỡ tư vấn v&amp;agrave; t&amp;igrave;m trường cho du học sinh ph&amp;ugrave; hợp với khả năng của từng du học sinh.&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Hơn nữa, c&amp;aacute;c trường đại học, trường cao đẳng, trường chuy&amp;ecirc;n m&amp;ocirc;n lu&amp;ocirc;n c&amp;oacute; những buổi tư vấn trước kỳ thi tuyển n&amp;ecirc;n c&amp;aacute;c du học sinh y&amp;ecirc;n t&amp;acirc;m về vấn đề t&amp;igrave;m v&amp;agrave; chọn trường.&lt;/p&gt;\r\n&lt;p&gt;C&amp;acirc;u 15.&amp;nbsp;Tổng thời gian đi du học Nhật Bản l&amp;agrave; bao l&amp;acirc;u?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p:&amp;nbsp;Sau khi bạn ho&amp;agrave;n thiện hồ sơ v&amp;agrave; sang Nhật Bản du học, bạn sẽ trải qua 2 giai đoạn:&lt;br /&gt; &amp;ndash; Giai đoạn 1: Học tiếng Nhật v&amp;agrave; chuơng tr&amp;igrave;nh dự bị Trung cấp, Cao đẳng, Đại học, Cao học &amp;hellip; thời gian l&amp;agrave; : 1 năm 3 th&amp;aacute;ng đến 2 năm.&lt;br /&gt; &amp;ndash; Giai đoạn 2: Chọn hệ đ&amp;agrave;o tạo m&amp;agrave; bạn theo học&lt;br /&gt; 1. Trung cấp : 2 năm&lt;br /&gt; 2. Cao đẳng: 3 năm&lt;br /&gt; 3. Đại học : 4 &amp;ndash; 5 năm&lt;/p&gt;\r\n&lt;p&gt;16. Mức học ph&amp;iacute; khi đi du học Nhật Bản l&amp;agrave; bao nhi&amp;ecirc;u?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p : Mức học ph&amp;iacute; trung b&amp;igrave;nh của c&amp;aacute;c trường tiếng Nhật l&amp;agrave; 5000-7000 USD/năm, t&amp;ugrave;y theo trường v&amp;agrave; khu vực. Một số trường c&amp;aacute; biệt c&amp;oacute; thể c&amp;oacute; mức học ph&amp;iacute; l&amp;ecirc;n tới 7000-9000 USD/năm. Tuy nhi&amp;ecirc;n, phần lớn c&amp;aacute;c trường đối t&amp;aacute;c của c&amp;ocirc;ng ty đều c&amp;oacute; mức học ph&amp;iacute; ph&amp;ugrave; hợp với khả năng chi trả của học vi&amp;ecirc;n Việt Nam.&lt;/p&gt;\r\n&lt;p&gt;17. C&amp;aacute;c chi ph&amp;iacute; sinh hoạt kh&amp;aacute;c th&amp;igrave; thế n&amp;agrave;o?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p : Tiền thu&amp;ecirc; ph&amp;ograve;ng (15㎡-30㎡) c&amp;oacute; gi&amp;aacute; từ &lt;strong&gt;&lt;em&gt;25,000Y&amp;ecirc;n-40,000Y&amp;ecirc;n/th&amp;aacute;ng&lt;/em&gt;&lt;/strong&gt;. Ở những khu vực như Tokyo gi&amp;aacute; c&amp;oacute; thể tăng cao hơn. Sinh vi&amp;ecirc;n Việt Nam thường gh&amp;eacute;p ph&amp;ograve;ng chung để giảm chi ph&amp;iacute; sinh hoạt. Trung t&amp;acirc;m tư vấn Sei Jin sẽ tư vấn gi&amp;uacute;p sinh vi&amp;ecirc;n t&amp;igrave;m ph&amp;ograve;ng gi&amp;aacute; rẻ, gần trường học gi&amp;uacute;p học vi&amp;ecirc;n trước khi đến Nhật. Một số trường đ&amp;atilde; c&amp;oacute; k&amp;yacute; t&amp;uacute;c x&amp;aacute; (KTX) v&amp;agrave; tiền KTX sẽ được trả c&amp;ugrave;ng tiền học ph&amp;iacute; cho trường trước khi đến Nhật.&lt;/p&gt;\r\n&lt;p&gt;Tiền ăn uống, thường do sinh vi&amp;ecirc;n tự nấu cho hợp khẩu vị, nhưng một số trường cũng c&amp;oacute; nh&amp;agrave; ăn cho sinh vi&amp;ecirc;n. Tiền chi ph&amp;iacute; trung b&amp;igrave;nh khoảng&lt;strong&gt; &lt;em&gt;20,000 y&amp;ecirc;n/th&amp;aacute;ng&lt;/em&gt;&lt;/strong&gt;. Thực phẩm Việt Nam phần lớn c&amp;oacute; thể t&amp;igrave;m thấy tại si&amp;ecirc;u thị Nhật hoặc ở một số cửa h&amp;agrave;ng b&amp;aacute;n đồ Việt&amp;nbsp; Nam. C&amp;aacute;c sinh vi&amp;ecirc;n kh&amp;oacute;a trước của&amp;nbsp; Hondabac sẽ tư vấn cho c&amp;aacute;c bạn mới sang.&lt;/p&gt;\r\n&lt;p&gt;Tiền điện thoại: Sinh vi&amp;ecirc;n tại&amp;nbsp; Nhật thường sử dụng c&amp;ugrave;ng mạng điện thoại của c&amp;ocirc;ng ty Softbank để c&amp;oacute; thể gọi cho nhau miễn ph&amp;iacute;, trừ thời gian từ 9h tối-1h s&amp;aacute;ng. Mức tiền cơ bản bắt buộc tối thiểu phải trả l&amp;agrave; 980 y&amp;ecirc;n/th&amp;aacute;ng.&lt;/p&gt;\r\n&lt;p&gt;Điện thoại gọi về Việt Nam: C&amp;oacute; nhiều h&amp;atilde;ng tung ra gi&amp;aacute; cước rẻ, tầm 11-15 y&amp;ecirc;n (1500-2000 đồng VN)/ph&amp;uacute;t khi gọi về Việt&amp;nbsp; Nam, c&amp;oacute; thể gọi thẳng từ m&amp;aacute;y điện thoại cầm tay.&lt;/p&gt;\r\n&lt;p&gt;Ở c&amp;aacute;c khu vực như Tokyo, Osaka, c&amp;aacute;c sinh vi&amp;ecirc;n đi lại bằng xe bus hoặc t&amp;agrave;u điện ngầm. Những nơi kh&amp;aacute;c, c&amp;aacute;c sinh vi&amp;ecirc;n thường d&amp;ugrave;ng xe đạp, hoặc xe m&amp;aacute;y (đổi sang bằng&amp;nbsp; Nhật từ bằng xe m&amp;aacute;y Việt&amp;nbsp; Nam &amp;ndash; cty sẽ hướng dẫn thủ tục chuyển đổi). Xe đạp v&amp;agrave; xe m&amp;aacute;y ở Nhật rất rẻ, hoặc c&amp;oacute; thể mua lại xe cũ từ sinh vi&amp;ecirc;n kh&amp;oacute;a trước.&lt;/p&gt;\r\n&lt;p&gt;Một số chi ph&amp;iacute; kh&amp;aacute;c như tiền s&amp;aacute;ch vở&amp;hellip;sẽ được phụ thu th&amp;ecirc;m v&amp;agrave;o tiền học ph&amp;iacute; sinh vi&amp;ecirc;n khi đ&amp;oacute;ng tiền cho trường trước khi đến Nhật.&lt;/p&gt;\r\n&lt;p&gt;18. Việc l&amp;agrave;m th&amp;ecirc;m của sinh vi&amp;ecirc;n sau khi đến Nhật ra sao?&lt;/p&gt;\r\n&lt;p&gt;Dap : &lt;strong&gt;&lt;em&gt;Sei Jin phối hợp chặt chẽ với nh&amp;agrave; trường, đảm bảo mọi sinh vi&amp;ecirc;n đều c&amp;oacute; việc l&amp;agrave;m sau khi đến Nhật&lt;/em&gt;&lt;/strong&gt;. Tuy nhi&amp;ecirc;n, t&amp;ugrave;y mức độ c&amp;ocirc;ng việc m&amp;agrave; y&amp;ecirc;u cầu về khả năng tiếng Nhật đối khi đi l&amp;agrave;m cũng kh&amp;aacute;c nhau. Th&amp;ocirc;ng thường nếu sinh vi&amp;ecirc;n c&amp;oacute; khả năng tiếng Nhật c&amp;agrave;ng tốt th&amp;igrave; c&amp;agrave;ng dễ t&amp;igrave;m được việc l&amp;agrave;m th&amp;ecirc;m, với mức lương/giờ cao hơn.&lt;/p&gt;\r\n&lt;p&gt;Mức lương/giờ thay đổi t&amp;ugrave;y theo nội dung c&amp;ocirc;ng việc v&amp;agrave; khu vực sinh vi&amp;ecirc;n sinh sống. Trung b&amp;igrave;nh l&amp;agrave; 900-1200 y&amp;ecirc;n/giờ. Thường c&amp;ocirc;ng việc c&amp;agrave;ng về khuya, hoặc ng&amp;agrave;y nghỉ, lễ th&amp;igrave; sẽ được trả cao hơn. Một số c&amp;ocirc;ng việc c&amp;oacute; thể nhận mức 1200-1500 y&amp;ecirc;n/giờ hoặc hơn.&lt;/p&gt;\r\n&lt;p&gt;Khi đi l&amp;agrave;m, cần tu&amp;acirc;n thủ chặt chẽ c&amp;aacute;c qui định tại nơi l&amp;agrave;m việc đề ra v&amp;agrave; tuyệt đối kh&amp;ocirc;ng được muộn giờ. Người l&amp;agrave;m th&amp;ecirc;m khi vi phạm giờ giấc v&amp;agrave; c&amp;aacute;c qui định do c&amp;ocirc;ng ty đặt ra dễ bị cho nghỉ việc.&lt;/p&gt;\r\n&lt;p&gt;Trung b&amp;igrave;nh c&amp;aacute;c sinh vi&amp;ecirc;n c&amp;oacute; thể kiếm được 1000-1500 USD/th&amp;aacute;ng.&lt;/p&gt;\r\n&lt;p&gt;19. Khi l&amp;agrave;m việc với người Nhật, học vi&amp;ecirc;n Việt Nam cần lưu &amp;yacute; những điểm g&amp;igrave;&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p: Đ&amp;uacute;ng giờ, l&amp;agrave;m việc nghi&amp;ecirc;m t&amp;uacute;c, tu&amp;acirc;n theo kỷ luật lao động, tận t&amp;acirc;m với c&amp;ocirc;ng việc, l&amp;agrave; những y&amp;ecirc;u cầu tối thiểu khi đi l&amp;agrave;m việc tại Nhật. Đi l&amp;agrave;m th&amp;ecirc;m c&amp;ograve;n l&amp;agrave; một m&amp;ocirc;i trường l&amp;yacute; tưởng để học vi&amp;ecirc;n&amp;nbsp; thực h&amp;agrave;nh v&amp;agrave; n&amp;acirc;ng cao tr&amp;igrave;nh độ tiếng Nhật, ngo&amp;agrave;i thời gian học ở trường.&lt;/p&gt;\r\n&lt;p&gt;20. Học vi&amp;ecirc;n c&amp;oacute; thể l&amp;agrave;m trong thời gian bao l&amp;acirc;u mỗi tuần?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p : Theo qui định của Nhật, mỗi học vi&amp;ecirc;n c&amp;oacute; thể l&amp;agrave;m tối đa 28 giờ/tuần v&amp;agrave; phải xin giấy ph&amp;eacute;p l&amp;agrave;m việc của Cục XNC Nhật. Thủ tục tr&amp;ecirc;n sẽ do Seijin v&amp;agrave; nh&amp;agrave; trường gi&amp;uacute;p đỡ học vi&amp;ecirc;n xin giấy ph&amp;eacute;p trước khi bắt đầu c&amp;ocirc;ng việc. V&amp;agrave;o thời gian nghỉ h&amp;egrave;, xu&amp;acirc;n, v&amp;agrave; đ&amp;ocirc;ng, giờ l&amp;agrave;m việc sẽ được tăng l&amp;ecirc;n nhiều hơn.&lt;/p&gt;\r\n&lt;p&gt;21. Việc đưa đ&amp;oacute;n học vi&amp;ecirc;n từ Việt&amp;nbsp; Nam sang Nhật lần đầu ti&amp;ecirc;n thế n&amp;agrave;o?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p : Cty phối hợp với nh&amp;agrave; trường để c&amp;oacute; người đ&amp;oacute;n học vi&amp;ecirc;n tại s&amp;acirc;n bay, những khu vực gần văn ph&amp;ograve;ng đại diện của Cty tại Nhật (osaka), sẽ do người của&amp;nbsp;seijin ra đ&amp;oacute;n tại s&amp;acirc;n bay, hoặc c&amp;ugrave;ng đưa học vi&amp;ecirc;n từ Việt Nam sang thẳng Nhật.&lt;/p&gt;\r\n&lt;p&gt;C&amp;aacute;c học vi&amp;ecirc;n sau khi đến Nhật sẽ được hướng dẫn c&amp;aacute;c thủ tục nhập học, nhận ph&amp;ograve;ng, l&amp;agrave;m thẻ người nước ngo&amp;agrave;i, thẻ bảo hiểm, đăng k&amp;yacute; điện thoại, mua s&amp;aacute;ch vở, xe đạp, v&amp;agrave; hướng dẫn đi chợ mua đồ ăn thức uống, chăn &amp;hellip;&lt;/p&gt;\r\n&lt;p&gt;22. Việc bảo hiểm y tế của c&amp;aacute;c sinh vi&amp;ecirc;n ra sao&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p : Tại Nhật, mọi c&amp;ocirc;ng d&amp;acirc;n đều phải tham gia chương tr&amp;igrave;nh bảo hiểm y tế Quốc d&amp;acirc;n bắt buộc. C&amp;aacute;c sinh vi&amp;ecirc;n được coi l&amp;agrave; người kh&amp;ocirc;ng c&amp;oacute; thu nhập, v&amp;igrave; vậy mức đ&amp;oacute;ng h&amp;agrave;ng th&amp;aacute;ng dao động từ 1000-1500 y&amp;ecirc;n.&lt;/p&gt;\r\n&lt;p&gt;Khi bị ốm đau, phẫu thuật, bệnh tật, sinh vi&amp;ecirc;n mang theo thẻ bảo hiểm y tế đến bệnh viện, v&amp;agrave; sẽ chỉ phải đ&amp;oacute;ng 30% viện ph&amp;iacute; hoặc tiền thuốc.&lt;/p&gt;\r\n&lt;p&gt;23. Học vi&amp;ecirc;n muốn học dự bị Đại học hoặc thi v&amp;agrave;o Đại học tại Nhật, thủ tục ra sao?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p : Khi học vi&amp;ecirc;n muốn theo học dự bị đại học, v&amp;agrave; thi v&amp;agrave;o Đại học tại Nhật. Việc đầu ti&amp;ecirc;n l&amp;agrave; học vi&amp;ecirc;n phải c&amp;oacute; mặt tại Nhật để tham gia k&amp;igrave; thi v&amp;agrave;o Đại học. V&amp;igrave; vậy, học vi&amp;ecirc;n cần theo học tiếng tại Nhật trong thời gian từ 1.5-2 năm đạt mức độ tiếng Nhật kh&amp;aacute; trước. Thủ tục học dự bị Đại học v&amp;agrave; thi đầu v&amp;agrave;o, văn ph&amp;ograve;ng cty tại Nhật sẽ tư vấn gi&amp;uacute;p đỡ c&amp;aacute;c học vi&amp;ecirc;n sau khi đ&amp;atilde; đến Nhật theo chương tr&amp;igrave;nh tr&amp;ecirc;n.&lt;/p&gt;\r\n&lt;p&gt;24. Visa học tiếng Nhật của học vi&amp;ecirc;n tiếng Nhật như thế n&amp;agrave;o?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p : Theo qui định của Bộ tư ph&amp;aacute;p Nhật Bản, visa của học vi&amp;ecirc;n học tiếng Nhật&amp;nbsp; &amp;ldquo;Pre-College Student&amp;rdquo;, c&amp;oacute; thời hạn tối đa l&amp;agrave; 2 năm. C&amp;aacute;c học vi&amp;ecirc;n sẽ đi theo chương tr&amp;igrave;nh học tiếng Nhật l&amp;agrave; 1 hoặc 1 năm rưỡi, sau đ&amp;oacute; visa được gia hạn 1 năm/lần.&lt;/p&gt;\r\n&lt;p&gt;Khi thời gian visa tr&amp;ecirc;n hết, sinh vi&amp;ecirc;n phải chuyển đổi tư c&amp;aacute;ch lưu tr&amp;uacute;, bằng c&amp;aacute;ch đăng k&amp;yacute; v&amp;agrave;o trường dạy nghề chuy&amp;ecirc;n m&amp;ocirc;n, hoặc thi v&amp;agrave;o Đại học. L&amp;uacute;c n&amp;agrave;y sinh vi&amp;ecirc;n sẽ được nhận visa &amp;ldquo;College Student&amp;rdquo;.&lt;/p&gt;\r\n&lt;p&gt;25. Thủ tục thi, chuyển tiếp v&amp;agrave;o trường chuy&amp;ecirc;n m&amp;ocirc;n, dạy nghề, hoặc Đại học tại Nhật như thế n&amp;agrave;o?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p : Trước l&amp;uacute;c kết th&amp;uacute;c kh&amp;oacute;a học tiếng Nhật 4-5 th&amp;aacute;ng, Seijin sẽ phối hợp c&amp;ugrave;ng nh&amp;agrave; trường giới thiệu một loạt c&amp;aacute;c trường dạy nghề chuy&amp;ecirc;n m&amp;ocirc;n, v&amp;agrave; trường ĐH để học vi&amp;ecirc;n chọn lựa. &lt;strong&gt;&lt;em&gt;Thủ tục cũng kh&amp;aacute; đơn giản v&amp;agrave; chủ yếu l&amp;agrave; phỏng vấn với trường dạy nghề chuy&amp;ecirc;n m&amp;ocirc;n . Nhiều khi nh&amp;agrave; trường sẽ đến tận nơi phỏng vấn học vi&amp;ecirc;n.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;Với học vi&amp;ecirc;n c&amp;oacute; nguyện vọng v&amp;agrave;o Đại học, học vi&amp;ecirc;n sẽ phải tham dự 2 kỳ thi theo qui định của Bộ gi&amp;aacute;o dục Nhật bản: K&amp;igrave; thi chung cho to&amp;agrave;n quốc v&amp;agrave; k&amp;igrave; thi v&amp;agrave;o trường m&amp;igrave;nh chọn lựa.&lt;/p&gt;\r\n&lt;p&gt;26.Cơ hội nhận học bổng tại Nhật với sinh vi&amp;ecirc;n Việt Nam như thế n&amp;agrave;o?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p : Với c&amp;aacute;c trường tiếng Nhật, chỉ c&amp;oacute; một số lượng tương đối hạn chế học bổng cấp cho c&amp;aacute;c sinh vi&amp;ecirc;n học xuất sắc nhất. Tuy nhi&amp;ecirc;n, khi học vi&amp;ecirc;n thi đỗ v&amp;agrave;o Đại học, đối với sinh vi&amp;ecirc;n Việt Nam, c&amp;oacute; thể xin miễn khoảng 1/2 học ph&amp;iacute;. Ngo&amp;agrave;i ra, sinh vi&amp;ecirc;n c&amp;oacute; nhiều cơ hội nhận c&amp;aacute;c học bổng địa phương hoặc c&amp;ocirc;ng ty (dao động 500-800 USD/th&amp;aacute;ng). C&amp;aacute;c sinh vi&amp;ecirc;n c&amp;oacute; kết quả học tập xuất sắc, c&amp;oacute; thể nhận c&amp;aacute;c học bổng cao hơn như Monbusho (1500 USD/th&amp;aacute;ng), hoặc một số học bổng khoảng 1200 USD/th&amp;aacute;ng (v&amp;iacute; dụ học bổng Rotary).&lt;/p&gt;\r\n&lt;p&gt;27.Nếu sang Nhật du học theo chương tr&amp;igrave;nh học tiếng Nhật, khi n&amp;agrave;o c&amp;oacute; khả năng thi được 3 kyu, 2 kyu v&amp;agrave; 1 kyu?&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p :Với học vi&amp;ecirc;n nắm được tiếng Nhật sơ cấp tại Việt Nam (học 4-6 th&amp;aacute;ng trước khi sang Nhật), nếu học chăm chỉ tại Nhật, &lt;strong&gt;&lt;em&gt;sau 6 th&amp;aacute;ng c&amp;oacute; thể thi đỗ 3 kyu&lt;/em&gt;&lt;/strong&gt;. Tuy nhi&amp;ecirc;n, để lấy được 2 kyu, &lt;strong&gt;&lt;em&gt;th&amp;ocirc;ng thường cần &amp;iacute;t nhất 2 năm học tiếng Nhật v&amp;agrave; luyện thi c&amp;aacute;c t&amp;agrave;i liệu về 2 kyu&lt;/em&gt;&lt;/strong&gt;. Để đạt tiếng Nhật 1 kyu (c&amp;oacute; thể lấy visa phi&amp;ecirc;n dịch, bi&amp;ecirc;n dịch tại Nhật), l&amp;agrave; một khoảng c&amp;aacute;ch d&amp;agrave;i so với 1 kyu. V&amp;igrave; vậy th&amp;ocirc;ng thường c&amp;aacute;c học vi&amp;ecirc;n cần học th&amp;ecirc;m tiếng Nhật sau khi học trường chuy&amp;ecirc;n m&amp;ocirc;n (2 năm), hoặc học khoảng 2 năm tại trường Đại học, Cao đằng (vừa học chuy&amp;ecirc;n m&amp;ocirc;n, vừa học tiếng Nhật). Với nỗ lực học tập chăm chỉ tại trường, kết hợp với học tiếng Nhật khi đi l&amp;agrave;m th&amp;ecirc;m, c&amp;aacute;c học vi&amp;ecirc;n ho&amp;agrave;n to&amp;agrave;n c&amp;oacute; thể thi đỗ k&amp;igrave; thi 1 kyu (năng lực tiếng Nhật cao nhất), tại Nhật. Với tấm bằng 2 kyu hoặc 1 kyu trong tay, học vi&amp;ecirc;n sẽ gặp nhiều thuận lợi khi t&amp;igrave;m việc l&amp;agrave;m tại Nhật hoặc tại Việt Nam.&lt;/p&gt;\r\n&lt;p&gt;&lt;em&gt;28. T&amp;ocirc;i kh&amp;ocirc;ng c&amp;oacute; tiền mặt, t&amp;ocirc;i c&amp;oacute; thể chứng minh t&amp;agrave;i ch&amp;iacute;nh bằng t&amp;agrave;i sản cố định như nh&amp;agrave; đất, &amp;ocirc; t&amp;ocirc;, v.v.. Hay c&amp;aacute;c loại t&amp;agrave;i sản kh&amp;aacute;c kh&amp;ocirc;ng phải l&amp;agrave; tiền mặt được kh&amp;ocirc;ng?&lt;/em&gt;&lt;br /&gt; &lt;br /&gt; Đ&amp;aacute;p : Bản chất của việc chứng minh t&amp;agrave;i ch&amp;iacute;nh du học l&amp;agrave; chứng minh bạn c&amp;oacute; khả năng về t&amp;agrave;i ch&amp;iacute;nh mạnh đủ để chi trả cho to&amp;agrave;n bộ chi ph&amp;iacute; đi du học của m&amp;igrave;nh. Chi ph&amp;iacute; đi bao gồm học ph&amp;iacute;, ph&amp;iacute; sinh hoạt, thu&amp;ecirc; nh&amp;agrave;, chi ti&amp;ecirc;u h&amp;agrave;ng ng&amp;agrave;y, bạn kh&amp;ocirc;ng thể d&amp;ugrave;ng giấy tờ nh&amp;agrave; đất, &amp;ocirc; t&amp;ocirc; để chi trả trả cho những việc đ&amp;oacute; ( C&amp;oacute; thể tả n&amp;ocirc;m na như việc bạn mang sổ đỏ đi chợ mua thức ăn vậy ). &lt;strong&gt;&lt;em&gt;Seijin sẽ tư vấn bạn c&amp;aacute;c phương &amp;aacute;n để chứng minh t&amp;agrave;i ch&amp;iacute;nh th&amp;iacute;ch hợp nhất &lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;\r\n&lt;ol start=&quot;9&quot;&gt;\r\n&lt;li&gt;&lt;em&gt; N&amp;ecirc;n đ&amp;oacute;ng học ph&amp;iacute; 1 năm hay nửa năm?&lt;/em&gt;&lt;/li&gt;\r\n&lt;/ol&gt;\r\n&lt;p&gt;Du học Nhật Bản&lt;/p&gt;\r\n&lt;p&gt;29&lt;em&gt;Đ&amp;aacute;p : &lt;strong&gt;N&amp;ecirc;n đ&amp;oacute;ng học ph&amp;iacute; 1 năm &lt;/strong&gt;. &lt;/em&gt;Đa số c&amp;aacute;c bạn sinh vi&amp;ecirc;n đ&amp;oacute;ng học ph&amp;iacute; nửa năm với suy nghĩ non nớt cứ sang l&amp;agrave; c&amp;oacute; việc c&amp;oacute; thể đ&amp;oacute;ng đủ được học ph&amp;iacute;... Đến khi tiếp x&amp;uacute;c m&amp;ocirc;i trường thực tế, gia đ&amp;igrave;nh sẽ phải 1 lần nữa gửi tiền sang, khiến cho t&amp;acirc;m l&amp;yacute; c&amp;aacute;c bạn học sinh phải vay tiền để đi du học sẽ c&amp;agrave;ng th&amp;ecirc;m nặng nề, 1 số bạn c&amp;oacute; thể sẽ h&amp;agrave;nh động ti&amp;ecirc;u cực như bỏ học để đi l&amp;agrave;m, trốn học để kiếm tiền... Vậy n&amp;ecirc;n đừng v&amp;igrave; những lời lẽ về 1 viễn cảnh chỉ cần đ&amp;oacute;ng học ph&amp;iacute; nửa năm, kh&amp;ocirc;ng cần học tiếng Nhật hay cố gắng g&amp;igrave; cũng c&amp;oacute; thể tự đi l&amp;agrave;m v&amp;agrave; kiếm đủ số tiền đ&amp;oacute;ng học ph&amp;iacute; 6 th&amp;aacute;ng tiếp theo..&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt; &lt;em&gt;30. C&amp;oacute; phải nộp chi ph&amp;iacute; g&amp;igrave; cho ph&amp;iacute;a nh&amp;agrave; trường khi nộp hồ sơ du học hay kh&amp;ocirc;ng?&lt;/em&gt;&lt;br /&gt; &lt;br /&gt; Đ&amp;aacute;p :T&amp;ugrave;y v&amp;agrave;o từng trường m&amp;agrave; bạn đầu c&amp;oacute; thể bạn sẽ phải đ&amp;oacute;ng 1 số tiền nhỏ gọi l&amp;agrave; tiền tuyển sinh, Số tiền n&amp;agrave;y để đảm bảo bạn nộp hồ sơ 1 c&amp;aacute;ch nghi&amp;ecirc;m t&amp;uacute;c, kh&amp;ocirc;ng phải nộp chơi để đấy rồi hủy bất chợt sau khi nh&amp;agrave; trường đ&amp;atilde; d&amp;agrave;nh thời gian v&amp;agrave; c&amp;ocirc;ng sức để xin Visa cho bạn.&lt;/p&gt;\r\n&lt;p&gt;Chi ph&amp;iacute; đi du học&lt;/p&gt;\r\n&lt;p&gt;31.3&lt;em&gt;Tiền k&amp;yacute; t&amp;uacute;c x&amp;aacute; phải đ&amp;oacute;ng cho nh&amp;agrave; trường thời gian đầu ti&amp;ecirc;n l&amp;agrave; bao nhi&amp;ecirc;u?&lt;/em&gt;&lt;br /&gt; &lt;br /&gt; Đ&amp;aacute;p : Trường học kh&amp;aacute;c nhau th&amp;igrave; tiền k&amp;yacute; t&amp;uacute;c x&amp;aacute; sẽ kh&amp;aacute;c nhau, gi&amp;aacute; của ph&amp;ograve;ng ở 2 người cũng kh&amp;aacute;c với gi&amp;aacute; của ph&amp;ograve;ng ở 4 người. Th&amp;ocirc;ng thường tiền ktx chỉ từ 23,000 - 35,000 Y&amp;ecirc;n/th&amp;aacute;ng. Tuy nhi&amp;ecirc;n khi thu&amp;ecirc; nh&amp;agrave; b&amp;ecirc;n Nhật bạn phải đ&amp;oacute;ng th&amp;ecirc;m đầu v&amp;agrave;o, theo như ch&amp;uacute;ng t&amp;ocirc;i tổng kết, mức nh&amp;agrave; thu&amp;ecirc; sẽ rơi v&amp;agrave;o khoảng 100.000 - 150.000 y&amp;ecirc;n cho 3 th&amp;aacute;ng đầu ti&amp;ecirc;n . &lt;br /&gt; &lt;em&gt;32. T&amp;ocirc;i c&amp;oacute; người th&amp;acirc;n tại Nhật Bản, t&amp;ocirc;i kh&amp;ocirc;ng ở k&amp;yacute; t&amp;uacute;c x&amp;aacute; c&amp;oacute; được kh&amp;ocirc;ng?&lt;/em&gt;&lt;br /&gt; &lt;br /&gt; Đ&amp;aacute;p : T&amp;ugrave;y thuộc v&amp;agrave;o sự cho ph&amp;eacute;p của nh&amp;agrave; trường, th&amp;ocirc;ng thường nếu c&amp;oacute; người th&amp;acirc;n bảo l&amp;atilde;nh th&amp;igrave; c&amp;oacute; thể được. Seijin sẽ hổ trợ thương lượng với nh&amp;agrave; trường theo nguyện vọng của bạn &lt;br /&gt; &lt;em&gt;33. Sau khi tốt nghiệp t&amp;ocirc;i c&amp;oacute; được sống l&amp;acirc;u d&amp;agrave;i tại nhật kh&amp;ocirc;ng ?&lt;/em&gt;&lt;br /&gt; &lt;br /&gt; Đ&amp;aacute;p : Sau khi tốt nghiệp bạn cũng c&amp;oacute; thể xin đi l&amp;agrave;m, l&amp;uacute;c đ&amp;oacute; bạn sẽ xin được Visa đi l&amp;agrave;m, thời gian d&amp;agrave;i hay ngắn l&amp;agrave; do c&amp;ocirc;ng ty nhận bạn v&amp;agrave;o l&amp;agrave;m đứng ra bảo l&amp;atilde;nh cho bạn.&lt;/p&gt;\r\n&lt;p&gt;Một th&amp;ocirc;ng tin nữa cũng rất quan trọng: Khi bạn đ&amp;atilde; sống v&amp;agrave; l&amp;agrave;m việc ở Nhật Bản qu&amp;aacute; 10 năm, kh&amp;ocirc;ng phạm ph&amp;aacute;p g&amp;igrave; th&amp;igrave; bạn ho&amp;agrave;n to&amp;agrave;n c&amp;oacute; thể xin Visa vĩnh tr&amp;uacute; tại Nhật Bản, 1 loại Visa cho ph&amp;eacute;p bạn định cư d&amp;agrave;i hạn ở Nhật Bản v&amp;ocirc; thời hạn.&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;34. Khi nộp hồ sơ du học Nhật Bản, c&amp;oacute; cần thiết phải nộp tất cả bản gốc hay kh&amp;ocirc;ng?&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p : C&amp;aacute;c bạn kh&amp;ocirc;ng cần phải nộp giấy tờ bản gốc,chỉ cần nộp bản sao c&amp;oacute; c&amp;ocirc;ng chứng l&amp;agrave; c&amp;aacute;c trường ở Nhật Bản đ&amp;atilde; tiếp nhận v&amp;agrave; c&amp;oacute; thể nộp hồ sơ của c&amp;aacute;c bạn l&amp;ecirc;n Sở Nhập Cảnh Nhật Bản.&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;35. Hồ sơ phải chuẩn bị trước c&amp;aacute;c đợt nhập học bao l&amp;acirc;u?&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p : Hồ sơ sẽ phải chuẩn bị trước mỗi đợt nhập học &amp;iacute;t nhất 5 th&amp;aacute;ng.Sau khi tiếp nhận hồ sơ Seijin sẽ xem x&amp;eacute;t v&amp;agrave; phối hợp nh&amp;agrave; trường nộp cho Sở Nhập Cảnh Nhật Bản.&lt;/p&gt;\r\n&lt;ol start=&quot;6&quot;&gt;\r\n&lt;li&gt;&lt;strong&gt; Du học Nhật Bản c&amp;oacute; giới hạn độ tuổi kh&amp;ocirc;ng?&lt;/strong&gt;&lt;/li&gt;\r\n&lt;/ol&gt;\r\n&lt;p&gt;Đ&amp;aacute;p :&lt;strong&gt;&lt;em&gt; Kh&amp;ocirc;ng giới hạn độ tuổi đối với người đi học&lt;/em&gt;&lt;/strong&gt;. C&amp;aacute;c bạn đăng k&amp;yacute; du học Nhật Bản tối thiểu phải tốt nghiệp cấp 3. Đối với c&amp;aacute;c bạn tốt nghiệp Cao Đẳng, hay Đại học l&amp;agrave; một lợi thế. Đối với những bạn từ 30 tuổi trở l&amp;ecirc;n, nếu chứng minh được qu&amp;aacute; tr&amp;igrave;nh học tập v&amp;agrave; l&amp;agrave;m việc của bản th&amp;acirc;n l&amp;agrave; xuy&amp;ecirc;n suốt v&amp;agrave; kh&amp;ocirc;ng bị gi&amp;aacute;n đoạn trong khoảng thời gian từ s&amp;aacute;u th&amp;aacute;ng đến một năm th&amp;igrave; ho&amp;agrave;n to&amp;agrave;n c&amp;oacute; thể tiến h&amp;agrave;nh l&amp;agrave;m hồ sơ du học Nhật Bản.&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;37. C&amp;oacute; phải nộp bằng tiếng Nhật ( tương đương tr&amp;igrave;nh độ N4) khi đăng k&amp;yacute; du học Nhật Bảnkh&amp;ocirc;ng?&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p : Đối với những bạn chưa c&amp;oacute; bằng chứng nhận tiếng Nhật, c&amp;aacute;c bạn ho&amp;agrave;n to&amp;agrave;n vẫn c&amp;oacute; thể đăng k&amp;yacute; tham gia du học Nhật Bản với giấy chứng nhận đ&amp;atilde; học khoảng 150 giờ tiếng Nhật tại c&amp;aacute;c trường Nhật Ngữ ở Việt Nam.&lt;/p&gt;\r\n&lt;p&gt;38.&amp;nbsp;&lt;strong&gt;Du học Nhật Bản c&amp;oacute; phải phỏng vấn xin visa giống như du học Mỹ kh&amp;ocirc;ng?&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p : Kh&amp;ocirc;ng c&amp;oacute; bước phỏng vấn xin visa như du học Mỹ.&lt;/p&gt;\r\n&lt;p&gt;39. &lt;strong&gt;Học ph&amp;iacute; th&amp;ocirc;ng thường sẽ được đ&amp;oacute;ng bằng c&amp;aacute;ch n&amp;agrave;o?&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p : Seijin sẽ hướng dẩn bạn chuyển khoản trực tiếp sang nh&amp;agrave; trường.&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;40. Ưu điểm của chương tr&amp;igrave;nh du học Nhật Bản l&amp;agrave; g&amp;igrave;?&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Đ&amp;aacute;p:&amp;nbsp;&lt;/strong&gt; Chương tr&amp;igrave;nh n&amp;agrave;y ph&amp;ugrave; hợp với mọi đối tượng. Đặc biệt những đối tượng c&amp;oacute; thu nhập trung b&amp;igrave;nh, c&amp;oacute; &amp;yacute; ch&amp;iacute; muốn vươn l&amp;ecirc;n trong cuộc sống &lt;strong&gt;&lt;em&gt;c&amp;oacute; thể vừa học vừa l&amp;agrave;m th&amp;ecirc;m để trang trải ph&amp;iacute; sinh hoạt v&amp;agrave; học ph&amp;iacute; .&lt;br /&gt; &lt;br /&gt; &lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;41. T&amp;ocirc;i c&amp;oacute; thể đăng k&amp;iacute; du học Nhật Bản v&amp;agrave;o những thời điểm n&amp;agrave;o trong 1 năm?&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;Đ&amp;aacute;p : Mọi thời điểm trong năm .Seijin sẽ tư vấn bạn thời điểm nhập học theo kỳ tuyển sinh th&amp;iacute;ch hợp nhất&lt;/p&gt;\r\n&lt;p&gt;l&amp;nbsp; Kỳ tuyển sinh th&amp;aacute;ng 01 h&amp;agrave;ng năm&lt;/p&gt;\r\n&lt;p&gt;l&amp;nbsp; Kỳ tuyển sinh th&amp;aacute;ng 04 h&amp;agrave;ng năm&lt;/p&gt;\r\n&lt;p&gt;l&amp;nbsp; Kỳ tuyển sinh th&amp;aacute;ng 07 h&amp;agrave;ng năm&lt;/p&gt;\r\n&lt;p&gt;l&amp;nbsp; Kỳ tuyển sinh th&amp;aacute;ng 10 h&amp;agrave;ng năm&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt; &lt;strong&gt;42.T&amp;ocirc;i muốn học nghề hoặc Trung cấp tại Nhật Bản. Vậy c&amp;oacute; những ng&amp;agrave;nh nghề g&amp;igrave;? Thời gian học bao l&amp;acirc;u? &lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt; &lt;strong&gt;Đ&amp;aacute;p:&amp;nbsp;&lt;/strong&gt; C&amp;oacute; rất nhiều ng&amp;agrave;nh học để bạn c&amp;oacute; thể lựa chọn như: y tế, c&amp;ocirc;ng nghệ, văn h&amp;oacute;a, sư phạm, nghiệp vụ thương mại, chăm s&amp;oacute;c sức khỏe, gi&amp;aacute;o dục, ph&amp;uacute;c lợi x&amp;atilde; hội, may thời trang, nấu ăn, n&amp;ocirc;ng nghiệp, cơ kh&amp;iacute;, đi&amp;ecirc;n d&amp;acirc;n dụng, x&amp;acirc;y dựng&amp;hellip;&lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Thời gian học nghề l&amp;agrave; 2 năm. Một số ng&amp;agrave;nh nghề đặc biệt phải c&amp;oacute; chứng chỉ h&amp;agrave;nh nghề th&amp;igrave; bạn cần học th&amp;ecirc;m 6 th&amp;aacute;ng nữa để lấy chứng chỉ.&lt;br /&gt; &lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Sau khi tốt nghiệp bạn ho&amp;agrave;n to&amp;agrave;n đủ điều kiện để ở lại Nhật Bản l&amp;agrave;m việc. C&amp;ocirc;ng ty sẽ giới thiệu cho bạn v&amp;agrave; hướng dẫn hồ sơ thủ tục cho bạn ở lại l&amp;agrave;m việc.&lt;br /&gt; &lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Sau một thời gian l&amp;agrave;m việc. Nếu bạn t&amp;iacute;ch đủ số tiền để theo học Đại học, hoặc bạn c&amp;oacute; mong muốn học Đại học để lấy bằng cấp cao hơn. Bạn c&amp;oacute; thể đăng k&amp;iacute; học li&amp;ecirc;n th&amp;ocirc;ng từ 2 &amp;ndash; 3 năm để lấy bằng Đại học.&lt;br /&gt; &lt;br /&gt; &lt;strong&gt;43.T&amp;ocirc;i đ&amp;atilde; tốt nghiệp Cao Đẳng, Đại học tại Việt Nam, nếu t&amp;ocirc;i chỉ muốn sang Nhật Bản học 2 năm Trường tiếng .T&amp;ocirc;i sẽ đi l&amp;agrave;m tại Nhật c&amp;oacute; được kh&amp;ocirc;ng?&lt;/strong&gt;&lt;br /&gt; &lt;br /&gt; &lt;strong&gt;Đ&amp;aacute;p:&amp;nbsp;&lt;/strong&gt;Kh&amp;ocirc;ng c&amp;oacute; g&amp;igrave; l&amp;agrave; kh&amp;oacute; khăn, chỉ cần bạn chuyển visa từ visa đi học sang visa đi lao động l&amp;agrave; được.&lt;br /&gt; &lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;44. Trong qu&amp;agrave; tr&amp;igrave;nh học tập hoặc l&amp;agrave;m việc tại Nhật Bản. Chẳng may t&amp;ocirc;i bi tai nạn, ốm đau, bệnh tật th&amp;igrave; chế độ bảo hiểm đối với t&amp;ocirc;i như thế n&amp;agrave;o?&lt;/strong&gt;&lt;br /&gt; &lt;br /&gt; &lt;strong&gt;Đ&amp;aacute;p:&amp;nbsp;&lt;/strong&gt;Khi tham gia chế độ bảo hiểm bạn chỉ phải trả 30% tổng số tiền m&amp;agrave; bạn phải chi trả viện ph&amp;iacute;, thuốc men.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt; &lt;strong&gt;45.Trong thời gian học tập tại Nhật Bản t&amp;ocirc;i c&amp;oacute; được về nước thăm gia đ&amp;igrave;nh kh&amp;ocirc;ng? C&amp;oacute; được mời người th&amp;acirc;n sang Nhật Bản chơi kh&amp;ocirc;ng?&lt;/strong&gt;&lt;br /&gt; &lt;br /&gt; &lt;strong&gt;Đ&amp;aacute;p:&amp;nbsp;&lt;/strong&gt;Trong thời gian theo học tại Nhật Bản bạn c&amp;oacute; thể tranh thủ c&amp;aacute;c k&amp;igrave; nghỉ để về thăm gia đ&amp;igrave;nh. &lt;br /&gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Trong thời gian bạn theo học tại Nhật Bản bạn c&amp;oacute; thể mời người th&amp;acirc;n sang Nhật Bản chơi. Thời gian lưu tr&amp;uacute; cho người th&amp;acirc;n bạn tại Nhật Bản l&amp;agrave; kh&amp;ocirc;ng qu&amp;aacute; 90 ng&amp;agrave;y.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt; &lt;strong&gt;46. T&amp;ocirc;i c&amp;oacute; được ở lại sinh sống v&amp;agrave; l&amp;agrave;m việc vĩnh viễn tại Nhật Bản hay kh&amp;ocirc;ng? C&amp;oacute; được nhập quốc tịch Nhật Bản kh&amp;ocirc;ng?&lt;/strong&gt;&lt;br /&gt; &lt;br /&gt; &lt;strong&gt;Đ&amp;aacute;p:&amp;nbsp;&lt;/strong&gt;Sau khi bạn ở lại l&amp;agrave;m việc tại Nhật Bản được 5 năm. Bạn ho&amp;agrave;n to&amp;agrave;n c&amp;oacute; đủ điều kiện xin Visa vĩnh tr&amp;uacute; tại Nhật Bản. Với Visa vĩnh tr&amp;uacute; bạn hưởng đầy đủ c&amp;aacute;c quyền c&amp;ocirc;ng d&amp;acirc;n như 1 người Nhật Bản. V&amp;agrave; ho&amp;agrave;n to&amp;agrave;n c&amp;oacute; thể nhập quốc tịch nhật nếu kh&amp;ocirc;ng c&amp;oacute; vi phạm bất cứ ph&amp;aacute;p luật g&amp;igrave; của Nhật.&lt;/p&gt;', 'thiet-ke-khu-bep-sang-trong-am-cenh0', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG | THIET KE KHU BEP SANG TRONG, AM CENG', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG, THIET KE KHU BEP SANG TRONG, AM CENG', 'Chọn chậu rửa phù hợp với không gian và phục vụ hiệu quả cho việc nấu nướng là mục đích chung của nhiều gia chủ khi lên...', 1, 0, 0, 1, 1474379487, 1475721899, 'vi');
+INSERT INTO `news` (`id`, `item_id`, `group_nav`, `group_id`, `group_related`, `picture`, `title`, `short`, `content`, `friendly_link`, `meta_title`, `meta_key`, `meta_desc`, `is_focus`, `is_focus_group`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(30, 29, '', 0, '', 'news/2016_10/du-hoc-japan.jpg', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG', '', '&lt;p&gt;Chọn chậu rửa ph&amp;ugrave; hợp với kh&amp;ocirc;ng gian v&amp;agrave; phục vụ hiệu quả cho việc nấu nướng l&amp;agrave; mục đ&amp;iacute;ch chung của nhiều gia chủ khi l&amp;ecirc;n &amp;yacute; tưởng thiết kế khu bếp.&lt;br /&gt;C&amp;aacute;c chuy&amp;ecirc;n gia đến từ Hafele (Đức) vẫn thường nhận được những thắc mắc như &quot;Chọn chậu rửa với độ s&amp;acirc;u bao nhi&amp;ecirc;u th&amp;igrave; ph&amp;ugrave; hợp?&quot;, &quot;V&amp;ograve;i rửa loại n&amp;agrave;o sẽ kh&amp;ocirc;ng bị r&amp;ograve; rỉ nước?&quot;, &amp;ldquo;L&amp;agrave;m sao để tiết kiệm thời gian khi chuẩn bị m&amp;oacute;n ăn?&amp;rdquo; v&amp;agrave; h&amp;agrave;ng loạt những c&amp;acirc;u hỏi kh&amp;aacute;c li&amp;ecirc;n quan đến khu vực chuẩn bị, dọn rửa, nơi bố tr&amp;iacute; bồn rửa v&amp;agrave; v&amp;ograve;i bếp.&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Để giải đ&amp;aacute;p những băn khoăn ấy, c&amp;aacute;c chuy&amp;ecirc;n gia Hafele đưa ra những lời khuy&amp;ecirc;n hữu &amp;iacute;ch sau đ&amp;acirc;y.&lt;/p&gt;\r\n&lt;p&gt;Chậu rửa&lt;/p&gt;\r\n&lt;p&gt;Về chất liệu, chậu rửa n&amp;ecirc;n chọn th&amp;eacute;p kh&amp;ocirc;ng gỉ. Đ&amp;acirc;y l&amp;agrave; lựa chọn th&amp;ocirc;ng dụng hiện nay với vẻ đẹp vượt thời gian, ưu điểm chịu nhiệt tốt v&amp;agrave; vệ sinh dễ d&amp;agrave;ng. Ngo&amp;agrave;i ra, nếu gia chủ đầu tư hơn một ch&amp;uacute;t, chậu rửa bằng đ&amp;aacute; Granite với độ bền cao, thiết kế tinh tế sẽ g&amp;oacute;p phần mang lại vẻ sang trọng cho ng&amp;ocirc;i nh&amp;agrave; của bạn&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-01.jpg?v=1448982594829&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Chậu rửa Granite sang trọng v&amp;agrave; tinh tế.&lt;/p&gt;\r\n&lt;p&gt;Về k&amp;iacute;ch thước, chậu rửa thường c&amp;oacute; hai loại l&amp;agrave; chậu đơn v&amp;agrave; chậu đ&amp;ocirc;i. Chậu đơn thường c&amp;oacute; k&amp;iacute;ch thước rộng v&amp;agrave; s&amp;acirc;u gi&amp;uacute;p bạn ng&amp;acirc;m v&amp;agrave; rửa thực phẩm hay ch&amp;eacute;n b&amp;aacute;t với số lượng lớn. Nếu b&amp;agrave;n bếp của bạn c&amp;ograve;n khoảng trống từ 870mm trở l&amp;ecirc;n, bạn cũng c&amp;oacute; thể chọn chậu đ&amp;ocirc;i để tăng th&amp;ecirc;m kh&amp;ocirc;ng gian, việc dọn rửa dễ d&amp;agrave;ng, thoải m&amp;aacute;i hơn. B&amp;ecirc;n cạnh đ&amp;oacute;, chiều s&amp;acirc;u trung b&amp;igrave;nh từ 180mm - 250mm l&amp;agrave; k&amp;iacute;ch thước l&amp;yacute; tưởng được nghi&amp;ecirc;n cứu v&amp;agrave; &amp;aacute;p dụng cho c&amp;aacute;c loại chậu rửa hiện nay.&lt;/p&gt;\r\n&lt;p&gt;V&amp;ograve;i rửa&lt;/p&gt;\r\n&lt;p&gt;Ngo&amp;agrave;i c&amp;aacute;c loại v&amp;ograve;i truyền thống, nhiều loại v&amp;ograve;i hiện đại cũng được thiết kế với khả năng k&amp;eacute;o d&amp;agrave;i đầu v&amp;ograve;i, cho ph&amp;eacute;p linh hoạt điều chỉnh v&amp;ograve;i tới vị tr&amp;iacute; bạn mong muốn.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-02.png?v=1448982698836&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;V&amp;ograve;i bếp được sản xuất với ti&amp;ecirc;u chuẩn Đức c&amp;oacute; độ bền cao. Sản phẩm c&amp;oacute; b&amp;aacute;n tại showroom Hafele to&amp;agrave;n quốc.&lt;/p&gt;\r\n&lt;p&gt;Y&amp;ecirc;u cầu về &amp;aacute;p lực nước của v&amp;ograve;i, c&amp;aacute;c chuy&amp;ecirc;n gia khuy&amp;ecirc;n d&amp;ograve;ng chảy tối thiểu của v&amp;ograve;i phải đạt từ 0.5 tới 1.0 bar (đơn vị đo &amp;aacute;p suất). Nếu thấp hơn, nước sẽ chỉ nhỏ giọt ra khỏi v&amp;ograve;i, khiến bạn tốn nhiều thời gian v&amp;agrave; c&amp;ocirc;ng sức hơn cho dọn rửa. Tuy nhi&amp;ecirc;n cũng đừng chọn loại v&amp;ograve;i c&amp;oacute; &amp;aacute;p suất qu&amp;aacute; cao (tr&amp;ecirc;n 10 bar) nếu bạn kh&amp;ocirc;ng muốn nước bắn tung t&amp;oacute;e trong bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Bạn n&amp;ecirc;n thiết kế v&amp;ograve;i rửa ph&amp;ugrave; hợp với phong c&amp;aacute;ch bếp. Đối với bếp truyền thống đa số sử dụng loại v&amp;ograve;i tr&amp;ograve;n. Với bếp hiện đại, v&amp;ograve;i thiết kế kiểu c&amp;aacute;ch v&amp;agrave; tinh tế sẽ l&amp;agrave;m nổi bật kh&amp;ocirc;ng gian bếp hơn.&lt;/p&gt;\r\n&lt;p&gt;Về gi&amp;aacute; cả, những v&amp;ograve;i rửa chất lượng thấp sẽ l&amp;agrave;m tăng khả năng g&amp;acirc;y ra c&amp;aacute;c sự cố r&amp;ograve; rỉ nước. V&amp;igrave; vậy, đừng ngại đầu tư một chiếc v&amp;ograve;i đạt chuẩn với tuổi thọ d&amp;agrave;i v&amp;agrave; chất lượng tốt gi&amp;uacute;p bạn tiết kiệm chi ph&amp;iacute; thay thế.&lt;/p&gt;\r\n&lt;p&gt;Ngăn k&amp;eacute;o th&amp;ocirc;ng minh dưới bồn rửa&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-03.png?v=1448982892490&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Ray hộp Tandembox tiện dụng cho ngăn k&amp;eacute;o dưới bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Kh&amp;ocirc;ng gian ngay dưới bồn rửa v&amp;agrave; v&amp;ograve;i bếp thường bị l&amp;atilde;ng qu&amp;ecirc;n, &amp;iacute;t khi được sử dụng hiệu quả. Ray hộp Tandembox của Blum d&amp;agrave;nh cho ngăn k&amp;eacute;o dưới bồn rửa sẽ gi&amp;uacute;p bạn tận dụng tốt kh&amp;ocirc;ng gian n&amp;agrave;y, sắp xếp c&amp;aacute;c dụng cụ dọn rửa gọn g&amp;agrave;ng v&amp;agrave; tiện lợi hơn.&lt;/p&gt;\r\n&lt;div class=&quot;clear&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;div class=&quot;si-share noborder clearfix&quot;&gt;Chia sẻ:&lt;/div&gt;', 'thiet-ke-khu-bep-sang-trong-am-cenh1', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG | THIET KE KHU BEP SANG TRONG, AM CENG', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG, THIET KE KHU BEP SANG TRONG, AM CENG', 'Chọn chậu rửa ph&ugrave; hợp với kh&ocirc;ng gian v&agrave; phục vụ hiệu quả cho việc nấu nướng l&agrave; mục đ&iacute;ch chung của nhiều gia chủ khi l&ecirc;n...', 1, 0, 0, 1, 1452417535, 1475721899, 'en'),
+(31, 31, '', 0, '', 'news/2016_10/anh-3.jpg', 'Hãng hàng không giá rẻ Nhật Bản đến Việt Nam!', '&lt;p&gt;(TBKTSG Online) - S&amp;aacute;ng nay (15-9), h&amp;atilde;ng h&amp;agrave;ng kh&amp;ocirc;ng gi&amp;aacute; rẻ Vanilla Air của Nhật Bản ch&amp;iacute;nh thức khai trương chuyến bay đầu ti&amp;ecirc;n đến Việt Nam, với đường bay từ TPHCM đi Tokyo (Nhật Bản). Đ&amp;acirc;y cũng l&amp;agrave; lần đầu ti&amp;ecirc;n, một h&amp;atilde;ng h&amp;agrave;ng kh&amp;ocirc;ng gi&amp;aacute; rẻ của Nhật hoạt động tại Việt Nam.&lt;/p&gt;', '&lt;p&gt;D&amp;ugrave; chuyến bay c&amp;oacute; qu&amp;aacute; cảnh tại s&amp;acirc;n bay Đ&amp;agrave;o Vi&amp;ecirc;n (TP Đ&amp;agrave;i Bắc - Đ&amp;agrave;i Loan), nhưng h&amp;agrave;nh kh&amp;aacute;ch sẽ được check in thẳng tới điểm đến cuối c&amp;ugrave;ng.&lt;/p&gt;\r\n&lt;div class=&quot;text_exposed_show&quot;&gt;\r\n&lt;p&gt;Tại buổi họp b&amp;aacute;o tổ chức v&amp;agrave;o chiều nay ở TPHCM, Ph&amp;oacute; tổng gi&amp;aacute;m đốc Vanilla Air, b&amp;agrave; Mio Yamamuro, cho biết: &amp;ldquo;Việt Nam l&amp;agrave; điểm đầu ti&amp;ecirc;n ở Đ&amp;ocirc;ng Nam &amp;Aacute; bay thẳng tới Nhật của Vanilla Air. Năm 2015, lượng h&amp;agrave;nh kh&amp;aacute;ch từ Việt Nam đi Nhật tăng 49% so với năm trước đ&amp;oacute;; c&amp;ograve;n năm 2016 t&amp;iacute;nh đến th&amp;aacute;ng 7, đ&amp;atilde; c&amp;oacute; hơn 141.000 lượt kh&amp;aacute;ch. Đ&amp;acirc;y l&amp;agrave; thời điểm thuận lợi để Vanilla Air đầu tư v&amp;agrave;o thị trường Việt Nam&quot;.&lt;/p&gt;\r\n&lt;p&gt;B&amp;agrave; Mio Mio Yamamuro cũng đ&amp;aacute;nh gi&amp;aacute; nhu cầu bay từ TPHCM đến Đ&amp;agrave;i Loan tăng đ&amp;aacute;ng kể trong thời gian gần đ&amp;acirc;y. Mức tăng trưởng sẽ c&amp;ograve;n tiếp tục khi v&amp;ugrave;ng l&amp;atilde;nh thổ n&amp;agrave;y vừa &amp;aacute;p dụng ch&amp;iacute;nh s&amp;aacute;ch miễn visa c&amp;oacute; điều kiện cho c&amp;ocirc;ng d&amp;acirc;n Việt Nam. Thời điểm hiện tại, Vietjet sẽ l&amp;agrave; đối thủ cạnh tranh đ&amp;aacute;ng ngại của h&amp;atilde;ng n&amp;agrave;y ở đường bay TPHCM-Đ&amp;agrave;i Loan.&lt;/p&gt;\r\n&lt;p&gt;Vanilla Air thuộc Tập đo&amp;agrave;n ANA Holdings (chủ sở hữu h&amp;atilde;ng h&amp;agrave;ng kh&amp;ocirc;ng All Nippon Airway), được th&amp;agrave;nh lập từ năm 2011, kết nối chủ yếu từ Tokyo (s&amp;acirc;n bay Narita) đến c&amp;aacute;c điểm du lịch, nghỉ dưỡng nội địa v&amp;agrave; quốc tế. Mạng lưới bay quốc tế trải d&amp;agrave;i từ Narita đến 6 th&amp;agrave;nh phố: Đ&amp;agrave;i Bắc, Cao H&amp;ugrave;ng, Hongkong, TPHCM v&amp;agrave; từ Osaka (s&amp;acirc;n bay Kansai) đến Đ&amp;agrave;i Bắc.&lt;/p&gt;\r\n&lt;p&gt;Vanilla Air hiện đang sở hữu 9 m&amp;aacute;y bay Airbus A320 v&amp;agrave; đạt thỏa thuận li&amp;ecirc;n minh với 8 h&amp;atilde;ng h&amp;agrave;ng kh&amp;ocirc;ng gi&amp;aacute; rẻ kh&amp;aacute;c như Tigerair Singapore (Singapore), JeJu Air (H&amp;agrave;n Quốc), Tigerair Australia (&amp;Uacute;c)&amp;hellip;&lt;/p&gt;\r\n&lt;/div&gt;', 'thiet-ke-khu-bep-sang-trong-am-cenh2', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG | THIET KE KHU BEP SANG TRONG, AM CENG', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG, THIET KE KHU BEP SANG TRONG, AM CENG', 'Chọn chậu rửa phù hợp với không gian và phục vụ hiệu quả cho việc nấu nướng là mục đích chung của nhiều gia chủ khi lên...', 0, 0, 0, 1, 1474379489, 1475720272, 'vi'),
+(32, 31, '', 0, '', 'news/2016_10/anh-3.jpg', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG', '', '&lt;p&gt;Chọn chậu rửa ph&amp;ugrave; hợp với kh&amp;ocirc;ng gian v&amp;agrave; phục vụ hiệu quả cho việc nấu nướng l&amp;agrave; mục đ&amp;iacute;ch chung của nhiều gia chủ khi l&amp;ecirc;n &amp;yacute; tưởng thiết kế khu bếp.&lt;br /&gt;C&amp;aacute;c chuy&amp;ecirc;n gia đến từ Hafele (Đức) vẫn thường nhận được những thắc mắc như &quot;Chọn chậu rửa với độ s&amp;acirc;u bao nhi&amp;ecirc;u th&amp;igrave; ph&amp;ugrave; hợp?&quot;, &quot;V&amp;ograve;i rửa loại n&amp;agrave;o sẽ kh&amp;ocirc;ng bị r&amp;ograve; rỉ nước?&quot;, &amp;ldquo;L&amp;agrave;m sao để tiết kiệm thời gian khi chuẩn bị m&amp;oacute;n ăn?&amp;rdquo; v&amp;agrave; h&amp;agrave;ng loạt những c&amp;acirc;u hỏi kh&amp;aacute;c li&amp;ecirc;n quan đến khu vực chuẩn bị, dọn rửa, nơi bố tr&amp;iacute; bồn rửa v&amp;agrave; v&amp;ograve;i bếp.&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Để giải đ&amp;aacute;p những băn khoăn ấy, c&amp;aacute;c chuy&amp;ecirc;n gia Hafele đưa ra những lời khuy&amp;ecirc;n hữu &amp;iacute;ch sau đ&amp;acirc;y.&lt;/p&gt;\r\n&lt;p&gt;Chậu rửa&lt;/p&gt;\r\n&lt;p&gt;Về chất liệu, chậu rửa n&amp;ecirc;n chọn th&amp;eacute;p kh&amp;ocirc;ng gỉ. Đ&amp;acirc;y l&amp;agrave; lựa chọn th&amp;ocirc;ng dụng hiện nay với vẻ đẹp vượt thời gian, ưu điểm chịu nhiệt tốt v&amp;agrave; vệ sinh dễ d&amp;agrave;ng. Ngo&amp;agrave;i ra, nếu gia chủ đầu tư hơn một ch&amp;uacute;t, chậu rửa bằng đ&amp;aacute; Granite với độ bền cao, thiết kế tinh tế sẽ g&amp;oacute;p phần mang lại vẻ sang trọng cho ng&amp;ocirc;i nh&amp;agrave; của bạn&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-01.jpg?v=1448982594829&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Chậu rửa Granite sang trọng v&amp;agrave; tinh tế.&lt;/p&gt;\r\n&lt;p&gt;Về k&amp;iacute;ch thước, chậu rửa thường c&amp;oacute; hai loại l&amp;agrave; chậu đơn v&amp;agrave; chậu đ&amp;ocirc;i. Chậu đơn thường c&amp;oacute; k&amp;iacute;ch thước rộng v&amp;agrave; s&amp;acirc;u gi&amp;uacute;p bạn ng&amp;acirc;m v&amp;agrave; rửa thực phẩm hay ch&amp;eacute;n b&amp;aacute;t với số lượng lớn. Nếu b&amp;agrave;n bếp của bạn c&amp;ograve;n khoảng trống từ 870mm trở l&amp;ecirc;n, bạn cũng c&amp;oacute; thể chọn chậu đ&amp;ocirc;i để tăng th&amp;ecirc;m kh&amp;ocirc;ng gian, việc dọn rửa dễ d&amp;agrave;ng, thoải m&amp;aacute;i hơn. B&amp;ecirc;n cạnh đ&amp;oacute;, chiều s&amp;acirc;u trung b&amp;igrave;nh từ 180mm - 250mm l&amp;agrave; k&amp;iacute;ch thước l&amp;yacute; tưởng được nghi&amp;ecirc;n cứu v&amp;agrave; &amp;aacute;p dụng cho c&amp;aacute;c loại chậu rửa hiện nay.&lt;/p&gt;\r\n&lt;p&gt;V&amp;ograve;i rửa&lt;/p&gt;\r\n&lt;p&gt;Ngo&amp;agrave;i c&amp;aacute;c loại v&amp;ograve;i truyền thống, nhiều loại v&amp;ograve;i hiện đại cũng được thiết kế với khả năng k&amp;eacute;o d&amp;agrave;i đầu v&amp;ograve;i, cho ph&amp;eacute;p linh hoạt điều chỉnh v&amp;ograve;i tới vị tr&amp;iacute; bạn mong muốn.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-02.png?v=1448982698836&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;V&amp;ograve;i bếp được sản xuất với ti&amp;ecirc;u chuẩn Đức c&amp;oacute; độ bền cao. Sản phẩm c&amp;oacute; b&amp;aacute;n tại showroom Hafele to&amp;agrave;n quốc.&lt;/p&gt;\r\n&lt;p&gt;Y&amp;ecirc;u cầu về &amp;aacute;p lực nước của v&amp;ograve;i, c&amp;aacute;c chuy&amp;ecirc;n gia khuy&amp;ecirc;n d&amp;ograve;ng chảy tối thiểu của v&amp;ograve;i phải đạt từ 0.5 tới 1.0 bar (đơn vị đo &amp;aacute;p suất). Nếu thấp hơn, nước sẽ chỉ nhỏ giọt ra khỏi v&amp;ograve;i, khiến bạn tốn nhiều thời gian v&amp;agrave; c&amp;ocirc;ng sức hơn cho dọn rửa. Tuy nhi&amp;ecirc;n cũng đừng chọn loại v&amp;ograve;i c&amp;oacute; &amp;aacute;p suất qu&amp;aacute; cao (tr&amp;ecirc;n 10 bar) nếu bạn kh&amp;ocirc;ng muốn nước bắn tung t&amp;oacute;e trong bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Bạn n&amp;ecirc;n thiết kế v&amp;ograve;i rửa ph&amp;ugrave; hợp với phong c&amp;aacute;ch bếp. Đối với bếp truyền thống đa số sử dụng loại v&amp;ograve;i tr&amp;ograve;n. Với bếp hiện đại, v&amp;ograve;i thiết kế kiểu c&amp;aacute;ch v&amp;agrave; tinh tế sẽ l&amp;agrave;m nổi bật kh&amp;ocirc;ng gian bếp hơn.&lt;/p&gt;\r\n&lt;p&gt;Về gi&amp;aacute; cả, những v&amp;ograve;i rửa chất lượng thấp sẽ l&amp;agrave;m tăng khả năng g&amp;acirc;y ra c&amp;aacute;c sự cố r&amp;ograve; rỉ nước. V&amp;igrave; vậy, đừng ngại đầu tư một chiếc v&amp;ograve;i đạt chuẩn với tuổi thọ d&amp;agrave;i v&amp;agrave; chất lượng tốt gi&amp;uacute;p bạn tiết kiệm chi ph&amp;iacute; thay thế.&lt;/p&gt;\r\n&lt;p&gt;Ngăn k&amp;eacute;o th&amp;ocirc;ng minh dưới bồn rửa&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;https://bizweb.dktcdn.net/100/035/474/files/0112-03.png?v=1448982892490&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;Ray hộp Tandembox tiện dụng cho ngăn k&amp;eacute;o dưới bồn rửa.&lt;/p&gt;\r\n&lt;p&gt;Kh&amp;ocirc;ng gian ngay dưới bồn rửa v&amp;agrave; v&amp;ograve;i bếp thường bị l&amp;atilde;ng qu&amp;ecirc;n, &amp;iacute;t khi được sử dụng hiệu quả. Ray hộp Tandembox của Blum d&amp;agrave;nh cho ngăn k&amp;eacute;o dưới bồn rửa sẽ gi&amp;uacute;p bạn tận dụng tốt kh&amp;ocirc;ng gian n&amp;agrave;y, sắp xếp c&amp;aacute;c dụng cụ dọn rửa gọn g&amp;agrave;ng v&amp;agrave; tiện lợi hơn.&lt;/p&gt;\r\n&lt;div class=&quot;clear&quot;&gt;&amp;nbsp;&lt;/div&gt;\r\n&lt;div class=&quot;si-share noborder clearfix&quot;&gt;Chia sẻ:&lt;/div&gt;', 'thiet-ke-khu-bep-sang-trong-am-cenh3', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG | THIET KE KHU BEP SANG TRONG, AM CENG', 'THIẾT KẾ KHU BẾP SANG TRỌNG, ẤM CÚNG, THIET KE KHU BEP SANG TRONG, AM CENG', 'Chọn chậu rửa ph&ugrave; hợp với kh&ocirc;ng gian v&agrave; phục vụ hiệu quả cho việc nấu nướng l&agrave; mục đ&iacute;ch chung của nhiều gia chủ khi l&ecirc;n...', 0, 0, 0, 1, 1452417535, 1475720272, 'en'),
+(33, 33, '', 0, '', 'news/2016_10/hanh-hung-phong-vien-0744082.jpg', 'Phóng viên bị công an đấm vào đầu, giật camera', '&lt;h3 class=&quot;short_intro txt_666&quot;&gt;Thừa nhận thuộc cấp &quot;c&amp;oacute; h&amp;agrave;nh vi kh&amp;ocirc;ng đ&amp;uacute;ng&quot; khi ngăn cản, h&amp;agrave;nh hung ph&amp;oacute;ng vi&amp;ecirc;n đang t&amp;aacute;c nghiệp, Đội trưởng H&amp;igrave;nh sự C&amp;ocirc;ng an huyện Đ&amp;ocirc;ng Anh (H&amp;agrave; Nội) đ&amp;atilde; thay mặt xin lỗi.&lt;/h3&gt;', '&lt;p class=&quot;Normal&quot;&gt;S&amp;aacute;ng 23/9, ph&amp;oacute;ng vi&amp;ecirc;n Quang Thế (b&amp;aacute;o Tuổi trẻ) t&amp;aacute;c nghiệp t&amp;igrave;m hiểu vụ việc&amp;nbsp;&lt;a href=&quot;http://vnexpress.net/tin-tuc/thoi-su/nghi-va-n-ta-i-xe-taxi-nha-y-ca-u-nha-t-tan-tu-va-n-3472989.html&quot;&gt;t&amp;agrave;i xế taxi tử vong dưới ch&amp;acirc;n cầu&lt;/a&gt;&amp;nbsp;Nhật T&amp;acirc;n (Đ&amp;ocirc;ng Anh, H&amp;agrave; Nội)&amp;nbsp;th&amp;igrave; bị một người mặc trang phục cảnh s&amp;aacute;t ngăn cản.&lt;/p&gt;\r\n&lt;table class=&quot;tplCaption&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;3&quot; align=&quot;center&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;&lt;img src=&quot;http://img.f29.vnecdn.net/2016/09/23/Untitled-3-4009-1474642938.jpg&quot; alt=&quot;nha-bao-bi-cong-an-dam-vao-dau-can-tro-tac-nghiep&quot; data-natural-width=&quot;500&quot; data-width=&quot;500&quot; data-pwidth=&quot;470.40625&quot; /&gt;&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;\r\n&lt;p class=&quot;Image&quot;&gt;Anh Quang Thế bị h&amp;agrave;nh hung khi t&amp;aacute;c nghiệp.&amp;nbsp;&lt;em&gt;Ảnh: M.C&lt;/em&gt;&lt;/p&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;Anh Thế xuất tr&amp;igrave;nh giấy tờ v&amp;agrave; khi đi xa khoảng 30 m tiếp tục chụp ảnh th&amp;igrave; bị một nh&amp;oacute;m người cản trở. Một cảnh s&amp;aacute;t h&amp;igrave;nh sự huyện Đ&amp;ocirc;ng Anh mặc thường phục c&amp;oacute; mặt ở đ&amp;acirc;y đ&amp;atilde; h&amp;agrave;nh hung anh Thế.&lt;/p&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;&quot;T&amp;ocirc;i bị đ&amp;aacute;nh chảy m&amp;aacute;u mồm, bị đấm v&amp;agrave;o đầu. Nhiều người d&amp;acirc;n, đồng nghiệp chứng kiến đ&amp;atilde; ghi lại h&amp;igrave;nh&quot;, anh Thế n&amp;oacute;i v&amp;agrave; cho biết sau sự việc đ&amp;atilde; đến c&amp;ocirc;ng an x&amp;atilde; Vĩnh Ngọc (Đ&amp;ocirc;ng Anh) tr&amp;igrave;nh b&amp;aacute;o.&lt;/p&gt;\r\n&lt;table class=&quot;tplCaption&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;3&quot; align=&quot;center&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;&lt;img src=&quot;http://img.f29.vnecdn.net/2016/09/23/cantrotacnghiep-4688-1474638202.jpg&quot; alt=&quot;nha-bao-bi-cong-an-dam-vao-dau-can-tro-tac-nghiep-1&quot; data-natural-width=&quot;500&quot; data-width=&quot;500&quot; data-pwidth=&quot;470.40625&quot; /&gt;&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;\r\n&lt;p class=&quot;Image&quot;&gt;&amp;Iacute;t nhất hai người đ&amp;atilde; cản trở anh Thế. Ảnh:&amp;nbsp;&lt;em&gt;M.C.&lt;/em&gt;&lt;/p&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;B&amp;aacute;o&amp;nbsp;&lt;em&gt;Tuổi trẻ&lt;/em&gt;&amp;nbsp;th&amp;ocirc;ng tin, chiều 23/9, thượng t&amp;aacute; Phạm Nam Thắng, Đội trưởng Cảnh s&amp;aacute;t h&amp;igrave;nh sự C&amp;ocirc;ng an huyện Đ&amp;ocirc;ng Anh đ&amp;atilde; đến Văn ph&amp;ograve;ng đại diện của b&amp;aacute;o tại H&amp;agrave; Nội xin lỗi anh Quang Thế, thừa nhận &quot;th&amp;aacute;i độ kh&amp;ocirc;ng đ&amp;uacute;ng&quot; của chiến sĩ dưới quyền.&lt;/p&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;&amp;Ocirc;ng Thắng giải th&amp;iacute;ch đ&amp;acirc;y l&amp;agrave; c&amp;aacute;c chiến sĩ trẻ, c&amp;oacute; thể do &quot;bị &amp;aacute;p lực&quot; bảo vệ hiện trường đ&amp;ocirc;ng người n&amp;ecirc;n &quot;h&amp;agrave;nh xử kh&amp;ocirc;ng đ&amp;uacute;ng&quot;. Những c&amp;aacute;n bộ kh&amp;aacute;c li&amp;ecirc;n quan đang bị C&amp;ocirc;ng an huyện Đ&amp;ocirc;ng Anh y&amp;ecirc;u cầu l&amp;agrave;m tường tr&amp;igrave;nh để đơn vị xử l&amp;yacute; kỷ luật.&lt;/p&gt;\r\n&lt;p&gt;Khu vực xảy ra sự việc kh&amp;ocirc;ng c&amp;oacute; biển b&amp;aacute;o cấm chụp ảnh, ghi h&amp;igrave;nh, lực lượng chức năng kh&amp;ocirc;ng căng d&amp;acirc;y bảo vệ hiện trường.&lt;/p&gt;\r\n&lt;p&gt;Danh t&amp;iacute;nh những người c&amp;oacute; li&amp;ecirc;n quan vụ h&amp;agrave;nh hung ph&amp;oacute;ng vi&amp;ecirc;n chưa được tiết lộ.&lt;/p&gt;', 'phong-vien-bi-cong-an-dam-vao-dau-giat-camera', 'Phóng viên bị công an đấm vào đầu, giật camera | Phong vien bi cong an dam vao dau, giat camera', 'Phóng viên bị công an đấm vào đầu, giật camera, Phong vien bi cong an dam vao dau, giat camera', 'Sáng 23/9, phóng viên Quang Thế (báo Tuổi trẻ) tác nghiệp tìm hiểu vụ việc tài xế taxi tử vong dưới chân...', 0, 0, 0, 1, 1474709257, 1475719389, 'vi'),
+(34, 33, '', 0, '', 'news/2016_10/hanh-hung-phong-vien-0744082.jpg', 'Phóng viên bị công an đấm vào đầu, giật camera', '&lt;h3 class=&quot;short_intro txt_666&quot;&gt;Thừa nhận thuộc cấp &quot;c&amp;oacute; h&amp;agrave;nh vi kh&amp;ocirc;ng đ&amp;uacute;ng&quot; khi ngăn cản, h&amp;agrave;nh hung ph&amp;oacute;ng vi&amp;ecirc;n đang t&amp;aacute;c nghiệp, Đội trưởng H&amp;igrave;nh sự C&amp;ocirc;ng an huyện Đ&amp;ocirc;ng Anh (H&amp;agrave; Nội) đ&amp;atilde; thay mặt xin lỗi.&lt;/h3&gt;', '&lt;p class=&quot;Normal&quot;&gt;S&amp;aacute;ng 23/9, ph&amp;oacute;ng vi&amp;ecirc;n Quang Thế (b&amp;aacute;o Tuổi trẻ) t&amp;aacute;c nghiệp t&amp;igrave;m hiểu vụ việc&amp;nbsp;&lt;a href=&quot;http://vnexpress.net/tin-tuc/thoi-su/nghi-va-n-ta-i-xe-taxi-nha-y-ca-u-nha-t-tan-tu-va-n-3472989.html&quot;&gt;t&amp;agrave;i xế taxi tử vong dưới ch&amp;acirc;n cầu&lt;/a&gt;&amp;nbsp;Nhật T&amp;acirc;n (Đ&amp;ocirc;ng Anh, H&amp;agrave; Nội)&amp;nbsp;th&amp;igrave; bị một người mặc trang phục cảnh s&amp;aacute;t ngăn cản.&lt;/p&gt;\r\n&lt;table class=&quot;tplCaption&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;3&quot; align=&quot;center&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;&lt;img src=&quot;http://img.f29.vnecdn.net/2016/09/23/Untitled-3-4009-1474642938.jpg&quot; alt=&quot;nha-bao-bi-cong-an-dam-vao-dau-can-tro-tac-nghiep&quot; data-natural-width=&quot;500&quot; data-width=&quot;500&quot; data-pwidth=&quot;470.40625&quot; /&gt;&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;\r\n&lt;p class=&quot;Image&quot;&gt;Anh Quang Thế bị h&amp;agrave;nh hung khi t&amp;aacute;c nghiệp.&amp;nbsp;&lt;em&gt;Ảnh: M.C&lt;/em&gt;&lt;/p&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;Anh Thế xuất tr&amp;igrave;nh giấy tờ v&amp;agrave; khi đi xa khoảng 30 m tiếp tục chụp ảnh th&amp;igrave; bị một nh&amp;oacute;m người cản trở. Một cảnh s&amp;aacute;t h&amp;igrave;nh sự huyện Đ&amp;ocirc;ng Anh mặc thường phục c&amp;oacute; mặt ở đ&amp;acirc;y đ&amp;atilde; h&amp;agrave;nh hung anh Thế.&lt;/p&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;&quot;T&amp;ocirc;i bị đ&amp;aacute;nh chảy m&amp;aacute;u mồm, bị đấm v&amp;agrave;o đầu. Nhiều người d&amp;acirc;n, đồng nghiệp chứng kiến đ&amp;atilde; ghi lại h&amp;igrave;nh&quot;, anh Thế n&amp;oacute;i v&amp;agrave; cho biết sau sự việc đ&amp;atilde; đến c&amp;ocirc;ng an x&amp;atilde; Vĩnh Ngọc (Đ&amp;ocirc;ng Anh) tr&amp;igrave;nh b&amp;aacute;o.&lt;/p&gt;\r\n&lt;table class=&quot;tplCaption&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;3&quot; align=&quot;center&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;&lt;img src=&quot;http://img.f29.vnecdn.net/2016/09/23/cantrotacnghiep-4688-1474638202.jpg&quot; alt=&quot;nha-bao-bi-cong-an-dam-vao-dau-can-tro-tac-nghiep-1&quot; data-natural-width=&quot;500&quot; data-width=&quot;500&quot; data-pwidth=&quot;470.40625&quot; /&gt;&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;\r\n&lt;p class=&quot;Image&quot;&gt;&amp;Iacute;t nhất hai người đ&amp;atilde; cản trở anh Thế. Ảnh:&amp;nbsp;&lt;em&gt;M.C.&lt;/em&gt;&lt;/p&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;B&amp;aacute;o&amp;nbsp;&lt;em&gt;Tuổi trẻ&lt;/em&gt;&amp;nbsp;th&amp;ocirc;ng tin, chiều 23/9, thượng t&amp;aacute; Phạm Nam Thắng, Đội trưởng Cảnh s&amp;aacute;t h&amp;igrave;nh sự C&amp;ocirc;ng an huyện Đ&amp;ocirc;ng Anh đ&amp;atilde; đến Văn ph&amp;ograve;ng đại diện của b&amp;aacute;o tại H&amp;agrave; Nội xin lỗi anh Quang Thế, thừa nhận &quot;th&amp;aacute;i độ kh&amp;ocirc;ng đ&amp;uacute;ng&quot; của chiến sĩ dưới quyền.&lt;/p&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;&amp;Ocirc;ng Thắng giải th&amp;iacute;ch đ&amp;acirc;y l&amp;agrave; c&amp;aacute;c chiến sĩ trẻ, c&amp;oacute; thể do &quot;bị &amp;aacute;p lực&quot; bảo vệ hiện trường đ&amp;ocirc;ng người n&amp;ecirc;n &quot;h&amp;agrave;nh xử kh&amp;ocirc;ng đ&amp;uacute;ng&quot;. Những c&amp;aacute;n bộ kh&amp;aacute;c li&amp;ecirc;n quan đang bị C&amp;ocirc;ng an huyện Đ&amp;ocirc;ng Anh y&amp;ecirc;u cầu l&amp;agrave;m tường tr&amp;igrave;nh để đơn vị xử l&amp;yacute; kỷ luật.&lt;/p&gt;\r\n&lt;p&gt;Khu vực xảy ra sự việc kh&amp;ocirc;ng c&amp;oacute; biển b&amp;aacute;o cấm chụp ảnh, ghi h&amp;igrave;nh, lực lượng chức năng kh&amp;ocirc;ng căng d&amp;acirc;y bảo vệ hiện trường.&lt;/p&gt;\r\n&lt;p&gt;Danh t&amp;iacute;nh những người c&amp;oacute; li&amp;ecirc;n quan vụ h&amp;agrave;nh hung ph&amp;oacute;ng vi&amp;ecirc;n chưa được tiết lộ.&lt;/p&gt;', 'phong-vien-bi-cong-an-dam-vao-dau-giat-camera1', 'Phóng viên bị công an đấm vào đầu, giật camera | Phong vien bi cong an dam vao dau, giat camera', 'Phóng viên bị công an đấm vào đầu, giật camera, Phong vien bi cong an dam vao dau, giat camera', 'S&aacute;ng 23/9, ph&oacute;ng vi&ecirc;n Quang Thế (b&aacute;o Tuổi trẻ) t&aacute;c nghiệp t&igrave;m hiểu vụ việc&nbsp;t&agrave;i xế taxi tử vong dưới ch&acirc;n...', 0, 0, 0, 1, 1474709257, 1475719389, 'en'),
+(35, 35, '', 0, '', 'news/2016_10/iphone-lock.jpg', 'Nhiều iPhone hàng xách tay ở Việt Nam bị biến thành ''cục gạch''', '&lt;p&gt;Sau khi c&amp;agrave;i đặt (reset) hoặc kh&amp;ocirc;i phục (restore) lại dữ liệu, iPhone đang sử dụng b&amp;igrave;nh thường bỗng bị kho&amp;aacute;, th&amp;ocirc;ng b&amp;aacute;o sim kh&amp;ocirc;ng hợp lệ v&amp;agrave; kh&amp;ocirc;ng thể k&amp;iacute;ch hoạt.&lt;/p&gt;', '&lt;p class=&quot;Normal&quot;&gt;Hiện tượng n&amp;agrave;y được phản &amp;aacute;nh nhiều trong cộng đồng người d&amp;ugrave;ng iPhone khoảng một tuần gần đ&amp;acirc;y. Nhiều người gọi đ&amp;acirc;y l&amp;agrave; lỗi k&amp;iacute;ch hoạt v&amp;igrave; iPhone đang sử dụng b&amp;igrave;nh thường bỗng trở th&amp;agrave;nh phi&amp;ecirc;n bản kho&amp;aacute; v&amp;agrave; kh&amp;ocirc;ng thể k&amp;iacute;ch hoạt hay sử dụng với sim cũ được nữa.&lt;/p&gt;\r\n&lt;table class=&quot;tplCaption&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;3&quot; align=&quot;center&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;&lt;img src=&quot;http://img.f5.sohoa.vnecdn.net/2016/10/03/Screen-Shot-2016-10-03-at-10-1-5775-9886-1475466921.jpg&quot; alt=&quot;nhieu-iphone-hang-xach-tay-o-viet-nam-bi-bien-thanh-cuc-gach&quot; data-natural-width=&quot;499&quot; data-width=&quot;499&quot; data-pwidth=&quot;470.40625&quot; /&gt;&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;\r\n&lt;p class=&quot;Image&quot;&gt;Nhiều người d&amp;ugrave;ng phản &amp;aacute;nh iPhone bản quốc tế bỗng nhi&amp;ecirc;n bị kho&amp;aacute; lại sau khi &quot;reset&quot; hay &quot;restore&quot;.&lt;/p&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;Nhật Huy, chủ một cửa h&amp;agrave;ng chuy&amp;ecirc;n kinh doanh iPhone ở quận 10 (TP HCM), x&amp;aacute;c nhận đang c&amp;oacute; nhiều iPhone gặp phải hiện tượng tr&amp;ecirc;n nhưng chưa r&amp;otilde; nguy&amp;ecirc;n nh&amp;acirc;n v&amp;agrave; c&amp;aacute;ch khắc phục cụ thể.&amp;nbsp;Thậm ch&amp;iacute;, một hệ thống b&amp;aacute;n lẻ lớn ở H&amp;agrave; Nội v&amp;agrave; TP HCM vừa gửi th&amp;ocirc;ng b&amp;aacute;o tới từng kh&amp;aacute;ch h&amp;agrave;ng, khuyến c&amp;aacute;o kh&amp;ocirc;ng được tự &amp;yacute; &quot;Reset&quot; hoặc &quot;Restore&quot; iPhone, iPad đang sử dụng. Họ cho rằng Apple đang bị lỗi server khiến việc k&amp;iacute;ch hoạt thiết bị iOS gặp vấn đề.&amp;nbsp;&lt;/p&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;C&amp;ograve;n theo c&amp;aacute;c thợ sửa iPhone, đ&amp;acirc;y kh&amp;ocirc;ng phải l&amp;agrave; lỗi về phần cứng m&amp;agrave; nằm ở phần mềm.&amp;nbsp;&lt;/p&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;Tuy nhi&amp;ecirc;n, đại diện một nh&amp;agrave; ph&amp;acirc;n phối iPhone ch&amp;iacute;nh h&amp;atilde;ng ở Việt Nam cho biết, hiện tượng tr&amp;ecirc;n chưa thấy xuất hiện ở sản phẩm ch&amp;iacute;nh h&amp;atilde;ng. Người n&amp;agrave;y cho rằng lỗi c&amp;oacute; thể kh&amp;ocirc;ng phải do server của Apple, m&amp;agrave; nằm ở việc c&amp;aacute;c mẫu iPhone kho&amp;aacute; mạng, c&amp;oacute; nguồn gốc kh&amp;ocirc;ng r&amp;otilde; r&amp;agrave;ng tr&amp;ecirc;n thị trường x&amp;aacute;ch tay, khi về Việt Nam đ&amp;atilde; được mở mạng để th&amp;agrave;nh bản quốc tế. Sau một thời gian, Apple c&amp;oacute; thể r&amp;agrave; so&amp;aacute;t v&amp;agrave; đ&amp;atilde; kho&amp;aacute; lại.&amp;nbsp;&lt;/p&gt;\r\n&lt;table class=&quot;tplCaption&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;3&quot; align=&quot;center&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;&lt;img src=&quot;http://img.f5.sohoa.vnecdn.net/2016/10/03/FB-IMG-1453699433185-5761-1475466921.jpg&quot; alt=&quot;Mua iPhone qua sử dung, gi&amp;aacute; rẻ tr&amp;ecirc;n thị trường x&amp;aacute;ch tay c&amp;oacute; thể gặp rủi ro l&amp;agrave; h&amp;agrave;ng kho&amp;aacute; mạng.&quot; data-natural-width=&quot;500&quot; data-width=&quot;500&quot; data-pwidth=&quot;470.40625&quot; /&gt;&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;\r\n&lt;p class=&quot;Image&quot;&gt;Mua iPhone qua sử dụng, gi&amp;aacute; rẻ tr&amp;ecirc;n thị trường x&amp;aacute;ch tay c&amp;oacute; thể gặp rủi ro l&amp;agrave; h&amp;agrave;ng kho&amp;aacute; mạng.&lt;/p&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;Đa phần iPhone gặp lỗi tr&amp;ecirc;n l&amp;agrave; phi&amp;ecirc;n bản d&amp;agrave;nh cho thị trường Mỹ (đu&amp;ocirc;i m&amp;atilde; LL) hoặc h&amp;agrave;ng Nhật. Thực tế, những h&amp;agrave;ng n&amp;agrave;y l&amp;agrave; phi&amp;ecirc;n bản kho&amp;aacute; mạng nhưng đ&amp;atilde; được biến th&amp;agrave;nh bản quốc tế bằng c&amp;aacute;ch mua m&amp;atilde; mở kho&amp;aacute; (code unlock), để d&amp;ugrave;ng kh&amp;ocirc;ng cần sim gh&amp;eacute;p.&lt;/p&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;Thị trường m&amp;atilde; code unlock cũng kh&amp;aacute; phức tạp. Loại &quot;xịn&quot; do c&amp;aacute;c nh&amp;agrave; mạng cung cấp thường gi&amp;aacute; cao, thậm ch&amp;iacute;, chi ph&amp;iacute; bỏ ra ngang với mua m&amp;aacute;y bản quốc tế. Nhưng b&amp;ecirc;n cạnh đ&amp;oacute;, cũng c&amp;oacute; loại m&amp;atilde; mở kho&amp;aacute; gi&amp;aacute; rẻ, kh&amp;ocirc;ng phải mua từ c&amp;aacute;c nh&amp;agrave; mạng m&amp;agrave; từ c&amp;aacute;c đầu nậu. Loại n&amp;agrave;y chi ph&amp;iacute; thấp hơn nhưng tiềm ẩn rủi ro c&amp;oacute; thể kho&amp;aacute; mạng trở lại sau một thời gian ngắn, hoặc bất kỳ l&amp;uacute;c n&amp;agrave;o.&lt;/p&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;Trước đ&amp;acirc;y, lỗi k&amp;iacute;ch hoạt thi thoảng vẫn xuất hiện tr&amp;ecirc;n d&amp;ograve;ng m&amp;aacute;y lock mở mạng th&amp;agrave;nh quốc tế nhưng gần đ&amp;acirc;y &quot;nở rộ&quot; với số lượng lớn m&amp;aacute;y bị kh&amp;oacute;a v&amp;igrave; iPhone qua sử dụng qu&amp;aacute; phổ biến, tr&amp;agrave;n ngập tr&amp;ecirc;n thị trường x&amp;aacute;ch tay.&lt;/p&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;​Để khắc phục tạm thời v&amp;agrave; c&amp;oacute; thể sử dụng lại được, người d&amp;ugrave;ng buộc phải sử dụng sim gh&amp;eacute;p để k&amp;iacute;ch hoạt v&amp;agrave; c&amp;oacute; s&amp;oacute;ng.&lt;/p&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;&lt;em&gt;Xem th&amp;ecirc;m:&amp;nbsp;&lt;/em&gt;&lt;a href=&quot;http://sohoa.vnexpress.net/tin-tuc/san-pham/dien-thoai/iphone-gia-vai-trieu-dong-tran-ngap-thi-truong-3243167.html&quot;&gt;iPhone gi&amp;aacute; v&amp;agrave;i triệu đồng tr&amp;agrave;n ngập thị trường&lt;/a&gt;&lt;/p&gt;', 'nhieu-iphone-hang-xach-tay-o-viet-nam-bi-bien-thanh-cuc-gach', 'Nhiều iPhone hàng xách tay ở Việt Nam bị biến thành ''cục gạch'' | Nhieu iPhone hang xach tay o Viet Nam bi bien thanh ''cuc gach''', 'Nhiều iPhone hàng xách tay ở Việt Nam bị biến thành ''cục gạch'', Nhieu iPhone hang xach tay o Viet Nam bi bien thanh ''cuc gach''', 'Hiện tượng này được phản ánh nhiều trong cộng đồng người dùng iPhone khoảng một tuần gần đây. Nhiều người gọi đây là...', 0, 0, 0, 1, 1475495800, 1475718742, 'vi'),
+(36, 35, '', 0, '', 'news/2016_10/iphone-lock.jpg', 'Nhiều iPhone hàng xách tay ở Việt Nam bị biến thành ''cục gạch''', '&lt;p&gt;Sau khi c&amp;agrave;i đặt (reset) hoặc kh&amp;ocirc;i phục (restore) lại dữ liệu, iPhone đang sử dụng b&amp;igrave;nh thường bỗng bị kho&amp;aacute;, th&amp;ocirc;ng b&amp;aacute;o sim kh&amp;ocirc;ng hợp lệ v&amp;agrave; kh&amp;ocirc;ng thể k&amp;iacute;ch hoạt.&lt;/p&gt;', '&lt;p class=&quot;Normal&quot;&gt;Hiện tượng n&amp;agrave;y được phản &amp;aacute;nh nhiều trong cộng đồng người d&amp;ugrave;ng iPhone khoảng một tuần gần đ&amp;acirc;y. Nhiều người gọi đ&amp;acirc;y l&amp;agrave; lỗi k&amp;iacute;ch hoạt v&amp;igrave; iPhone đang sử dụng b&amp;igrave;nh thường bỗng trở th&amp;agrave;nh phi&amp;ecirc;n bản kho&amp;aacute; v&amp;agrave; kh&amp;ocirc;ng thể k&amp;iacute;ch hoạt hay sử dụng với sim cũ được nữa.&lt;/p&gt;\r\n&lt;table class=&quot;tplCaption&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;3&quot; align=&quot;center&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;&lt;img src=&quot;http://img.f5.sohoa.vnecdn.net/2016/10/03/Screen-Shot-2016-10-03-at-10-1-5775-9886-1475466921.jpg&quot; alt=&quot;nhieu-iphone-hang-xach-tay-o-viet-nam-bi-bien-thanh-cuc-gach&quot; data-natural-width=&quot;499&quot; data-width=&quot;499&quot; data-pwidth=&quot;470.40625&quot; /&gt;&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;\r\n&lt;p class=&quot;Image&quot;&gt;Nhiều người d&amp;ugrave;ng phản &amp;aacute;nh iPhone bản quốc tế bỗng nhi&amp;ecirc;n bị kho&amp;aacute; lại sau khi &quot;reset&quot; hay &quot;restore&quot;.&lt;/p&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;Nhật Huy, chủ một cửa h&amp;agrave;ng chuy&amp;ecirc;n kinh doanh iPhone ở quận 10 (TP HCM), x&amp;aacute;c nhận đang c&amp;oacute; nhiều iPhone gặp phải hiện tượng tr&amp;ecirc;n nhưng chưa r&amp;otilde; nguy&amp;ecirc;n nh&amp;acirc;n v&amp;agrave; c&amp;aacute;ch khắc phục cụ thể.&amp;nbsp;Thậm ch&amp;iacute;, một hệ thống b&amp;aacute;n lẻ lớn ở H&amp;agrave; Nội v&amp;agrave; TP HCM vừa gửi th&amp;ocirc;ng b&amp;aacute;o tới từng kh&amp;aacute;ch h&amp;agrave;ng, khuyến c&amp;aacute;o kh&amp;ocirc;ng được tự &amp;yacute; &quot;Reset&quot; hoặc &quot;Restore&quot; iPhone, iPad đang sử dụng. Họ cho rằng Apple đang bị lỗi server khiến việc k&amp;iacute;ch hoạt thiết bị iOS gặp vấn đề.&amp;nbsp;&lt;/p&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;C&amp;ograve;n theo c&amp;aacute;c thợ sửa iPhone, đ&amp;acirc;y kh&amp;ocirc;ng phải l&amp;agrave; lỗi về phần cứng m&amp;agrave; nằm ở phần mềm.&amp;nbsp;&lt;/p&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;Tuy nhi&amp;ecirc;n, đại diện một nh&amp;agrave; ph&amp;acirc;n phối iPhone ch&amp;iacute;nh h&amp;atilde;ng ở Việt Nam cho biết, hiện tượng tr&amp;ecirc;n chưa thấy xuất hiện ở sản phẩm ch&amp;iacute;nh h&amp;atilde;ng. Người n&amp;agrave;y cho rằng lỗi c&amp;oacute; thể kh&amp;ocirc;ng phải do server của Apple, m&amp;agrave; nằm ở việc c&amp;aacute;c mẫu iPhone kho&amp;aacute; mạng, c&amp;oacute; nguồn gốc kh&amp;ocirc;ng r&amp;otilde; r&amp;agrave;ng tr&amp;ecirc;n thị trường x&amp;aacute;ch tay, khi về Việt Nam đ&amp;atilde; được mở mạng để th&amp;agrave;nh bản quốc tế. Sau một thời gian, Apple c&amp;oacute; thể r&amp;agrave; so&amp;aacute;t v&amp;agrave; đ&amp;atilde; kho&amp;aacute; lại.&amp;nbsp;&lt;/p&gt;\r\n&lt;table class=&quot;tplCaption&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;3&quot; align=&quot;center&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;&lt;img src=&quot;http://img.f5.sohoa.vnecdn.net/2016/10/03/FB-IMG-1453699433185-5761-1475466921.jpg&quot; alt=&quot;Mua iPhone qua sử dung, gi&amp;aacute; rẻ tr&amp;ecirc;n thị trường x&amp;aacute;ch tay c&amp;oacute; thể gặp rủi ro l&amp;agrave; h&amp;agrave;ng kho&amp;aacute; mạng.&quot; data-natural-width=&quot;500&quot; data-width=&quot;500&quot; data-pwidth=&quot;470.40625&quot; /&gt;&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;\r\n&lt;p class=&quot;Image&quot;&gt;Mua iPhone qua sử dụng, gi&amp;aacute; rẻ tr&amp;ecirc;n thị trường x&amp;aacute;ch tay c&amp;oacute; thể gặp rủi ro l&amp;agrave; h&amp;agrave;ng kho&amp;aacute; mạng.&lt;/p&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;Đa phần iPhone gặp lỗi tr&amp;ecirc;n l&amp;agrave; phi&amp;ecirc;n bản d&amp;agrave;nh cho thị trường Mỹ (đu&amp;ocirc;i m&amp;atilde; LL) hoặc h&amp;agrave;ng Nhật. Thực tế, những h&amp;agrave;ng n&amp;agrave;y l&amp;agrave; phi&amp;ecirc;n bản kho&amp;aacute; mạng nhưng đ&amp;atilde; được biến th&amp;agrave;nh bản quốc tế bằng c&amp;aacute;ch mua m&amp;atilde; mở kho&amp;aacute; (code unlock), để d&amp;ugrave;ng kh&amp;ocirc;ng cần sim gh&amp;eacute;p.&lt;/p&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;Thị trường m&amp;atilde; code unlock cũng kh&amp;aacute; phức tạp. Loại &quot;xịn&quot; do c&amp;aacute;c nh&amp;agrave; mạng cung cấp thường gi&amp;aacute; cao, thậm ch&amp;iacute;, chi ph&amp;iacute; bỏ ra ngang với mua m&amp;aacute;y bản quốc tế. Nhưng b&amp;ecirc;n cạnh đ&amp;oacute;, cũng c&amp;oacute; loại m&amp;atilde; mở kho&amp;aacute; gi&amp;aacute; rẻ, kh&amp;ocirc;ng phải mua từ c&amp;aacute;c nh&amp;agrave; mạng m&amp;agrave; từ c&amp;aacute;c đầu nậu. Loại n&amp;agrave;y chi ph&amp;iacute; thấp hơn nhưng tiềm ẩn rủi ro c&amp;oacute; thể kho&amp;aacute; mạng trở lại sau một thời gian ngắn, hoặc bất kỳ l&amp;uacute;c n&amp;agrave;o.&lt;/p&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;Trước đ&amp;acirc;y, lỗi k&amp;iacute;ch hoạt thi thoảng vẫn xuất hiện tr&amp;ecirc;n d&amp;ograve;ng m&amp;aacute;y lock mở mạng th&amp;agrave;nh quốc tế nhưng gần đ&amp;acirc;y &quot;nở rộ&quot; với số lượng lớn m&amp;aacute;y bị kh&amp;oacute;a v&amp;igrave; iPhone qua sử dụng qu&amp;aacute; phổ biến, tr&amp;agrave;n ngập tr&amp;ecirc;n thị trường x&amp;aacute;ch tay.&lt;/p&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;​Để khắc phục tạm thời v&amp;agrave; c&amp;oacute; thể sử dụng lại được, người d&amp;ugrave;ng buộc phải sử dụng sim gh&amp;eacute;p để k&amp;iacute;ch hoạt v&amp;agrave; c&amp;oacute; s&amp;oacute;ng.&lt;/p&gt;\r\n&lt;p class=&quot;Normal&quot;&gt;&lt;em&gt;Xem th&amp;ecirc;m:&amp;nbsp;&lt;/em&gt;&lt;a href=&quot;http://sohoa.vnexpress.net/tin-tuc/san-pham/dien-thoai/iphone-gia-vai-trieu-dong-tran-ngap-thi-truong-3243167.html&quot;&gt;iPhone gi&amp;aacute; v&amp;agrave;i triệu đồng tr&amp;agrave;n ngập thị trường&lt;/a&gt;&lt;/p&gt;', 'nhieu-iphone-hang-xach-tay-o-viet-nam-bi-bien-thanh-cuc-gach1', 'Nhiều iPhone hàng xách tay ở Việt Nam bị biến thành ''cục gạch'' | Nhieu iPhone hang xach tay o Viet Nam bi bien thanh ''cuc gach''', 'Nhiều iPhone hàng xách tay ở Việt Nam bị biến thành ''cục gạch'', Nhieu iPhone hang xach tay o Viet Nam bi bien thanh ''cuc gach''', 'Hiện tượng n&agrave;y được phản &aacute;nh nhiều trong cộng đồng người d&ugrave;ng iPhone khoảng một tuần gần đ&acirc;y. Nhiều người gọi đ&acirc;y l&agrave;...', 0, 0, 0, 1, 1475495800, 1475718742, 'en'),
+(37, 37, '', 0, '', 'news/2016_10/dh-tn.jpg', 'SO SÁNH GIỮA ĐI DU HỌC VÀ ĐI XKLĐ (TU NGHIỆP SINH)', '&lt;p&gt;&lt;strong&gt;So s&amp;aacute;nh du học v&amp;agrave; đi tu nghiệp sinh tại Nhật Bản&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;em&gt;Thời gian vừa qua, rất nhiều bạn muốn được tư vấn n&amp;ecirc;n đi tu nghiệp sinh hay đi du học Nhật Bản. Để giải đ&amp;aacute;p cho c&amp;acirc;u hỏi n&amp;agrave;y,&lt;/em&gt;&lt;em&gt; b&amp;agrave;i viết&lt;/em&gt; &lt;em&gt; đ&amp;atilde; l&amp;agrave;m một v&amp;agrave;i ph&amp;eacute;p so s&amp;aacute;nh, để c&amp;aacute;c bạn dễ d&amp;agrave;ng nhận thấy những đặc điểm thuận lợi, bất lợi của mỗi loại h&amp;igrave;nh v&amp;agrave; đưa ra quyết định hợp l&amp;yacute; cho tương lai của m&amp;igrave;nh.&lt;/em&gt;&lt;/p&gt;', '&lt;p&gt;&lt;strong&gt;Thoải m&amp;aacute;i lựa chọn c&amp;ocirc;ng việc&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;Tu nghiệp sinh (TNS), khi mới sang Nhật, sẽ được đ&amp;agrave;o tạo chuy&amp;ecirc;n m&amp;ocirc;n trong v&amp;ograve;ng 10 th&amp;aacute;ng đầu ti&amp;ecirc;n, v&amp;agrave; sẽ tiếp tục l&amp;agrave;m việc cho đến hết kỳ hạn hợp đồng. Thường l&amp;agrave; 3 năm. Trong thời gian đ&amp;oacute;, họ chỉ c&amp;oacute; quyền l&amp;agrave;m việc với c&amp;ocirc;ng ty đ&amp;atilde; k&amp;yacute; hợp đồng. Do đ&amp;oacute;, nếu c&amp;ocirc;ng việc kh&amp;ocirc;ng hợp với bản th&amp;acirc;n, họ vẫn phải tiếp tục l&amp;agrave;m việc. Nếu đơn phương chấm dứt hợp đồng, th&amp;igrave; sẽ mất to&amp;agrave;n bộ chi ph&amp;iacute; đặt cọc.&lt;/p&gt;\r\n&lt;p&gt;Tr&amp;aacute;i với tu nghiệp sinh, du học sinh (DHS) c&amp;oacute; quyền chủ động lựa chọn c&amp;ocirc;ng việc của m&amp;igrave;nh, v&amp;agrave; chủ động trong giờ giấc l&amp;agrave;m việc. Họ ho&amp;agrave;n to&amp;agrave;n c&amp;oacute; thể chuyển việc khi kh&amp;ocirc;ng ưng &amp;yacute; với c&amp;ocirc;ng việc hiện tại, m&amp;agrave; kh&amp;ocirc;ng bị r&amp;agrave;ng buộc bởi hợp đồng 3 năm như&amp;nbsp; tu nghiệp sinh.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Du học sinh được thoải m&amp;aacute;i lựa chọn c&amp;ocirc;ng việc l&amp;agrave;m th&amp;ecirc;m&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Thời gian l&amp;agrave;m việc linh hoạt&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;Một TNS sẽ phải l&amp;agrave;m việc trong nh&amp;agrave; m&amp;aacute;y suốt 8 tiếng/ ng&amp;agrave;y. Trong khi DHS chỉ phải l&amp;agrave;m th&amp;ecirc;m tối đa l&amp;agrave; 4h/ng&amp;agrave;y, v&amp;agrave; c&amp;oacute; thể t&amp;ugrave;y chọn ca l&amp;agrave;m việc để ph&amp;ugrave; hợp với thời gian học tập tr&amp;ecirc;n lớp.&lt;/p&gt;\r\n&lt;p&gt;C&amp;ocirc;ng việc nhẹ nh&amp;agrave;ng&lt;/p&gt;\r\n&lt;p&gt;C&amp;ocirc;ng việc của c&amp;aacute;c TNS th&amp;ocirc;ng thường li&amp;ecirc;n quan đến cơ kh&amp;iacute;, chế tạo m&amp;aacute;y m&amp;oacute;c, sơ chế thực phẩm&amp;hellip; rất vất vả v&amp;agrave; nặng nhọc. Do k&amp;yacute; hợp đồng thỏa thuận từ trước, n&amp;ecirc;n mức lương l&amp;agrave; cố định, &amp;iacute;t thay đổi theo tỷ gi&amp;aacute; thị trường. Người c&amp;ocirc;ng nhận thường phải chịu thua thiệt khi đồng tiền mất gi&amp;aacute;, lạm ph&amp;aacute;t. Mức lương trung b&amp;igrave;nh của một TNS kiếm được trong 1 th&amp;aacute;ng ở năm đầu l&amp;agrave; 20 triệu, v&amp;agrave; khoảng 35 triệu/th&amp;aacute;ng cho những năm tiếp theo.&lt;/p&gt;\r\n&lt;p&gt;DHS đi l&amp;agrave;m, chủ yếu l&amp;agrave; c&amp;aacute;c việc l&amp;agrave;m th&amp;ecirc;m, b&amp;aacute;n thời gian, n&amp;ecirc;n c&amp;ocirc;ng việc cũng nhẹ nh&amp;agrave;ng hơn, như ph&amp;aacute;t b&amp;aacute;o, phục vụ tại nh&amp;agrave; h&amp;agrave;ng ăn, dạy gia sư&amp;hellip;Mức lương thỏa thuận với chủ nh&amp;acirc;n c&amp;ocirc;ng, &amp;ldquo;thuận mua vừa b&amp;aacute;n&amp;rdquo;, n&amp;ecirc;n rất kịp thời với mặt bằng chung của thị trường. Chế độ tăng lương được x&amp;ecirc; dịch hợp l&amp;yacute; hơn. Trung b&amp;igrave;nh, DHS sẽ được trả mức lương từ 1000 Y&amp;ecirc;n/h trở l&amp;ecirc;n, tương đương với khoảng 40- 50 triệu đồng/th&amp;aacute;ng.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;C&amp;aacute;c tu nghiệp sinh thường phải l&amp;agrave;m việc rất vất vả trong suốt 8 tiếng&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Lợi thế v&amp;agrave; bất lợi&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;Tr&amp;ecirc;n thực tế, c&amp;aacute;c TNS được đ&amp;agrave;o tạo kiến thức chuy&amp;ecirc;n m&amp;ocirc;n rất &amp;iacute;t, tiếng Nhật cũng được dạy sơ s&amp;agrave;i, v&amp;agrave; bị b&amp;aacute;n rẻ sức lao động của ch&amp;iacute;nh họ. Do thời gian đi l&amp;agrave;m chiếm phần lớn, n&amp;ecirc;n nhiều TNS khi về nước, cũng chỉ n&amp;oacute;i được tiếng Nhật ở mức trung b&amp;igrave;nh, cảm thấy kh&amp;oacute; khăn khi kiếm một c&amp;ocirc;ng việc ổn định tại Việt Nam.&lt;/p&gt;\r\n&lt;p&gt;Trong khi đ&amp;oacute;, đi du học, học sinh vừa c&amp;oacute; thể l&amp;agrave;m việc l&amp;agrave;m th&amp;ecirc;m, vừa được học để t&amp;iacute;ch lũy kiến thức chuy&amp;ecirc;n ngh&amp;agrave;nh. Mức lương l&amp;agrave;m th&amp;ecirc;m của c&amp;aacute;c bạn thường từ 1500 &amp;ndash; 2500 USD/th&amp;aacute;ng, đủ để chi ti&amp;ecirc;u sinh hoạt, đ&amp;oacute;ng học ph&amp;iacute;, tiền thu&amp;ecirc; nh&amp;agrave;, v&amp;agrave; t&amp;iacute;ch lũy được một khoản kh&amp;ocirc;ng nhỏ để gửi về cho gia đ&amp;igrave;nh, hoặc đ&amp;oacute;ng học ph&amp;iacute; cho những kỳ tiếp theo. Khi về nước, DHS đ&amp;atilde; c&amp;oacute; thể c&amp;oacute; một ch&amp;uacute;t vốn liếng, v&amp;agrave; một bằng đại học/ cao đẳng mang về. Do được đ&amp;agrave;o tạo s&amp;acirc;u về cả kiến thức chuy&amp;ecirc;n m&amp;ocirc;n lẫn tiếng Nhật, n&amp;ecirc;n cơ hội l&amp;agrave;m việc tại Nhật Bản hay c&amp;aacute;c c&amp;ocirc;ng ty Nhật tại Việt Nam cũng trở n&amp;ecirc;n dễ d&amp;agrave;ng hơn.&lt;/p&gt;\r\n&lt;p&gt;Mức chi ph&amp;iacute; cần chuẩn bị ban đầu&lt;/p&gt;\r\n&lt;p&gt;Khi đi TNS tại Nhật Bản, người lao động thường phải chuẩn bị từ 200.000.000đ đến 300.000.000đ, trong đ&amp;oacute;, 150.000.000đ &amp;ndash; 200.000.000đ l&amp;agrave; tiền đặt cọc chống trốn, v&amp;agrave; sẽ được trả lại sau khi kết th&amp;uacute;c hợp đồng.&lt;/p&gt;\r\n&lt;p&gt;C&amp;ograve;n với du học sinh, chi ph&amp;iacute; ban đầu họ phải chuẩn bị l&amp;agrave; khoảng 140.000.000đ-200.000.000đ. Trong đ&amp;oacute; bao gồm chi ph&amp;iacute; dịch thuật hồ sơ, tiền học ph&amp;iacute;, ph&amp;iacute; k&amp;yacute; t&amp;uacute;c x&amp;aacute; v&amp;agrave; ph&amp;iacute; l&amp;agrave;m visa, đ&amp;agrave;o tạo tiếng Nhật sơ cấp&amp;hellip;&lt;/p&gt;\r\n&lt;p&gt;C&amp;oacute; thể dễ d&amp;agrave;ng nhận thấy, số tiền ban đầu cần chuẩn bị cho đi du học l&amp;agrave; &amp;iacute;t hơn rất nhiều so với đi TNS.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Du học sinh được thoải m&amp;aacute;i về giờ giấc học tập, l&amp;agrave;m việc&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Cơ hội sống tại Nhật Bản l&amp;acirc;u d&amp;agrave;i&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;TNS, sau khi hết thời hạn tu nghiệp, bắt buộc phải về nước, v&amp;agrave; kh&amp;ocirc;ng c&amp;oacute; cơ hội đi tu nghiệp lần 2 tại Nhật Bản. C&amp;ograve;n DHS c&amp;oacute; thể học nhiều trường li&amp;ecirc;n tục, hoặc sau khi tốt nghiệp, l&amp;agrave;m việc tại c&amp;ocirc;ng ty Nhật, do đ&amp;oacute;, thời gian sống tại Nhật sẽ được k&amp;eacute;o d&amp;agrave;i, v&amp;agrave; cơ hội xin Visa sống l&amp;acirc;u d&amp;agrave;i tại Nhật Bản sẽ cao hơn.&lt;/p&gt;\r\n&lt;p&gt;Đi du học Nhật Bản đang l&amp;agrave; một xu hướng mới của nhiều bạn trẻ, thay v&amp;igrave; đi tu nghiệp sinh. Đặc biệt, điều n&amp;agrave;y ho&amp;agrave;n to&amp;agrave;n đ&amp;uacute;ng với những em học sinh vừa tốt nghiệp cấp 3, mong muốn được tiếp tục học tập, trau dồi kiến thức, c&amp;oacute; bằng đại học mang về, v&amp;agrave; thử nghiệm với nhiều c&amp;ocirc;ng việc mới, thay v&amp;igrave; phải l&amp;agrave;m việc cố định tại một c&amp;ocirc;ng ty, với thời gian g&amp;ograve; b&amp;oacute;, v&amp;agrave; kh&amp;ocirc;ng c&amp;oacute; nhiều cơ hội thăng tiến.&lt;/p&gt;\r\n&lt;p&gt;Nguon: Su tam&lt;/p&gt;', 'so-sanh-giua-di-du-hoc-va-di-xkld-tu-nghiep-sinh', 'SO SÁNH GIỮA ĐI DU HỌC VÀ ĐI XKLĐ (TU NGHIỆP SINH) | SO SANH GIUA DI DU HOC VA DI XKLD (TU NGHIEP SINH)', 'SO SÁNH GIỮA ĐI DU HỌC VÀ ĐI XKLĐ (TU NGHIỆP SINH), SO SANH GIUA DI DU HOC VA DI XKLD (TU NGHIEP SINH)', 'Thoải m&aacute;i lựa chọn c&ocirc;ng việc\r\nTu nghiệp sinh (TNS), khi mới sang Nhật, sẽ được đ&agrave;o tạo chuy&ecirc;n m&ocirc;n trong v&ograve;ng 10 th&aacute;ng đầu...', 1, 0, 0, 1, 1476432695, 1476432695, 'vi');
+INSERT INTO `news` (`id`, `item_id`, `group_nav`, `group_id`, `group_related`, `picture`, `title`, `short`, `content`, `friendly_link`, `meta_title`, `meta_key`, `meta_desc`, `is_focus`, `is_focus_group`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(38, 37, '', 0, '', 'news/2016_10/dh-tn.jpg', 'SO SÁNH GIỮA ĐI DU HỌC VÀ ĐI XKLĐ (TU NGHIỆP SINH)', '&lt;p&gt;&lt;strong&gt;So s&amp;aacute;nh du học v&amp;agrave; đi tu nghiệp sinh tại Nhật Bản&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;em&gt;Thời gian vừa qua, rất nhiều bạn muốn được tư vấn n&amp;ecirc;n đi tu nghiệp sinh hay đi du học Nhật Bản. Để giải đ&amp;aacute;p cho c&amp;acirc;u hỏi n&amp;agrave;y,&lt;/em&gt;&lt;em&gt; b&amp;agrave;i viết&lt;/em&gt; &lt;em&gt; đ&amp;atilde; l&amp;agrave;m một v&amp;agrave;i ph&amp;eacute;p so s&amp;aacute;nh, để c&amp;aacute;c bạn dễ d&amp;agrave;ng nhận thấy những đặc điểm thuận lợi, bất lợi của mỗi loại h&amp;igrave;nh v&amp;agrave; đưa ra quyết định hợp l&amp;yacute; cho tương lai của m&amp;igrave;nh.&lt;/em&gt;&lt;/p&gt;', '&lt;p&gt;&lt;strong&gt;Thoải m&amp;aacute;i lựa chọn c&amp;ocirc;ng việc&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;Tu nghiệp sinh (TNS), khi mới sang Nhật, sẽ được đ&amp;agrave;o tạo chuy&amp;ecirc;n m&amp;ocirc;n trong v&amp;ograve;ng 10 th&amp;aacute;ng đầu ti&amp;ecirc;n, v&amp;agrave; sẽ tiếp tục l&amp;agrave;m việc cho đến hết kỳ hạn hợp đồng. Thường l&amp;agrave; 3 năm. Trong thời gian đ&amp;oacute;, họ chỉ c&amp;oacute; quyền l&amp;agrave;m việc với c&amp;ocirc;ng ty đ&amp;atilde; k&amp;yacute; hợp đồng. Do đ&amp;oacute;, nếu c&amp;ocirc;ng việc kh&amp;ocirc;ng hợp với bản th&amp;acirc;n, họ vẫn phải tiếp tục l&amp;agrave;m việc. Nếu đơn phương chấm dứt hợp đồng, th&amp;igrave; sẽ mất to&amp;agrave;n bộ chi ph&amp;iacute; đặt cọc.&lt;/p&gt;\r\n&lt;p&gt;Tr&amp;aacute;i với tu nghiệp sinh, du học sinh (DHS) c&amp;oacute; quyền chủ động lựa chọn c&amp;ocirc;ng việc của m&amp;igrave;nh, v&amp;agrave; chủ động trong giờ giấc l&amp;agrave;m việc. Họ ho&amp;agrave;n to&amp;agrave;n c&amp;oacute; thể chuyển việc khi kh&amp;ocirc;ng ưng &amp;yacute; với c&amp;ocirc;ng việc hiện tại, m&amp;agrave; kh&amp;ocirc;ng bị r&amp;agrave;ng buộc bởi hợp đồng 3 năm như&amp;nbsp; tu nghiệp sinh.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Du học sinh được thoải m&amp;aacute;i lựa chọn c&amp;ocirc;ng việc l&amp;agrave;m th&amp;ecirc;m&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Thời gian l&amp;agrave;m việc linh hoạt&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;Một TNS sẽ phải l&amp;agrave;m việc trong nh&amp;agrave; m&amp;aacute;y suốt 8 tiếng/ ng&amp;agrave;y. Trong khi DHS chỉ phải l&amp;agrave;m th&amp;ecirc;m tối đa l&amp;agrave; 4h/ng&amp;agrave;y, v&amp;agrave; c&amp;oacute; thể t&amp;ugrave;y chọn ca l&amp;agrave;m việc để ph&amp;ugrave; hợp với thời gian học tập tr&amp;ecirc;n lớp.&lt;/p&gt;\r\n&lt;p&gt;C&amp;ocirc;ng việc nhẹ nh&amp;agrave;ng&lt;/p&gt;\r\n&lt;p&gt;C&amp;ocirc;ng việc của c&amp;aacute;c TNS th&amp;ocirc;ng thường li&amp;ecirc;n quan đến cơ kh&amp;iacute;, chế tạo m&amp;aacute;y m&amp;oacute;c, sơ chế thực phẩm&amp;hellip; rất vất vả v&amp;agrave; nặng nhọc. Do k&amp;yacute; hợp đồng thỏa thuận từ trước, n&amp;ecirc;n mức lương l&amp;agrave; cố định, &amp;iacute;t thay đổi theo tỷ gi&amp;aacute; thị trường. Người c&amp;ocirc;ng nhận thường phải chịu thua thiệt khi đồng tiền mất gi&amp;aacute;, lạm ph&amp;aacute;t. Mức lương trung b&amp;igrave;nh của một TNS kiếm được trong 1 th&amp;aacute;ng ở năm đầu l&amp;agrave; 20 triệu, v&amp;agrave; khoảng 35 triệu/th&amp;aacute;ng cho những năm tiếp theo.&lt;/p&gt;\r\n&lt;p&gt;DHS đi l&amp;agrave;m, chủ yếu l&amp;agrave; c&amp;aacute;c việc l&amp;agrave;m th&amp;ecirc;m, b&amp;aacute;n thời gian, n&amp;ecirc;n c&amp;ocirc;ng việc cũng nhẹ nh&amp;agrave;ng hơn, như ph&amp;aacute;t b&amp;aacute;o, phục vụ tại nh&amp;agrave; h&amp;agrave;ng ăn, dạy gia sư&amp;hellip;Mức lương thỏa thuận với chủ nh&amp;acirc;n c&amp;ocirc;ng, &amp;ldquo;thuận mua vừa b&amp;aacute;n&amp;rdquo;, n&amp;ecirc;n rất kịp thời với mặt bằng chung của thị trường. Chế độ tăng lương được x&amp;ecirc; dịch hợp l&amp;yacute; hơn. Trung b&amp;igrave;nh, DHS sẽ được trả mức lương từ 1000 Y&amp;ecirc;n/h trở l&amp;ecirc;n, tương đương với khoảng 40- 50 triệu đồng/th&amp;aacute;ng.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;C&amp;aacute;c tu nghiệp sinh thường phải l&amp;agrave;m việc rất vất vả trong suốt 8 tiếng&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Lợi thế v&amp;agrave; bất lợi&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;Tr&amp;ecirc;n thực tế, c&amp;aacute;c TNS được đ&amp;agrave;o tạo kiến thức chuy&amp;ecirc;n m&amp;ocirc;n rất &amp;iacute;t, tiếng Nhật cũng được dạy sơ s&amp;agrave;i, v&amp;agrave; bị b&amp;aacute;n rẻ sức lao động của ch&amp;iacute;nh họ. Do thời gian đi l&amp;agrave;m chiếm phần lớn, n&amp;ecirc;n nhiều TNS khi về nước, cũng chỉ n&amp;oacute;i được tiếng Nhật ở mức trung b&amp;igrave;nh, cảm thấy kh&amp;oacute; khăn khi kiếm một c&amp;ocirc;ng việc ổn định tại Việt Nam.&lt;/p&gt;\r\n&lt;p&gt;Trong khi đ&amp;oacute;, đi du học, học sinh vừa c&amp;oacute; thể l&amp;agrave;m việc l&amp;agrave;m th&amp;ecirc;m, vừa được học để t&amp;iacute;ch lũy kiến thức chuy&amp;ecirc;n ngh&amp;agrave;nh. Mức lương l&amp;agrave;m th&amp;ecirc;m của c&amp;aacute;c bạn thường từ 1500 &amp;ndash; 2500 USD/th&amp;aacute;ng, đủ để chi ti&amp;ecirc;u sinh hoạt, đ&amp;oacute;ng học ph&amp;iacute;, tiền thu&amp;ecirc; nh&amp;agrave;, v&amp;agrave; t&amp;iacute;ch lũy được một khoản kh&amp;ocirc;ng nhỏ để gửi về cho gia đ&amp;igrave;nh, hoặc đ&amp;oacute;ng học ph&amp;iacute; cho những kỳ tiếp theo. Khi về nước, DHS đ&amp;atilde; c&amp;oacute; thể c&amp;oacute; một ch&amp;uacute;t vốn liếng, v&amp;agrave; một bằng đại học/ cao đẳng mang về. Do được đ&amp;agrave;o tạo s&amp;acirc;u về cả kiến thức chuy&amp;ecirc;n m&amp;ocirc;n lẫn tiếng Nhật, n&amp;ecirc;n cơ hội l&amp;agrave;m việc tại Nhật Bản hay c&amp;aacute;c c&amp;ocirc;ng ty Nhật tại Việt Nam cũng trở n&amp;ecirc;n dễ d&amp;agrave;ng hơn.&lt;/p&gt;\r\n&lt;p&gt;Mức chi ph&amp;iacute; cần chuẩn bị ban đầu&lt;/p&gt;\r\n&lt;p&gt;Khi đi TNS tại Nhật Bản, người lao động thường phải chuẩn bị từ 200.000.000đ đến 300.000.000đ, trong đ&amp;oacute;, 150.000.000đ &amp;ndash; 200.000.000đ l&amp;agrave; tiền đặt cọc chống trốn, v&amp;agrave; sẽ được trả lại sau khi kết th&amp;uacute;c hợp đồng.&lt;/p&gt;\r\n&lt;p&gt;C&amp;ograve;n với du học sinh, chi ph&amp;iacute; ban đầu họ phải chuẩn bị l&amp;agrave; khoảng 140.000.000đ-200.000.000đ. Trong đ&amp;oacute; bao gồm chi ph&amp;iacute; dịch thuật hồ sơ, tiền học ph&amp;iacute;, ph&amp;iacute; k&amp;yacute; t&amp;uacute;c x&amp;aacute; v&amp;agrave; ph&amp;iacute; l&amp;agrave;m visa, đ&amp;agrave;o tạo tiếng Nhật sơ cấp&amp;hellip;&lt;/p&gt;\r\n&lt;p&gt;C&amp;oacute; thể dễ d&amp;agrave;ng nhận thấy, số tiền ban đầu cần chuẩn bị cho đi du học l&amp;agrave; &amp;iacute;t hơn rất nhiều so với đi TNS.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Du học sinh được thoải m&amp;aacute;i về giờ giấc học tập, l&amp;agrave;m việc&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Cơ hội sống tại Nhật Bản l&amp;acirc;u d&amp;agrave;i&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;TNS, sau khi hết thời hạn tu nghiệp, bắt buộc phải về nước, v&amp;agrave; kh&amp;ocirc;ng c&amp;oacute; cơ hội đi tu nghiệp lần 2 tại Nhật Bản. C&amp;ograve;n DHS c&amp;oacute; thể học nhiều trường li&amp;ecirc;n tục, hoặc sau khi tốt nghiệp, l&amp;agrave;m việc tại c&amp;ocirc;ng ty Nhật, do đ&amp;oacute;, thời gian sống tại Nhật sẽ được k&amp;eacute;o d&amp;agrave;i, v&amp;agrave; cơ hội xin Visa sống l&amp;acirc;u d&amp;agrave;i tại Nhật Bản sẽ cao hơn.&lt;/p&gt;\r\n&lt;p&gt;Đi du học Nhật Bản đang l&amp;agrave; một xu hướng mới của nhiều bạn trẻ, thay v&amp;igrave; đi tu nghiệp sinh. Đặc biệt, điều n&amp;agrave;y ho&amp;agrave;n to&amp;agrave;n đ&amp;uacute;ng với những em học sinh vừa tốt nghiệp cấp 3, mong muốn được tiếp tục học tập, trau dồi kiến thức, c&amp;oacute; bằng đại học mang về, v&amp;agrave; thử nghiệm với nhiều c&amp;ocirc;ng việc mới, thay v&amp;igrave; phải l&amp;agrave;m việc cố định tại một c&amp;ocirc;ng ty, với thời gian g&amp;ograve; b&amp;oacute;, v&amp;agrave; kh&amp;ocirc;ng c&amp;oacute; nhiều cơ hội thăng tiến.&lt;/p&gt;\r\n&lt;p&gt;Nguon: Su tam&lt;/p&gt;', 'so-sanh-giua-di-du-hoc-va-di-xkld-tu-nghiep-sinh1', 'SO SÁNH GIỮA ĐI DU HỌC VÀ ĐI XKLĐ (TU NGHIỆP SINH) | SO SANH GIUA DI DU HOC VA DI XKLD (TU NGHIEP SINH)', 'SO SÁNH GIỮA ĐI DU HỌC VÀ ĐI XKLĐ (TU NGHIỆP SINH), SO SANH GIUA DI DU HOC VA DI XKLD (TU NGHIEP SINH)', 'Thoải m&aacute;i lựa chọn c&ocirc;ng việc\r\nTu nghiệp sinh (TNS), khi mới sang Nhật, sẽ được đ&agrave;o tạo chuy&ecirc;n m&ocirc;n trong v&ograve;ng 10 th&aacute;ng đầu...', 1, 0, 0, 1, 1476432695, 1476432695, 'en'),
+(39, 39, '', 0, '', 'news/2016_10/dt-1.jpg', 'BÍ QUYẾT TIẾT KIỆM PHÍ ĐIỆN THOẠI CHỈ 1,350 YÊN/THÁNG Ở NHẬT', '&lt;p dir=&quot;ltr&quot;&gt;&amp;ldquo;PH&amp;Iacute; ĐIỆN THOẠI DI ĐỘNG H&amp;Agrave;NG TH&amp;Aacute;NG Ở NHẬT ĐẮC QU&amp;Aacute;!&amp;rdquo;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Đ&amp;oacute; ch&amp;iacute;nh l&amp;agrave; cảm tưởng của rất nhiều du học sinh khi mới sang Nhật.&lt;/p&gt;', '&lt;p dir=&quot;ltr&quot;&gt;Thật đ&amp;uacute;ng như thế! Nếu bạn chọn dịch vụ của 3 nh&amp;agrave; mạng lớn nhất ở Nhật (Docomo, Au hay Softbank), th&amp;ocirc;ng thường chi ph&amp;iacute; điện thoại di động h&amp;agrave;ng th&amp;aacute;ng ở Nhật sẽ dao động từ khoảng 6,000 y&amp;ecirc;n/th&amp;aacute;ng đến 10,000 y&amp;ecirc;n/th&amp;aacute;ng. C&amp;aacute;c h&amp;atilde;ng n&amp;agrave;y ban đầu thường cung cấp cho bạn một điện thoại mới với gi&amp;aacute; 0 y&amp;ecirc;n, c&amp;ugrave;ng điều kiện bắt buộc phải k&amp;yacute; hợp đồng sử dụng dịch vụ của h&amp;atilde;ng trong v&amp;ograve;ng 1 năm hoặc 2 năm với c&amp;aacute;c g&amp;oacute;i bao gồm cả những chi ph&amp;iacute; ho&amp;agrave;n to&amp;agrave;n kh&amp;ocirc;ng cần thiết.&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Thực ra, nếu biết c&amp;aacute;ch chọn nh&amp;agrave; mạng th&amp;iacute;ch hợp, bạn c&amp;oacute; thể tiết kiệm được rất nhiều. Hiện tại ph&amp;iacute; điện thoại của ad chỉ 1,350 y&amp;ecirc;n/th&amp;aacute;ng, nhưng đ&amp;acirc;y chưa phải l&amp;agrave; trường hợp rẻ nhất, thậm ch&amp;iacute; bạn c&amp;oacute; thể chọn được c&amp;aacute;c dịch vụ c&amp;ograve;n rẻ hơn. H&amp;ocirc;m nay ad muốn chia sẻ với c&amp;aacute;c bạn c&amp;aacute;c kinh nghiệm tiết kiệm ph&amp;iacute; điện thoại n&amp;agrave;y.&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Kinh nghiệm 1: Kh&amp;ocirc;ng chọn dịch vụ của c&amp;aacute;c c&amp;ocirc;ng ty lớn để tiết kiệm ph&amp;iacute; điện thoại&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;&amp;nbsp;Ngo&amp;agrave;i 3 c&amp;ocirc;ng ty viễn th&amp;ocirc;ng lớn m&amp;agrave; ad n&amp;oacute;i ở tr&amp;ecirc;n, c&amp;ograve;n c&amp;oacute; rất nhiều c&amp;ocirc;ng ty nhỏ kh&amp;aacute;c như: Rakuten Mobile, DMM mobile, mineo, IIJmio, Y!mobile, freetel v.v&amp;hellip; C&amp;aacute;c c&amp;ocirc;ng ty n&amp;agrave;y thường cung cấp c&amp;aacute;c g&amp;oacute;i dịch vụ cho điện thoại dạng SIM free với gi&amp;aacute; rất rẻ, chỉ khoảng từ 1,000 y&amp;ecirc;n/th&amp;aacute;ng ~ 3,800 y&amp;ecirc;n/th&amp;aacute;ng.&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;&lt;br /&gt;C&amp;oacute; thể bạn sẽ đắn đo rằng: C&amp;aacute;c h&amp;atilde;ng nhỏ n&amp;agrave;y, liệu t&amp;iacute;n hiệu c&amp;oacute; đủ mạnh v&amp;agrave; v&amp;ugrave;ng phủ s&amp;oacute;ng đủ rộng như c&amp;aacute;c h&amp;atilde;ng lớn kh&amp;ocirc;ng? Kh&amp;ocirc;ng cần lo đ&amp;acirc;u c&amp;aacute;c bạn ạ, c&amp;aacute;c c&amp;ocirc;ng ty n&amp;agrave;y đều l&amp;agrave; c&amp;ocirc;ng ty con của c&amp;aacute;c h&amp;atilde;ng lớn, v&amp;iacute; dụ như Y!mobile l&amp;agrave; con của Softbank, Rakuten Mobile v&amp;agrave; DMM Mobile d&amp;ugrave;ng hệ thống của Docomo, &amp;hellip; do đ&amp;oacute; mạng của c&amp;aacute;c c&amp;ocirc;ng ty n&amp;agrave;y đều kh&amp;ocirc;ng kh&amp;aacute;c g&amp;igrave; c&amp;aacute;c c&amp;ocirc;ng ty lớn.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;strong&gt;Kinh nghiệm 2: Đăng k&amp;yacute; qua c&amp;aacute;c trang tổng hợp th&amp;ocirc;ng tin để được nhiều ưu đ&amp;atilde;i kh&amp;aacute;c&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Một trang rất hữu &amp;iacute;ch ad muốn giới thiệu ch&amp;iacute;nh l&amp;agrave; &amp;ldquo;kakaku.com/mobile_data/sim&quot;&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Sau khi nhập v&amp;agrave;o trang n&amp;agrave;y, bạn chọn phần ranking d&amp;agrave;nh cho SIM điện thoại (音声通話SIM), bạn sẽ thấy được danh s&amp;aacute;ch c&amp;aacute;c plan kh&amp;aacute;c nhau. Danh s&amp;aacute;ch n&amp;agrave;y c&amp;oacute; thể sắp xếp theo độ phổ biến, chi ph&amp;iacute; h&amp;agrave;ng th&amp;aacute;ng, lượng data hay tốc độ của dịch vụ internet đi k&amp;egrave;m.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Ad muốn giới thiệu hai plan hay ho sau đ&amp;acirc;y, để c&amp;aacute;c bạn tham khảo:&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;1, Rakuten mobile, ph&amp;iacute; ban đầu 3,240 y&amp;ecirc;n, ph&amp;iacute; cơ bản h&amp;agrave;ng th&amp;aacute;ng 1,350 y&amp;ecirc;n/th&amp;aacute;ng, ph&amp;iacute; cuộc gọi 21.6 y&amp;ecirc;n/30s, tốc độ internet 200bps, lượng data kh&amp;ocirc;ng giới hạn.&lt;br /&gt;Đ&amp;acirc;y l&amp;agrave; plan ad đang d&amp;ugrave;ng, ưu điểm của plan n&amp;agrave;y l&amp;agrave; ph&amp;iacute; cơ bản h&amp;agrave;ng th&amp;aacute;ng rẻ, internet sử dụng cũng kh&amp;aacute;, ngo&amp;agrave;i ra ph&amp;iacute; gọi c&amp;oacute; thể giảm th&amp;agrave;nh 10.8 y&amp;ecirc;n/30s nếu gọi điện qua application &amp;ldquo;rakuten denwa&amp;rdquo;, cũng như c&amp;oacute; thể t&amp;iacute;ch Rakuten super point th&amp;ocirc;ng qua tiền điện thoại d&amp;ugrave;ng h&amp;agrave;ng th&amp;aacute;ng, v&amp;agrave; c&amp;ograve;n được campaign ho&amp;agrave;n tiền 5,600 y&amp;ecirc;n từ kakaku.com.&lt;br /&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img class=&quot;aligncenter&quot; src=&quot;https://lh4.googleusercontent.com/h6_k6al5OANvhiP3TZCtr7_fA2q1dnmHUIt8-10lM8z3r5dhbLViyusZkLcXb4UAqJ_lMZKYvTV8LFoCaGjVF5wXz85o9ZC9vCdCjwBqPs2WtVZUty1wklAtlBF4vFixXyERtcsefOG36rMn&quot; alt=&quot;tiết kiệm ph&amp;iacute; điện thoại&quot; width=&quot;511px;&quot; height=&quot;256px;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;br /&gt;&amp;nbsp;&lt;br /&gt;2, Y!Mobile, ph&amp;iacute; ban đầu 3,240 y&amp;ecirc;n, ph&amp;iacute; cơ bản h&amp;agrave;ng th&amp;aacute;ng 4,298 y&amp;ecirc;n/th&amp;aacute;ng, ph&amp;iacute; cuộc gọi hầu như miễn ph&amp;iacute; khi gọi đi cho tất cả c&amp;aacute;c mạng kh&amp;aacute;c, tốc độ internet si&amp;ecirc;u cao 110Mbps cho 1GB data đầu, sau đ&amp;oacute; chuyển về 128kbps cho 9G data tiếp theo.&lt;br /&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Ưu điểm của plan n&amp;agrave;y, như ad đ&amp;atilde; n&amp;oacute;i ở tr&amp;ecirc;n l&amp;agrave; ph&amp;iacute; gọi hầu như ho&amp;agrave;n to&amp;agrave;n miễn ph&amp;iacute;, cụ thể l&amp;agrave; trong v&amp;ograve;ng 1 th&amp;aacute;ng bạn c&amp;oacute; thể gọi tối đa 300 cuộc gọi, mỗi cuộc trong v&amp;ograve;ng 10 ph&amp;uacute;t cho tất cả c&amp;aacute;c mạng kh&amp;aacute;c m&amp;agrave; kh&amp;ocirc;ng tốn th&amp;ecirc;m tiền. Plan n&amp;agrave;y rất th&amp;iacute;ch hợp cho c&amp;aacute;c bạn th&amp;iacute;ch &amp;ldquo;t&amp;aacute;m&amp;rdquo; qua điện thoại.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot; style=&quot;text-align: center;&quot;&gt;&lt;img class=&quot;aligncenter&quot; src=&quot;https://lh3.googleusercontent.com/wLJr1nc7uTovu8nuj5ESsoKh9NwfR8Pq8blYXmZS6zDNKiXA8k0AmSDqeH8566RFJoNbLTCG9iRrdGBR2ltF0cG0lG5Y7eihJyxG3a8cm0zOPRkgt8ibCRTSejvL9TpOV72ln77yc81cfl1m&quot; alt=&quot;tiết kiệm ph&amp;iacute; điện thoại&quot; width=&quot;532px;&quot; height=&quot;218px;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Sau khi quyết định được plan th&amp;iacute;ch hợp v&amp;agrave; click chọn &amp;ldquo;プラン詳細へ&amp;rdquo; v&amp;agrave; sau đ&amp;oacute; l&amp;agrave; &amp;ldquo;プランを申し込む&amp;rdquo;, kakaku.com sẽ chuyển bạn sang một trang chuy&amp;ecirc;n dụng để điền c&amp;aacute;c th&amp;ocirc;ng tin đăng k&amp;yacute;. C&amp;aacute;c th&amp;ocirc;ng tin được y&amp;ecirc;u cầu sẽ l&amp;agrave; họ t&amp;ecirc;n, địa chỉ, email li&amp;ecirc;n lạc, v&amp;agrave; th&amp;ocirc;ng tin về thẻ t&amp;iacute;n dụng để thanh to&amp;aacute;n h&amp;agrave;ng th&amp;aacute;ng. Sau khi ho&amp;agrave;n tất đăng k&amp;yacute;, thẻ SIM sẽ được gởi đến bạn trong v&amp;agrave;i ng&amp;agrave;y.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Nếu bạn chưa c&amp;oacute; thẻ t&amp;iacute;n dụng, bạn c&amp;oacute; thể ra thẳng c&amp;aacute;c shop để đăng k&amp;yacute;.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Một điều cực kỳ hay ho khi đăng k&amp;yacute; qua c&amp;aacute;c trang như kakaku.com đ&amp;oacute; l&amp;agrave; lu&amp;ocirc;n c&amp;oacute; những campaign ho&amp;agrave;n tiền (キャッシュバック) hay gởi thẻ mua sắm (商品券) cho bạn với gi&amp;aacute; trị từ khoảng 3,000 y&amp;ecirc;n đến 10,000 y&amp;ecirc;n. Thủ tục để ho&amp;agrave;n tiền hay gởi thẻ mua sắm sẽ được gởi đến bạn sau v&amp;agrave;i th&amp;aacute;ng sử dụng th&amp;ocirc;ng qua email đăng k&amp;yacute; của bạn. Bạn h&amp;atilde;y ch&amp;uacute; &amp;yacute; nh&amp;eacute;, v&amp;igrave; c&amp;aacute;c email n&amp;agrave;y rất dễ tự động bị xếp th&amp;agrave;nh spam mail. Bạn kh&amp;ocirc;ng l&amp;agrave;m thủ tục sẽ bị mất đi c&amp;aacute;c ưu đ&amp;atilde;i n&amp;agrave;y.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;h4&gt;&lt;strong&gt;Kinh nghiệm 3: Chuẩn bị sẵn một điện thoại sim free th&amp;iacute;ch hợp&lt;/strong&gt;&lt;/h4&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Bạn c&amp;oacute; thể chuẩn bị sẵn v&amp;agrave; mang từ nh&amp;agrave;, nhưng c&amp;oacute; khả năng sẽ kh&amp;ocirc;ng t&amp;iacute;ch hợp được khi c&amp;agrave;i SIM mới v&amp;agrave;o. Hiện nay ở &lt;a href=&quot;https://www.facebook.com/Kyodai.Khamphanhatban?fref=ts&quot;&gt;&lt;strong&gt;Nhật Bản&lt;/strong&gt;&lt;/a&gt; cũng kh&amp;ocirc;ng kh&amp;oacute; để t&amp;igrave;m được một điện thoại SIM free gi&amp;aacute; rẻ. Bạn c&amp;oacute; thể mua được ở c&amp;aacute;c cửa h&amp;agrave;ng điện tử lớn như Yodobashi Camera, Bic Camera, Sofmap&amp;hellip; với gi&amp;aacute; khoảng 10,000 y&amp;ecirc;n/c&amp;aacute;i trở l&amp;ecirc;n. Song, cần lưu &amp;yacute; l&amp;agrave; c&amp;aacute;c loại m&amp;aacute;y c&amp;oacute; thể đ&amp;aacute;p ứng c&amp;aacute;c loại SIM kh&amp;aacute;c nhau: c&amp;oacute; m&amp;aacute;y chỉ d&amp;ugrave;ng cho SIM standard, c&amp;oacute; m&amp;aacute;y chỉ d&amp;ugrave;ng được cho microSIM hay nanoSIM, c&amp;oacute; m&amp;aacute;y c&amp;oacute; thể d&amp;ugrave;ng cho cả 3 loại. C&amp;aacute;c th&amp;ocirc;ng tin n&amp;agrave;y đều được ghi tr&amp;ecirc;n spec của m&amp;aacute;y, h&amp;atilde;y kiểm tra kỹ để chọn được m&amp;aacute;y th&amp;iacute;ch hợp cho c&amp;aacute;c dịch vụ bạn đ&amp;atilde; chọn ở tr&amp;ecirc;n.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Sau khi đ&amp;atilde; c&amp;oacute; m&amp;aacute;y v&amp;agrave; SIM, mọi việc c&amp;ograve;n lại chỉ l&amp;agrave; gh&amp;eacute;p SIM v&amp;agrave;o m&amp;aacute;y v&amp;agrave; sử dụng.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot; style=&quot;text-align: center;&quot;&gt;&lt;img class=&quot;aligncenter&quot; src=&quot;https://lh4.googleusercontent.com/FZ1y6rDaSW11pEz2EjILNLfWsftVc0JjrtZGKg1UMtbfjlgTkmS-wRY2QSaKka3-uJppC8DbZj8Z9GEiablc8IntB7VSAOUbs_K1t8h1uMlWuLA7t8HV2vhHCv2l9DT3VvbORy13jrFZ_-Ea&quot; alt=&quot;tiết kiệm ph&amp;iacute; điện thoại&quot; width=&quot;349px;&quot; height=&quot;77px;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Nếu bạn đang sử dụng dịch vụ của c&amp;aacute;c h&amp;atilde;ng lớn, sau khi hết thời hạn hợp đồng, bạn c&amp;oacute; thể đăng k&amp;yacute; dịch vụ MNP (Mobile Number Portability) để chuyển sang c&amp;aacute;c mạng kh&amp;aacute;c m&amp;agrave; vẫn giữa nguy&amp;ecirc;n số điện thoại.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Nếu dịch vụ internet đi k&amp;egrave;m kh&amp;ocirc;ng đủ nhanh như bạn mong muốn, bạn c&amp;oacute; thể đăng&amp;nbsp;k&amp;yacute; th&amp;ecirc;m c&amp;aacute;c dịch vụ pocket wifi di động, chi ph&amp;iacute; cũng chỉ khoảng 2,000 y&amp;ecirc;n/th&amp;aacute;ng.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Trước đ&amp;acirc;y, mỗi th&amp;aacute;ng ad mất khoảng 9,000 y&amp;ecirc;n cho ph&amp;iacute; điện thoại v&amp;agrave; internet, nhưng sau khi chuyển sang c&amp;aacute;ch hiện nay, mỗi th&amp;aacute;ng chỉ c&amp;ograve;n tốn 1,350 y&amp;ecirc;n cho điện thoại v&amp;agrave; 2,160 y&amp;ecirc;n cho pocket wifi, như vậy đ&amp;atilde; tiết kiệm được khoản 5,500 mỗi th&amp;aacute;ng. Trong v&amp;ograve;ng 2 năm, số tiền tiết kiệm được sẽ l&amp;agrave; 13 vạn 2000 y&amp;ecirc;n, một con số kh&amp;aacute; lớn, đ&amp;aacute;ng để suy nghĩ, phải kh&amp;ocirc;ng c&amp;aacute;c bạn?&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;br /&gt;Nguồn: Thanh Nguyễn&lt;/p&gt;', 'bi-quyet-tiet-kiem-phi-dien-thoai-chi-1350-yenthang-o-nhat', 'BÍ QUYẾT TIẾT KIỆM PHÍ ĐIỆN THOẠI CHỈ 1,350 YÊN/THÁNG Ở NHẬT  | BI QUYET TIET KIEM PHI DIEN THOAI CHI 1,350 YEN/THANG O NHAT ', 'BÍ QUYẾT TIẾT KIỆM PHÍ ĐIỆN THOẠI CHỈ 1,350 YÊN/THÁNG Ở NHẬT , BI QUYET TIET KIEM PHI DIEN THOAI CHI 1,350 YEN/THANG O NHAT ', 'Thật đ&uacute;ng như thế! Nếu bạn chọn dịch vụ của 3 nh&agrave; mạng lớn nhất ở Nhật (Docomo, Au hay Softbank), th&ocirc;ng thường chi ph&iacute; điện thoại di...', 0, 0, 0, 1, 1477014176, 1477014176, 'vi'),
+(40, 39, '', 0, '', 'news/2016_10/dt-1.jpg', 'BÍ QUYẾT TIẾT KIỆM PHÍ ĐIỆN THOẠI CHỈ 1,350 YÊN/THÁNG Ở NHẬT', '&lt;p dir=&quot;ltr&quot;&gt;&amp;ldquo;PH&amp;Iacute; ĐIỆN THOẠI DI ĐỘNG H&amp;Agrave;NG TH&amp;Aacute;NG Ở NHẬT ĐẮC QU&amp;Aacute;!&amp;rdquo;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Đ&amp;oacute; ch&amp;iacute;nh l&amp;agrave; cảm tưởng của rất nhiều du học sinh khi mới sang Nhật.&lt;/p&gt;', '&lt;p dir=&quot;ltr&quot;&gt;Thật đ&amp;uacute;ng như thế! Nếu bạn chọn dịch vụ của 3 nh&amp;agrave; mạng lớn nhất ở Nhật (Docomo, Au hay Softbank), th&amp;ocirc;ng thường chi ph&amp;iacute; điện thoại di động h&amp;agrave;ng th&amp;aacute;ng ở Nhật sẽ dao động từ khoảng 6,000 y&amp;ecirc;n/th&amp;aacute;ng đến 10,000 y&amp;ecirc;n/th&amp;aacute;ng. C&amp;aacute;c h&amp;atilde;ng n&amp;agrave;y ban đầu thường cung cấp cho bạn một điện thoại mới với gi&amp;aacute; 0 y&amp;ecirc;n, c&amp;ugrave;ng điều kiện bắt buộc phải k&amp;yacute; hợp đồng sử dụng dịch vụ của h&amp;atilde;ng trong v&amp;ograve;ng 1 năm hoặc 2 năm với c&amp;aacute;c g&amp;oacute;i bao gồm cả những chi ph&amp;iacute; ho&amp;agrave;n to&amp;agrave;n kh&amp;ocirc;ng cần thiết.&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Thực ra, nếu biết c&amp;aacute;ch chọn nh&amp;agrave; mạng th&amp;iacute;ch hợp, bạn c&amp;oacute; thể tiết kiệm được rất nhiều. Hiện tại ph&amp;iacute; điện thoại của ad chỉ 1,350 y&amp;ecirc;n/th&amp;aacute;ng, nhưng đ&amp;acirc;y chưa phải l&amp;agrave; trường hợp rẻ nhất, thậm ch&amp;iacute; bạn c&amp;oacute; thể chọn được c&amp;aacute;c dịch vụ c&amp;ograve;n rẻ hơn. H&amp;ocirc;m nay ad muốn chia sẻ với c&amp;aacute;c bạn c&amp;aacute;c kinh nghiệm tiết kiệm ph&amp;iacute; điện thoại n&amp;agrave;y.&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Kinh nghiệm 1: Kh&amp;ocirc;ng chọn dịch vụ của c&amp;aacute;c c&amp;ocirc;ng ty lớn để tiết kiệm ph&amp;iacute; điện thoại&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;&amp;nbsp;Ngo&amp;agrave;i 3 c&amp;ocirc;ng ty viễn th&amp;ocirc;ng lớn m&amp;agrave; ad n&amp;oacute;i ở tr&amp;ecirc;n, c&amp;ograve;n c&amp;oacute; rất nhiều c&amp;ocirc;ng ty nhỏ kh&amp;aacute;c như: Rakuten Mobile, DMM mobile, mineo, IIJmio, Y!mobile, freetel v.v&amp;hellip; C&amp;aacute;c c&amp;ocirc;ng ty n&amp;agrave;y thường cung cấp c&amp;aacute;c g&amp;oacute;i dịch vụ cho điện thoại dạng SIM free với gi&amp;aacute; rất rẻ, chỉ khoảng từ 1,000 y&amp;ecirc;n/th&amp;aacute;ng ~ 3,800 y&amp;ecirc;n/th&amp;aacute;ng.&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;&lt;br /&gt;C&amp;oacute; thể bạn sẽ đắn đo rằng: C&amp;aacute;c h&amp;atilde;ng nhỏ n&amp;agrave;y, liệu t&amp;iacute;n hiệu c&amp;oacute; đủ mạnh v&amp;agrave; v&amp;ugrave;ng phủ s&amp;oacute;ng đủ rộng như c&amp;aacute;c h&amp;atilde;ng lớn kh&amp;ocirc;ng? Kh&amp;ocirc;ng cần lo đ&amp;acirc;u c&amp;aacute;c bạn ạ, c&amp;aacute;c c&amp;ocirc;ng ty n&amp;agrave;y đều l&amp;agrave; c&amp;ocirc;ng ty con của c&amp;aacute;c h&amp;atilde;ng lớn, v&amp;iacute; dụ như Y!mobile l&amp;agrave; con của Softbank, Rakuten Mobile v&amp;agrave; DMM Mobile d&amp;ugrave;ng hệ thống của Docomo, &amp;hellip; do đ&amp;oacute; mạng của c&amp;aacute;c c&amp;ocirc;ng ty n&amp;agrave;y đều kh&amp;ocirc;ng kh&amp;aacute;c g&amp;igrave; c&amp;aacute;c c&amp;ocirc;ng ty lớn.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;strong&gt;Kinh nghiệm 2: Đăng k&amp;yacute; qua c&amp;aacute;c trang tổng hợp th&amp;ocirc;ng tin để được nhiều ưu đ&amp;atilde;i kh&amp;aacute;c&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Một trang rất hữu &amp;iacute;ch ad muốn giới thiệu ch&amp;iacute;nh l&amp;agrave; &amp;ldquo;kakaku.com/mobile_data/sim&quot;&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Sau khi nhập v&amp;agrave;o trang n&amp;agrave;y, bạn chọn phần ranking d&amp;agrave;nh cho SIM điện thoại (音声通話SIM), bạn sẽ thấy được danh s&amp;aacute;ch c&amp;aacute;c plan kh&amp;aacute;c nhau. Danh s&amp;aacute;ch n&amp;agrave;y c&amp;oacute; thể sắp xếp theo độ phổ biến, chi ph&amp;iacute; h&amp;agrave;ng th&amp;aacute;ng, lượng data hay tốc độ của dịch vụ internet đi k&amp;egrave;m.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Ad muốn giới thiệu hai plan hay ho sau đ&amp;acirc;y, để c&amp;aacute;c bạn tham khảo:&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;1, Rakuten mobile, ph&amp;iacute; ban đầu 3,240 y&amp;ecirc;n, ph&amp;iacute; cơ bản h&amp;agrave;ng th&amp;aacute;ng 1,350 y&amp;ecirc;n/th&amp;aacute;ng, ph&amp;iacute; cuộc gọi 21.6 y&amp;ecirc;n/30s, tốc độ internet 200bps, lượng data kh&amp;ocirc;ng giới hạn.&lt;br /&gt;Đ&amp;acirc;y l&amp;agrave; plan ad đang d&amp;ugrave;ng, ưu điểm của plan n&amp;agrave;y l&amp;agrave; ph&amp;iacute; cơ bản h&amp;agrave;ng th&amp;aacute;ng rẻ, internet sử dụng cũng kh&amp;aacute;, ngo&amp;agrave;i ra ph&amp;iacute; gọi c&amp;oacute; thể giảm th&amp;agrave;nh 10.8 y&amp;ecirc;n/30s nếu gọi điện qua application &amp;ldquo;rakuten denwa&amp;rdquo;, cũng như c&amp;oacute; thể t&amp;iacute;ch Rakuten super point th&amp;ocirc;ng qua tiền điện thoại d&amp;ugrave;ng h&amp;agrave;ng th&amp;aacute;ng, v&amp;agrave; c&amp;ograve;n được campaign ho&amp;agrave;n tiền 5,600 y&amp;ecirc;n từ kakaku.com.&lt;br /&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p style=&quot;text-align: center;&quot;&gt;&lt;img class=&quot;aligncenter&quot; src=&quot;https://lh4.googleusercontent.com/h6_k6al5OANvhiP3TZCtr7_fA2q1dnmHUIt8-10lM8z3r5dhbLViyusZkLcXb4UAqJ_lMZKYvTV8LFoCaGjVF5wXz85o9ZC9vCdCjwBqPs2WtVZUty1wklAtlBF4vFixXyERtcsefOG36rMn&quot; alt=&quot;tiết kiệm ph&amp;iacute; điện thoại&quot; width=&quot;511px;&quot; height=&quot;256px;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;br /&gt;&amp;nbsp;&lt;br /&gt;2, Y!Mobile, ph&amp;iacute; ban đầu 3,240 y&amp;ecirc;n, ph&amp;iacute; cơ bản h&amp;agrave;ng th&amp;aacute;ng 4,298 y&amp;ecirc;n/th&amp;aacute;ng, ph&amp;iacute; cuộc gọi hầu như miễn ph&amp;iacute; khi gọi đi cho tất cả c&amp;aacute;c mạng kh&amp;aacute;c, tốc độ internet si&amp;ecirc;u cao 110Mbps cho 1GB data đầu, sau đ&amp;oacute; chuyển về 128kbps cho 9G data tiếp theo.&lt;br /&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Ưu điểm của plan n&amp;agrave;y, như ad đ&amp;atilde; n&amp;oacute;i ở tr&amp;ecirc;n l&amp;agrave; ph&amp;iacute; gọi hầu như ho&amp;agrave;n to&amp;agrave;n miễn ph&amp;iacute;, cụ thể l&amp;agrave; trong v&amp;ograve;ng 1 th&amp;aacute;ng bạn c&amp;oacute; thể gọi tối đa 300 cuộc gọi, mỗi cuộc trong v&amp;ograve;ng 10 ph&amp;uacute;t cho tất cả c&amp;aacute;c mạng kh&amp;aacute;c m&amp;agrave; kh&amp;ocirc;ng tốn th&amp;ecirc;m tiền. Plan n&amp;agrave;y rất th&amp;iacute;ch hợp cho c&amp;aacute;c bạn th&amp;iacute;ch &amp;ldquo;t&amp;aacute;m&amp;rdquo; qua điện thoại.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot; style=&quot;text-align: center;&quot;&gt;&lt;img class=&quot;aligncenter&quot; src=&quot;https://lh3.googleusercontent.com/wLJr1nc7uTovu8nuj5ESsoKh9NwfR8Pq8blYXmZS6zDNKiXA8k0AmSDqeH8566RFJoNbLTCG9iRrdGBR2ltF0cG0lG5Y7eihJyxG3a8cm0zOPRkgt8ibCRTSejvL9TpOV72ln77yc81cfl1m&quot; alt=&quot;tiết kiệm ph&amp;iacute; điện thoại&quot; width=&quot;532px;&quot; height=&quot;218px;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Sau khi quyết định được plan th&amp;iacute;ch hợp v&amp;agrave; click chọn &amp;ldquo;プラン詳細へ&amp;rdquo; v&amp;agrave; sau đ&amp;oacute; l&amp;agrave; &amp;ldquo;プランを申し込む&amp;rdquo;, kakaku.com sẽ chuyển bạn sang một trang chuy&amp;ecirc;n dụng để điền c&amp;aacute;c th&amp;ocirc;ng tin đăng k&amp;yacute;. C&amp;aacute;c th&amp;ocirc;ng tin được y&amp;ecirc;u cầu sẽ l&amp;agrave; họ t&amp;ecirc;n, địa chỉ, email li&amp;ecirc;n lạc, v&amp;agrave; th&amp;ocirc;ng tin về thẻ t&amp;iacute;n dụng để thanh to&amp;aacute;n h&amp;agrave;ng th&amp;aacute;ng. Sau khi ho&amp;agrave;n tất đăng k&amp;yacute;, thẻ SIM sẽ được gởi đến bạn trong v&amp;agrave;i ng&amp;agrave;y.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Nếu bạn chưa c&amp;oacute; thẻ t&amp;iacute;n dụng, bạn c&amp;oacute; thể ra thẳng c&amp;aacute;c shop để đăng k&amp;yacute;.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Một điều cực kỳ hay ho khi đăng k&amp;yacute; qua c&amp;aacute;c trang như kakaku.com đ&amp;oacute; l&amp;agrave; lu&amp;ocirc;n c&amp;oacute; những campaign ho&amp;agrave;n tiền (キャッシュバック) hay gởi thẻ mua sắm (商品券) cho bạn với gi&amp;aacute; trị từ khoảng 3,000 y&amp;ecirc;n đến 10,000 y&amp;ecirc;n. Thủ tục để ho&amp;agrave;n tiền hay gởi thẻ mua sắm sẽ được gởi đến bạn sau v&amp;agrave;i th&amp;aacute;ng sử dụng th&amp;ocirc;ng qua email đăng k&amp;yacute; của bạn. Bạn h&amp;atilde;y ch&amp;uacute; &amp;yacute; nh&amp;eacute;, v&amp;igrave; c&amp;aacute;c email n&amp;agrave;y rất dễ tự động bị xếp th&amp;agrave;nh spam mail. Bạn kh&amp;ocirc;ng l&amp;agrave;m thủ tục sẽ bị mất đi c&amp;aacute;c ưu đ&amp;atilde;i n&amp;agrave;y.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;h4&gt;&lt;strong&gt;Kinh nghiệm 3: Chuẩn bị sẵn một điện thoại sim free th&amp;iacute;ch hợp&lt;/strong&gt;&lt;/h4&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Bạn c&amp;oacute; thể chuẩn bị sẵn v&amp;agrave; mang từ nh&amp;agrave;, nhưng c&amp;oacute; khả năng sẽ kh&amp;ocirc;ng t&amp;iacute;ch hợp được khi c&amp;agrave;i SIM mới v&amp;agrave;o. Hiện nay ở &lt;a href=&quot;https://www.facebook.com/Kyodai.Khamphanhatban?fref=ts&quot;&gt;&lt;strong&gt;Nhật Bản&lt;/strong&gt;&lt;/a&gt; cũng kh&amp;ocirc;ng kh&amp;oacute; để t&amp;igrave;m được một điện thoại SIM free gi&amp;aacute; rẻ. Bạn c&amp;oacute; thể mua được ở c&amp;aacute;c cửa h&amp;agrave;ng điện tử lớn như Yodobashi Camera, Bic Camera, Sofmap&amp;hellip; với gi&amp;aacute; khoảng 10,000 y&amp;ecirc;n/c&amp;aacute;i trở l&amp;ecirc;n. Song, cần lưu &amp;yacute; l&amp;agrave; c&amp;aacute;c loại m&amp;aacute;y c&amp;oacute; thể đ&amp;aacute;p ứng c&amp;aacute;c loại SIM kh&amp;aacute;c nhau: c&amp;oacute; m&amp;aacute;y chỉ d&amp;ugrave;ng cho SIM standard, c&amp;oacute; m&amp;aacute;y chỉ d&amp;ugrave;ng được cho microSIM hay nanoSIM, c&amp;oacute; m&amp;aacute;y c&amp;oacute; thể d&amp;ugrave;ng cho cả 3 loại. C&amp;aacute;c th&amp;ocirc;ng tin n&amp;agrave;y đều được ghi tr&amp;ecirc;n spec của m&amp;aacute;y, h&amp;atilde;y kiểm tra kỹ để chọn được m&amp;aacute;y th&amp;iacute;ch hợp cho c&amp;aacute;c dịch vụ bạn đ&amp;atilde; chọn ở tr&amp;ecirc;n.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Sau khi đ&amp;atilde; c&amp;oacute; m&amp;aacute;y v&amp;agrave; SIM, mọi việc c&amp;ograve;n lại chỉ l&amp;agrave; gh&amp;eacute;p SIM v&amp;agrave;o m&amp;aacute;y v&amp;agrave; sử dụng.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot; style=&quot;text-align: center;&quot;&gt;&lt;img class=&quot;aligncenter&quot; src=&quot;https://lh4.googleusercontent.com/FZ1y6rDaSW11pEz2EjILNLfWsftVc0JjrtZGKg1UMtbfjlgTkmS-wRY2QSaKka3-uJppC8DbZj8Z9GEiablc8IntB7VSAOUbs_K1t8h1uMlWuLA7t8HV2vhHCv2l9DT3VvbORy13jrFZ_-Ea&quot; alt=&quot;tiết kiệm ph&amp;iacute; điện thoại&quot; width=&quot;349px;&quot; height=&quot;77px;&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Nếu bạn đang sử dụng dịch vụ của c&amp;aacute;c h&amp;atilde;ng lớn, sau khi hết thời hạn hợp đồng, bạn c&amp;oacute; thể đăng k&amp;yacute; dịch vụ MNP (Mobile Number Portability) để chuyển sang c&amp;aacute;c mạng kh&amp;aacute;c m&amp;agrave; vẫn giữa nguy&amp;ecirc;n số điện thoại.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Nếu dịch vụ internet đi k&amp;egrave;m kh&amp;ocirc;ng đủ nhanh như bạn mong muốn, bạn c&amp;oacute; thể đăng&amp;nbsp;k&amp;yacute; th&amp;ecirc;m c&amp;aacute;c dịch vụ pocket wifi di động, chi ph&amp;iacute; cũng chỉ khoảng 2,000 y&amp;ecirc;n/th&amp;aacute;ng.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p dir=&quot;ltr&quot;&gt;Trước đ&amp;acirc;y, mỗi th&amp;aacute;ng ad mất khoảng 9,000 y&amp;ecirc;n cho ph&amp;iacute; điện thoại v&amp;agrave; internet, nhưng sau khi chuyển sang c&amp;aacute;ch hiện nay, mỗi th&amp;aacute;ng chỉ c&amp;ograve;n tốn 1,350 y&amp;ecirc;n cho điện thoại v&amp;agrave; 2,160 y&amp;ecirc;n cho pocket wifi, như vậy đ&amp;atilde; tiết kiệm được khoản 5,500 mỗi th&amp;aacute;ng. Trong v&amp;ograve;ng 2 năm, số tiền tiết kiệm được sẽ l&amp;agrave; 13 vạn 2000 y&amp;ecirc;n, một con số kh&amp;aacute; lớn, đ&amp;aacute;ng để suy nghĩ, phải kh&amp;ocirc;ng c&amp;aacute;c bạn?&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&amp;nbsp;&lt;br /&gt;Nguồn: Thanh Nguyễn&lt;/p&gt;', 'bi-quyet-tiet-kiem-phi-dien-thoai-chi-1350-yenthang-o-nhat1', 'BÍ QUYẾT TIẾT KIỆM PHÍ ĐIỆN THOẠI CHỈ 1,350 YÊN/THÁNG Ở NHẬT  | BI QUYET TIET KIEM PHI DIEN THOAI CHI 1,350 YEN/THANG O NHAT ', 'BÍ QUYẾT TIẾT KIỆM PHÍ ĐIỆN THOẠI CHỈ 1,350 YÊN/THÁNG Ở NHẬT , BI QUYET TIET KIEM PHI DIEN THOAI CHI 1,350 YEN/THANG O NHAT ', 'Thật đ&uacute;ng như thế! Nếu bạn chọn dịch vụ của 3 nh&agrave; mạng lớn nhất ở Nhật (Docomo, Au hay Softbank), th&ocirc;ng thường chi ph&iacute; điện thoại di...', 0, 0, 0, 1, 1477014176, 1477014176, 'en');
 
 -- --------------------------------------------------------
 
@@ -14660,12 +14782,12 @@ INSERT INTO `news` (`id`, `item_id`, `group_nav`, `group_id`, `group_related`, `
 -- Table structure for table `news_group`
 --
 
-CREATE TABLE IF NOT EXISTS `news_group` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `news_group` (
+  `id` int(10) UNSIGNED NOT NULL,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
-  `parent_id` int(10) unsigned NOT NULL,
+  `parent_id` int(10) UNSIGNED NOT NULL,
   `group_related` text NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -14684,9 +14806,20 @@ CREATE TABLE IF NOT EXISTS `news_group` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `news_group`
+--
+
+INSERT INTO `news_group` (`id`, `group_id`, `group_nav`, `group_level`, `parent_id`, `group_related`, `picture`, `title`, `short`, `content`, `friendly_link`, `meta_title`, `meta_key`, `meta_desc`, `pic_show`, `type_show`, `num_show`, `is_focus`, `is_show_menu`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
+(5, 5, '5', 1, 0, '', 'news/2016_08/image-duhoc.jpg', 'Du học', '&lt;p&gt;&lt;strong&gt;Du lịch l&amp;agrave;&lt;/strong&gt;&amp;nbsp;đi để vui chơi, giải tr&amp;iacute; hoặc nhằm mục đ&amp;iacute;ch kinh doanh;&amp;nbsp;&lt;strong&gt;l&amp;agrave;&lt;/strong&gt;&amp;nbsp;việc thực hiện chuyến đi khỏi nơi cư tr&amp;uacute;, c&amp;oacute; ti&amp;ecirc;u tiền, c&amp;oacute; lưu tr&amp;uacute; qua đ&amp;ecirc;m v&amp;agrave; c&amp;oacute; sự trở về.&lt;/p&gt;', '', 'du-hoc', 'Du học | Du hoc', 'Du học, Du hoc', '', 'grid', 'list_item', 0, 0, 0, 3, 1, 1471164980, 1471166964, 'vi'),
+(6, 5, '5', 1, 0, '', 'news/2016_08/image-duhoc.jpg', 'Du học', '', '', 'du-hoc-nhat-ngu2', 'Du học | Du hoc', 'Du học, Du hoc', '', 'grid', 'list_item', 0, 0, 0, 3, 1, 1471164980, 1471166964, 'en'),
+(7, 7, '7', 1, 0, '', 'news/2016_08/1_1.jpg', 'Lao Động', '&lt;p&gt;&lt;strong&gt;Lao động l&amp;agrave;&lt;/strong&gt;&amp;nbsp;sự ti&amp;ecirc;u d&amp;ugrave;ng sức&amp;nbsp;&lt;strong&gt;lao động&lt;/strong&gt;&amp;nbsp;trong hiện thực.&amp;nbsp;&lt;strong&gt;Lao động l&amp;agrave;&lt;/strong&gt;&amp;nbsp;hoạt&amp;nbsp;&lt;strong&gt;động&lt;/strong&gt;&amp;nbsp;c&amp;oacute; mục đ&amp;iacute;ch, c&amp;oacute; &amp;yacute; thức của con người nhằm tọa ra c&amp;aacute;c sản phẩm phục vụ cho c&amp;aacute;c nhu cầu của đời sống XH.&lt;/p&gt;', '', 'lao-dong', 'Lao Động | Lao Dong', 'Lao Động, Lao Dong', '', 'grid', 'list_item', 0, 0, 0, 2, 1, 1471164992, 1471166545, 'vi'),
+(8, 7, '7', 1, 0, '', 'news/2016_08/1_1.jpg', 'Lao Động', '', '', 'lao-dong1', 'Lao Động | Lao Dong', 'Lao Động, Lao Dong', '', 'grid', 'list_item', 0, 0, 0, 2, 1, 1471164992, 1471166545, 'en'),
+(9, 9, '9', 1, 0, '', 'news/2016_08/image-thuongmai.png', 'Thương mại', '&lt;p&gt;&lt;strong&gt;Thương mại l&amp;agrave;&lt;/strong&gt;&amp;nbsp;hoạt động trao đổi của cải, h&amp;agrave;ng h&amp;oacute;a, dịch vụ, kiến thức, tiền tệ v.v giữa hai hay nhiều đối t&amp;aacute;c, v&amp;agrave; c&amp;oacute; thể nhận&amp;nbsp;&lt;strong&gt;lại&lt;/strong&gt;&amp;nbsp;một gi&amp;aacute; trị n&amp;agrave;o đ&amp;oacute; (bằng tiền th&amp;ocirc;ng qua gi&amp;aacute; cả) hay bằng h&amp;agrave;ng h&amp;oacute;a, dịch vụ kh&amp;aacute;c như trong h&amp;igrave;nh thức&amp;nbsp;&lt;strong&gt;thương mại&lt;/strong&gt;&amp;nbsp;h&amp;agrave;ng đổi h&amp;agrave;ng (barter).&lt;/p&gt;', '', 'thuong-mai', 'Thương mại | Thuong mai', 'Thương mại, Thuong mai', '', 'grid', 'list_item', 0, 0, 0, 1, 1, 1471165001, 1471166953, 'vi'),
+(10, 9, '9', 1, 0, '', 'news/2016_08/image-thuongmai.png', 'Thương mại', '', '', 'thuong-mai-dien-2', 'Thương mại | Thuong mai', 'Thương mại, Thuong mai', '', 'grid', 'list_item', 0, 0, 0, 1, 1, 1471165001, 1471166953, 'en');
 
 -- --------------------------------------------------------
 
@@ -14694,18 +14827,17 @@ CREATE TABLE IF NOT EXISTS `news_group` (
 -- Table structure for table `news_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `news_setting` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `news_setting` (
+  `id` int(11) NOT NULL,
   `news_meta_title` varchar(250) NOT NULL,
   `news_meta_key` text NOT NULL,
   `news_meta_desc` text NOT NULL,
   `img_list_w` int(11) NOT NULL DEFAULT '100',
   `img_list_h` int(11) NOT NULL DEFAULT '100',
-  `num_list` int(10) unsigned NOT NULL DEFAULT '10',
+  `num_list` int(10) UNSIGNED NOT NULL DEFAULT '10',
   `num_order_detail` int(11) NOT NULL DEFAULT '10',
-  `lang` varchar(10) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `lang` varchar(10) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `news_setting`
@@ -14721,9 +14853,9 @@ INSERT INTO `news_setting` (`id`, `news_meta_title`, `news_meta_key`, `news_meta
 -- Table structure for table `order_method`
 --
 
-CREATE TABLE IF NOT EXISTS `order_method` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `method_id` int(10) unsigned NOT NULL,
+CREATE TABLE `order_method` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `method_id` int(10) UNSIGNED NOT NULL,
   `name_action` varchar(50) NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -14733,9 +14865,8 @@ CREATE TABLE IF NOT EXISTS `order_method` (
   `is_show` tinyint(2) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `order_method`
@@ -14753,9 +14884,9 @@ INSERT INTO `order_method` (`id`, `method_id`, `name_action`, `picture`, `title`
 -- Table structure for table `order_shipping`
 --
 
-CREATE TABLE IF NOT EXISTS `order_shipping` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `shipping_id` int(10) unsigned NOT NULL,
+CREATE TABLE `order_shipping` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `shipping_id` int(10) UNSIGNED NOT NULL,
   `picture` varchar(250) NOT NULL,
   `price` float NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -14764,9 +14895,8 @@ CREATE TABLE IF NOT EXISTS `order_shipping` (
   `is_show` tinyint(2) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `order_shipping`
@@ -14782,10 +14912,10 @@ INSERT INTO `order_shipping` (`id`, `shipping_id`, `picture`, `price`, `title`, 
 -- Table structure for table `page`
 --
 
-CREATE TABLE IF NOT EXISTS `page` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `page` (
+  `id` int(10) UNSIGNED NOT NULL,
   `item_id` int(11) NOT NULL,
-  `group_id` int(10) unsigned NOT NULL,
+  `group_id` int(10) UNSIGNED NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_related` text NOT NULL,
   `picture` varchar(250) NOT NULL,
@@ -14804,9 +14934,8 @@ CREATE TABLE IF NOT EXISTS `page` (
   `is_focus3` tinyint(4) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=63 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `page`
@@ -14819,20 +14948,16 @@ INSERT INTO `page` (`id`, `item_id`, `group_id`, `group_nav`, `group_related`, `
 (6, 5, 3, '3', '', 'page/2016_01/archive_img_2.jpg-1450838787703.jpg', 'Sứ mệnh của chúng tôi', '&lt;p&gt;S&amp;aacute;ng tạo c&amp;oacute; hiệu quả, triển khai đ&amp;uacute;ng hạn &amp;amp; kiểm định chất lượng chặt chẽ trước khi ho&amp;agrave;n th&amp;agrave;nh c&amp;ocirc;ng tr&amp;igrave;nh.&lt;/p&gt;', '&lt;p&gt;S&amp;aacute;ng tạo c&amp;oacute; hiệu quả, triển khai đ&amp;uacute;ng hạn &amp;amp; kiểm định chất lượng chặt chẽ trước khi ho&amp;agrave;n th&amp;agrave;nh c&amp;ocirc;ng tr&amp;igrave;nh.&lt;/p&gt;', 'su-menh-cua-chung-toi1', 'Sứ mệnh của chúng tôi | Su menh cua chung toi', 'Sứ mệnh của chúng tôi, Su menh cua chung toi', 'S&aacute;ng tạo c&oacute; hiệu quả, triển khai đ&uacute;ng hạn &amp; kiểm định chất lượng chặt chẽ trước khi ho&agrave;n th&agrave;nh c&ocirc;ng tr&igrave;nh.', 0, 1, 0, 0, 0, 0, 1452401738, 1452401795, 'en'),
 (7, 7, 3, '3', '', 'page/2016_01/archive_img_3.jpg-1450838787703.jpg', 'Quy trình chuyên nghiệp', '&lt;p&gt;R&amp;uacute;t ngắn thời gian triển khai dự &amp;aacute;n.&lt;/p&gt;', '&lt;div class=&quot;container clearfix&quot;&gt;\r\n&lt;div class=&quot;col_one_third nobottommargin col_last&quot;&gt;\r\n&lt;div class=&quot;feature-box media-box&quot;&gt;\r\n&lt;div class=&quot;fbox-desc&quot;&gt;\r\n&lt;p&gt;Tu&amp;acirc;n thủ quy tr&amp;igrave;nh quy tr&amp;igrave;nh đạt chuẩn quốc tế nhằm hạn chế chi ph&amp;iacute; ph&amp;aacute;t sinh tối đa cho kh&amp;aacute;ch h&amp;agrave;ng.&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;', 'quy-trinh-chuyen-nghiep', 'Quy trình chuyên nghiệp | Quy trinh chuyen nghiep', 'Quy trình chuyên nghiệp, Quy trinh chuyen nghiep', 'Tuân thủ quy trình quy trình đạt chuẩn quốc tế nhằm hạn chế chi phí phát sinh tối đa cho khách hàng.', 0, 1, 0, 0, 0, 0, 1452401779, 1452401820, 'vi'),
 (8, 7, 3, '3', '', 'page/2016_01/archive_img_3.jpg-1450838787703.jpg', 'Quy trình chuyên nghiệp', '&lt;p&gt;R&amp;uacute;t ngắn thời gian triển khai dự &amp;aacute;n.&lt;/p&gt;', '&lt;div class=&quot;container clearfix&quot;&gt;\r\n&lt;div class=&quot;col_one_third nobottommargin col_last&quot;&gt;\r\n&lt;div class=&quot;feature-box media-box&quot;&gt;\r\n&lt;div class=&quot;fbox-desc&quot;&gt;\r\n&lt;p&gt;Tu&amp;acirc;n thủ quy tr&amp;igrave;nh quy tr&amp;igrave;nh đạt chuẩn quốc tế nhằm hạn chế chi ph&amp;iacute; ph&amp;aacute;t sinh tối đa cho kh&amp;aacute;ch h&amp;agrave;ng.&lt;/p&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;\r\n&lt;/div&gt;', 'quy-trinh-chuyen-nghiep1', 'Quy trình chuyên nghiệp | Quy trinh chuyen nghiep', 'Quy trình chuyên nghiệp, Quy trinh chuyen nghiep', '\r\n\r\n\r\n\r\nTu&acirc;n thủ quy tr&igrave;nh quy tr&igrave;nh đạt chuẩn quốc tế nhằm hạn chế chi ph&iacute; ph&aacute;t sinh tối đa cho kh&aacute;ch h&agrave;ng.\r\n\r\n\r\n\r\n', 0, 1, 0, 0, 0, 0, 1452401779, 1452401820, 'en'),
-(9, 9, 0, '', '', '', 'Nội dung công việc', '', '', 'noi-dung-cong-viec', 'Nội dung công việc | Noi dung cong viec', 'Nội dung công việc, Noi dung cong viec', '', 0, 1, 0, 0, 0, 0, 1453016733, 1453016733, 'vi'),
-(10, 9, 0, '', '', '', 'Nội dung công việc', '', '', 'noi-dung-cong-viec1', 'Nội dung công việc | Noi dung cong viec', 'Nội dung công việc, Noi dung cong viec', '', 0, 1, 0, 0, 0, 0, 1453016733, 1453016733, 'en'),
-(11, 11, 0, '', '', '', 'Thông tin liên lạc', '', '', 'thong-tin-lien-lac', 'Thông tin liên lạc | Thong tin lien lac', 'Thông tin liên lạc, Thong tin lien lac', '', 0, 1, 0, 0, 0, 0, 1453016751, 1453016751, 'vi'),
-(12, 11, 0, '', '', '', 'Thông tin liên lạc', '', '', 'thong-tin-lien-lac1', 'Thông tin liên lạc | Thong tin lien lac', 'Thông tin liên lạc, Thong tin lien lac', '', 0, 1, 0, 0, 0, 0, 1453016751, 1453016751, 'en'),
+(11, 11, 0, '', '', '', 'Thông tin liên lạc', '', '&lt;address&gt;\r\n&lt;p&gt;&lt;strong&gt;Trụ sở ch&amp;iacute;nh tại Nhật Bản:&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;HONDABAC COMPANY&lt;/strong&gt;&lt;br /&gt;546-0022 Osaka-fu osaka-shi higashisumiyoshi-ku sunjiyata 8-3-23&lt;br /&gt;&lt;strong&gt;TEL&lt;/strong&gt;:　+81-6-6704-0668　　&lt;strong&gt;FAX&lt;/strong&gt;:　+81-6-6704-0669&lt;br /&gt;**************************************************&lt;br /&gt;代表者　潘　成仁&lt;br /&gt;携帯　080-3783-5083&lt;br /&gt;&lt;a href=&quot;http://www.hondabac.com&quot;&gt;www.hondabac.com&lt;/a&gt;&lt;br /&gt;&lt;a href=&quot;http://www.hondabac.co.jp&quot;&gt;www.hondabac.co.jp&lt;/a&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Trụ sở tại HCM, VN:&lt;/strong&gt;&lt;br /&gt;Sei Jin Vinacorp&lt;br /&gt;123A L&amp;ecirc; Trung Nghĩa, P12, TB.&lt;br /&gt;&lt;strong&gt;Tel&lt;/strong&gt;: (08)38119158 &lt;strong&gt;Fax&lt;/strong&gt;: (08)38119159&lt;br /&gt;&lt;strong&gt;Mobile&lt;/strong&gt;: 0902 554 767&lt;/p&gt;\r\n&lt;/address&gt;', 'thong-tin-lien-lac', 'Thông tin liên lạc | Thong tin lien lac', 'Thông tin liên lạc, Thong tin lien lac', 'THE COMPANY HEAD OFFICE IN VIET NAMSei Jin Vinacorp 123A Lê Trung Nghĩa, P. 12, Q. Tân Bình, Tp.HCM.\r\nĐiện thoại: (08) 38119158Email: seijinvn@gmail.comMobile: 0902...', 0, 1, 0, 0, 0, 0, 1453016751, 1462590624, 'vi'),
+(12, 11, 0, '', '', '', 'Thông tin liên lạc', '', '', 'thong-tin-lien-lac1', 'Thông tin liên lạc | Thong tin lien lac', 'Thông tin liên lạc, Thong tin lien lac', '', 0, 1, 0, 0, 0, 0, 1453016751, 1462590624, 'en'),
 (13, 13, 0, '', '', '', 'Giới thiệu Tour', '', '', 'gioi-thieu-tour', 'Giới thiệu Tour | Gioi thieu Tour', 'Giới thiệu Tour, Gioi thieu Tour', '', 0, 1, 0, 0, 0, 0, 1453016765, 1453016765, 'vi'),
 (14, 13, 0, '', '', '', 'Giới thiệu Tour', '', '', 'gioi-thieu-tour1', 'Giới thiệu Tour | Gioi thieu Tour', 'Giới thiệu Tour, Gioi thieu Tour', '', 0, 1, 0, 0, 0, 0, 1453016765, 1453016765, 'en'),
 (15, 15, 0, '', '', '', 'Giới thiệu địa điểm du lịch', '', '', 'gioi-thieu-dia-diem-du-lich', 'Giới thiệu địa điểm du lịch | Gioi thieu dia diem du lich', 'Giới thiệu địa điểm du lịch, Gioi thieu dia diem du lich', '', 0, 1, 0, 0, 0, 0, 1453016836, 1453016836, 'vi'),
 (16, 15, 0, '', '', '', 'Giới thiệu địa điểm du lịch', '', '', 'gioi-thieu-dia-diem-du-lich1', 'Giới thiệu địa điểm du lịch | Gioi thieu dia diem du lich', 'Giới thiệu địa điểm du lịch, Gioi thieu dia diem du lich', '', 0, 1, 0, 0, 0, 0, 1453016836, 1453016836, 'en'),
-(17, 17, 0, '', '', '', 'Giới thiệu các trường Nhật ngữ', '', '&lt;p&gt;&lt;img src=&quot;/uploads/page/2016_03/DU-HOC-NHAT-BAN_3.jpg&quot; alt=&quot;Trường học tại Nhật&quot; width=&quot;2067&quot; height=&quot;1518&quot; /&gt;&lt;/p&gt;', 'gioi-thieu-cac-truong-nhat-ngu', 'Giới thiệu các trường Nhật ngữ | Gioi thieu cac truong Nhat ngu', 'Giới thiệu các trường Nhật ngữ, Gioi thieu cac truong Nhat ngu', '', 0, 1, 0, 0, 0, 0, 1453016846, 1458355014, 'vi'),
-(18, 17, 0, '', '', '', 'Giới thiệu các trường Nhật ngữ', '', '', 'gioi-thieu-cac-truong-nhat-ngu1', 'Giới thiệu các trường Nhật ngữ | Gioi thieu cac truong Nhat ngu', 'Giới thiệu các trường Nhật ngữ, Gioi thieu cac truong Nhat ngu', '', 0, 1, 0, 0, 0, 0, 1453016846, 1458355014, 'en'),
-(19, 19, 0, '', '', '', 'Thủ tục hồ sơ du học', '', '&lt;p&gt;&lt;img src=&quot;/uploads/page/2016_03/DU-HOC-NHAT-BAN_2.jpg&quot; alt=&quot;Thủ tục hồ sơ&quot; width=&quot;2067&quot; height=&quot;1516&quot; /&gt;&lt;/p&gt;', 'thu-tuc-ho-so-du-hoc', 'Thủ tục hồ sơ du học | Thu tuc ho so du hoc', 'Thủ tục hồ sơ du học, Thu tuc ho so du hoc', '', 0, 1, 0, 0, 0, 0, 1453016856, 1458355268, 'vi'),
-(20, 19, 0, '', '', '', 'Thủ tục hồ sơ du học', '', '', 'thu-tuc-ho-so-du-hoc1', 'Thủ tục hồ sơ du học | Thu tuc ho so du hoc', 'Thủ tục hồ sơ du học, Thu tuc ho so du hoc', '', 0, 1, 0, 0, 0, 0, 1453016856, 1458355268, 'en'),
-(21, 21, 0, '', '', '', 'Hổ trợ việc làm nhà ở tại Nhật', '', '', 'ho-tro-viec-lam-nha-o-tai-nhat', 'Hổ trợ việc làm nhà ở tại Nhật | Ho tro viec lam nha o tai Nhat', 'Hổ trợ việc làm nhà ở tại Nhật, Ho tro viec lam nha o tai Nhat', '', 0, 1, 0, 0, 0, 0, 1453016865, 1453016865, 'vi'),
-(22, 21, 0, '', '', '', 'Hổ trợ việc làm nhà ở tại Nhật', '', '', 'ho-tro-viec-lam-nha-o-tai-nhat1', 'Hổ trợ việc làm nhà ở tại Nhật | Ho tro viec lam nha o tai Nhat', 'Hổ trợ việc làm nhà ở tại Nhật, Ho tro viec lam nha o tai Nhat', '', 0, 1, 0, 0, 0, 0, 1453016865, 1453016865, 'en'),
+(17, 17, 0, '', '', '', 'Giới thiệu các trường Nhật ngữ', '', '&lt;p&gt;&lt;img src=&quot;/uploads/page/2016_04/4.jpg&quot; alt=&quot;&quot; width=&quot;2067&quot; height=&quot;1518&quot; /&gt;&lt;/p&gt;', 'gioi-thieu-cac-truong-nhat-ngu', 'Giới thiệu các trường Nhật ngữ | Gioi thieu cac truong Nhat ngu', 'Giới thiệu các trường Nhật ngữ, Gioi thieu cac truong Nhat ngu', '', 0, 1, 0, 0, 0, 0, 1453016846, 1461343449, 'vi'),
+(18, 17, 0, '', '', '', 'Giới thiệu các trường Nhật ngữ', '', '', 'gioi-thieu-cac-truong-nhat-ngu1', 'Giới thiệu các trường Nhật ngữ | Gioi thieu cac truong Nhat ngu', 'Giới thiệu các trường Nhật ngữ, Gioi thieu cac truong Nhat ngu', '', 0, 1, 0, 0, 0, 0, 1453016846, 1461343449, 'en'),
+(19, 19, 0, '', '', '', 'Thủ tục hồ sơ du học', '', '&lt;p&gt;&lt;img src=&quot;/uploads/page/2016_04/3.jpg&quot; alt=&quot;&quot; width=&quot;2067&quot; height=&quot;1516&quot; /&gt;&lt;/p&gt;', 'thu-tuc-ho-so-du-hoc', 'Thủ tục hồ sơ du học | Thu tuc ho so du hoc', 'Thủ tục hồ sơ du học, Thu tuc ho so du hoc', '', 0, 1, 0, 0, 0, 0, 1453016856, 1461343432, 'vi'),
+(20, 19, 0, '', '', '', 'Thủ tục hồ sơ du học', '', '', 'thu-tuc-ho-so-du-hoc1', 'Thủ tục hồ sơ du học | Thu tuc ho so du hoc', 'Thủ tục hồ sơ du học, Thu tuc ho so du hoc', '', 0, 1, 0, 0, 0, 0, 1453016856, 1461343432, 'en'),
 (23, 23, 0, '', '', '', 'Thiết bị công nghiệp', '', '', 'thiet-bi-cong-nghiep2', 'Thiết bị công nghiệp | Thiet bi cong nghiep', 'Thiết bị công nghiệp, Thiet bi cong nghiep', '', 0, 1, 0, 0, 0, 0, 1453016876, 1453016876, 'vi'),
 (24, 23, 0, '', '', '', 'Thiết bị công nghiệp', '', '', 'thiet-bi-cong-nghiep3', 'Thiết bị công nghiệp | Thiet bi cong nghiep', 'Thiết bị công nghiệp, Thiet bi cong nghiep', '', 0, 1, 0, 0, 0, 0, 1453016876, 1453016876, 'en'),
 (25, 25, 0, '', '', '', 'Thiết bị nông nghiệp', '', '', 'thiet-bi-nong-nghiep2', 'Thiết bị nông nghiệp | Thiet bi nong nghiep', 'Thiết bị nông nghiệp, Thiet bi nong nghiep', '', 0, 1, 0, 0, 0, 0, 1453016885, 1453016885, 'vi'),
@@ -14841,14 +14966,14 @@ INSERT INTO `page` (`id`, `item_id`, `group_id`, `group_nav`, `group_related`, `
 (28, 27, 0, '', '', '', 'Xe cơ giới', '', '', 'xe-co-gioi3', 'Xe cơ giới | Xe co gioi', 'Xe cơ giới, Xe co gioi', '', 0, 1, 0, 0, 0, 0, 1453016893, 1453016893, 'en'),
 (29, 29, 0, '', '', '', 'Ngành xây dựng', '', '', 'nganh-xay-dung2', 'Ngành xây dựng | Nganh xay dung', 'Ngành xây dựng, Nganh xay dung', '', 0, 1, 0, 0, 0, 0, 1453016901, 1453016901, 'vi'),
 (30, 29, 0, '', '', '', 'Ngành xây dựng', '', '', 'nganh-xay-dung3', 'Ngành xây dựng | Nganh xay dung', 'Ngành xây dựng, Nganh xay dung', '', 0, 1, 0, 0, 0, 0, 1453016901, 1453016901, 'en'),
-(31, 31, 0, '', '', '', 'Kỹ sư', '', '', 'ky-su', 'Kỹ sư | Ky su', 'Kỹ sư, Ky su', '', 0, 1, 0, 0, 0, 0, 1453016912, 1453016912, 'vi'),
-(32, 31, 0, '', '', '', 'Kỹ sư', '', '', 'ky-su1', 'Kỹ sư | Ky su', 'Kỹ sư, Ky su', '', 0, 1, 0, 0, 0, 0, 1453016912, 1453016912, 'en'),
+(31, 31, 0, '', '', '', 'Kỹ sư', '', '&lt;p&gt;&lt;strong&gt;1. Điều kiện:&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; 1. Giới t&amp;iacute;nh&amp;nbsp; Nam&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; 2. Học vấn : Tốt nghiệp cao đẳng hoặc đại học&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; 3. Chuy&amp;ecirc;n ngh&amp;agrave;nh : Cơ kh&amp;iacute; , Điện, X&amp;acirc;y dựng.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; 4. Tuổi : 23t～&lt;/p&gt;\r\n&lt;p&gt;　　　5. Năng lực Tiếng Nhật Tối thiểu N4(đ&amp;agrave;m thoại tương đương N3)&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp; ※&lt;em&gt;　&lt;/em&gt;&lt;em&gt;Điều kiện kh&amp;aacute;c : C&amp;oacute; nguyện vọng sống v&amp;agrave; l&amp;agrave;m việc l&amp;acirc;u d&amp;agrave;i tại Nhật&lt;/em&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;2. Điều kiện l&amp;agrave;m việc&lt;/strong&gt;&lt;/p&gt;\r\n&lt;ol&gt;\r\n&lt;li&gt;&amp;nbsp; Lương : &amp;nbsp;9000yen/1ngay～（180.000yen/1thang&lt;/li&gt;\r\n&lt;li&gt;&amp;nbsp; Tuần : 5-6 ng&amp;agrave;y , (thứ 7 nghỉ c&amp;aacute;ch tuần ), 8h/ng&amp;agrave;y.&lt;/li&gt;\r\n&lt;li&gt;&amp;nbsp; Nếu c&amp;oacute; tăng ca sẽ nh&amp;acirc;n hệ số lương theo quy định&lt;/li&gt;\r\n&lt;li&gt;&amp;nbsp; Tham gia c&amp;aacute;c bảo hiểm y tế v&amp;agrave; c&amp;aacute;c ph&amp;uacute;c lợi x&amp;atilde; hội&lt;/li&gt;\r\n&lt;/ol&gt;\r\n&lt;p&gt;※&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;em&gt;Ứng vi&amp;ecirc;n sau khi được x&amp;eacute;t hồ sơ tuyển dụng- đạt kết quả phỏng vấn, sẽ ưu ti&amp;ecirc;n tiến h&amp;agrave;nh l&amp;agrave;m thủ tục xin Visa trước .Đến Nhật trong thời gian sớm nhất c&amp;oacute; thể . Đến Nhật 1-3 th&amp;aacute;ng c&amp;oacute; thể phải chờ để sắp xếp đến c&amp;aacute;c xưởng th&amp;iacute;ch hợp để l&amp;agrave;m việc (Trong thời gian chờ việc c&amp;ocirc;ng ty sẽ hỗ trợ c&amp;aacute;c điều kiện ở v&amp;agrave; sinh hoạt)&lt;/em&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;3. Hồ sơ:&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;em&gt;A . C&amp;aacute;c Giấy tờ cần thiết khi xin Visa&lt;/em&gt;&lt;/p&gt;\r\n&lt;p&gt;１．Hinh 3x4&amp;nbsp; 2 tam 　　Hinh 4ｘ6　2tam　　　　　　　　&lt;/p&gt;\r\n&lt;p&gt;２．So yeu ly lich c&amp;oacute; h&amp;igrave;nh ( Kyten)&lt;/p&gt;\r\n&lt;p&gt;３．Don chung nhan dang lam viec. (&amp;nbsp; Neu co)&lt;/p&gt;\r\n&lt;p&gt;４．Copy Passport&lt;/p&gt;\r\n&lt;p&gt;５．Copy chung minh nhan dan&lt;/p&gt;\r\n&lt;p&gt;６．Bang Cap Tot nghiep va bang diem （Va cac bang cap khac neu co）&lt;/p&gt;\r\n&lt;p&gt;7. Copy hoso tunghiepsinh truoc day ( neu co) , bao gồm cả SYLL&lt;/p&gt;\r\n&lt;p&gt;8. Ky ten Hop dong lao dong .&lt;/p&gt;\r\n&lt;p&gt;&lt;em&gt;&lt;strong&gt;B . Chi ph&amp;iacute;:&lt;/strong&gt;&amp;nbsp;&lt;strong&gt;5,000 usd&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Địa chỉ:&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;&amp;nbsp;&amp;nbsp; C&amp;ocirc;ng ty CP SEI JIN VIETNAM&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;&amp;nbsp;&amp;nbsp; 123A L&amp;ecirc; Trung Nghĩa, P12, Q.T&amp;acirc;n B&amp;igrave;nh.&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;&amp;nbsp;&amp;nbsp; Điện thoại: 0902 554 767 ( Ms Chi)&lt;/strong&gt;&lt;/p&gt;', 'ky-su', 'Kỹ sư | Ky su', 'Kỹ sư, Ky su', '1. Điều kiện:\r\n&nbsp;&nbsp;&nbsp; 1. Giới t&iacute;nh&nbsp; Nam\r\n&nbsp;&nbsp;&nbsp; 2. Học vấn : Tốt nghiệp cao đẳng hoặc đại học\r\n&nbsp;&nbsp;&nbsp; 3. Chuy&ecirc;n...', 0, 1, 0, 0, 0, 0, 1453016912, 1461171338, 'vi'),
+(32, 31, 0, '', '', '', 'Kỹ sư', '', '', 'ky-su1', 'Kỹ sư | Ky su', 'Kỹ sư, Ky su', '', 0, 1, 0, 0, 0, 0, 1453016912, 1461171338, 'en'),
 (33, 33, 0, '', '', '', 'Tu nghiệp sinh', '', '', 'tu-nghiep-sinh', 'Tu nghiệp sinh | Tu nghiep sinh', 'Tu nghiệp sinh, Tu nghiep sinh', '', 0, 1, 0, 0, 0, 0, 1453016921, 1453016921, 'vi'),
 (34, 33, 0, '', '', '', 'Tu nghiệp sinh', '', '', 'tu-nghiep-sinh1', 'Tu nghiệp sinh | Tu nghiep sinh', 'Tu nghiệp sinh, Tu nghiep sinh', '', 0, 1, 0, 0, 0, 0, 1453016921, 1453016921, 'en'),
 (35, 35, 0, '', '', '', 'Hỗ trợ lấy nenkin', '', '', 'ho-tro-lay-nenkin', 'Hỗ trợ lấy nenkin | Ho tro lay nenkin', 'Hỗ trợ lấy nenkin, Ho tro lay nenkin', '', 0, 1, 0, 0, 0, 0, 1453016933, 1453016933, 'vi'),
 (36, 35, 0, '', '', '', 'Hỗ trợ lấy nenkin', '', '', 'ho-tro-lay-nenkin1', 'Hỗ trợ lấy nenkin | Ho tro lay nenkin', 'Hỗ trợ lấy nenkin, Ho tro lay nenkin', '', 0, 1, 0, 0, 0, 0, 1453016933, 1453016933, 'en'),
-(37, 37, 0, '', '', '', 'Hướng dẫn làm thuế', '', '', 'huong-dan-lam-thue', 'Hướng dẫn làm thuế | Huong dan lam thue', 'Hướng dẫn làm thuế, Huong dan lam thue', '', 0, 1, 0, 0, 0, 0, 1453016942, 1453016942, 'vi'),
-(38, 37, 0, '', '', '', 'Hướng dẫn làm thuế', '', '', 'huong-dan-lam-thue1', 'Hướng dẫn làm thuế | Huong dan lam thue', 'Hướng dẫn làm thuế, Huong dan lam thue', '', 0, 1, 0, 0, 0, 0, 1453016942, 1453016942, 'en'),
+(37, 37, 0, '', '', '', 'Hướng dẫn làm thuế', '', '', 'huong-dan-lam-thue', 'Hướng dẫn làm thuế | Huong dan lam thue', 'Hướng dẫn làm thuế, Huong dan lam thue', '', 0, 0, 0, 0, 0, 0, 1453016942, 1453016942, 'vi'),
+(38, 37, 0, '', '', '', 'Hướng dẫn làm thuế', '', '', 'huong-dan-lam-thue1', 'Hướng dẫn làm thuế | Huong dan lam thue', 'Hướng dẫn làm thuế, Huong dan lam thue', '', 0, 0, 0, 0, 0, 0, 1453016942, 1453016942, 'en'),
 (39, 39, 0, '', '', '', 'Hướng dẫn xin visa', '', '&lt;p&gt;&lt;strong&gt;HỒ SƠ XIN VISA NHẬT BẢN&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;Để chuẩn bị tốt nhất cho việc phỏng vấn xin visa nhập cảnh v&amp;agrave;o Nhật Bản, &lt;strong&gt;VNC TRAVEL&lt;/strong&gt;gởi Qu&amp;yacute; Kh&amp;aacute;ch những th&amp;ocirc;ng tin hồ sơ để chuẩn bị như sau:&lt;/p&gt;\r\n&lt;table class=&quot;csstable2&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;\r\n&lt;p&gt;&lt;strong&gt;1. C&amp;aacute; nh&amp;acirc;n&lt;/strong&gt;&lt;/p&gt;\r\n&lt;/td&gt;\r\n&lt;td style=&quot;padding-left: 30px;&quot; colspan=&quot;2&quot;&gt;&lt;ol&gt;\r\n&lt;li&gt;Hộ chiếu gốc c&amp;ograve;n gi&amp;aacute; trị sử dụng tr&amp;ecirc;n 6 th&amp;aacute;ng tính đ&amp;ecirc;́n ngày k&amp;ecirc;́t thúc chuy&amp;ecirc;́n đi, phải c&amp;oacute; chữ k&amp;iacute; v&amp;agrave; c&amp;ograve;n &amp;iacute;t nhất 3 trang trắng. Nếu từng sử dụng hộ chiếu cũ, xin vui l&amp;ograve;ng k&amp;egrave;m theo bản photo&lt;/li&gt;\r\n&lt;li&gt;2 ảnh khổ 4,5x4,5cm &amp;nbsp;nền trắng (h&amp;igrave;nh chụp kh&amp;ocirc;ng qu&amp;aacute; 6 th&amp;aacute;ng)&lt;/li&gt;\r\n&lt;li&gt;Chứng minh nh&amp;acirc;n d&amp;acirc;n (photo c&amp;oacute; c&amp;ocirc;ng chứng mới nhất )&lt;/li&gt;\r\n&lt;li&gt;Hộ khẩu thường tr&amp;uacute;. (photo c&amp;ocirc;ng chứng đủ tất cả c&amp;aacute;c trang mới nhất)&lt;/li&gt;\r\n&lt;li&gt;Bản sao c&amp;ocirc;ng chứng giấy đăng k&amp;yacute; kết h&amp;ocirc;n (nếu vợ chồng đi c&amp;ugrave;ng nhau).&lt;/li&gt;\r\n&lt;li&gt;Giấy khai sinh (đối với trẻ em dưới 18 tuổi đi chung bố mẹ)&lt;/li&gt;\r\n&lt;li&gt;Form xin visa Nhật Bản&lt;/li&gt;\r\n&lt;/ol&gt;&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td rowspan=&quot;3&quot;&gt;\r\n&lt;p&gt;&lt;strong&gt;2.C&amp;ocirc;ng việc&lt;/strong&gt;&lt;/p&gt;\r\n&lt;/td&gt;\r\n&lt;td&gt;\r\n&lt;p&gt;&lt;strong&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Kh&amp;aacute;ch h&amp;agrave;ng l&amp;agrave; chủ doanh nghiệp&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;/strong&gt;&lt;/p&gt;\r\n&lt;/td&gt;\r\n&lt;td&gt;\r\n&lt;p&gt;&lt;strong&gt;Kh&amp;aacute;ch h&amp;agrave;ng l&amp;agrave; nh&amp;acirc;n vi&amp;ecirc;n&lt;/strong&gt;&lt;/p&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td style=&quot;padding-left: 30px;&quot;&gt;&lt;ol&gt;\r\n&lt;li&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Giấy ph&amp;eacute;p đăng k&amp;yacute; kinh doanh (bản sao c&amp;oacute; chứng thực mới nhất)&lt;/li&gt;\r\n&lt;li&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Quyết to&amp;aacute;n thuế v&amp;agrave; bi&amp;ecirc;n lai nộp thuế 03 th&amp;aacute;ng gần nhất&lt;/li&gt;\r\n&lt;li&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Sao k&amp;ecirc; giao dịch t&amp;agrave;i khoản gần nhất do ng&amp;acirc;n h&amp;agrave;ng x&amp;aacute;c nhận&lt;/li&gt;\r\n&lt;/ol&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;/td&gt;\r\n&lt;td style=&quot;padding-left: 30px;&quot;&gt;&lt;ol&gt;\r\n&lt;li&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Hợp đồng lao động ( Bản sao photo k&amp;egrave;m bản gốc đối chiếu)&lt;/li&gt;\r\n&lt;li&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Giấy xin nghỉ ph&amp;eacute;p của c&amp;ocirc;ng ty c&amp;oacute; đ&amp;oacute;ng mộc tr&amp;ograve;n&lt;/li&gt;\r\n&lt;/ol&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td colspan=&quot;2&quot;&gt;\r\n&lt;ul&gt;\r\n&lt;li&gt;&lt;strong&gt;&lt;em&gt;Kh&amp;aacute;ch l&amp;agrave; người về hưu&lt;/em&gt;&lt;/strong&gt;: Sổ hưu hoặc quyết định hưu tr&amp;iacute; ( bản sao c&amp;ocirc;ng chứng mới nhất )&lt;/li&gt;\r\n&lt;/ul&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;\r\n&lt;p&gt;&lt;strong&gt;3.T&amp;agrave;i ch&amp;iacute;nh&lt;/strong&gt;&lt;/p&gt;\r\n&lt;/td&gt;\r\n&lt;td style=&quot;padding-left: 30px;&quot; colspan=&quot;2&quot;&gt;&lt;ol&gt;\r\n&lt;li&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Sổ tiết kiệm c&amp;oacute; k&amp;igrave; hạn&amp;nbsp; vẫn c&amp;ograve;n hiệu lực sau khi đi tour về, tối thiểu 5,000USD (mang theo sổ gốc đối chiếu)&lt;/li&gt;\r\n&lt;li&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Giấy tờ sở hữu nh&amp;agrave; đất (sao y c&amp;ocirc;ng chứng mới nhất) k&amp;egrave;m sổ gốc đối chiếu.&lt;/li&gt;\r\n&lt;li&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Giấy đăng k&amp;yacute; chủ quyền xe &amp;ocirc; t&amp;ocirc;&amp;nbsp; photo c&amp;ocirc;ng chứng mới nhất (nếu c&amp;oacute;)&lt;/li&gt;\r\n&lt;li&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Hợp đồng cho thu&amp;ecirc; nh&amp;agrave; (nếu c&amp;oacute;)&amp;ndash; photo c&amp;ocirc;ng chứng mới nhất&lt;/li&gt;\r\n&lt;/ol&gt;&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;\r\n&lt;p&gt;&lt;strong&gt;4.Y&amp;ecirc;u cầu kh&amp;aacute;c&lt;/strong&gt;&lt;/p&gt;\r\n&lt;/td&gt;\r\n&lt;td colspan=&quot;2&quot;&gt;\r\n&lt;p&gt;Trong qu&amp;aacute; tr&amp;igrave;nh x&amp;eacute;t duyệt visa, nếu LSQ cần bổ sung th&amp;ecirc;m hồ sơ chứng minh kh&amp;aacute;c, qu&amp;yacute; kh&amp;aacute;ch vui l&amp;ograve;ng bổ sung th&amp;ecirc;m.&lt;/p&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;', 'huong-dan-xin-visa', 'Hướng dẫn xin visa | Huong dan xin visa', 'Hướng dẫn xin visa, Huong dan xin visa', 'HỒ SƠ XIN VISA NHẬT BẢN\r\nĐể chuẩn bị tốt nhất cho việc phỏng vấn xin visa nhập cảnh vào Nhật Bản, VNC TRAVELgởi Quý Khách những thông...', 0, 1, 0, 0, 0, 0, 1453016949, 1456153011, 'vi'),
 (40, 39, 0, '', '', '', 'Hướng dẫn xin visa', '', '', 'huong-dan-xin-visa1', 'Hướng dẫn xin visa | Huong dan xin visa', 'Hướng dẫn xin visa, Huong dan xin visa', '', 0, 1, 0, 0, 0, 0, 1453016949, 1456153011, 'en'),
 (41, 41, 0, '', '', '', 'Dịch thuật giấy tờ Việt Nhật', '', '', 'dich-thuat-giay-to-viet-nhat', 'Dịch thuật giấy tờ Việt Nhật | Dich thuat giay to Viet Nhat', 'Dịch thuật giấy tờ Việt Nhật, Dich thuat giay to Viet Nhat', '', 0, 1, 0, 0, 0, 0, 1453016971, 1453016971, 'vi'),
@@ -14873,10 +14998,16 @@ INSERT INTO `page` (`id`, `item_id`, `group_id`, `group_nav`, `group_related`, `
 INSERT INTO `page` (`id`, `item_id`, `group_id`, `group_nav`, `group_related`, `picture`, `title`, `short`, `content`, `friendly_link`, `meta_title`, `meta_key`, `meta_desc`, `show_order`, `is_show`, `is_focus`, `is_focus1`, `is_focus2`, `is_focus3`, `date_create`, `date_update`, `lang`) VALUES
 (57, 57, 0, '', '', '', 'Lâu đài osaka', '', '&lt;p&gt;&lt;strong&gt;&lt;img style=&quot;display: block; margin-left: auto; margin-right: auto;&quot; src=&quot;/uploads/page/2016_02/img1.jpg&quot; alt=&quot;&quot; width=&quot;970&quot; height=&quot;330&quot; /&gt;&lt;br /&gt;&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;L&amp;acirc;u đ&amp;agrave;i Osaka&lt;/strong&gt; (Osakajou) l&amp;agrave; một điểm du lịch nổi tiếng của Nhật Bản v&amp;agrave; l&amp;agrave; biểu tượng ch&amp;iacute;nh của th&amp;agrave;nh phố Osaka, bao gồm mười ba cấu tr&amp;uacute;c đ&amp;atilde; được chỉ định l&amp;agrave; di sản văn h&amp;oacute;a quan trọng của ch&amp;iacute;nh phủ Nhật Bản.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&lt;img style=&quot;display: block; margin-left: auto; margin-right: auto;&quot; src=&quot;/uploads/page/2016_02/Osaka-02.jpg&quot; alt=&quot;&quot; width=&quot;749&quot; height=&quot;260&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;L&amp;acirc;u đ&amp;agrave;i Osaka được x&amp;acirc;y dựng v&amp;agrave;o cuối Thế kỷ 16 bởi Toyotomi Hideyoshi, một vị l&amp;atilde;nh ch&amp;uacute;a nổi tiếng đ&amp;atilde; cai trị to&amp;agrave;n bộ đất nước Nhật Bản trong những năm 1590.&lt;/p&gt;\r\n&lt;p&gt;Sau chiến thắng năm 1615 giữa Tướng qu&amp;acirc;n Tokugawa v&amp;agrave; người thừa kế l&amp;acirc;u đ&amp;agrave;i Toyotomi Hideyori, t&amp;ograve;a th&amp;aacute;p ch&amp;iacute;nh cao, gồm 5 tầng ngo&amp;agrave;i v&amp;agrave; 8 tầng b&amp;ecirc;n trong n&amp;agrave;y c&amp;ograve;n phải trải qua nhiều đợt x&amp;acirc;y dựng lại, sau lần s&amp;eacute;t đ&amp;aacute;nh ch&amp;aacute;y năm 1665 v&amp;agrave; những cuộc giao tranh khốc liệt 1868, trận n&amp;eacute;m bom 1945.&lt;/p&gt;\r\n&lt;p&gt;&lt;br /&gt;&lt;img style=&quot;display: block; margin-left: auto; margin-right: auto;&quot; src=&quot;/uploads/page/2016_02/lau-dai-osaka1.jpg&quot; alt=&quot;&quot; width=&quot;800&quot; height=&quot;450&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Lần tr&amp;ugrave;ng tu cuối để kh&amp;ocirc;i phục vẻ tr&amp;aacute;ng lệ thời Edo vốn c&amp;oacute; l&amp;agrave; năm 1995-1997, L&amp;acirc;u đ&amp;agrave;i Osaka c&amp;oacute; chiều cao khoảng 40m, c&amp;oacute; tổng cộng 8 tầng, từ tầng một l&amp;ecirc;n tầng bảy l&amp;agrave; nơi trưng b&amp;agrave;y c&amp;aacute;c loại vũ kh&amp;iacute;, &amp;aacute;o gi&amp;aacute;p v&amp;agrave; c&amp;aacute;c vật dụng d&amp;acirc;n gian của thế kỷ trước. Ri&amp;ecirc;ng tầng 8 được thiết kế như một đ&amp;agrave;i quan s&amp;aacute;t v&amp;agrave; ngắm cảnh. M&amp;aacute;i ng&amp;oacute;i của 8 tầng lầu được thiết kế theo phong c&amp;aacute;ch truyền thống Nhật Bản v&amp;agrave; tất cả đều được mạ v&amp;agrave;ng r&amp;ograve;ng.&lt;/p&gt;\r\n&lt;p&gt;&lt;img style=&quot;display: block; margin-left: auto; margin-right: auto;&quot; src=&quot;/uploads/page/2016_02/du_lich_tokyo_-_osaka_-_senvang.jpg&quot; alt=&quot;&quot; width=&quot;800&quot; height=&quot;588&quot; /&gt;&lt;/p&gt;\r\n&lt;p&gt;Xung quanh l&amp;acirc;u đ&amp;agrave;i Osaka l&amp;agrave; một c&amp;ocirc;ng vi&amp;ecirc;n rộng lớn với diện t&amp;iacute;ch khoảng 60,000 m&amp;eacute;t vu&amp;ocirc;ng, được bao phủ bởi những rặng anh đ&amp;agrave;o. V&amp;agrave;o m&amp;ugrave;a xu&amp;acirc;n, nơi đ&amp;acirc;y trở th&amp;agrave;nh một trong những địa điểm đẹp nhất để ngắm hoa anh đ&amp;agrave;o ở Nhật Bản.&lt;/p&gt;\r\n&lt;p&gt;V&amp;agrave;o m&amp;ugrave;a h&amp;egrave;, d&amp;ograve;ng s&amp;ocirc;ng Okawa ở ph&amp;iacute;a T&amp;acirc;y Bắc của l&amp;acirc;u đ&amp;agrave;i trở th&amp;agrave;nh s&amp;acirc;n khấu ch&amp;iacute;nh cho lễ hội Tenjin-matsuri, một trong ba lễ hội lớn nhất của Nhật Bản. Lễ hội n&amp;agrave;y được tổ chức ho&amp;agrave;nh tr&amp;aacute;ng với hơn 100 đội thuyền đi dọc d&amp;ograve;ng s&amp;ocirc;ng c&amp;ugrave;ng với những m&amp;agrave;n ph&amp;aacute;o hoa rực rỡ&amp;hellip;&amp;nbsp;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Ở ph&amp;iacute;a Bắc l&amp;acirc;u đ&amp;agrave;i Osaka l&amp;agrave; c&amp;ocirc;ng vi&amp;ecirc;n Sakura-no-miya-koen, nằm tr&amp;ecirc;n bờ ph&amp;iacute;a đ&amp;ocirc;ng của s&amp;ocirc;ng Okawa. C&amp;ocirc;ng vi&amp;ecirc;n n&amp;agrave;y v&amp;ocirc; c&amp;ugrave;ng nổi tiếng với những vườn hoa anh đ&amp;agrave;o tuyệt đẹp.&amp;nbsp;&lt;/p&gt;\r\n&lt;div class=&quot;clear&quot;&gt;&amp;nbsp;&lt;/div&gt;', 'lau-dai-osaka', 'Lâu đài osaka | Lau dai osaka', 'Lâu đài osaka, Lau dai osaka', 'Lâu đài Osaka (Osakajou) là một điểm du lịch nổi tiếng của Nhật Bản và là biểu tượng chính của thành phố Osaka, bao gồm...', 0, 1, 0, 0, 0, 0, 1456153296, 1456666288, 'vi'),
 (58, 57, 0, '', '', '', 'Lâu đài osaka', '', '&lt;p&gt;&lt;strong&gt;&lt;img src=&quot;/hondabac/uploads/page/2016_02/img1.jpg&quot; alt=&quot;&quot; width=&quot;970&quot; height=&quot;330&quot; /&gt;&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;L&amp;acirc;u đ&amp;agrave;i Osaka&lt;/strong&gt; (Osakajou) l&amp;agrave; một điểm du lịch nổi tiếng của Nhật Bản v&amp;agrave; l&amp;agrave; biểu tượng ch&amp;iacute;nh của th&amp;agrave;nh phố Osaka, bao gồm mười ba cấu tr&amp;uacute;c đ&amp;atilde; được chỉ định l&amp;agrave; di sản văn h&amp;oacute;a quan trọng của ch&amp;iacute;nh phủ Nhật Bản.&lt;/p&gt;\r\n&lt;p&gt;&lt;img src=&quot;/hondabac/uploads/page/2016_02/img2.jpg&quot; alt=&quot;&quot; width=&quot;259&quot; height=&quot;194&quot; /&gt;L&amp;acirc;u đ&amp;agrave;i Osaka được x&amp;acirc;y dựng v&amp;agrave;o cuối Thế kỷ 16 bởi Toyotomi Hideyoshi, một vị l&amp;atilde;nh ch&amp;uacute;a nổi tiếng đ&amp;atilde; cai trị to&amp;agrave;n bộ đất nước Nhật Bản trong những năm 1590.&lt;/p&gt;\r\n&lt;p&gt;Sau chiến thắng năm 1615 giữa Tướng qu&amp;acirc;n Tokugawa v&amp;agrave; người thừa kế l&amp;acirc;u đ&amp;agrave;i Toyotomi Hideyori, t&amp;ograve;a th&amp;aacute;p ch&amp;iacute;nh cao, gồm 5 tầng ngo&amp;agrave;i v&amp;agrave; 8 tầng b&amp;ecirc;n trong n&amp;agrave;y c&amp;ograve;n phải trải qua nhiều đợt x&amp;acirc;y dựng lại, sau lần s&amp;eacute;t đ&amp;aacute;nh ch&amp;aacute;y năm 1665 v&amp;agrave; những cuộc giao tranh khốc liệt 1868, trận n&amp;eacute;m bom 1945.&lt;/p&gt;\r\n&lt;p&gt;Lần tr&amp;ugrave;ng tu cuối để kh&amp;ocirc;i phục vẻ tr&amp;aacute;ng lệ thời Edo vốn c&amp;oacute; l&amp;agrave; năm 1995-1997, L&amp;acirc;u đ&amp;agrave;i Osaka c&amp;oacute; chiều cao khoảng 40m, c&amp;oacute; tổng cộng 8 tầng, từ tầng một l&amp;ecirc;n tầng bảy l&amp;agrave; nơi trưng b&amp;agrave;y c&amp;aacute;c loại vũ kh&amp;iacute;, &amp;aacute;o gi&amp;aacute;p v&amp;agrave; c&amp;aacute;c vật dụng d&amp;acirc;n gian của thế kỷ trước. Ri&amp;ecirc;ng tầng 8 được thiết kế như một đ&amp;agrave;i quan s&amp;aacute;t v&amp;agrave; ngắm cảnh. M&amp;aacute;i ng&amp;oacute;i của 8 tầng lầu được thiết kế theo phong c&amp;aacute;ch truyền thống Nhật Bản v&amp;agrave; tất cả đều được mạ v&amp;agrave;ng r&amp;ograve;ng.&lt;/p&gt;\r\n&lt;p&gt;Xung quanh l&amp;acirc;u đ&amp;agrave;i Osaka l&amp;agrave; một c&amp;ocirc;ng vi&amp;ecirc;n rộng lớn với diện t&amp;iacute;ch khoảng 60,000 m&amp;eacute;t vu&amp;ocirc;ng, được bao phủ bởi những rặng anh đ&amp;agrave;o. V&amp;agrave;o m&amp;ugrave;a xu&amp;acirc;n, nơi đ&amp;acirc;y trở th&amp;agrave;nh một trong những địa điểm đẹp nhất để ngắm hoa anh đ&amp;agrave;o ở Nhật Bản.&lt;/p&gt;\r\n&lt;p&gt;V&amp;agrave;o m&amp;ugrave;a h&amp;egrave;, d&amp;ograve;ng s&amp;ocirc;ng Okawa ở ph&amp;iacute;a T&amp;acirc;y Bắc của l&amp;acirc;u đ&amp;agrave;i trở th&amp;agrave;nh s&amp;acirc;n khấu ch&amp;iacute;nh cho lễ hội Tenjin-matsuri, một trong ba lễ hội lớn nhất của Nhật Bản. Lễ hội n&amp;agrave;y được tổ chức ho&amp;agrave;nh tr&amp;aacute;ng với hơn 100 đội thuyền đi dọc d&amp;ograve;ng s&amp;ocirc;ng c&amp;ugrave;ng với những m&amp;agrave;n ph&amp;aacute;o hoa rực rỡ&amp;hellip;&amp;nbsp;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;Ở ph&amp;iacute;a Bắc l&amp;acirc;u đ&amp;agrave;i Osaka l&amp;agrave; c&amp;ocirc;ng vi&amp;ecirc;n Sakura-no-miya-koen, nằm tr&amp;ecirc;n bờ ph&amp;iacute;a đ&amp;ocirc;ng của s&amp;ocirc;ng Okawa. C&amp;ocirc;ng vi&amp;ecirc;n n&amp;agrave;y v&amp;ocirc; c&amp;ugrave;ng nổi tiếng với những vườn hoa anh đ&amp;agrave;o tuyệt đẹp.&amp;nbsp;&lt;/p&gt;', 'lau-dai-osaka1', 'Lâu đài osaka | Lau dai osaka', 'Lâu đài osaka, Lau dai osaka', '\r\nL&acirc;u đ&agrave;i Osaka (Osakajou) l&agrave; một điểm du lịch nổi tiếng của Nhật Bản v&agrave; l&agrave; biểu tượng ch&iacute;nh của th&agrave;nh phố Osaka, bao gồm...', 0, 1, 0, 0, 0, 0, 1456153296, 1456666288, 'en'),
-(59, 59, 0, '', '', '', 'Du học Nhật ngữ', '', '&lt;p&gt;&lt;img src=&quot;/uploads/page/2016_03/DU-HOC-NHAT-BAN_1.jpg&quot; alt=&quot;Du học Nhật ngữ&quot; width=&quot;2067&quot; height=&quot;1522&quot; /&gt;&lt;/p&gt;', 'du-hoc-nhat-ngu', 'Du học Nhật ngữ | Du hoc Nhat ngu', 'Du học Nhật ngữ, Du hoc Nhat ngu', '', 0, 1, 0, 0, 0, 0, 1458355371, 1458355371, 'vi'),
-(60, 59, 0, '', '', '', 'Du học Nhật ngữ', '', '&lt;p&gt;&lt;img src=&quot;/uploads/page/2016_03/DU-HOC-NHAT-BAN_1.jpg&quot; alt=&quot;Du học Nhật ngữ&quot; width=&quot;2067&quot; height=&quot;1522&quot; /&gt;&lt;/p&gt;', 'du-hoc-nhat-ngu1', 'Du học Nhật ngữ | Du hoc Nhat ngu', 'Du học Nhật ngữ, Du hoc Nhat ngu', '', 0, 1, 0, 0, 0, 0, 1458355371, 1458355371, 'en'),
-(61, 61, 0, '', '', '', 'Kỹ thuật viên làm việc tại Nhật', '', '&lt;p&gt;&lt;strong&gt;1. Điều kiện:&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; 1. Giới t&amp;iacute;nh&amp;nbsp; Nam&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; 2. Học vấn : Tốt nghiệp cao đẳng hoặc đại học&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; 3. Chuy&amp;ecirc;n ngh&amp;agrave;nh : Cơ kh&amp;iacute; , Điện, X&amp;acirc;y dựng.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; 4. Tuổi : 23t～&lt;/p&gt;\r\n&lt;p&gt;　　　5. Năng lực Tiếng Nhật Tối thiểu N4(đ&amp;agrave;m thoại tương đương N3)&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp; ※&lt;em&gt;　&lt;/em&gt;&lt;em&gt;Điều kiện kh&amp;aacute;c : C&amp;oacute; nguyện vọng sống v&amp;agrave; l&amp;agrave;m việc l&amp;acirc;u d&amp;agrave;i tại Nhật&lt;/em&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;2. Điều kiện l&amp;agrave;m việc&lt;/strong&gt;&lt;/p&gt;\r\n&lt;ol&gt;\r\n&lt;li&gt;&amp;nbsp; Lương : &amp;nbsp;9000yen/1ngay～（180.000yen/1thang&lt;/li&gt;\r\n&lt;li&gt;&amp;nbsp; Tuần : 5-6 ng&amp;agrave;y , (thứ 7 nghỉ c&amp;aacute;ch tuần ), 8h/ng&amp;agrave;y.&lt;/li&gt;\r\n&lt;li&gt;&amp;nbsp; Nếu c&amp;oacute; tăng ca sẽ nh&amp;acirc;n hệ số lương theo quy định&lt;/li&gt;\r\n&lt;li&gt;&amp;nbsp; Tham gia c&amp;aacute;c bảo hiểm y tế v&amp;agrave; c&amp;aacute;c ph&amp;uacute;c lợi x&amp;atilde; hội&lt;/li&gt;\r\n&lt;/ol&gt;\r\n&lt;p&gt;※&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;em&gt;Ứng vi&amp;ecirc;n sau khi được x&amp;eacute;t hồ sơ tuyển dụng- đạt kết quả phỏng vấn, sẽ ưu ti&amp;ecirc;n tiến h&amp;agrave;nh l&amp;agrave;m thủ tục xin Visa trước .Đến Nhật trong thời gian sớm nhất c&amp;oacute; thể . Đến Nhật 1-3 th&amp;aacute;ng c&amp;oacute; thể phải chờ để sắp xếp đến c&amp;aacute;c xưởng th&amp;iacute;ch hợp để l&amp;agrave;m việc (Trong thời gian chờ việc c&amp;ocirc;ng ty sẽ hỗ trợ c&amp;aacute;c điều kiện ở v&amp;agrave; sinh hoạt)&lt;/em&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;3. Hồ sơ:&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;em&gt;A . C&amp;aacute;c Giấy tờ cần thiết khi xin Visa &lt;/em&gt;&lt;/p&gt;\r\n&lt;p&gt;１．Hinh 3x4&amp;nbsp; 2 tam 　　Hinh 4ｘ6　2tam　　　　　　　　&lt;/p&gt;\r\n&lt;p&gt;２．So yeu ly lich c&amp;oacute; h&amp;igrave;nh ( Kyten)&lt;/p&gt;\r\n&lt;p&gt;３．Don chung nhan dang lam viec. (&amp;nbsp; Neu co)&lt;/p&gt;\r\n&lt;p&gt;４．Copy Passport&lt;/p&gt;\r\n&lt;p&gt;５．Copy chung minh nhan dan&lt;/p&gt;\r\n&lt;p&gt;６．Bang Cap Tot nghiep va bang diem （Va cac bang cap khac neu co）&lt;/p&gt;\r\n&lt;p&gt;7. Copy hoso tunghiepsinh truoc day ( neu co) , bao gồm cả SYLL&lt;/p&gt;\r\n&lt;p&gt;8. Ky ten Hop dong lao dong .&lt;/p&gt;\r\n&lt;p&gt;&lt;em&gt;&lt;strong&gt;B . Chi ph&amp;iacute;:&lt;/strong&gt; &lt;strong&gt;5,000 usd&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Địa chỉ: &lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;&amp;nbsp;&amp;nbsp; C&amp;ocirc;ng ty CP SEI JIN VIETNAM&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;&amp;nbsp;&amp;nbsp; 123A L&amp;ecirc; Trung Nghĩa, P12, Q.T&amp;acirc;n B&amp;igrave;nh.&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;&amp;nbsp;&amp;nbsp; Điện thoại: 0902 554 767 ( Ms Chi)&lt;/strong&gt;&lt;/p&gt;', 'ky-thuat-vien-lam-viec-tai-nhat', 'Kỹ thuật viên làm việc tại Nhật | Ky thuat vien lam viec tai Nhat', 'Kỹ thuật viên làm việc tại Nhật, Ky thuat vien lam viec tai Nhat', '1. Điều kiện:\r\n    1. Giới tính  Nam\r\n    2. Học vấn : Tốt nghiệp cao đẳng hoặc đại học\r\n    3. Chuyên...', 0, 1, 0, 0, 0, 0, 1458355822, 1458356006, 'vi'),
-(62, 61, 0, '', '', '', 'Kỹ thuật viên làm việc tại Nhật', '', '&lt;p&gt;&lt;strong&gt;1. Điều kiện:&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; 1. Giới t&amp;iacute;nh&amp;nbsp; Nam&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; 2. Học vấn : Tốt nghiệp cao đẳng hoặc đại học&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; 3. Chuy&amp;ecirc;n ngh&amp;agrave;nh : Cơ kh&amp;iacute; , Điện, X&amp;acirc;y dựng.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; 4. Tuổi : 23t～&lt;/p&gt;\r\n&lt;p&gt;　　　5. Năng lực Tiếng Nhật Tối thiểu N4(đ&amp;agrave;m thoại tương đương N3)&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp; ※&lt;em&gt;　&lt;/em&gt;&lt;em&gt;Điều kiện kh&amp;aacute;c : C&amp;oacute; nguyện vọng sống v&amp;agrave; l&amp;agrave;m việc l&amp;acirc;u d&amp;agrave;i tại Nhật&lt;/em&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;2. Điều kiện l&amp;agrave;m việc&lt;/strong&gt;&lt;/p&gt;\r\n&lt;ol&gt;\r\n&lt;li&gt;&amp;nbsp; Lương : &amp;nbsp;9000yen/1ngay～（180.000yen/1thang&lt;/li&gt;\r\n&lt;li&gt;&amp;nbsp; Tuần : 5-6 ng&amp;agrave;y , (thứ 7 nghỉ c&amp;aacute;ch tuần ), 8h/ng&amp;agrave;y.&lt;/li&gt;\r\n&lt;li&gt;&amp;nbsp; Nếu c&amp;oacute; tăng ca sẽ nh&amp;acirc;n hệ số lương theo quy định&lt;/li&gt;\r\n&lt;li&gt;&amp;nbsp; Tham gia c&amp;aacute;c bảo hiểm y tế v&amp;agrave; c&amp;aacute;c ph&amp;uacute;c lợi x&amp;atilde; hội&lt;/li&gt;\r\n&lt;/ol&gt;\r\n&lt;p&gt;※&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;em&gt;Ứng vi&amp;ecirc;n sau khi được x&amp;eacute;t hồ sơ tuyển dụng- đạt kết quả phỏng vấn, sẽ ưu ti&amp;ecirc;n tiến h&amp;agrave;nh l&amp;agrave;m thủ tục xin Visa trước .Đến Nhật trong thời gian sớm nhất c&amp;oacute; thể . Đến Nhật 1-3 th&amp;aacute;ng c&amp;oacute; thể phải chờ để sắp xếp đến c&amp;aacute;c xưởng th&amp;iacute;ch hợp để l&amp;agrave;m việc (Trong thời gian chờ việc c&amp;ocirc;ng ty sẽ hỗ trợ c&amp;aacute;c điều kiện ở v&amp;agrave; sinh hoạt)&lt;/em&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;3. Hồ sơ:&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;em&gt;A . C&amp;aacute;c Giấy tờ cần thiết khi xin Visa &lt;/em&gt;&lt;/p&gt;\r\n&lt;p&gt;１．Hinh 3x4&amp;nbsp; 2 tam 　　Hinh 4ｘ6　2tam　　　　　　　　&lt;/p&gt;\r\n&lt;p&gt;２．So yeu ly lich c&amp;oacute; h&amp;igrave;nh ( Kyten)&lt;/p&gt;\r\n&lt;p&gt;３．Don chung nhan dang lam viec. (&amp;nbsp; Neu co)&lt;/p&gt;\r\n&lt;p&gt;４．Copy Passport&lt;/p&gt;\r\n&lt;p&gt;５．Copy chung minh nhan dan&lt;/p&gt;\r\n&lt;p&gt;６．Bang Cap Tot nghiep va bang diem （Va cac bang cap khac neu co）&lt;/p&gt;\r\n&lt;p&gt;7. Copy hoso tunghiepsinh truoc day ( neu co) , bao gồm cả SYLL&lt;/p&gt;\r\n&lt;p&gt;8. Ky ten Hop dong lao dong .&lt;/p&gt;\r\n&lt;p&gt;&lt;em&gt;B . Chi ph&amp;iacute;: &lt;strong&gt;5,000 usd&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;Địa chỉ: &lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;&amp;nbsp;&amp;nbsp; C&amp;ocirc;ng ty CP SEI JIN VIETNAM&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;&amp;nbsp;&amp;nbsp; 123A L&amp;ecirc; Trung Nghĩa, P12, Q.T&amp;acirc;n B&amp;igrave;nh.&lt;/strong&gt;&lt;/p&gt;\r\n&lt;p&gt;&lt;strong&gt;&amp;nbsp;&amp;nbsp; Điện thoại: 0902 554 767 ( Ms Chi)&lt;/strong&gt;&lt;/p&gt;', 'ky-thuat-vien-lam-viec-tai-nhat1', 'Kỹ thuật viên làm việc tại Nhật | Ky thuat vien lam viec tai Nhat', 'Kỹ thuật viên làm việc tại Nhật, Ky thuat vien lam viec tai Nhat', '1. Điều kiện:\r\n&nbsp;&nbsp;&nbsp; 1. Giới t&iacute;nh&nbsp; Nam\r\n&nbsp;&nbsp;&nbsp; 2. Học vấn : Tốt nghiệp cao đẳng hoặc đại học\r\n&nbsp;&nbsp;&nbsp; 3. Chuy&ecirc;n...', 0, 1, 0, 0, 0, 0, 1458355822, 1458356006, 'en');
+(59, 59, 0, '', '', '', 'Du học Nhật ngữ', '', '&lt;p&gt;&lt;img src=&quot;/uploads/page/2016_04/2.jpg&quot; alt=&quot;&quot; width=&quot;2067&quot; height=&quot;1522&quot; /&gt;&lt;/p&gt;', 'du-hoc-nhat-ngu', 'Du học Nhật ngữ | Du hoc Nhat ngu', 'Du học Nhật ngữ, Du hoc Nhat ngu', '', 0, 1, 0, 0, 0, 0, 1458355371, 1461343410, 'vi'),
+(60, 59, 0, '', '', '', 'Du học Nhật ngữ', '', '&lt;p&gt;&lt;img src=&quot;/uploads/page/2016_03/DU-HOC-NHAT-BAN_1.jpg&quot; alt=&quot;Du học Nhật ngữ&quot; width=&quot;2067&quot; height=&quot;1522&quot; /&gt;&lt;/p&gt;', 'du-hoc-nhat-ngu1', 'Du học Nhật ngữ | Du hoc Nhat ngu', 'Du học Nhật ngữ, Du hoc Nhat ngu', '', 0, 1, 0, 0, 0, 0, 1458355371, 1461343410, 'en'),
+(63, 63, 0, '', '', '', 'Hoạt động chính', '', '&lt;p&gt;Sei Jin VN &amp;amp; Hondabac do c&amp;aacute;c cựu du học sinh v&amp;agrave; kỹ thuật vi&amp;ecirc;n đang sinh sống v&amp;agrave; l&amp;agrave;m việc tại Nhật th&amp;agrave;nh lập, c&amp;oacute; bề d&amp;agrave;y kinh nghiệm về tư vấn du học, dịch vụ visa, giới thiệu việc l&amp;agrave;m, du lịch, cung cấp thiết bị điện tử, dịch vụ ho&amp;agrave;n thuế Nenkin tại Nhật Bản, x&amp;uacute;c tiến thương mại v&amp;agrave; hoạt động xuất nhập khẩu tr&amp;ecirc;n 10 năm.&lt;/p&gt;\r\n&lt;p&gt;Về tư vấn du học: ch&amp;uacute;ng t&amp;ocirc;i hiểu r&amp;otilde; t&amp;acirc;m tư, nguyện vọng của c&amp;aacute;c bạn, hướng dẫn cụ thể thủ tục, tư vấn tận t&amp;igrave;nh, chọn trường ph&amp;ugrave; hợp tr&amp;igrave;nh độ, năng lực v&amp;agrave; khả năng t&amp;agrave;i ch&amp;iacute;nh, hỗ trợ giới thiệu việc l&amp;agrave;m v&amp;agrave; c&amp;aacute;c dịch vụ kh&amp;aacute;c khi sinh sống tại Nhật, cập nhật t&amp;igrave;nh h&amp;igrave;nh học tập với phụ huynh ở VN. Với mối li&amp;ecirc;n kết hơn 50 trường tr&amp;ecirc;n to&amp;agrave;n quốc gia Nhật Bản, ch&amp;uacute;ng t&amp;ocirc;i ho&amp;agrave;n to&amp;agrave;n c&amp;oacute; thể đ&amp;aacute;p ứng theo nhu cầu nguyện vọng học tập của c&amp;aacute;c bạn trẻ.&lt;/p&gt;\r\n&lt;p&gt;Về giới thiệu việc l&amp;agrave;m tại Nhật: l&amp;agrave; đối t&amp;aacute;c cung ứng lớn cho c&amp;aacute;c c&amp;ocirc;ng ty tại Nhật bản, ch&amp;uacute;ng t&amp;ocirc;i đ&amp;atilde; giới thiệu, m&amp;ocirc;i giới cho rất nhiều bạn trẻ đến Nhật l&amp;agrave;m việc v&amp;agrave; sinh sống, ph&amp;aacute;t triển nghề nghiệp tại đ&amp;acirc;y.&lt;/p&gt;\r\n&lt;p&gt;Dịch vụ visa: với bề d&amp;agrave;y kinh nghiệm hơn 10 năm đ&amp;atilde; đang l&amp;agrave;m thỏa m&amp;atilde;n v&amp;agrave; đ&amp;aacute;p ứng y&amp;ecirc;u cầu của tất cả c&amp;aacute;c bạn, c&amp;aacute;c dịch vụ xin v&amp;agrave; chuyển đổi visa lao động, visa định cư, thủ tục kết h&amp;ocirc;n, thủ tục gia hạn visa, v.v...&lt;/p&gt;\r\n&lt;p&gt;Thiết bị điện tử: ch&amp;uacute;ng t&amp;ocirc;i cung cấp sỉ, lẻ đa dạng c&amp;aacute;c loại điện thoại, thiết bị viễn th&amp;ocirc;ng tại Nhật Bản v&amp;agrave; Việt Nam.&lt;/p&gt;', 'hoat-dong-chinh', 'Hoạt động chính | Hoat dong chinh', 'Hoạt động chính, Hoat dong chinh', 'Sei Jin VN &amp; Hondabac do c&aacute;c cựu du học sinh v&agrave; kỹ thuật vi&ecirc;n đang sinh sống v&agrave; l&agrave;m việc tại Nhật th&agrave;nh lập, c&oacute; bề d&agrave;y...', 0, 1, 0, 0, 0, 0, 1461171031, 1462590418, 'vi'),
+(64, 63, 0, '', '', '', 'Hoạt động chính', '', '', 'hoat-dong-chinh1', 'Hoạt động chính | Hoat dong chinh', 'Hoạt động chính, Hoat dong chinh', '', 0, 1, 0, 0, 0, 0, 1461171031, 1462590418, 'en'),
+(65, 65, 0, '', '', '', 'Giới thiệu công ty', '', '&lt;p&gt;&lt;strong&gt;Sứ mệnh của ch&amp;uacute;ng t&amp;ocirc;i&lt;br /&gt;&lt;/strong&gt;&lt;br /&gt;&amp;ldquo; Sứ mệnh của&amp;nbsp;ch&amp;uacute;ng t&amp;ocirc;i&amp;nbsp;l&amp;agrave; trở th&amp;agrave;nh một c&amp;ocirc;ng ty kinh doanh, thiết kế những dịch vụ phục vụ cho ng&amp;agrave;nh CNTT h&amp;agrave;ng đầu Việt Nam. Phục vụ tốt nhất những kh&amp;aacute;ch h&amp;agrave;ng trong thị trường m&amp;agrave; c&amp;ocirc;ng ty c&amp;oacute; được&amp;rdquo;.&lt;br /&gt;&lt;strong&gt;&lt;br /&gt;Triết l&amp;yacute; của ch&amp;uacute;ng t&amp;ocirc;i&lt;br /&gt;&lt;/strong&gt;&lt;br /&gt;Kh&amp;aacute;ch h&amp;agrave;ng l&amp;agrave; gi&amp;aacute; trị cơ bản của bất kỳ doanh nghiệp n&amp;agrave;o, l&amp;agrave; l&amp;yacute; do duy nhất để doanh nghiệp tồn tại v&amp;agrave; ph&amp;aacute;t triển. Ch&amp;iacute;nh s&amp;aacute;ch &quot;kh&amp;aacute;ch h&amp;agrave;ng l&amp;agrave; trung t&amp;acirc;m&quot; chỉ lối dẫn đường cho mọi hoạt động của c&amp;ocirc;ng ty.&lt;/p&gt;\r\n&lt;p&gt;Ch&amp;uacute;ng t&amp;ocirc;i lắng nghe, ph&amp;acirc;n t&amp;iacute;ch v&amp;agrave; thấu hiểu nhu cầu của từng kh&amp;aacute;ch h&amp;agrave;ng v&amp;agrave; &amp;aacute;p dụng kinh nghiệm, kỹ năng, tư duy của m&amp;igrave;nh để giải quyết tối ưu những nhu cầu đ&amp;oacute;, gi&amp;uacute;p chủ doanh nghiệp tập trung v&amp;agrave;o c&amp;aacute;c hoạt động kinh doanh cốt l&amp;otilde;i của m&amp;igrave;nh. Mỗi kh&amp;aacute;ch h&amp;agrave;ng l&amp;agrave; một vi&amp;ecirc;n gạch x&amp;acirc;y l&amp;ecirc;n gi&amp;aacute; trị của c&amp;ocirc;ng ty.&amp;nbsp;&lt;/p&gt;', 'gioi-thieu-cong-ty-4', 'Giới thiệu công ty | Gioi thieu cong ty', 'Giới thiệu công ty, Gioi thieu cong ty', 'Sứ mệnh của ch&uacute;ng t&ocirc;i&ldquo; Sứ mệnh của&nbsp;ch&uacute;ng t&ocirc;i&nbsp;l&agrave; trở th&agrave;nh một c&ocirc;ng ty kinh doanh, thiết kế những dịch vụ phục...', 0, 1, 0, 0, 0, 0, 1482552203, 1482552203, 'vi'),
+(66, 65, 0, '', '', '', 'Giới thiệu công ty', '', '&lt;p&gt;&lt;strong&gt;Sứ mệnh của ch&amp;uacute;ng t&amp;ocirc;i&lt;br /&gt;&lt;/strong&gt;&lt;br /&gt;&amp;ldquo; Sứ mệnh của&amp;nbsp;ch&amp;uacute;ng t&amp;ocirc;i&amp;nbsp;l&amp;agrave; trở th&amp;agrave;nh một c&amp;ocirc;ng ty kinh doanh, thiết kế những dịch vụ phục vụ cho ng&amp;agrave;nh CNTT h&amp;agrave;ng đầu Việt Nam. Phục vụ tốt nhất những kh&amp;aacute;ch h&amp;agrave;ng trong thị trường m&amp;agrave; c&amp;ocirc;ng ty c&amp;oacute; được&amp;rdquo;.&lt;br /&gt;&lt;strong&gt;&lt;br /&gt;Triết l&amp;yacute; của ch&amp;uacute;ng t&amp;ocirc;i&lt;br /&gt;&lt;/strong&gt;&lt;br /&gt;Kh&amp;aacute;ch h&amp;agrave;ng l&amp;agrave; gi&amp;aacute; trị cơ bản của bất kỳ doanh nghiệp n&amp;agrave;o, l&amp;agrave; l&amp;yacute; do duy nhất để doanh nghiệp tồn tại v&amp;agrave; ph&amp;aacute;t triển. Ch&amp;iacute;nh s&amp;aacute;ch &quot;kh&amp;aacute;ch h&amp;agrave;ng l&amp;agrave; trung t&amp;acirc;m&quot; chỉ lối dẫn đường cho mọi hoạt động của c&amp;ocirc;ng ty.&lt;/p&gt;\r\n&lt;p&gt;Ch&amp;uacute;ng t&amp;ocirc;i lắng nghe, ph&amp;acirc;n t&amp;iacute;ch v&amp;agrave; thấu hiểu nhu cầu của từng kh&amp;aacute;ch h&amp;agrave;ng v&amp;agrave; &amp;aacute;p dụng kinh nghiệm, kỹ năng, tư duy của m&amp;igrave;nh để giải quyết tối ưu những nhu cầu đ&amp;oacute;, gi&amp;uacute;p chủ doanh nghiệp tập trung v&amp;agrave;o c&amp;aacute;c hoạt động kinh doanh cốt l&amp;otilde;i của m&amp;igrave;nh. Mỗi kh&amp;aacute;ch h&amp;agrave;ng l&amp;agrave; một vi&amp;ecirc;n gạch x&amp;acirc;y l&amp;ecirc;n gi&amp;aacute; trị của c&amp;ocirc;ng ty.&amp;nbsp;&lt;/p&gt;', 'gioi-thieu-cong-ty-5', 'Giới thiệu công ty | Gioi thieu cong ty', 'Giới thiệu công ty, Gioi thieu cong ty', 'Sứ mệnh của ch&uacute;ng t&ocirc;i&ldquo; Sứ mệnh của&nbsp;ch&uacute;ng t&ocirc;i&nbsp;l&agrave; trở th&agrave;nh một c&ocirc;ng ty kinh doanh, thiết kế những dịch vụ phục...', 0, 1, 0, 0, 0, 0, 1482552203, 1482552203, 'en'),
+(67, 67, 0, '', '', '', 'Câu hỏi thường gặp phỏng vấn', '', '&lt;h3&gt;C&amp;acirc;u hỏi 14: Bạn c&amp;oacute; phải l&amp;agrave; người giỏi l&amp;agrave;m việc theo nh&amp;oacute;m?&lt;/h3&gt;\r\n&lt;p&gt;C&amp;aacute;ch trả lời: Nh&amp;agrave; tuyển dụng kỳ vọng v&amp;agrave; c&amp;acirc;u trả lời C&amp;Oacute;, v&amp;igrave; vậy h&amp;atilde;y chuẩn bị cho c&amp;acirc;u trả lời n&amp;agrave;y bằng những minh họa về việc bạn đ&amp;atilde; th&amp;agrave;nh c&amp;ocirc;ng như thế n&amp;agrave;o khi l&amp;agrave;m việc theo nh&amp;oacute;m, v&amp;iacute; dụ giải quyết th&amp;agrave;nh c&amp;ocirc;ng dự &amp;aacute;n A cho c&amp;ocirc;ng ty, gi&amp;uacute;p tăng hiệu quả cho dự &amp;aacute;n B&amp;hellip;&lt;/p&gt;\r\n&lt;h3&gt;C&amp;acirc;u hỏi 15: Triết l&amp;yacute; trong c&amp;ocirc;ng việc của bạn l&amp;agrave; g&amp;igrave;?&lt;/h3&gt;\r\n&lt;p&gt;C&amp;aacute;ch trả lời: Tuy c&amp;acirc;u hỏi c&amp;oacute; vẻ &amp;ldquo;cao si&amp;ecirc;u&amp;rdquo;, nhưng h&amp;atilde;y trả lời ở mức độ đơn giản nhất. H&amp;atilde;y n&amp;oacute;i tới những gi&amp;aacute; trị c&amp;ocirc;ng việc m&amp;agrave; bạn hướng tới, đồng thời gắn n&amp;oacute; với tập thể, với c&amp;ocirc;ng ty.&lt;/p&gt;\r\n&lt;h3&gt;C&amp;acirc;u hỏi 16: Bạn th&amp;iacute;ch vị tr&amp;iacute; n&amp;agrave;o trong nh&amp;oacute;m nếu được tuyển dụng v&amp;agrave;o dự &amp;aacute;n X của ch&amp;uacute;ng t&amp;ocirc;i?&lt;/h3&gt;\r\n&lt;p&gt;C&amp;aacute;ch xử l&amp;yacute;: H&amp;atilde;y n&amp;oacute;i một c&amp;aacute;ch kh&amp;eacute;o l&amp;eacute;o v&amp;agrave; ngụ &amp;yacute; rằng bạn l&amp;agrave; người linh hoạt v&amp;agrave; tr&amp;aacute;ch nhiệm, cho d&amp;ugrave; l&amp;agrave; vị tr&amp;iacute; nh&amp;acirc;n vi&amp;ecirc;n hay trưởng nh&amp;oacute;m th&amp;igrave; quan trọng l&amp;agrave; hiệu quả cuối c&amp;ugrave;ng.&lt;/p&gt;\r\n&lt;h3&gt;C&amp;acirc;u hỏi 17: Những điều g&amp;igrave; từ ph&amp;iacute;a đồng nghiệp khiến bạn kh&amp;oacute; chịu?&lt;/h3&gt;\r\n&lt;p&gt;C&amp;aacute;ch trả lời: C&amp;oacute; thể bạn kh&amp;oacute; chịu với một số t&amp;iacute;nh c&amp;aacute;ch nhất định hay thậm ch&amp;iacute; v&amp;ugrave;ng miền, tuy nhi&amp;ecirc;n khi bạn kh&amp;ocirc;ng biết người đang phỏng vấn m&amp;igrave;nh c&amp;oacute; yếu tố đ&amp;oacute; kh&amp;ocirc;ng th&amp;igrave; kh&amp;ocirc;ng n&amp;ecirc;n n&amp;oacute;i ra. Thay v&amp;agrave;o đ&amp;oacute; h&amp;atilde;y trả lời rằng kh&amp;oacute; chịu hay kh&amp;ocirc;ng do c&amp;aacute;ch m&amp;igrave;nh nh&amp;igrave;n nhận v&amp;agrave; giải quyết vấn đề, v&amp;agrave; cho d&amp;ugrave; kh&amp;oacute; chịu th&amp;igrave; bạn cũng vẫn phải l&amp;agrave;m việc v&amp;agrave; giải quyết c&amp;ocirc;ng việc ổn thỏa.&lt;/p&gt;\r\n&lt;h3&gt;C&amp;acirc;u hỏi 18: Tại sao bạn nghĩ l&amp;agrave; bạn ph&amp;ugrave; hợp với vị tr&amp;iacute; đ&amp;oacute;?&lt;/h3&gt;\r\n&lt;p&gt;C&amp;aacute;ch trả lời: H&amp;atilde;y nhấn mạnh v&amp;agrave;o một số kỹ năng của bạn ph&amp;ugrave; hợp với c&amp;ocirc;ng việc v&amp;agrave; khả năng cũng như kinh nghiệm giải quyết một số vấn đề kh&amp;oacute; khăn tương tự bạn đ&amp;atilde; từng trải qua.&lt;/p&gt;\r\n&lt;h3&gt;C&amp;acirc;u hỏi 19: Điều g&amp;igrave; quan trọng hơn đối với bạn: C&amp;ocirc;ng việc hay tiền?&lt;/h3&gt;\r\n&lt;p&gt;C&amp;aacute;ch trả lời: Cả hai đều quan trọng v&amp;agrave; bạn cần sự c&amp;acirc;n bằng giữa 2 yếu tố đ&amp;oacute;. H&amp;atilde;y cho họ biết ra ngo&amp;agrave;i ra bạn cũng mong muốn c&amp;oacute; được th&amp;agrave;nh quả tốt cho c&amp;ocirc;ng ty.&lt;/p&gt;', 'cau-hoi-thuong-gap-phong-van', 'Câu hỏi thường gặp phỏng vấn | Cau hoi thuong gap phong van', 'Câu hỏi thường gặp phỏng vấn, Cau hoi thuong gap phong van', 'Câu hỏi 14: Bạn có phải là người giỏi làm việc theo nhóm?\r\n \r\nCách trả lời: Nhà tuyển dụng kỳ vọng và câu...', 0, 1, 0, 0, 0, 0, 1482556045, 1482556158, 'vi'),
+(69, 69, 0, '', '', '', 'Thông dịch viên', '', '&lt;header&gt;\r\n&lt;p&gt;&lt;strong&gt;TTO - * Em rất th&amp;iacute;ch tiếng Anh v&amp;agrave; th&amp;iacute;ch những c&amp;ocirc;ng việc hướng ngoại. Em c&amp;oacute; ngoại h&amp;igrave;nh ổn, c&amp;oacute; khả năng n&amp;oacute;i trước đ&amp;aacute;m đ&amp;ocirc;ng. Muốn trở th&amp;agrave;nh th&amp;ocirc;ng dịch vi&amp;ecirc;n hoặc l&amp;agrave;m c&amp;aacute;c c&amp;ocirc;ng việc li&amp;ecirc;n quan đến ngoại giao em n&amp;ecirc;n chọn ng&amp;agrave;nh n&amp;agrave;o? (Phạm Thị Quỳnh Nhung, Thạnh H&amp;oacute;a, Long An).&lt;/strong&gt;&lt;/p&gt;\r\n&lt;/header&gt;\r\n&lt;section&gt;\r\n&lt;p class=&quot;pTitle&quot;&gt;Trở th&amp;agrave;nh th&amp;ocirc;ng dịch vi&amp;ecirc;n, cần phải học g&amp;igrave;?&lt;/p&gt;\r\n&lt;table class=&quot;desc_image slide_content&quot; title=&quot;&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; data-loading-text=&quot;Trở th&amp;agrave;nh th&amp;ocirc;ng dịch vi&amp;ecirc;n, cần phải học g&amp;igrave;?&quot; data-fancybox-group=&quot;gallery&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;&lt;img src=&quot;http://static.new.tuoitre.vn/tto/i/s626/2010/03/11/9n5eBBpY.jpg&quot; alt=&quot;Trở th&amp;agrave;nh th&amp;ocirc;ng dịch vi&amp;ecirc;n, cần phải học g&amp;igrave;?&quot; /&gt;&lt;a class=&quot;btnSlideshow&quot;&gt;Ph&amp;oacute;ng to&lt;/a&gt;&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;H&amp;agrave;ng chục ng&amp;agrave;n học sinh đ&amp;atilde; đến tham dự Ng&amp;agrave;y hội tư vấn - tuyển sinh hướng nghiệp do b&amp;aacute;o&amp;nbsp;&lt;em&gt;Tuổi Trẻ&lt;/em&gt;&amp;nbsp;tổ chức - Ảnh: Đăng Nam&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;- Học ng&amp;agrave;nh tiếng Anh, ngo&amp;agrave;i việc l&amp;agrave;m c&amp;ocirc;ng t&amp;aacute;c bi&amp;ecirc;n dịch, phi&amp;ecirc;n dịch, bạn c&amp;oacute; thể l&amp;agrave;m nhiều việc kh&amp;aacute;c nữa. Chẳng hạn như đi dạy ngoại ngữ, l&amp;agrave;m c&amp;ocirc;ng t&amp;aacute;c h&amp;agrave;nh ch&amp;iacute;nh - văn ph&amp;ograve;ng ở những đơn vị cần tiếng Anh, l&amp;agrave;m nh&amp;acirc;n vi&amp;ecirc;n hoặc tham gia c&amp;aacute;c dự &amp;aacute;n x&amp;atilde; hội của c&amp;aacute;c tổ chức nước ngo&amp;agrave;i&amp;hellip;&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;Tuy nhi&amp;ecirc;n, bạn cần lưu &amp;yacute; muốn l&amp;agrave;m tốt những c&amp;ocirc;ng việc tr&amp;ecirc;n, chỉ tấm bằng ĐH ng&amp;agrave;nh ngoại ngữ th&amp;ocirc;i chưa đủ. Muốn đi dạy tốt bạn cần c&amp;oacute; khả năng sư phạm. Muốn l&amp;agrave;m th&amp;ocirc;ng dịch vi&amp;ecirc;n, ngo&amp;agrave;i vốn tiếng Anh bạn cần c&amp;oacute; khả năng sử dụng ng&amp;ocirc;n ngữ, n&amp;oacute;i năng tr&amp;ocirc;i chảy, d&amp;ugrave;ng từ ch&amp;iacute;nh x&amp;aacute;c, diễn đạt lưu lo&amp;aacute;t tiếng Anh v&amp;agrave; cả tiếng Việt.&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;Đ&amp;oacute; l&amp;agrave; chưa kể muốn th&amp;ocirc;ng dịch lĩnh vực n&amp;agrave;o, bạn cũng cần c&amp;oacute; kiến thức chuy&amp;ecirc;n ng&amp;agrave;nh nhất định về lĩnh vực đ&amp;oacute;. Muốn l&amp;agrave;m c&amp;ocirc;ng t&amp;aacute;c h&amp;agrave;nh ch&amp;iacute;nh, văn ph&amp;ograve;ng bạn cần trang bị th&amp;ecirc;m c&amp;aacute;c kỹ năng, kiến thức nghiệp vụ li&amp;ecirc;n quan đến mảng c&amp;ocirc;ng việc n&amp;agrave;y. Muốn l&amp;agrave;m việc tại c&amp;aacute;c tổ chức, c&amp;aacute;c dự &amp;aacute;n nước ngo&amp;agrave;i, bạn cần c&amp;oacute; th&amp;ecirc;m kỹ năng cần thiết như: lập kế hoạch, tổ chức thực hiện c&amp;ocirc;ng việc c&amp;ocirc;ng việc, am hiểu lĩnh vực c&amp;ocirc;ng việc m&amp;igrave;nh sẽ l&amp;agrave;m&amp;hellip;&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;Hiện nay kh&amp;ocirc;ng chỉ SV tiếng Anh mới giỏi tiếng Anh. Khi đi xin việc người vừa giỏi tiếng Anh vừa c&amp;oacute; bằng cấp, khả năng chuy&amp;ecirc;n m&amp;ocirc;n (đ&amp;uacute;ng y&amp;ecirc;u cầu nh&amp;agrave; tuyển dụng) đương nhi&amp;ecirc;n sẽ c&amp;oacute; lợi thế hơn người chỉ c&amp;oacute; bằng tiếng Anh. Bạn thường thấy th&amp;ocirc;ng dịch vi&amp;ecirc;n xuất hiện khi c&amp;oacute; hội nghị, hội thảo, những buổi gặp mặt, đ&amp;agrave;m ph&amp;aacute;n&amp;hellip; Đ&amp;acirc;y l&amp;agrave; c&amp;ocirc;ng việc kh&amp;ocirc;ng thường xuy&amp;ecirc;n, kh&amp;ocirc;ng c&amp;oacute; nhiều người sống chuy&amp;ecirc;n bằng nghề n&amp;agrave;y. Th&amp;ocirc;ng thường họ l&amp;agrave;m những c&amp;ocirc;ng việc kh&amp;aacute;c, khi cần thiết họ đảm nhận th&amp;ecirc;m v&amp;agrave;i tr&amp;ograve; th&amp;ocirc;ng dịch th&amp;ocirc;i.&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;Bạn sẽ c&amp;oacute; hai hướng lựa chọn. Thứ nhất, bạn theo ng&amp;agrave;nh tiếng Anh theo sở th&amp;iacute;ch. Trong qu&amp;aacute; tr&amp;igrave;nh học ĐH bạn sẽ c&amp;oacute; điều kiện tiếp cận gần hơn những dạng c&amp;ocirc;ng việc m&amp;igrave;nh c&amp;oacute; thể l&amp;agrave;m, bạn sẽ đi học th&amp;ecirc;m những kh&amp;oacute;a học ngắn hạn (về h&amp;agrave;nh ch&amp;iacute;nh, nghiệp vụ văn ph&amp;ograve;ng&amp;hellip; chẳng hạn).&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;Thứ hai: bạn c&amp;oacute; thể chọn một ng&amp;agrave;nh học kh&amp;aacute;c c&amp;oacute; thể ph&amp;ugrave; hợp (x&amp;atilde; hội học, Đ&amp;ocirc;ng phương học, quản trị nh&amp;acirc;n lực, bảo hiểm&amp;hellip;), trong qu&amp;aacute; tr&amp;igrave;nh học bạn sẽ tiếp tục củng cố kiến thức tiếng Anh, sau n&amp;agrave;y ra trường sẽ dễ xin việc hơn. Ch&amp;uacute;c bạn th&amp;agrave;nh c&amp;ocirc;ng.&lt;/p&gt;\r\n&lt;p class=&quot;pQuestion&quot;&gt;* Em th&amp;iacute;ch học ng&amp;agrave;nh quản trị nh&amp;acirc;n lực. Ng&amp;agrave;nh n&amp;agrave;y ra trường c&amp;oacute; thể l&amp;agrave;m những việc g&amp;igrave;, ở đ&amp;acirc;u? C&amp;oacute; thể học c&amp;ugrave;ng l&amp;uacute;c hai trường ĐH ? (lamthuy_phuong2000@...)&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;- Ng&amp;agrave;nh n&amp;agrave;y đ&amp;agrave;o tạo c&amp;aacute;c kiến thức li&amp;ecirc;n quan đến hệ thống c&amp;aacute;c văn bản ph&amp;aacute;p luật lĩnh vực lao động, h&amp;agrave;nh ch&amp;iacute;nh; hợp đồng lao động; chế độ bảo hiểm; quy tr&amp;igrave;nh đ&amp;aacute;nh gi&amp;aacute; nh&amp;acirc;n lực, quản trị nh&amp;acirc;n sự, tuyển dụng v&amp;agrave;o đ&amp;agrave;o tạo nh&amp;acirc;n lực, c&amp;aacute;c nguy&amp;ecirc;n l&amp;yacute; quản trị kinh tế&amp;hellip;&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;Tốt nghiệp ng&amp;agrave;nh n&amp;agrave;y c&amp;oacute; thể l&amp;agrave;m ở bộ phận h&amp;agrave;nh ch&amp;iacute;nh, nh&amp;acirc;n sự, tiền lương ở c&amp;aacute;c đơn vị. Ngo&amp;agrave;i ra, c&amp;oacute; thể l&amp;agrave;m chuy&amp;ecirc;n vi&amp;ecirc;n tuyển dụng, tư vấn nh&amp;acirc;n sự hoặc bộ phận đ&amp;agrave;o tạo, ph&amp;aacute;t triển nh&amp;acirc;n sự&amp;hellip;&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;Thực tế đ&amp;agrave;o tạo ở c&amp;aacute;c trường ĐH cho thấy một SV rất kh&amp;oacute; c&amp;oacute; thể học tốt c&amp;ugrave;ng l&amp;uacute;c ở cả hai trường ĐH ch&amp;iacute;nh quy. Bạn sẽ kh&amp;ocirc;ng thể thu xếp thời kh&amp;oacute;a biểu để học đầy đủ ở cả hai trường. C&amp;oacute; thể bạn sẽ phải bỏ rất nhiều giờ học ở cả hai trường, kh&amp;ocirc;ng thể đạt hiệu quả cao cả hai b&amp;ecirc;n.&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;Tốt nhất ở năm đầu ti&amp;ecirc;n bạn n&amp;ecirc;n tập trung học tốt ở một trường ĐH. Nếu học lực bạn thuộc diện giỏi, xuất sắc h&amp;atilde;y t&amp;iacute;nh đến phương &amp;aacute;n học th&amp;ecirc;m một trường nữa.&lt;/p&gt;\r\n&lt;p class=&quot;pQuestion&quot;&gt;* Em c&amp;oacute; bằng nghề điện c&amp;ocirc;ng nghiệp, c&amp;oacute; thể học li&amp;ecirc;n th&amp;ocirc;ng l&amp;ecirc;n ĐH Sư phạm kỹ thuật TP.HCM được kh&amp;ocirc;ng, thi những m&amp;ocirc;n g&amp;igrave;, điểm chuẩn khoảng bao nhi&amp;ecirc;u? (Ho&amp;agrave;ng Sơn, TP.HCM)&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;- Nếu bạn c&amp;oacute; bằng c&amp;ocirc;ng nhận kỹ thuật bậc 3/7, bậc trung cấp nghề hoặc bằng trung cấp chuy&amp;ecirc;n nghiệp ng&amp;agrave;nh điện c&amp;ocirc;ng nghiệp, bạn c&amp;oacute; thể đăng k&amp;yacute; dự thi v&amp;agrave;o khối K Trường ĐH Sư phạm kỹ thuật ng&amp;agrave;nh tương ứng. Trường tổ chức thi tuyển khối K v&amp;agrave;o th&amp;aacute;ng 8.&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;Thời gian đ&amp;agrave;o tạo: bốn năm. M&amp;ocirc;n thi: to&amp;aacute;n, l&amp;yacute;, l&amp;yacute; thuyết mạch. Điểm chuẩn ĐH khối K ng&amp;agrave;nh điện c&amp;ocirc;ng nghiệp (hệ tuyển sinh từ bằng nghề) những năm gần đ&amp;acirc;y trong khoảng 18,5 - 20,5 điểm.&lt;/p&gt;\r\n&lt;/section&gt;', 'thong-dich-vien', 'Thông dịch viên | Thong dich vien', 'Thông dịch viên, Thong dich vien', '\r\nTTO - * Em rất th&iacute;ch tiếng Anh v&agrave; th&iacute;ch những c&ocirc;ng việc hướng ngoại. Em c&oacute; ngoại h&igrave;nh ổn, c&oacute; khả năng n&oacute;i trước...', 0, 1, 0, 0, 0, 0, 1482556444, 1482556444, 'vi'),
+(68, 67, 0, '', '', '', 'Câu hỏi thường gặp phỏng vấn', '', '&lt;h3&gt;C&amp;acirc;u hỏi 14: Bạn c&amp;oacute; phải l&amp;agrave; người giỏi l&amp;agrave;m việc theo nh&amp;oacute;m?&lt;/h3&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;C&amp;aacute;ch trả lời: Nh&amp;agrave; tuyển dụng kỳ vọng v&amp;agrave; c&amp;acirc;u trả lời C&amp;Oacute;, v&amp;igrave; vậy h&amp;atilde;y chuẩn bị cho c&amp;acirc;u trả lời n&amp;agrave;y bằng những minh họa về việc bạn đ&amp;atilde; th&amp;agrave;nh c&amp;ocirc;ng như thế n&amp;agrave;o khi l&amp;agrave;m việc theo nh&amp;oacute;m, v&amp;iacute; dụ giải quyết th&amp;agrave;nh c&amp;ocirc;ng dự &amp;aacute;n A cho c&amp;ocirc;ng ty, gi&amp;uacute;p tăng hiệu quả cho dự &amp;aacute;n B&amp;hellip;&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;h3&gt;C&amp;acirc;u hỏi 15: Triết l&amp;yacute; trong c&amp;ocirc;ng việc của bạn l&amp;agrave; g&amp;igrave;?&lt;/h3&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;C&amp;aacute;ch trả lời: Tuy c&amp;acirc;u hỏi c&amp;oacute; vẻ &amp;ldquo;cao si&amp;ecirc;u&amp;rdquo;, nhưng h&amp;atilde;y trả lời ở mức độ đơn giản nhất. H&amp;atilde;y n&amp;oacute;i tới những gi&amp;aacute; trị c&amp;ocirc;ng việc m&amp;agrave; bạn hướng tới, đồng thời gắn n&amp;oacute; với tập thể, với c&amp;ocirc;ng ty.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;h3&gt;C&amp;acirc;u hỏi 16: Bạn th&amp;iacute;ch vị tr&amp;iacute; n&amp;agrave;o trong nh&amp;oacute;m nếu được tuyển dụng v&amp;agrave;o dự &amp;aacute;n X của ch&amp;uacute;ng t&amp;ocirc;i?&lt;/h3&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;C&amp;aacute;ch xử l&amp;yacute;: H&amp;atilde;y n&amp;oacute;i một c&amp;aacute;ch kh&amp;eacute;o l&amp;eacute;o v&amp;agrave; ngụ &amp;yacute; rằng bạn l&amp;agrave; người linh hoạt v&amp;agrave; tr&amp;aacute;ch nhiệm, cho d&amp;ugrave; l&amp;agrave; vị tr&amp;iacute; nh&amp;acirc;n vi&amp;ecirc;n hay trưởng nh&amp;oacute;m th&amp;igrave; quan trọng l&amp;agrave; hiệu quả cuối c&amp;ugrave;ng.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;h3&gt;C&amp;acirc;u hỏi 17: Những điều g&amp;igrave; từ ph&amp;iacute;a đồng nghiệp khiến bạn kh&amp;oacute; chịu?&lt;/h3&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;C&amp;aacute;ch trả lời: C&amp;oacute; thể bạn kh&amp;oacute; chịu với một số t&amp;iacute;nh c&amp;aacute;ch nhất định hay thậm ch&amp;iacute; v&amp;ugrave;ng miền, tuy nhi&amp;ecirc;n khi bạn kh&amp;ocirc;ng biết người đang phỏng vấn m&amp;igrave;nh c&amp;oacute; yếu tố đ&amp;oacute; kh&amp;ocirc;ng th&amp;igrave; kh&amp;ocirc;ng n&amp;ecirc;n n&amp;oacute;i ra. Thay v&amp;agrave;o đ&amp;oacute; h&amp;atilde;y trả lời rằng kh&amp;oacute; chịu hay kh&amp;ocirc;ng do c&amp;aacute;ch m&amp;igrave;nh nh&amp;igrave;n nhận v&amp;agrave; giải quyết vấn đề, v&amp;agrave; cho d&amp;ugrave; kh&amp;oacute; chịu th&amp;igrave; bạn cũng vẫn phải l&amp;agrave;m việc v&amp;agrave; giải quyết c&amp;ocirc;ng việc ổn thỏa.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;h3&gt;C&amp;acirc;u hỏi 18: Tại sao bạn nghĩ l&amp;agrave; bạn ph&amp;ugrave; hợp với vị tr&amp;iacute; đ&amp;oacute;?&lt;/h3&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;C&amp;aacute;ch trả lời: H&amp;atilde;y nhấn mạnh v&amp;agrave;o một số kỹ năng của bạn ph&amp;ugrave; hợp với c&amp;ocirc;ng việc v&amp;agrave; khả năng cũng như kinh nghiệm giải quyết một số vấn đề kh&amp;oacute; khăn tương tự bạn đ&amp;atilde; từng trải qua.&lt;/p&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;h3&gt;C&amp;acirc;u hỏi 19: Điều g&amp;igrave; quan trọng hơn đối với bạn: C&amp;ocirc;ng việc hay tiền?&lt;/h3&gt;\r\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\r\n&lt;p&gt;C&amp;aacute;ch trả lời: Cả hai đều quan trọng v&amp;agrave; bạn cần sự c&amp;acirc;n bằng giữa 2 yếu tố đ&amp;oacute;. H&amp;atilde;y cho họ biết ra ngo&amp;agrave;i ra bạn cũng mong muốn c&amp;oacute; được th&amp;agrave;nh quả tốt cho c&amp;ocirc;ng ty.&lt;/p&gt;', 'cau-hoi-thuong-gap-phong-van1', 'Câu hỏi thường gặp phỏng vấn | Cau hoi thuong gap phong van', 'Câu hỏi thường gặp phỏng vấn, Cau hoi thuong gap phong van', 'C&acirc;u hỏi 14: Bạn c&oacute; phải l&agrave; người giỏi l&agrave;m việc theo nh&oacute;m?\r\n&nbsp;\r\nC&aacute;ch trả lời: Nh&agrave; tuyển dụng kỳ vọng v&agrave; c&acirc;u...', 0, 1, 0, 0, 0, 0, 1482556045, 1482556158, 'en'),
+(70, 69, 0, '', '', '', 'Thông dịch viên', '', '&lt;header&gt;\r\n&lt;p&gt;&lt;strong&gt;TTO - * Em rất th&amp;iacute;ch tiếng Anh v&amp;agrave; th&amp;iacute;ch những c&amp;ocirc;ng việc hướng ngoại. Em c&amp;oacute; ngoại h&amp;igrave;nh ổn, c&amp;oacute; khả năng n&amp;oacute;i trước đ&amp;aacute;m đ&amp;ocirc;ng. Muốn trở th&amp;agrave;nh th&amp;ocirc;ng dịch vi&amp;ecirc;n hoặc l&amp;agrave;m c&amp;aacute;c c&amp;ocirc;ng việc li&amp;ecirc;n quan đến ngoại giao em n&amp;ecirc;n chọn ng&amp;agrave;nh n&amp;agrave;o? (Phạm Thị Quỳnh Nhung, Thạnh H&amp;oacute;a, Long An).&lt;/strong&gt;&lt;/p&gt;\r\n&lt;/header&gt;\r\n&lt;section&gt;\r\n&lt;p class=&quot;pTitle&quot;&gt;Trở th&amp;agrave;nh th&amp;ocirc;ng dịch vi&amp;ecirc;n, cần phải học g&amp;igrave;?&lt;/p&gt;\r\n&lt;table class=&quot;desc_image slide_content&quot; title=&quot;&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; data-loading-text=&quot;Trở th&amp;agrave;nh th&amp;ocirc;ng dịch vi&amp;ecirc;n, cần phải học g&amp;igrave;?&quot; data-fancybox-group=&quot;gallery&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;&lt;img src=&quot;http://static.new.tuoitre.vn/tto/i/s626/2010/03/11/9n5eBBpY.jpg&quot; alt=&quot;Trở th&amp;agrave;nh th&amp;ocirc;ng dịch vi&amp;ecirc;n, cần phải học g&amp;igrave;?&quot; /&gt;&lt;a class=&quot;btnSlideshow&quot;&gt;Ph&amp;oacute;ng to&lt;/a&gt;&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;H&amp;agrave;ng chục ng&amp;agrave;n học sinh đ&amp;atilde; đến tham dự Ng&amp;agrave;y hội tư vấn - tuyển sinh hướng nghiệp do b&amp;aacute;o&amp;nbsp;&lt;em&gt;Tuổi Trẻ&lt;/em&gt;&amp;nbsp;tổ chức - Ảnh: Đăng Nam&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;- Học ng&amp;agrave;nh tiếng Anh, ngo&amp;agrave;i việc l&amp;agrave;m c&amp;ocirc;ng t&amp;aacute;c bi&amp;ecirc;n dịch, phi&amp;ecirc;n dịch, bạn c&amp;oacute; thể l&amp;agrave;m nhiều việc kh&amp;aacute;c nữa. Chẳng hạn như đi dạy ngoại ngữ, l&amp;agrave;m c&amp;ocirc;ng t&amp;aacute;c h&amp;agrave;nh ch&amp;iacute;nh - văn ph&amp;ograve;ng ở những đơn vị cần tiếng Anh, l&amp;agrave;m nh&amp;acirc;n vi&amp;ecirc;n hoặc tham gia c&amp;aacute;c dự &amp;aacute;n x&amp;atilde; hội của c&amp;aacute;c tổ chức nước ngo&amp;agrave;i&amp;hellip;&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;Tuy nhi&amp;ecirc;n, bạn cần lưu &amp;yacute; muốn l&amp;agrave;m tốt những c&amp;ocirc;ng việc tr&amp;ecirc;n, chỉ tấm bằng ĐH ng&amp;agrave;nh ngoại ngữ th&amp;ocirc;i chưa đủ. Muốn đi dạy tốt bạn cần c&amp;oacute; khả năng sư phạm. Muốn l&amp;agrave;m th&amp;ocirc;ng dịch vi&amp;ecirc;n, ngo&amp;agrave;i vốn tiếng Anh bạn cần c&amp;oacute; khả năng sử dụng ng&amp;ocirc;n ngữ, n&amp;oacute;i năng tr&amp;ocirc;i chảy, d&amp;ugrave;ng từ ch&amp;iacute;nh x&amp;aacute;c, diễn đạt lưu lo&amp;aacute;t tiếng Anh v&amp;agrave; cả tiếng Việt.&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;Đ&amp;oacute; l&amp;agrave; chưa kể muốn th&amp;ocirc;ng dịch lĩnh vực n&amp;agrave;o, bạn cũng cần c&amp;oacute; kiến thức chuy&amp;ecirc;n ng&amp;agrave;nh nhất định về lĩnh vực đ&amp;oacute;. Muốn l&amp;agrave;m c&amp;ocirc;ng t&amp;aacute;c h&amp;agrave;nh ch&amp;iacute;nh, văn ph&amp;ograve;ng bạn cần trang bị th&amp;ecirc;m c&amp;aacute;c kỹ năng, kiến thức nghiệp vụ li&amp;ecirc;n quan đến mảng c&amp;ocirc;ng việc n&amp;agrave;y. Muốn l&amp;agrave;m việc tại c&amp;aacute;c tổ chức, c&amp;aacute;c dự &amp;aacute;n nước ngo&amp;agrave;i, bạn cần c&amp;oacute; th&amp;ecirc;m kỹ năng cần thiết như: lập kế hoạch, tổ chức thực hiện c&amp;ocirc;ng việc c&amp;ocirc;ng việc, am hiểu lĩnh vực c&amp;ocirc;ng việc m&amp;igrave;nh sẽ l&amp;agrave;m&amp;hellip;&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;Hiện nay kh&amp;ocirc;ng chỉ SV tiếng Anh mới giỏi tiếng Anh. Khi đi xin việc người vừa giỏi tiếng Anh vừa c&amp;oacute; bằng cấp, khả năng chuy&amp;ecirc;n m&amp;ocirc;n (đ&amp;uacute;ng y&amp;ecirc;u cầu nh&amp;agrave; tuyển dụng) đương nhi&amp;ecirc;n sẽ c&amp;oacute; lợi thế hơn người chỉ c&amp;oacute; bằng tiếng Anh. Bạn thường thấy th&amp;ocirc;ng dịch vi&amp;ecirc;n xuất hiện khi c&amp;oacute; hội nghị, hội thảo, những buổi gặp mặt, đ&amp;agrave;m ph&amp;aacute;n&amp;hellip; Đ&amp;acirc;y l&amp;agrave; c&amp;ocirc;ng việc kh&amp;ocirc;ng thường xuy&amp;ecirc;n, kh&amp;ocirc;ng c&amp;oacute; nhiều người sống chuy&amp;ecirc;n bằng nghề n&amp;agrave;y. Th&amp;ocirc;ng thường họ l&amp;agrave;m những c&amp;ocirc;ng việc kh&amp;aacute;c, khi cần thiết họ đảm nhận th&amp;ecirc;m v&amp;agrave;i tr&amp;ograve; th&amp;ocirc;ng dịch th&amp;ocirc;i.&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;Bạn sẽ c&amp;oacute; hai hướng lựa chọn. Thứ nhất, bạn theo ng&amp;agrave;nh tiếng Anh theo sở th&amp;iacute;ch. Trong qu&amp;aacute; tr&amp;igrave;nh học ĐH bạn sẽ c&amp;oacute; điều kiện tiếp cận gần hơn những dạng c&amp;ocirc;ng việc m&amp;igrave;nh c&amp;oacute; thể l&amp;agrave;m, bạn sẽ đi học th&amp;ecirc;m những kh&amp;oacute;a học ngắn hạn (về h&amp;agrave;nh ch&amp;iacute;nh, nghiệp vụ văn ph&amp;ograve;ng&amp;hellip; chẳng hạn).&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;Thứ hai: bạn c&amp;oacute; thể chọn một ng&amp;agrave;nh học kh&amp;aacute;c c&amp;oacute; thể ph&amp;ugrave; hợp (x&amp;atilde; hội học, Đ&amp;ocirc;ng phương học, quản trị nh&amp;acirc;n lực, bảo hiểm&amp;hellip;), trong qu&amp;aacute; tr&amp;igrave;nh học bạn sẽ tiếp tục củng cố kiến thức tiếng Anh, sau n&amp;agrave;y ra trường sẽ dễ xin việc hơn. Ch&amp;uacute;c bạn th&amp;agrave;nh c&amp;ocirc;ng.&lt;/p&gt;\r\n&lt;p class=&quot;pQuestion&quot;&gt;* Em th&amp;iacute;ch học ng&amp;agrave;nh quản trị nh&amp;acirc;n lực. Ng&amp;agrave;nh n&amp;agrave;y ra trường c&amp;oacute; thể l&amp;agrave;m những việc g&amp;igrave;, ở đ&amp;acirc;u? C&amp;oacute; thể học c&amp;ugrave;ng l&amp;uacute;c hai trường ĐH ? (lamthuy_phuong2000@...)&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;- Ng&amp;agrave;nh n&amp;agrave;y đ&amp;agrave;o tạo c&amp;aacute;c kiến thức li&amp;ecirc;n quan đến hệ thống c&amp;aacute;c văn bản ph&amp;aacute;p luật lĩnh vực lao động, h&amp;agrave;nh ch&amp;iacute;nh; hợp đồng lao động; chế độ bảo hiểm; quy tr&amp;igrave;nh đ&amp;aacute;nh gi&amp;aacute; nh&amp;acirc;n lực, quản trị nh&amp;acirc;n sự, tuyển dụng v&amp;agrave;o đ&amp;agrave;o tạo nh&amp;acirc;n lực, c&amp;aacute;c nguy&amp;ecirc;n l&amp;yacute; quản trị kinh tế&amp;hellip;&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;Tốt nghiệp ng&amp;agrave;nh n&amp;agrave;y c&amp;oacute; thể l&amp;agrave;m ở bộ phận h&amp;agrave;nh ch&amp;iacute;nh, nh&amp;acirc;n sự, tiền lương ở c&amp;aacute;c đơn vị. Ngo&amp;agrave;i ra, c&amp;oacute; thể l&amp;agrave;m chuy&amp;ecirc;n vi&amp;ecirc;n tuyển dụng, tư vấn nh&amp;acirc;n sự hoặc bộ phận đ&amp;agrave;o tạo, ph&amp;aacute;t triển nh&amp;acirc;n sự&amp;hellip;&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;Thực tế đ&amp;agrave;o tạo ở c&amp;aacute;c trường ĐH cho thấy một SV rất kh&amp;oacute; c&amp;oacute; thể học tốt c&amp;ugrave;ng l&amp;uacute;c ở cả hai trường ĐH ch&amp;iacute;nh quy. Bạn sẽ kh&amp;ocirc;ng thể thu xếp thời kh&amp;oacute;a biểu để học đầy đủ ở cả hai trường. C&amp;oacute; thể bạn sẽ phải bỏ rất nhiều giờ học ở cả hai trường, kh&amp;ocirc;ng thể đạt hiệu quả cao cả hai b&amp;ecirc;n.&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;Tốt nhất ở năm đầu ti&amp;ecirc;n bạn n&amp;ecirc;n tập trung học tốt ở một trường ĐH. Nếu học lực bạn thuộc diện giỏi, xuất sắc h&amp;atilde;y t&amp;iacute;nh đến phương &amp;aacute;n học th&amp;ecirc;m một trường nữa.&lt;/p&gt;\r\n&lt;p class=&quot;pQuestion&quot;&gt;* Em c&amp;oacute; bằng nghề điện c&amp;ocirc;ng nghiệp, c&amp;oacute; thể học li&amp;ecirc;n th&amp;ocirc;ng l&amp;ecirc;n ĐH Sư phạm kỹ thuật TP.HCM được kh&amp;ocirc;ng, thi những m&amp;ocirc;n g&amp;igrave;, điểm chuẩn khoảng bao nhi&amp;ecirc;u? (Ho&amp;agrave;ng Sơn, TP.HCM)&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;- Nếu bạn c&amp;oacute; bằng c&amp;ocirc;ng nhận kỹ thuật bậc 3/7, bậc trung cấp nghề hoặc bằng trung cấp chuy&amp;ecirc;n nghiệp ng&amp;agrave;nh điện c&amp;ocirc;ng nghiệp, bạn c&amp;oacute; thể đăng k&amp;yacute; dự thi v&amp;agrave;o khối K Trường ĐH Sư phạm kỹ thuật ng&amp;agrave;nh tương ứng. Trường tổ chức thi tuyển khối K v&amp;agrave;o th&amp;aacute;ng 8.&lt;/p&gt;\r\n&lt;p class=&quot;pAnswer&quot;&gt;Thời gian đ&amp;agrave;o tạo: bốn năm. M&amp;ocirc;n thi: to&amp;aacute;n, l&amp;yacute;, l&amp;yacute; thuyết mạch. Điểm chuẩn ĐH khối K ng&amp;agrave;nh điện c&amp;ocirc;ng nghiệp (hệ tuyển sinh từ bằng nghề) những năm gần đ&amp;acirc;y trong khoảng 18,5 - 20,5 điểm.&lt;/p&gt;\r\n&lt;/section&gt;', 'thong-dich-vien1', 'Thông dịch viên | Thong dich vien', 'Thông dịch viên, Thong dich vien', '\r\nTTO - * Em rất th&iacute;ch tiếng Anh v&agrave; th&iacute;ch những c&ocirc;ng việc hướng ngoại. Em c&oacute; ngoại h&igrave;nh ổn, c&oacute; khả năng n&oacute;i trước...', 0, 1, 0, 0, 0, 0, 1482556444, 1482556444, 'en');
 
 -- --------------------------------------------------------
 
@@ -14884,8 +15015,8 @@ INSERT INTO `page` (`id`, `item_id`, `group_id`, `group_nav`, `group_related`, `
 -- Table structure for table `page_group`
 --
 
-CREATE TABLE IF NOT EXISTS `page_group` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `page_group` (
+  `id` int(10) UNSIGNED NOT NULL,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -14908,9 +15039,8 @@ CREATE TABLE IF NOT EXISTS `page_group` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+  `lang` varchar(4) DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `page_group`
@@ -14930,16 +15060,15 @@ INSERT INTO `page_group` (`id`, `group_id`, `group_nav`, `group_level`, `parent_
 -- Table structure for table `page_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `page_setting` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `page_setting` (
+  `id` int(11) NOT NULL,
   `page_meta_title` varchar(250) NOT NULL,
   `page_meta_key` text NOT NULL,
   `page_meta_desc` text NOT NULL,
-  `num_list` int(10) unsigned NOT NULL DEFAULT '10',
-  `num_order_detail` int(10) unsigned NOT NULL DEFAULT '10',
-  `lang` varchar(10) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `num_list` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `num_order_detail` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `lang` varchar(10) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `page_setting`
@@ -14955,11 +15084,11 @@ INSERT INTO `page_setting` (`id`, `page_meta_title`, `page_meta_key`, `page_meta
 -- Table structure for table `partner`
 --
 
-CREATE TABLE IF NOT EXISTS `partner` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `partner` (
+  `id` int(10) UNSIGNED NOT NULL,
   `item_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
-  `group_id` int(10) unsigned NOT NULL,
+  `group_id` int(10) UNSIGNED NOT NULL,
   `group_related` text NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -14976,9 +15105,8 @@ CREATE TABLE IF NOT EXISTS `partner` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `partner`
@@ -14994,8 +15122,8 @@ INSERT INTO `partner` (`id`, `item_id`, `group_nav`, `group_id`, `group_related`
 -- Table structure for table `partner_comment`
 --
 
-CREATE TABLE IF NOT EXISTS `partner_comment` (
-  `cid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `partner_comment` (
+  `cid` int(10) UNSIGNED NOT NULL,
   `type` varchar(50) NOT NULL DEFAULT 'partner',
   `type_id` int(11) NOT NULL DEFAULT '0',
   `link_page` varchar(250) NOT NULL,
@@ -15008,10 +15136,9 @@ CREATE TABLE IF NOT EXISTS `partner_comment` (
   `content` text NOT NULL,
   `show_order` int(11) NOT NULL DEFAULT '0',
   `is_show` tinyint(2) NOT NULL DEFAULT '2',
-  `date_create` int(10) unsigned NOT NULL,
-  `date_update` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`cid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date_create` int(10) UNSIGNED NOT NULL,
+  `date_update` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -15019,12 +15146,12 @@ CREATE TABLE IF NOT EXISTS `partner_comment` (
 -- Table structure for table `partner_group`
 --
 
-CREATE TABLE IF NOT EXISTS `partner_group` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `partner_group` (
+  `id` int(10) UNSIGNED NOT NULL,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
-  `parent_id` int(10) unsigned NOT NULL,
+  `parent_id` int(10) UNSIGNED NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
   `short` text NOT NULL,
@@ -15038,9 +15165,8 @@ CREATE TABLE IF NOT EXISTS `partner_group` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `partner_group`
@@ -15056,18 +15182,17 @@ INSERT INTO `partner_group` (`id`, `group_id`, `group_nav`, `group_level`, `pare
 -- Table structure for table `partner_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `partner_setting` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `partner_setting` (
+  `id` int(11) NOT NULL,
   `partner_meta_title` varchar(250) NOT NULL,
   `partner_meta_key` text NOT NULL,
   `partner_meta_desc` text NOT NULL,
-  `num_list` int(10) unsigned NOT NULL DEFAULT '10',
+  `num_list` int(10) UNSIGNED NOT NULL DEFAULT '10',
   `num_order_detail` int(11) NOT NULL DEFAULT '5',
   `img_list_w` int(11) NOT NULL DEFAULT '150',
   `img_list_h` int(11) NOT NULL DEFAULT '100',
-  `lang` varchar(10) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `lang` varchar(10) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `partner_setting`
@@ -15083,14 +15208,14 @@ INSERT INTO `partner_setting` (`id`, `partner_meta_title`, `partner_meta_key`, `
 -- Table structure for table `product`
 --
 
-CREATE TABLE IF NOT EXISTS `product` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `product` (
+  `id` int(10) UNSIGNED NOT NULL,
   `item_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
-  `group_id` int(10) unsigned NOT NULL,
+  `group_id` int(10) UNSIGNED NOT NULL,
   `arr_option` varchar(250) NOT NULL,
   `group_related` varchar(250) NOT NULL,
-  `brand_id` int(10) unsigned NOT NULL,
+  `brand_id` int(10) UNSIGNED NOT NULL,
   `item_code` varchar(50) NOT NULL,
   `made_country` varchar(255) DEFAULT NULL,
   `picture` varchar(250) NOT NULL,
@@ -15122,9 +15247,8 @@ CREATE TABLE IF NOT EXISTS `product` (
   `is_focus` tinyint(1) NOT NULL DEFAULT '0',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=157 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product`
@@ -15178,8 +15302,7 @@ INSERT INTO `product` (`id`, `item_id`, `group_nav`, `group_id`, `arr_option`, `
 (53, 53, '11,15', 15, '', '', 0, 'No.1296', '', 'product/2016_02/No-1296.jpg', '', 'ゴールドチタン　花ハサミ', 'slide', 0, 0, 0, 0, 256132, 311018, 12, '', '', 'aaaaaaaaaaa', 'ゴールドチタン　花ハサミ | A', 'ゴールドチタン　花ハサミ, A', '', 0, 0, '', '', '', '', 0, 0, 1, 0, 1456649359, 1456649359, 'vi'),
 (54, 53, '11,15', 15, '', '', 0, 'No.1296', '', 'product/2016_02/No-1296.jpg', '', 'ゴールドチタン　花ハサミ', 'slide', 0, 0, 0, 0, 256132, 311018, 12, '', '', 'aaaaaaaaaaa1', 'ゴールドチタン　花ハサミ | A', 'ゴールドチタン　花ハサミ, A', '', 0, 0, '', '', '', '', 0, 0, 1, 0, 1456649359, 1456649359, 'en'),
 (55, 55, '11,15', 15, '', '', 0, 'No.1297', '', 'product/2016_02/No-1297.jpg', '', 'ゴールドチタン　花ハサミ', 'slide', 0, 0, 0, 0, 256132, 311018, 12, '', '', 'aaaaaaaaaaa2', 'ゴールドチタン　花ハサミ | A', 'ゴールドチタン　花ハサミ, A', '', 0, 0, '', '', '', '', 0, 0, 1, 0, 1456649417, 1456649417, 'vi'),
-(56, 55, '11,15', 15, '', '', 0, 'No.1297', '', 'product/2016_02/No-1297.jpg', '', 'ゴールドチタン　花ハサミ', 'slide', 0, 0, 0, 0, 256132, 311018, 12, '', '', 'aaaaaaaaaaa3', 'ゴールドチタン　花ハサミ | A', 'ゴールドチタン　花ハサミ, A', '', 0, 0, '', '', '', '', 0, 0, 1, 0, 1456649417, 1456649417, 'en');
-INSERT INTO `product` (`id`, `item_id`, `group_nav`, `group_id`, `arr_option`, `group_related`, `brand_id`, `item_code`, `made_country`, `picture`, `file`, `title`, `pic_show`, `price_import`, `price`, `percent_discount`, `price_buy`, `price_s`, `price_l`, `quantity`, `short`, `content`, `friendly_link`, `meta_title`, `meta_key`, `meta_desc`, `in_stock`, `out_stock`, `list_color`, `list_size`, `list_code_pic`, `list_status`, `num_view`, `show_order`, `is_show`, `is_focus`, `date_create`, `date_update`, `lang`) VALUES
+(56, 55, '11,15', 15, '', '', 0, 'No.1297', '', 'product/2016_02/No-1297.jpg', '', 'ゴールドチタン　花ハサミ', 'slide', 0, 0, 0, 0, 256132, 311018, 12, '', '', 'aaaaaaaaaaa3', 'ゴールドチタン　花ハサミ | A', 'ゴールドチタン　花ハサミ, A', '', 0, 0, '', '', '', '', 0, 0, 1, 0, 1456649417, 1456649417, 'en'),
 (57, 57, '11,15', 15, '', '', 0, 'No.1590', '', 'product/2016_02/No-1590.jpg', '', '整枝鋏', 'slide', 0, 0, 0, 0, 349574, 424483, 6, '', '', '1456649449', '整枝鋏 | 整枝鋏', '整枝鋏, 整枝鋏', '', 0, 0, '', '', '', '', 0, 0, 1, 0, 1456649449, 1456649449, 'vi'),
 (58, 57, '11,15', 15, '', '', 0, 'No.1590', '', 'product/2016_02/No-1590.jpg', '', '整枝鋏', 'slide', 0, 0, 0, 0, 349574, 424483, 6, '', '', '1456649450', '整枝鋏 | 整枝鋏', '整枝鋏, 整枝鋏', '', 0, 0, '', '', '', '', 0, 0, 1, 0, 1456649449, 1456649449, 'en'),
 (59, 59, '11,15', 15, '', '', 0, 'No.AG-15', '', 'product/2016_02/No-AG-15.jpg', '', '切ってつかめるキャッチ鋏', 'slide', 0, 0, 0, 0, 246758, 299635, 12, '', '', 'aaaaaaaaaa', '切ってつかめるキャッチ鋏 | 切A', '切ってつかめるキャッチ鋏, 切A', '', 0, 0, '', '', '', '', 0, 0, 1, 0, 1456649485, 1456649485, 'vi'),
@@ -15189,7 +15312,8 @@ INSERT INTO `product` (`id`, `item_id`, `group_nav`, `group_id`, `arr_option`, `
 (63, 63, '11,15', 15, '', '', 0, 'No.2570', '', 'product/2016_02/No-2570.jpg', '', '楽切鋸レスポンス　270ｍｍ', 'slide', 0, 0, 0, 0, 765072, 929016, 6, '', '', 'aaaaaa270', '楽切鋸レスポンス　270ｍｍ | 楽切鋸A', '楽切鋸レスポンス　270ｍｍ, 楽切鋸A', '', 0, 0, '', '', '', '', 0, 0, 1, 0, 1456649568, 1456649568, 'vi'),
 (64, 63, '11,15', 15, '', '', 0, 'No.2570', '', 'product/2016_02/No-2570.jpg', '', '楽切鋸レスポンス　270ｍｍ', 'slide', 0, 0, 0, 0, 765072, 929016, 6, '', '', 'aaaaaa271', '楽切鋸レスポンス　270ｍｍ | 楽切鋸A', '楽切鋸レスポンス　270ｍｍ, 楽切鋸A', '', 0, 0, '', '', '', '', 0, 0, 1, 0, 1456649568, 1456649568, 'en'),
 (65, 65, '11,15', 15, '', '', 0, 'No.1311', '', 'product/2016_02/No-1311.jpg', '', '両手が使える収穫鋏', 'slide', 0, 0, 0, 0, 136080, 165240, 12, '', '', 'aaa', '両手が使える収穫鋏 | 両手A', '両手が使える収穫鋏, 両手A', '', 0, 0, '', '', '', '', 0, 0, 1, 0, 1456649596, 1456649596, 'vi'),
-(66, 65, '11,15', 15, '', '', 0, 'No.1311', '', 'product/2016_02/No-1311.jpg', '', '両手が使える収穫鋏', 'slide', 0, 0, 0, 0, 136080, 165240, 12, '', '', 'aaaaaaaaaaa5', '両手が使える収穫鋏 | 両手A', '両手が使える収穫鋏, 両手A', '', 0, 0, '', '', '', '', 0, 0, 1, 0, 1456649596, 1456649596, 'en'),
+(66, 65, '11,15', 15, '', '', 0, 'No.1311', '', 'product/2016_02/No-1311.jpg', '', '両手が使える収穫鋏', 'slide', 0, 0, 0, 0, 136080, 165240, 12, '', '', 'aaaaaaaaaaa5', '両手が使える収穫鋏 | 両手A', '両手が使える収穫鋏, 両手A', '', 0, 0, '', '', '', '', 0, 0, 1, 0, 1456649596, 1456649596, 'en');
+INSERT INTO `product` (`id`, `item_id`, `group_nav`, `group_id`, `arr_option`, `group_related`, `brand_id`, `item_code`, `made_country`, `picture`, `file`, `title`, `pic_show`, `price_import`, `price`, `percent_discount`, `price_buy`, `price_s`, `price_l`, `quantity`, `short`, `content`, `friendly_link`, `meta_title`, `meta_key`, `meta_desc`, `in_stock`, `out_stock`, `list_color`, `list_size`, `list_code_pic`, `list_status`, `num_view`, `show_order`, `is_show`, `is_focus`, `date_create`, `date_update`, `lang`) VALUES
 (67, 67, '11,15', 15, '', '', 0, 'No.1210', '', 'product/2016_02/No-1210.jpg', '', '剪定鋏　女性向け', 'slide', 0, 0, 0, 0, 288187, 349941, 12, '', '', 'aa', '剪定鋏　女性向け | 剪定鋏A', '剪定鋏　女性向け, 剪定鋏A', '', 0, 0, '', '', '', '', 0, 0, 1, 0, 1456649631, 1456649631, 'vi'),
 (68, 67, '11,15', 15, '', '', 0, 'No.1210', '', 'product/2016_02/No-1210.jpg', '', '剪定鋏　女性向け', 'slide', 0, 0, 0, 0, 288187, 349941, 12, '', '', 'aaaaaaaaaaa6', '剪定鋏　女性向け | 剪定鋏A', '剪定鋏　女性向け, 剪定鋏A', '', 0, 0, '', '', '', '', 0, 0, 1, 0, 1456649631, 1456649631, 'en'),
 (69, 69, '11,15', 15, '', '', 0, 'No.1217', '', 'product/2016_02/No-1217.jpg', '', 'ゴールドチタン　万能鋏', 'slide', 0, 0, 0, 0, 256132, 311018, 12, '', '', 'aaaaaaaa', 'ゴールドチタン　万能鋏 | A', 'ゴールドチタン　万能鋏, A', '', 0, 0, '', '', '', '', 0, 0, 1, 0, 1456649661, 1456649661, 'vi'),
@@ -15287,8 +15411,8 @@ INSERT INTO `product` (`id`, `item_id`, `group_nav`, `group_id`, `arr_option`, `
 -- Table structure for table `product_brand`
 --
 
-CREATE TABLE IF NOT EXISTS `product_brand` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `product_brand` (
+  `id` int(10) UNSIGNED NOT NULL,
   `brand_id` int(11) NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -15301,9 +15425,8 @@ CREATE TABLE IF NOT EXISTS `product_brand` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product_brand`
@@ -15319,9 +15442,9 @@ INSERT INTO `product_brand` (`id`, `brand_id`, `picture`, `title`, `content`, `f
 -- Table structure for table `product_code_pic`
 --
 
-CREATE TABLE IF NOT EXISTS `product_code_pic` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `code_pic_id` int(10) unsigned NOT NULL,
+CREATE TABLE `product_code_pic` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `code_pic_id` int(10) UNSIGNED NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
   `content` text NOT NULL,
@@ -15329,9 +15452,8 @@ CREATE TABLE IF NOT EXISTS `product_code_pic` (
   `is_show` tinyint(2) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product_code_pic`
@@ -15347,9 +15469,9 @@ INSERT INTO `product_code_pic` (`id`, `code_pic_id`, `picture`, `title`, `conten
 -- Table structure for table `product_color`
 --
 
-CREATE TABLE IF NOT EXISTS `product_color` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `color_id` int(10) unsigned NOT NULL,
+CREATE TABLE `product_color` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `color_id` int(10) UNSIGNED NOT NULL,
   `picture` varchar(250) NOT NULL,
   `color` varchar(7) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -15357,9 +15479,8 @@ CREATE TABLE IF NOT EXISTS `product_color` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product_color`
@@ -15383,8 +15504,8 @@ INSERT INTO `product_color` (`id`, `color_id`, `picture`, `color`, `title`, `sho
 -- Table structure for table `product_combine`
 --
 
-CREATE TABLE IF NOT EXISTS `product_combine` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `product_combine` (
+  `id` int(11) UNSIGNED NOT NULL,
   `type` varchar(50) NOT NULL DEFAULT 'product',
   `type_id` int(11) NOT NULL,
   `color_id` int(11) NOT NULL,
@@ -15394,9 +15515,8 @@ CREATE TABLE IF NOT EXISTS `product_combine` (
   `in_stock` int(11) NOT NULL,
   `out_stock` int(11) NOT NULL,
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date_update` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -15404,12 +15524,12 @@ CREATE TABLE IF NOT EXISTS `product_combine` (
 -- Table structure for table `product_group`
 --
 
-CREATE TABLE IF NOT EXISTS `product_group` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `product_group` (
+  `id` int(10) UNSIGNED NOT NULL,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
-  `parent_id` int(10) unsigned NOT NULL,
+  `parent_id` int(10) UNSIGNED NOT NULL,
   `group_related` varchar(250) NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -15429,9 +15549,8 @@ CREATE TABLE IF NOT EXISTS `product_group` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product_group`
@@ -15439,8 +15558,8 @@ CREATE TABLE IF NOT EXISTS `product_group` (
 
 INSERT INTO `product_group` (`id`, `group_id`, `group_nav`, `group_level`, `parent_id`, `group_related`, `picture`, `title`, `short`, `content`, `friendly_link`, `meta_title`, `meta_key`, `meta_desc`, `pic_show`, `type_show`, `num_show`, `is_focus`, `is_deal`, `is_show_menu`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
 (5, 5, '3,5', 2, 3, '', '', 'Điện thoại', '', '', 'dien-thoai', 'Điện thoại | Dien thoai', 'Điện thoại, Dien thoai', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1, 1452009076, 1452009076, 'vi'),
-(3, 3, '3', 1, 0, '', '', 'Hàng dân dụng', '', '', 'hang-dan-dung', 'Hàng dân dụng | Hang dan dung', 'Hàng dân dụng, Hang dan dung', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1, 1452007715, 1452007715, 'vi'),
-(4, 3, '3', 1, 0, '', '', 'Hàng dân dụng', '', '', 'hang-dan-dung1', 'Hàng dân dụng | Hang dan dung', 'Hàng dân dụng, Hang dan dung', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1, 1452007715, 1452007715, 'en'),
+(3, 3, '3', 1, 0, '', '', 'Hàng dân dụng', '', '', 'hang-dan-dung', 'Hàng dân dụng | Hang dan dung', 'Hàng dân dụng, Hang dan dung', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1, 1452007715, 1474294284, 'vi'),
+(4, 3, '3', 1, 0, '', '', 'Hàng dân dụng', '', '', 'hang-dan-dung1', 'Hàng dân dụng | Hang dan dung', 'Hàng dân dụng, Hang dan dung', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1, 1452007715, 1474294284, 'en'),
 (6, 5, '3,5', 2, 3, '', '', 'Điện thoại', '', '', 'dien-thoai1', 'Điện thoại | Dien thoai', 'Điện thoại, Dien thoai', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1, 1452009076, 1452009076, 'en'),
 (7, 7, '3,7', 2, 3, '', '', 'Máy tính', '', '', 'may-tinh', 'Máy tính | May tinh', 'Máy tính, May tinh', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1, 1452009082, 1452009082, 'vi'),
 (8, 7, '3,7', 2, 3, '', '', 'Máy tính', '', '', 'may-tinh1', 'Máy tính | May tinh', 'Máy tính, May tinh', '', 'grid', 'list_item', 0, 0, 0, 0, 0, 1, 1452009082, 1452009082, 'en'),
@@ -15467,8 +15586,8 @@ INSERT INTO `product_group` (`id`, `group_id`, `group_nav`, `group_level`, `pare
 -- Table structure for table `product_option`
 --
 
-CREATE TABLE IF NOT EXISTS `product_option` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `product_option` (
+  `id` int(10) UNSIGNED NOT NULL,
   `option_id` int(11) NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -15476,9 +15595,8 @@ CREATE TABLE IF NOT EXISTS `product_option` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product_option`
@@ -15494,8 +15612,8 @@ INSERT INTO `product_option` (`id`, `option_id`, `picture`, `title`, `show_order
 -- Table structure for table `product_order`
 --
 
-CREATE TABLE IF NOT EXISTS `product_order` (
-  `order_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `product_order` (
+  `order_id` int(10) UNSIGNED NOT NULL,
   `order_code` varchar(20) NOT NULL,
   `o_full_name` varchar(250) NOT NULL,
   `o_email` varchar(250) NOT NULL,
@@ -15528,24 +15646,21 @@ CREATE TABLE IF NOT EXISTS `product_order` (
   `voucher_id` varchar(50) NOT NULL,
   `voucher_amount` double NOT NULL,
   `total_payment` double NOT NULL,
-  `user_id` int(10) unsigned NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
   `show_order` int(11) NOT NULL,
   `is_status` tinyint(4) NOT NULL DEFAULT '1',
   `is_show` tinyint(2) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL,
-  PRIMARY KEY (`order_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+  `date_update` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product_order`
 --
 
 INSERT INTO `product_order` (`order_id`, `order_code`, `o_full_name`, `o_email`, `o_phone`, `o_address`, `o_area`, `o_country`, `o_province`, `o_district`, `o_ward`, `d_full_name`, `d_email`, `d_phone`, `d_address`, `d_area`, `d_country`, `d_province`, `d_district`, `d_ward`, `shipping`, `method`, `request_more`, `message_send`, `message_title`, `message_content`, `total_order`, `promotion_id`, `promotion_percent`, `shipping_price`, `voucher_id`, `voucher_amount`, `total_payment`, `user_id`, `show_order`, `is_status`, `is_show`, `date_create`, `date_update`) VALUES
-(1, '1GWUUV', 'Nguyễn Văn A', 'test@imsvietnamese.com', '0123456789', '62d2asd314', '', '', '08', '0801', '080101', 'Nguyễn Văn A', 'test@imsvietnamese.com', '0123456789', '62d2asd314', '', '', '08', '0801', '080101', 0, 1, 'qadasdasfr', 0, '', '', 1080000, '', 0, 0, '', 0, 1080000, 0, 0, 1, 1, 1415621930, 1415621930),
-(2, '2UKQBN', 'duong hoai khanh', 'duonghoaikhanh@gmail.com', '0111111', 'tphcm bình chánh', '', '', '79', '760', '26734', 'duong hoai khanh', 'duonghoaikhanh@gmail.com', '0111111', 'tphcm bình chánh', '', '', '79', '760', '26734', 0, 1, '', 0, '', '', 15990000, '', 0, 0, '', 0, 15990000, 0, 0, 1, 1, 1453022107, 1453022107),
-(3, '3QYUPT', 'phan', 'phanlien1093@gmail.com', '0179733', '123', '', '', '79', '760', '26737', 'phan', 'phanlien1093@gmail.com', '0179733', '123', '', '', '79', '760', '26737', 0, 1, 'kghichu dat hang', 0, '', '', 31980000, '', 0, 0, '', 0, 31980000, 0, 0, 1, 1, 1453022329, 1453022329),
-(4, '4CYMRP', 'khanh', 'duonghoaikhanh@gmail.com', '0111111', 'tphcm bình chánh', '', '', '79', '785', '27622', 'khanh', 'duonghoaikhanh@gmail.com', '0111111', 'tphcm bình chánh', '', '', '79', '785', '27622', 0, 1, '', 0, '', '', 31980000, '', 0, 0, '', 0, 31980000, 0, 0, 1, 1, 1453024205, 1453024205);
+(25, '25TXNNV', 'Phan van Lien', 'phanlien1093@gmail.com', '0902020570', 'TP HCM', '', '', '27', '256', '09256', 'Phan van Lien', 'phanlien1093@gmail.com', '0902020570', 'TP HCM', '', '', '27', '256', '09256', 0, 1, '', 0, '', '', 2400000, '', 0, 0, '', 0, 2400000, 0, 0, 1, 1, 1471164457, 1471164457),
+(26, '26CGOAK', 'khanh', 'duonghoaikhanh@gmail.com', '31232313', 'dsadad', '', '', '27', '256', '09325', 'khanh', 'duonghoaikhanh@gmail.com', '31232313', 'dsadad', '', '', '27', '256', '09325', 0, 1, 'dsdasd', 0, '', '', 2400000, '', 0, 0, '', 0, 2400000, 0, 0, 1, 1, 1471164576, 1471164576);
 
 -- --------------------------------------------------------
 
@@ -15553,11 +15668,11 @@ INSERT INTO `product_order` (`order_id`, `order_code`, `o_full_name`, `o_email`,
 -- Table structure for table `product_order_detail`
 --
 
-CREATE TABLE IF NOT EXISTS `product_order_detail` (
-  `detail_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `order_id` int(10) unsigned NOT NULL,
+CREATE TABLE `product_order_detail` (
+  `detail_id` int(10) UNSIGNED NOT NULL,
+  `order_id` int(10) UNSIGNED NOT NULL,
   `type` varchar(20) NOT NULL DEFAULT 'product',
-  `type_id` int(10) unsigned NOT NULL,
+  `type_id` int(10) UNSIGNED NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
   `price_buy` int(11) NOT NULL,
@@ -15565,9 +15680,8 @@ CREATE TABLE IF NOT EXISTS `product_order_detail` (
   `out_stock` int(11) NOT NULL,
   `color_id` int(11) NOT NULL,
   `size_id` int(11) NOT NULL,
-  `code_pic` int(11) NOT NULL,
-  PRIMARY KEY (`detail_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+  `code_pic` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product_order_detail`
@@ -15577,7 +15691,29 @@ INSERT INTO `product_order_detail` (`detail_id`, `order_id`, `type`, `type_id`, 
 (1, 1, 'product', 5, 'product/2014_11/sp1.png', 'Áo bộ chất liệu vải TRE (Bamboo) hình quỷ nhỏ cute và cool', 180000, 6, 0, 3, 10, 0),
 (2, 2, 'product', 13, 'product/2016_01/sony-xperia-z5-dual-400x460.png', 'Điện thoại Sony Xperia Z5 Dual', 15990000, 1, 0, 0, 0, 0),
 (3, 3, 'product', 13, 'product/2016_01/sony-xperia-z5-dual-400x460.png', 'Điện thoại Sony Xperia Z5 Dual', 15990000, 2, 0, 0, 0, 0),
-(4, 4, 'product', 13, 'product/2016_01/sony-xperia-z5-dual-400x460.png', 'Điện thoại Sony Xperia Z5 Dual', 15990000, 2, 0, 0, 0, 0);
+(4, 4, 'product', 13, 'product/2016_01/sony-xperia-z5-dual-400x460.png', 'Điện thoại Sony Xperia Z5 Dual', 15990000, 2, 0, 0, 0, 0),
+(5, 5, 'product', 155, 'product/2016_02/s10.jpg', '千吉　金　足長盆栽鋏　２００ｍｍ', 0, 1, 0, 0, 0, 0),
+(6, 6, 'product', 153, 'product/2016_02/s9.jpg', '千吉　金　刃長大久保鋏　２００ｍｍ', 0, 1, 0, 0, 0, 0),
+(7, 7, 'product', 153, 'product/2016_02/s9.jpg', '千吉　金　刃長大久保鋏　２００ｍｍ', 0, 3, 0, 0, 0, 0),
+(8, 8, 'product', 155, 'product/2016_02/s10.jpg', '千吉　金　足長盆栽鋏　２００ｍｍ', 0, 1, 0, 0, 0, 0),
+(9, 9, 'product', 147, 'product/2016_02/s6.jpg', 'セフティ－３ １０．８Ｖ充電枝切りのこぎり SGS-25-108V', 0, 1, 0, 0, 0, 0),
+(10, 10, 'product', 151, 'product/2016_02/s8.jpg', '千吉　金　大久保鋏　１８０ｍｍ', 0, 1, 0, 0, 0, 0),
+(11, 11, 'product', 145, 'product/2016_02/s5.jpg', 'セフティ－３ 充電ヘッジトリマー１４．４Ｖ SHB-350', 0, 1, 0, 0, 0, 0),
+(12, 12, 'product', 153, 'product/2016_02/s9.jpg', '千吉　金　刃長大久保鋏　２００ｍｍ', 0, 1, 0, 0, 0, 0),
+(13, 13, 'product', 145, 'product/2016_02/s5.jpg', 'セフティ－３ 充電ヘッジトリマー１４．４Ｖ SHB-350', 0, 1, 0, 0, 0, 0),
+(14, 14, 'product', 151, 'product/2016_02/s8.jpg', '千吉　金　大久保鋏　１８０ｍｍ', 0, 1, 0, 0, 0, 0),
+(15, 15, 'product', 153, 'product/2016_02/s9.jpg', '千吉　金　刃長大久保鋏　２００ｍｍ', 0, 1, 0, 0, 0, 0),
+(16, 16, 'product', 155, 'product/2016_02/s10.jpg', '千吉　金　足長盆栽鋏　２００ｍｍ', 0, 1, 0, 0, 0, 0),
+(17, 17, 'product', 155, 'product/2016_02/s10.jpg', '千吉　金　足長盆栽鋏　２００ｍｍ', 0, 1, 0, 0, 0, 0),
+(18, 18, 'product', 151, 'product/2016_02/s8.jpg', '千吉　金　大久保鋏　１８０ｍｍ', 0, 1, 0, 0, 0, 0),
+(19, 19, 'product', 151, 'product/2016_02/s8.jpg', '千吉　金　大久保鋏　１８０ｍｍ', 0, 1, 0, 0, 0, 0),
+(20, 20, 'product', 155, 'product/2016_02/s10.jpg', '千吉　金　足長盆栽鋏　２００ｍｍ', 445000, 1, 0, 0, 0, 0),
+(21, 21, 'product', 151, 'product/2016_02/s8.jpg', '千吉　金　大久保鋏　１８０ｍｍ', 420000, 1, 0, 0, 0, 0),
+(22, 22, 'product', 151, 'product/2016_02/s8.jpg', '千吉　金　大久保鋏　１８０ｍｍ', 420000, 4, 0, 0, 0, 0),
+(23, 23, 'product', 153, 'product/2016_02/s9.jpg', '千吉　金　刃長大久保鋏　２００ｍｍ', 445000, 1, 0, 0, 0, 0),
+(24, 24, 'product', 149, 'product/2016_02/s7.jpg', 'ナティーボ エレテカ充電式電動剪定はさみ ELP14', 0, 1, 0, 0, 0, 0),
+(25, 25, 'product', 147, 'product/2016_02/s6.jpg', 'セフティ－３ １０．８Ｖ充電枝切りのこぎり SGS-25-108V', 2400000, 1, 0, 0, 0, 0),
+(26, 26, 'product', 147, 'product/2016_02/s6.jpg', 'セフティ－３ １０．８Ｖ充電枝切りのこぎり SGS-25-108V', 2400000, 1, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -15585,11 +15721,11 @@ INSERT INTO `product_order_detail` (`detail_id`, `order_id`, `type`, `type_id`, 
 -- Table structure for table `product_pic`
 --
 
-CREATE TABLE IF NOT EXISTS `product_pic` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `product_pic` (
+  `id` int(10) UNSIGNED NOT NULL,
   `pic_id` int(11) NOT NULL,
   `type` varchar(250) NOT NULL DEFAULT 'item',
-  `type_id` int(10) unsigned NOT NULL,
+  `type_id` int(10) UNSIGNED NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
   `content` text NOT NULL,
@@ -15597,9 +15733,8 @@ CREATE TABLE IF NOT EXISTS `product_pic` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product_pic`
@@ -15617,8 +15752,8 @@ INSERT INTO `product_pic` (`id`, `pic_id`, `type`, `type_id`, `picture`, `title`
 -- Table structure for table `product_receipt`
 --
 
-CREATE TABLE IF NOT EXISTS `product_receipt` (
-  `receipt_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `product_receipt` (
+  `receipt_id` int(10) UNSIGNED NOT NULL,
   `receipt_code` varchar(20) NOT NULL,
   `receipt_type` varchar(20) NOT NULL DEFAULT 'import',
   `type_code` varchar(20) NOT NULL,
@@ -15626,9 +15761,8 @@ CREATE TABLE IF NOT EXISTS `product_receipt` (
   `show_order` int(11) NOT NULL,
   `is_show` tinyint(4) NOT NULL,
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL,
-  PRIMARY KEY (`receipt_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date_update` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -15636,8 +15770,8 @@ CREATE TABLE IF NOT EXISTS `product_receipt` (
 -- Table structure for table `product_receipt_detail`
 --
 
-CREATE TABLE IF NOT EXISTS `product_receipt_detail` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `product_receipt_detail` (
+  `id` int(11) UNSIGNED NOT NULL,
   `receipt_id` int(11) NOT NULL,
   `is_level` tinyint(1) NOT NULL DEFAULT '0',
   `type` varchar(50) NOT NULL DEFAULT 'product',
@@ -15648,9 +15782,8 @@ CREATE TABLE IF NOT EXISTS `product_receipt_detail` (
   `in_stock` int(11) NOT NULL,
   `out_stock` int(11) NOT NULL,
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date_update` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -15658,8 +15791,8 @@ CREATE TABLE IF NOT EXISTS `product_receipt_detail` (
 -- Table structure for table `product_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `product_setting` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `product_setting` (
+  `id` int(11) NOT NULL,
   `product_meta_title` varchar(250) NOT NULL,
   `product_meta_key` text NOT NULL,
   `product_meta_desc` text NOT NULL,
@@ -15688,12 +15821,11 @@ CREATE TABLE IF NOT EXISTS `product_setting` (
   `ordering_complete_meta_title` varchar(250) NOT NULL,
   `ordering_complete_meta_key` text NOT NULL,
   `ordering_complete_meta_desc` text NOT NULL,
-  `num_list` int(10) unsigned NOT NULL DEFAULT '10',
+  `num_list` int(10) UNSIGNED NOT NULL DEFAULT '10',
   `num_order_detail` int(11) NOT NULL DEFAULT '6',
   `lang` varchar(10) NOT NULL DEFAULT 'vi',
-  `brand_link` varchar(250) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `brand_link` varchar(250) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product_setting`
@@ -15709,18 +15841,17 @@ INSERT INTO `product_setting` (`id`, `product_meta_title`, `product_meta_key`, `
 -- Table structure for table `product_size`
 --
 
-CREATE TABLE IF NOT EXISTS `product_size` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `size_id` int(10) unsigned NOT NULL,
+CREATE TABLE `product_size` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `size_id` int(10) UNSIGNED NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
   `show_order` float NOT NULL,
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product_size`
@@ -15749,8 +15880,8 @@ INSERT INTO `product_size` (`id`, `size_id`, `picture`, `title`, `show_order`, `
 -- Table structure for table `product_status`
 --
 
-CREATE TABLE IF NOT EXISTS `product_status` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `product_status` (
+  `id` int(10) UNSIGNED NOT NULL,
   `status_id` int(11) NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
@@ -15758,9 +15889,8 @@ CREATE TABLE IF NOT EXISTS `product_status` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `product_status`
@@ -15776,10 +15906,10 @@ INSERT INTO `product_status` (`id`, `status_id`, `picture`, `title`, `show_order
 -- Table structure for table `project`
 --
 
-CREATE TABLE IF NOT EXISTS `project` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `project` (
+  `id` int(10) UNSIGNED NOT NULL,
   `item_id` int(11) NOT NULL,
-  `group_id` int(10) unsigned NOT NULL,
+  `group_id` int(10) UNSIGNED NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_related` text NOT NULL,
   `picture` varchar(250) NOT NULL,
@@ -15798,9 +15928,8 @@ CREATE TABLE IF NOT EXISTS `project` (
   `is_focus3` tinyint(4) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `project`
@@ -15816,8 +15945,8 @@ INSERT INTO `project` (`id`, `item_id`, `group_id`, `group_nav`, `group_related`
 -- Table structure for table `project_group`
 --
 
-CREATE TABLE IF NOT EXISTS `project_group` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `project_group` (
+  `id` int(10) UNSIGNED NOT NULL,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -15840,9 +15969,8 @@ CREATE TABLE IF NOT EXISTS `project_group` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `project_group`
@@ -15858,16 +15986,15 @@ INSERT INTO `project_group` (`id`, `group_id`, `group_nav`, `group_level`, `pare
 -- Table structure for table `project_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `project_setting` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `project_setting` (
+  `id` int(11) NOT NULL,
   `project_meta_title` varchar(250) NOT NULL,
   `project_meta_key` text NOT NULL,
   `project_meta_desc` text NOT NULL,
-  `num_list` int(10) unsigned NOT NULL DEFAULT '10',
-  `num_order_detail` int(10) unsigned NOT NULL DEFAULT '10',
-  `lang` varchar(10) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `num_list` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `num_order_detail` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `lang` varchar(10) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `project_setting`
@@ -15883,7 +16010,7 @@ INSERT INTO `project_setting` (`id`, `project_meta_title`, `project_meta_key`, `
 -- Table structure for table `promotion`
 --
 
-CREATE TABLE IF NOT EXISTS `promotion` (
+CREATE TABLE `promotion` (
   `promotion_id` varchar(50) NOT NULL,
   `order_create` int(11) NOT NULL,
   `order_id` varchar(50) NOT NULL,
@@ -15894,8 +16021,7 @@ CREATE TABLE IF NOT EXISTS `promotion` (
   `date_start` int(11) NOT NULL,
   `date_end` int(11) NOT NULL,
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL,
-  PRIMARY KEY (`promotion_id`)
+  `date_update` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -15904,9 +16030,9 @@ CREATE TABLE IF NOT EXISTS `promotion` (
 -- Table structure for table `repository`
 --
 
-CREATE TABLE IF NOT EXISTS `repository` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `item_id` int(10) unsigned NOT NULL,
+CREATE TABLE `repository` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `item_id` int(10) UNSIGNED NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
   `title_search` varchar(250) NOT NULL,
@@ -15916,9 +16042,8 @@ CREATE TABLE IF NOT EXISTS `repository` (
   `admin_id` int(11) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -15926,23 +16051,22 @@ CREATE TABLE IF NOT EXISTS `repository` (
 -- Table structure for table `repository_method`
 --
 
-CREATE TABLE IF NOT EXISTS `repository_method` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `method_id` int(10) unsigned NOT NULL,
-  `group_id` int(10) unsigned NOT NULL,
+CREATE TABLE `repository_method` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `method_id` int(10) UNSIGNED NOT NULL,
+  `group_id` int(10) UNSIGNED NOT NULL,
   `method_type` varchar(20) NOT NULL DEFAULT 'import',
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
   `title_search` varchar(250) NOT NULL,
   `content` text NOT NULL,
-  `show_order` int(10) unsigned NOT NULL,
+  `show_order` int(10) UNSIGNED NOT NULL,
   `is_show` tinyint(4) NOT NULL,
-  `admin_id` int(10) unsigned NOT NULL,
-  `date_create` int(10) unsigned NOT NULL,
-  `date_update` int(10) unsigned NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `admin_id` int(10) UNSIGNED NOT NULL,
+  `date_create` int(10) UNSIGNED NOT NULL,
+  `date_update` int(10) UNSIGNED NOT NULL,
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -15950,21 +16074,20 @@ CREATE TABLE IF NOT EXISTS `repository_method` (
 -- Table structure for table `repository_method_group`
 --
 
-CREATE TABLE IF NOT EXISTS `repository_method_group` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `group_id` int(10) unsigned NOT NULL,
+CREATE TABLE `repository_method_group` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `group_id` int(10) UNSIGNED NOT NULL,
   `picture` varchar(250) NOT NULL,
   `title` varchar(250) NOT NULL,
   `title_search` varchar(250) NOT NULL,
   `content` text NOT NULL,
-  `show_order` int(10) unsigned NOT NULL,
+  `show_order` int(10) UNSIGNED NOT NULL,
   `is_show` tinyint(4) NOT NULL,
-  `admin_id` int(10) unsigned NOT NULL,
-  `date_create` int(10) unsigned NOT NULL,
-  `date_update` int(10) unsigned NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `admin_id` int(10) UNSIGNED NOT NULL,
+  `date_create` int(10) UNSIGNED NOT NULL,
+  `date_update` int(10) UNSIGNED NOT NULL,
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -15972,12 +16095,12 @@ CREATE TABLE IF NOT EXISTS `repository_method_group` (
 -- Table structure for table `repository_receipt`
 --
 
-CREATE TABLE IF NOT EXISTS `repository_receipt` (
-  `receipt_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `repository_receipt` (
+  `receipt_id` int(10) UNSIGNED NOT NULL,
   `receipt_code` varchar(20) NOT NULL,
   `receipt_type` varchar(20) NOT NULL DEFAULT 'import',
   `type_code` varchar(20) NOT NULL,
-  `repository_id` int(10) unsigned NOT NULL,
+  `repository_id` int(10) UNSIGNED NOT NULL,
   `title` varchar(250) NOT NULL,
   `content` text NOT NULL,
   `show_order` int(11) NOT NULL,
@@ -15986,9 +16109,8 @@ CREATE TABLE IF NOT EXISTS `repository_receipt` (
   `admin_edit` int(11) NOT NULL,
   `admin_finish` int(11) NOT NULL,
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL,
-  PRIMARY KEY (`receipt_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date_update` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -15996,8 +16118,8 @@ CREATE TABLE IF NOT EXISTS `repository_receipt` (
 -- Table structure for table `repository_receipt_detail`
 --
 
-CREATE TABLE IF NOT EXISTS `repository_receipt_detail` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `repository_receipt_detail` (
+  `id` int(11) UNSIGNED NOT NULL,
   `receipt_id` int(11) NOT NULL,
   `is_level` tinyint(1) NOT NULL DEFAULT '0',
   `type` varchar(50) NOT NULL DEFAULT 'product',
@@ -16007,9 +16129,8 @@ CREATE TABLE IF NOT EXISTS `repository_receipt_detail` (
   `price` float NOT NULL,
   `quantity` int(11) NOT NULL,
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date_update` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -16017,8 +16138,8 @@ CREATE TABLE IF NOT EXISTS `repository_receipt_detail` (
 -- Table structure for table `repository_receipt_import`
 --
 
-CREATE TABLE IF NOT EXISTS `repository_receipt_import` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `repository_receipt_import` (
+  `id` int(10) UNSIGNED NOT NULL,
   `code` varchar(20) NOT NULL,
   `receipt_type` varchar(20) NOT NULL DEFAULT 'import',
   `type_code` varchar(20) NOT NULL,
@@ -16028,9 +16149,8 @@ CREATE TABLE IF NOT EXISTS `repository_receipt_import` (
   `admin_id` int(11) NOT NULL,
   `admin_edit` int(11) NOT NULL,
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date_update` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -16038,10 +16158,10 @@ CREATE TABLE IF NOT EXISTS `repository_receipt_import` (
 -- Table structure for table `service`
 --
 
-CREATE TABLE IF NOT EXISTS `service` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `service` (
+  `id` int(10) UNSIGNED NOT NULL,
   `item_id` int(11) NOT NULL,
-  `group_id` int(10) unsigned NOT NULL,
+  `group_id` int(10) UNSIGNED NOT NULL,
   `group_nav` text NOT NULL,
   `group_related` text NOT NULL,
   `picture` varchar(250) NOT NULL,
@@ -16060,9 +16180,8 @@ CREATE TABLE IF NOT EXISTS `service` (
   `is_focus3` tinyint(4) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `service`
@@ -16078,8 +16197,8 @@ INSERT INTO `service` (`id`, `item_id`, `group_id`, `group_nav`, `group_related`
 -- Table structure for table `service_group`
 --
 
-CREATE TABLE IF NOT EXISTS `service_group` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `service_group` (
+  `id` int(10) UNSIGNED NOT NULL,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -16102,9 +16221,8 @@ CREATE TABLE IF NOT EXISTS `service_group` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `service_group`
@@ -16120,13 +16238,13 @@ INSERT INTO `service_group` (`id`, `group_id`, `group_nav`, `group_level`, `pare
 -- Table structure for table `service_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `service_setting` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `service_setting` (
+  `id` int(11) NOT NULL,
   `service_meta_title` varchar(250) NOT NULL,
   `service_meta_key` text NOT NULL,
   `service_meta_desc` text NOT NULL,
-  `num_list` int(10) unsigned NOT NULL DEFAULT '10',
-  `num_order_detail` int(10) unsigned NOT NULL DEFAULT '10',
+  `num_list` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `num_order_detail` int(10) UNSIGNED NOT NULL DEFAULT '10',
   `lang` varchar(10) NOT NULL DEFAULT 'vi',
   `background` varchar(250) NOT NULL,
   `sidebar_left` int(11) NOT NULL,
@@ -16134,9 +16252,8 @@ CREATE TABLE IF NOT EXISTS `service_setting` (
   `sidebar_group_left` int(11) NOT NULL,
   `sidebar_group_right` int(11) NOT NULL,
   `sidebar_item_left` int(11) NOT NULL,
-  `sidebar_item_right` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `sidebar_item_right` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `service_setting`
@@ -16152,16 +16269,15 @@ INSERT INTO `service_setting` (`id`, `service_meta_title`, `service_meta_key`, `
 -- Table structure for table `sidebar`
 --
 
-CREATE TABLE IF NOT EXISTS `sidebar` (
-  `sidebar_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `sidebar` (
+  `sidebar_id` int(10) UNSIGNED NOT NULL,
   `title` varchar(250) NOT NULL,
   `list_widget` text NOT NULL,
   `show_order` int(11) NOT NULL,
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL,
-  PRIMARY KEY (`sidebar_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+  `date_update` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `sidebar`
@@ -16179,8 +16295,8 @@ INSERT INTO `sidebar` (`sidebar_id`, `title`, `list_widget`, `show_order`, `is_s
 -- Table structure for table `statistic`
 --
 
-CREATE TABLE IF NOT EXISTS `statistic` (
-  `id` double NOT NULL AUTO_INCREMENT,
+CREATE TABLE `statistic` (
+  `id` double NOT NULL,
   `session` varchar(32) NOT NULL,
   `date_log` varchar(150) NOT NULL DEFAULT '01-01-2000',
   `domain` varchar(250) NOT NULL,
@@ -16195,9 +16311,8 @@ CREATE TABLE IF NOT EXISTS `statistic` (
   `screen_height` int(11) NOT NULL,
   `date_time` int(11) NOT NULL DEFAULT '0',
   `date_update` int(11) NOT NULL,
-  `time_stay` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=211 ;
+  `time_stay` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `statistic`
@@ -16422,8 +16537,8 @@ INSERT INTO `statistic` (`id`, `session`, `date_log`, `domain`, `web_link`, `ref
 -- Table structure for table `support`
 --
 
-CREATE TABLE IF NOT EXISTS `support` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `support` (
+  `id` int(11) NOT NULL,
   `item_id` int(11) NOT NULL,
   `title` varchar(250) NOT NULL,
   `yahoo` varchar(250) NOT NULL,
@@ -16434,19 +16549,18 @@ CREATE TABLE IF NOT EXISTS `support` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `support`
 --
 
 INSERT INTO `support` (`id`, `item_id`, `title`, `yahoo`, `skype`, `phone`, `email`, `show_order`, `is_show`, `date_create`, `date_update`, `lang`) VALUES
-(1, 1, 'Hỗ trợ 1', '', 'hoangduy0101', '080 4090 3634', 'hoangduy0101@yahoo.com', 0, 1, 1453015221, 1460996552, 'vi'),
-(2, 1, 'Hỗ trợ trực tuyến', '', 'hoangduy0101', '080 4090 3634', 'hoangduy0101@yahoo.com', 0, 1, 1453015221, 1460996552, 'en'),
-(3, 3, 'Hỗ trợ 2', '', 'skype2', '11010101', 'email2@support.com', 0, 1, 1460995663, 1460997889, 'vi'),
-(4, 3, 'Hỗ trợ 2', '', 'skype2', '11010101', 'email2@support.com', 0, 1, 1460995663, 1460997889, 'en');
+(1, 1, 'Hỗ trợ 1', '', 'hoangduy0101', '(+81) 080 4090 3634', 'hoangduy0101@yahoo.com', 0, 1, 1453015221, 1474301017, 'vi'),
+(2, 1, 'Hỗ trợ trực tuyến', '', 'hoangduy0101', '(+81) 080 4090 3634', 'hoangduy0101@yahoo.com', 0, 1, 1453015221, 1474301017, 'en'),
+(3, 3, 'Hỗ trợ 2', '', 'kimchicc', '(+84) 0902 554 767', 'seijinvn@gmail.com', 0, 1, 1460995663, 1474301389, 'vi'),
+(4, 3, 'Hỗ trợ 2', '', 'kimchicc', '(+84) 0902 554 767', 'seijinvn@gmail.com', 0, 1, 1460995663, 1474301389, 'en');
 
 -- --------------------------------------------------------
 
@@ -16454,8 +16568,8 @@ INSERT INTO `support` (`id`, `item_id`, `title`, `yahoo`, `skype`, `phone`, `ema
 -- Table structure for table `template_email`
 --
 
-CREATE TABLE IF NOT EXISTS `template_email` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `template_email` (
+  `id` int(10) UNSIGNED NOT NULL,
   `template_id` varchar(50) NOT NULL,
   `title` varchar(250) NOT NULL,
   `subject` varchar(250) NOT NULL,
@@ -16464,9 +16578,8 @@ CREATE TABLE IF NOT EXISTS `template_email` (
   `is_show` tinyint(2) NOT NULL,
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `template_email`
@@ -16479,7 +16592,8 @@ INSERT INTO `template_email` (`id`, `template_id`, `title`, `subject`, `content`
 (7, 'forget-pass', 'Quên mật khẩu', 'Lấy lại mật khẩu', '&lt;p&gt;Vui l&amp;ograve;ng click v&amp;agrave;o link b&amp;ecirc;n dưới để k&amp;iacute;ch hoạt mật khẩu mới&lt;/p&gt;\r\n&lt;p&gt;mật khẩu mới: &lt;span style=&quot;color: #ff6600;&quot;&gt;&lt;strong&gt;[new_pass]&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;\r\n&lt;p&gt;[link_forget_pass]&lt;/p&gt;', 0, 1, 1403774097, 1403774097, 'vi'),
 (8, 'admin-contact', 'Gửi cho admin khi có liên hệ mới', 'Thông tin liên hệ của {domain}', '&lt;p&gt;C&amp;oacute; li&amp;ecirc;n hệ mới!&lt;/p&gt;\r\n&lt;p&gt;Th&amp;ocirc;ng tin người gửi:&lt;/p&gt;\r\n&lt;p&gt;Fullname: {full_name}&lt;/p&gt;\r\n&lt;p&gt;Email: {email}&lt;/p&gt;\r\n&lt;p&gt;Address: {address}&lt;/p&gt;\r\n&lt;p&gt;Phone: {phone}&lt;/p&gt;\r\n&lt;p&gt;Title: {title}&lt;/p&gt;\r\n&lt;p&gt;Content: {content}&lt;/p&gt;\r\n&lt;p&gt;Date: {date_create}&lt;/p&gt;', 0, 1, 1404957670, 1404957670, 'vi'),
 (9, 'contact', 'Thông báo cho người liên hệ', '{domain} đã nhận được email liên hệ từ bạn', '&lt;p&gt;Cảm ơn bạn đ&amp;atilde; g&amp;oacute;p &amp;yacute; cho trang web ch&amp;uacute;ng t&amp;ocirc;i!&lt;/p&gt;\r\n&lt;p&gt;Ch&amp;uacute;ng t&amp;ocirc;i sẽ phản hồi lại cho bạn trong thời gian sớm nhất!&lt;/p&gt;', 0, 1, 1404957870, 1404957870, 'vi'),
-(12, 'send-email', 'Mẫu email thông báo quảng cáo', 'Thông tin quảng cáo', '&lt;h1&gt;&lt;img src=&quot;http://www.demo.giaiphapnhanh.com.vn/hiep/dambau/uploads/config/template_email/logo.png&quot; alt=&quot;&quot; width=&quot;234&quot; height=&quot;152&quot; /&gt;&lt;/h1&gt;\r\n&lt;table border=&quot;0&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; bgcolor=&quot;#800080&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td style=&quot;padding: 8px 0;&quot; align=&quot;center&quot; valign=&quot;top&quot;&gt;\r\n&lt;table border=&quot;0&quot; width=&quot;550&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td align=&quot;left&quot; width=&quot;650&quot;&gt;\r\n&lt;h1 style=&quot;font-style: italic; margin: 0; padding: 0; font-family: Georgia, times new roman, serif; font-size: 17px; font-weight: normal; color: white;&quot;&gt;Th&amp;ocirc;ng tin quản c&amp;aacute;o&lt;/h1&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;table border=&quot;0&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td style=&quot;padding: 20px 0 20px 0;&quot; align=&quot;center&quot; valign=&quot;top&quot;&gt;\r\n&lt;table style=&quot;border: 1px solid #E0E0E0;&quot; border=&quot;0&quot; width=&quot;550&quot; cellspacing=&quot;0&quot; cellpadding=&quot;10&quot; bgcolor=&quot;#FFFFFF&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;\r\n&lt;p&gt;Nội dung quảng c&amp;aacute;o!&lt;/p&gt;\r\n&lt;p&gt;Nội dung quảng c&amp;aacute;o!&lt;/p&gt;\r\n&lt;p&gt;Nội dung quảng c&amp;aacute;o!&lt;/p&gt;\r\n&lt;p&gt;Nội dung quảng c&amp;aacute;o!&lt;/p&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;\r\n&lt;p&gt;The Seraphine Team&lt;br /&gt; &lt;a href=&quot;http://www.momybaby.com&quot;&gt;www.momybaby.com&lt;/a&gt;&lt;br /&gt; Tel&lt;/p&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;p style=&quot;font-size: 10px;&quot;&gt;Copyright &amp;copy; Mummy &amp;amp; Baby | All Rights Reserved&lt;/p&gt;', 0, 1, 1406017663, 1406868077, 'vi');
+(12, 'send-email', 'Mẫu email thông báo quảng cáo', 'Thông tin quảng cáo', '&lt;h1&gt;&lt;img src=&quot;http://www.demo.giaiphapnhanh.com.vn/hiep/dambau/uploads/config/template_email/logo.png&quot; alt=&quot;&quot; width=&quot;234&quot; height=&quot;152&quot; /&gt;&lt;/h1&gt;\r\n&lt;table border=&quot;0&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; bgcolor=&quot;#800080&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td style=&quot;padding: 8px 0;&quot; align=&quot;center&quot; valign=&quot;top&quot;&gt;\r\n&lt;table border=&quot;0&quot; width=&quot;550&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td align=&quot;left&quot; width=&quot;650&quot;&gt;\r\n&lt;h1 style=&quot;font-style: italic; margin: 0; padding: 0; font-family: Georgia, times new roman, serif; font-size: 17px; font-weight: normal; color: white;&quot;&gt;Th&amp;ocirc;ng tin quản c&amp;aacute;o&lt;/h1&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;table border=&quot;0&quot; width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td style=&quot;padding: 20px 0 20px 0;&quot; align=&quot;center&quot; valign=&quot;top&quot;&gt;\r\n&lt;table style=&quot;border: 1px solid #E0E0E0;&quot; border=&quot;0&quot; width=&quot;550&quot; cellspacing=&quot;0&quot; cellpadding=&quot;10&quot; bgcolor=&quot;#FFFFFF&quot;&gt;\r\n&lt;tbody&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;\r\n&lt;p&gt;Nội dung quảng c&amp;aacute;o!&lt;/p&gt;\r\n&lt;p&gt;Nội dung quảng c&amp;aacute;o!&lt;/p&gt;\r\n&lt;p&gt;Nội dung quảng c&amp;aacute;o!&lt;/p&gt;\r\n&lt;p&gt;Nội dung quảng c&amp;aacute;o!&lt;/p&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;tr&gt;\r\n&lt;td&gt;\r\n&lt;p&gt;The Seraphine Team&lt;br /&gt; &lt;a href=&quot;http://www.momybaby.com&quot;&gt;www.momybaby.com&lt;/a&gt;&lt;br /&gt; Tel&lt;/p&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;/td&gt;\r\n&lt;/tr&gt;\r\n&lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;p style=&quot;font-size: 10px;&quot;&gt;Copyright &amp;copy; Mummy &amp;amp; Baby | All Rights Reserved&lt;/p&gt;', 0, 1, 1406017663, 1406868077, 'vi'),
+(13, 'admin-contact-areas-concern', 'Gửi cho admin khi có liên hệ mới', 'Gửi thông tin lĩnh vực quan tâm.', '&lt;p&gt;C&amp;oacute; li&amp;ecirc;n hệ mới!&lt;/p&gt;\r\n&lt;p&gt;Th&amp;ocirc;ng tin người gửi:&lt;/p&gt;\r\n&lt;p&gt;Fullname: {full_name}&lt;/p&gt;\r\n&lt;p&gt;Email: {email}&lt;/p&gt;\r\n&lt;p&gt;Address: {address}&lt;/p&gt;\r\n&lt;p&gt;Phone: {phone}&lt;/p&gt;\r\n&lt;p&gt;Areas concern: {areas_concern}&lt;/p&gt;', 0, 1, 1404957670, 1475304463, 'vi');
 
 -- --------------------------------------------------------
 
@@ -16487,8 +16601,8 @@ INSERT INTO `template_email` (`id`, `template_id`, `title`, `subject`, `content`
 -- Table structure for table `user`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user` (
+  `user_id` int(11) NOT NULL,
   `username` varchar(150) NOT NULL,
   `password` varchar(50) NOT NULL,
   `session` varchar(50) NOT NULL,
@@ -16511,11 +16625,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `show_order` int(11) NOT NULL,
   `is_show` tinyint(2) NOT NULL DEFAULT '0',
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL,
-  PRIMARY KEY (`user_id`),
-  KEY `username` (`username`),
-  KEY `email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date_update` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -16523,8 +16634,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Table structure for table `user_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `user_setting` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_setting` (
+  `id` int(11) NOT NULL,
   `welcome` text NOT NULL,
   `user_meta_title` varchar(250) NOT NULL,
   `user_meta_key` text NOT NULL,
@@ -16569,10 +16680,9 @@ CREATE TABLE IF NOT EXISTS `user_setting` (
   `voucher_meta_title` varchar(250) NOT NULL,
   `voucher_meta_key` text NOT NULL,
   `voucher_meta_desc` text NOT NULL,
-  `num_list` int(10) unsigned NOT NULL DEFAULT '10',
-  `lang` varchar(10) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `num_list` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `lang` varchar(10) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_setting`
@@ -16588,10 +16698,10 @@ INSERT INTO `user_setting` (`id`, `welcome`, `user_meta_title`, `user_meta_key`,
 -- Table structure for table `video`
 --
 
-CREATE TABLE IF NOT EXISTS `video` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `video` (
+  `id` int(10) UNSIGNED NOT NULL,
   `item_id` int(11) NOT NULL,
-  `group_id` int(10) unsigned NOT NULL,
+  `group_id` int(10) UNSIGNED NOT NULL,
   `group_nav` text NOT NULL,
   `group_related` text NOT NULL,
   `picture` varchar(250) NOT NULL,
@@ -16609,9 +16719,8 @@ CREATE TABLE IF NOT EXISTS `video` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `video`
@@ -16629,8 +16738,8 @@ INSERT INTO `video` (`id`, `item_id`, `group_id`, `group_nav`, `group_related`, 
 -- Table structure for table `video_group`
 --
 
-CREATE TABLE IF NOT EXISTS `video_group` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `video_group` (
+  `id` int(10) UNSIGNED NOT NULL,
   `group_id` int(11) NOT NULL,
   `group_nav` varchar(250) NOT NULL,
   `group_level` tinyint(2) NOT NULL,
@@ -16651,9 +16760,8 @@ CREATE TABLE IF NOT EXISTS `video_group` (
   `is_show` tinyint(1) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
-  `lang` varchar(4) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `lang` varchar(4) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `video_group`
@@ -16669,16 +16777,15 @@ INSERT INTO `video_group` (`id`, `group_id`, `group_nav`, `group_level`, `parent
 -- Table structure for table `video_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `video_setting` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `video_setting` (
+  `id` int(11) NOT NULL,
   `video_meta_title` varchar(250) NOT NULL,
   `video_meta_key` text NOT NULL,
   `video_meta_desc` text NOT NULL,
-  `num_list` int(10) unsigned NOT NULL DEFAULT '10',
-  `num_order_detail` int(10) unsigned NOT NULL DEFAULT '10',
-  `lang` varchar(10) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `num_list` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `num_order_detail` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `lang` varchar(10) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `video_setting`
@@ -16693,7 +16800,7 @@ INSERT INTO `video_setting` (`id`, `video_meta_title`, `video_meta_key`, `video_
 -- Table structure for table `voucher`
 --
 
-CREATE TABLE IF NOT EXISTS `voucher` (
+CREATE TABLE `voucher` (
   `voucher_id` varchar(50) NOT NULL,
   `order_id` varchar(50) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -16704,8 +16811,7 @@ CREATE TABLE IF NOT EXISTS `voucher` (
   `date_start` int(11) NOT NULL,
   `date_end` int(11) NOT NULL,
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL,
-  PRIMARY KEY (`voucher_id`)
+  `date_update` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -16714,17 +16820,16 @@ CREATE TABLE IF NOT EXISTS `voucher` (
 -- Table structure for table `voucher_history`
 --
 
-CREATE TABLE IF NOT EXISTS `voucher_history` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `voucher_history` (
+  `id` int(11) NOT NULL,
   `voucher_id` varchar(50) NOT NULL,
   `order_code` varchar(50) NOT NULL,
   `amount_type` varchar(20) NOT NULL DEFAULT 'buy_product',
   `amount` float NOT NULL,
   `amount_has` float NOT NULL,
   `content` varchar(250) NOT NULL,
-  `date_create` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  `date_create` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -16732,7 +16837,7 @@ CREATE TABLE IF NOT EXISTS `voucher_history` (
 -- Table structure for table `voucher_order`
 --
 
-CREATE TABLE IF NOT EXISTS `voucher_order` (
+CREATE TABLE `voucher_order` (
   `order_id` varchar(20) NOT NULL,
   `o_full_name` varchar(250) NOT NULL,
   `o_email` varchar(250) NOT NULL,
@@ -16746,13 +16851,12 @@ CREATE TABLE IF NOT EXISTS `voucher_order` (
   `email_content` text NOT NULL,
   `quantity` int(11) NOT NULL,
   `amount` float NOT NULL,
-  `user_id` int(10) unsigned NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
   `show_order` int(11) NOT NULL,
   `is_status` tinyint(2) NOT NULL DEFAULT '1',
   `is_show` tinyint(2) NOT NULL DEFAULT '1',
   `date_create` int(11) NOT NULL,
-  `date_update` int(11) NOT NULL,
-  PRIMARY KEY (`order_id`)
+  `date_update` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -16761,8 +16865,8 @@ CREATE TABLE IF NOT EXISTS `voucher_order` (
 -- Table structure for table `voucher_setting`
 --
 
-CREATE TABLE IF NOT EXISTS `voucher_setting` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `voucher_setting` (
+  `id` int(11) NOT NULL,
   `voucher_meta_title` varchar(250) NOT NULL,
   `voucher_meta_key` text NOT NULL,
   `voucher_meta_desc` text NOT NULL,
@@ -16771,11 +16875,10 @@ CREATE TABLE IF NOT EXISTS `voucher_setting` (
   `promotion_day_end` int(11) NOT NULL,
   `min_cart_promotion` float NOT NULL DEFAULT '50',
   `voucher_day_end` int(11) NOT NULL,
-  `num_list` int(10) unsigned NOT NULL DEFAULT '10',
-  `num_order_detail` int(10) unsigned NOT NULL DEFAULT '10',
-  `lang` varchar(10) NOT NULL DEFAULT 'vi',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `num_list` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `num_order_detail` int(10) UNSIGNED NOT NULL DEFAULT '10',
+  `lang` varchar(10) NOT NULL DEFAULT 'vi'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `voucher_setting`
@@ -16791,14 +16894,13 @@ INSERT INTO `voucher_setting` (`id`, `voucher_meta_title`, `voucher_meta_key`, `
 -- Table structure for table `widget`
 --
 
-CREATE TABLE IF NOT EXISTS `widget` (
-  `widget_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+CREATE TABLE `widget` (
+  `widget_id` int(10) UNSIGNED NOT NULL,
   `name_action` varchar(50) NOT NULL,
   `arr_title` text NOT NULL,
   `show_order` int(11) NOT NULL,
-  `is_show` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`widget_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+  `is_show` tinyint(1) NOT NULL DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `widget`
@@ -16807,6 +16909,932 @@ CREATE TABLE IF NOT EXISTS `widget` (
 INSERT INTO `widget` (`widget_id`, `name_action`, `arr_title`, `show_order`, `is_show`) VALUES
 (1, 'menu_group', 'a:2:{s:2:"vi";s:10:"Menu nhóm";s:2:"en";s:10:"Menu nhóm";}', 0, 1);
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `about`
+--
+ALTER TABLE `about`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `about_setting`
+--
+ALTER TABLE `about_setting`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `admin_group`
+--
+ALTER TABLE `admin_group`
+  ADD PRIMARY KEY (`group_id`);
+
+--
+-- Indexes for table `admin_menu`
+--
+ALTER TABLE `admin_menu`
+  ADD PRIMARY KEY (`menu_id`),
+  ADD KEY `menu_id` (`menu_id`);
+
+--
+-- Indexes for table `banner`
+--
+ALTER TABLE `banner`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `banner_group`
+--
+ALTER TABLE `banner_group`
+  ADD PRIMARY KEY (`group_id`);
+
+--
+-- Indexes for table `comment`
+--
+ALTER TABLE `comment`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `config`
+--
+ALTER TABLE `config`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`contact_id`);
+
+--
+-- Indexes for table `contact_map`
+--
+ALTER TABLE `contact_map`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `contact_setting`
+--
+ALTER TABLE `contact_setting`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `dealer`
+--
+ALTER TABLE `dealer`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `dealer_group`
+--
+ALTER TABLE `dealer_group`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `dealer_setting`
+--
+ALTER TABLE `dealer_setting`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `download`
+--
+ALTER TABLE `download`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `download_group`
+--
+ALTER TABLE `download_group`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `download_setting`
+--
+ALTER TABLE `download_setting`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `friendly_link`
+--
+ALTER TABLE `friendly_link`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `gallery`
+--
+ALTER TABLE `gallery`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `gallery_group`
+--
+ALTER TABLE `gallery_group`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `gallery_setting`
+--
+ALTER TABLE `gallery_setting`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `home_setting`
+--
+ALTER TABLE `home_setting`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `lang`
+--
+ALTER TABLE `lang`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `location_area`
+--
+ALTER TABLE `location_area`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `location_country`
+--
+ALTER TABLE `location_country`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `location_district`
+--
+ALTER TABLE `location_district`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `location_province`
+--
+ALTER TABLE `location_province`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `location_ward`
+--
+ALTER TABLE `location_ward`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `menu`
+--
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `modules`
+--
+ALTER TABLE `modules`
+  ADD PRIMARY KEY (`mod_id`);
+
+--
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `news_group`
+--
+ALTER TABLE `news_group`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `news_setting`
+--
+ALTER TABLE `news_setting`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `order_method`
+--
+ALTER TABLE `order_method`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `order_shipping`
+--
+ALTER TABLE `order_shipping`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `page`
+--
+ALTER TABLE `page`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `page_group`
+--
+ALTER TABLE `page_group`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `page_setting`
+--
+ALTER TABLE `page_setting`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `partner`
+--
+ALTER TABLE `partner`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `partner_comment`
+--
+ALTER TABLE `partner_comment`
+  ADD PRIMARY KEY (`cid`);
+
+--
+-- Indexes for table `partner_group`
+--
+ALTER TABLE `partner_group`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `partner_setting`
+--
+ALTER TABLE `partner_setting`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_brand`
+--
+ALTER TABLE `product_brand`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_code_pic`
+--
+ALTER TABLE `product_code_pic`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_color`
+--
+ALTER TABLE `product_color`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_combine`
+--
+ALTER TABLE `product_combine`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_group`
+--
+ALTER TABLE `product_group`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_option`
+--
+ALTER TABLE `product_option`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_order`
+--
+ALTER TABLE `product_order`
+  ADD PRIMARY KEY (`order_id`);
+
+--
+-- Indexes for table `product_order_detail`
+--
+ALTER TABLE `product_order_detail`
+  ADD PRIMARY KEY (`detail_id`);
+
+--
+-- Indexes for table `product_pic`
+--
+ALTER TABLE `product_pic`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_receipt`
+--
+ALTER TABLE `product_receipt`
+  ADD PRIMARY KEY (`receipt_id`);
+
+--
+-- Indexes for table `product_receipt_detail`
+--
+ALTER TABLE `product_receipt_detail`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_setting`
+--
+ALTER TABLE `product_setting`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_size`
+--
+ALTER TABLE `product_size`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `product_status`
+--
+ALTER TABLE `product_status`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `project`
+--
+ALTER TABLE `project`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `project_group`
+--
+ALTER TABLE `project_group`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `project_setting`
+--
+ALTER TABLE `project_setting`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `promotion`
+--
+ALTER TABLE `promotion`
+  ADD PRIMARY KEY (`promotion_id`);
+
+--
+-- Indexes for table `repository`
+--
+ALTER TABLE `repository`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `repository_method`
+--
+ALTER TABLE `repository_method`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `repository_method_group`
+--
+ALTER TABLE `repository_method_group`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `repository_receipt`
+--
+ALTER TABLE `repository_receipt`
+  ADD PRIMARY KEY (`receipt_id`);
+
+--
+-- Indexes for table `repository_receipt_detail`
+--
+ALTER TABLE `repository_receipt_detail`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `repository_receipt_import`
+--
+ALTER TABLE `repository_receipt_import`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `service`
+--
+ALTER TABLE `service`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `service_group`
+--
+ALTER TABLE `service_group`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `service_setting`
+--
+ALTER TABLE `service_setting`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `sidebar`
+--
+ALTER TABLE `sidebar`
+  ADD PRIMARY KEY (`sidebar_id`);
+
+--
+-- Indexes for table `statistic`
+--
+ALTER TABLE `statistic`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `support`
+--
+ALTER TABLE `support`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `template_email`
+--
+ALTER TABLE `template_email`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`user_id`),
+  ADD KEY `username` (`username`),
+  ADD KEY `email` (`email`);
+
+--
+-- Indexes for table `user_setting`
+--
+ALTER TABLE `user_setting`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `video`
+--
+ALTER TABLE `video`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `video_group`
+--
+ALTER TABLE `video_group`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `video_setting`
+--
+ALTER TABLE `video_setting`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `voucher`
+--
+ALTER TABLE `voucher`
+  ADD PRIMARY KEY (`voucher_id`);
+
+--
+-- Indexes for table `voucher_history`
+--
+ALTER TABLE `voucher_history`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `voucher_order`
+--
+ALTER TABLE `voucher_order`
+  ADD PRIMARY KEY (`order_id`);
+
+--
+-- Indexes for table `voucher_setting`
+--
+ALTER TABLE `voucher_setting`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `widget`
+--
+ALTER TABLE `widget`
+  ADD PRIMARY KEY (`widget_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `about`
+--
+ALTER TABLE `about`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `about_setting`
+--
+ALTER TABLE `about_setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `admin_group`
+--
+ALTER TABLE `admin_group`
+  MODIFY `group_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `admin_menu`
+--
+ALTER TABLE `admin_menu`
+  MODIFY `menu_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+--
+-- AUTO_INCREMENT for table `banner`
+--
+ALTER TABLE `banner`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+--
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+--
+-- AUTO_INCREMENT for table `config`
+--
+ALTER TABLE `config`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `contact_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `contact_map`
+--
+ALTER TABLE `contact_map`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `contact_setting`
+--
+ALTER TABLE `contact_setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `dealer`
+--
+ALTER TABLE `dealer`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `dealer_group`
+--
+ALTER TABLE `dealer_group`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `dealer_setting`
+--
+ALTER TABLE `dealer_setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `download`
+--
+ALTER TABLE `download`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `download_group`
+--
+ALTER TABLE `download_group`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `download_setting`
+--
+ALTER TABLE `download_setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `friendly_link`
+--
+ALTER TABLE `friendly_link`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1590;
+--
+-- AUTO_INCREMENT for table `gallery`
+--
+ALTER TABLE `gallery`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `gallery_group`
+--
+ALTER TABLE `gallery_group`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `gallery_setting`
+--
+ALTER TABLE `gallery_setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `home_setting`
+--
+ALTER TABLE `home_setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `lang`
+--
+ALTER TABLE `lang`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `location_area`
+--
+ALTER TABLE `location_area`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+--
+-- AUTO_INCREMENT for table `location_country`
+--
+ALTER TABLE `location_country`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `location_district`
+--
+ALTER TABLE `location_district`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=698;
+--
+-- AUTO_INCREMENT for table `location_province`
+--
+ALTER TABLE `location_province`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+--
+-- AUTO_INCREMENT for table `location_ward`
+--
+ALTER TABLE `location_ward`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11111;
+--
+-- AUTO_INCREMENT for table `menu`
+--
+ALTER TABLE `menu`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
+--
+-- AUTO_INCREMENT for table `modules`
+--
+ALTER TABLE `modules`
+  MODIFY `mod_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+--
+-- AUTO_INCREMENT for table `news_group`
+--
+ALTER TABLE `news_group`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `news_setting`
+--
+ALTER TABLE `news_setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `order_method`
+--
+ALTER TABLE `order_method`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `order_shipping`
+--
+ALTER TABLE `order_shipping`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `page`
+--
+ALTER TABLE `page`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+--
+-- AUTO_INCREMENT for table `page_group`
+--
+ALTER TABLE `page_group`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
+-- AUTO_INCREMENT for table `page_setting`
+--
+ALTER TABLE `page_setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `partner`
+--
+ALTER TABLE `partner`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `partner_comment`
+--
+ALTER TABLE `partner_comment`
+  MODIFY `cid` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `partner_group`
+--
+ALTER TABLE `partner_group`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `partner_setting`
+--
+ALTER TABLE `partner_setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
+--
+-- AUTO_INCREMENT for table `product_brand`
+--
+ALTER TABLE `product_brand`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `product_code_pic`
+--
+ALTER TABLE `product_code_pic`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `product_color`
+--
+ALTER TABLE `product_color`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `product_combine`
+--
+ALTER TABLE `product_combine`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `product_group`
+--
+ALTER TABLE `product_group`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+--
+-- AUTO_INCREMENT for table `product_option`
+--
+ALTER TABLE `product_option`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `product_order`
+--
+ALTER TABLE `product_order`
+  MODIFY `order_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+--
+-- AUTO_INCREMENT for table `product_order_detail`
+--
+ALTER TABLE `product_order_detail`
+  MODIFY `detail_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+--
+-- AUTO_INCREMENT for table `product_pic`
+--
+ALTER TABLE `product_pic`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `product_receipt`
+--
+ALTER TABLE `product_receipt`
+  MODIFY `receipt_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `product_receipt_detail`
+--
+ALTER TABLE `product_receipt_detail`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `product_setting`
+--
+ALTER TABLE `product_setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `product_size`
+--
+ALTER TABLE `product_size`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `product_status`
+--
+ALTER TABLE `product_status`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `project`
+--
+ALTER TABLE `project`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `project_group`
+--
+ALTER TABLE `project_group`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `project_setting`
+--
+ALTER TABLE `project_setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `repository`
+--
+ALTER TABLE `repository`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `repository_method`
+--
+ALTER TABLE `repository_method`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `repository_method_group`
+--
+ALTER TABLE `repository_method_group`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `repository_receipt`
+--
+ALTER TABLE `repository_receipt`
+  MODIFY `receipt_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `repository_receipt_detail`
+--
+ALTER TABLE `repository_receipt_detail`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `repository_receipt_import`
+--
+ALTER TABLE `repository_receipt_import`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `service`
+--
+ALTER TABLE `service`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `service_group`
+--
+ALTER TABLE `service_group`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `service_setting`
+--
+ALTER TABLE `service_setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `sidebar`
+--
+ALTER TABLE `sidebar`
+  MODIFY `sidebar_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `statistic`
+--
+ALTER TABLE `statistic`
+  MODIFY `id` double NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=211;
+--
+-- AUTO_INCREMENT for table `support`
+--
+ALTER TABLE `support`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `template_email`
+--
+ALTER TABLE `template_email`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `user_setting`
+--
+ALTER TABLE `user_setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `video`
+--
+ALTER TABLE `video`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `video_group`
+--
+ALTER TABLE `video_group`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `video_setting`
+--
+ALTER TABLE `video_setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `voucher_history`
+--
+ALTER TABLE `voucher_history`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `voucher_setting`
+--
+ALTER TABLE `voucher_setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `widget`
+--
+ALTER TABLE `widget`
+  MODIFY `widget_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
